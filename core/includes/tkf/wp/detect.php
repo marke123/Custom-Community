@@ -6,7 +6,7 @@ class TK_WP_Detect {
 	 * @package Custom Community
 	 * @since 1.8.3
 	 */
-	function tk_wp_detect() {
+	function tk_detect_page_type() {
 		$this->__construct();
 	}
 
@@ -17,17 +17,17 @@ class TK_WP_Detect {
 	 * @since 1.8.3
 	 */	
 	function __construct() {
-		if( $this->is_buddypress() ){
-			add_filter( 'tk_get_page_type', array( $this, 'get_bp_page_type' ) );
+		if( $this->tk_is_buddypress() ){
+			add_filter( 'tk_get_page_type', array( $this, 'tk_get_bp_page_type' ) );
 		}
 	}
 	
 	/**
-	* get_wp_type
+	* tk_get_wp_type
 	* 
 	* @return string 'wp' for a wordpress blog 'wpmu' for a wordpress network blog.
 	*/ 
-	function get_wp_type(){
+	function tk_get_wp_type(){
 		global $blog_id;
 		
 		if( defined( 'SITE_ID_CURRENT_SITE' ) ){
@@ -43,16 +43,25 @@ class TK_WP_Detect {
 	}
 	
 	/**
-	* get_page_type
+	* tk_is_buddypress
+	* 
+	* @return boolean true if buddypress is installed, false if not.
+	*/ 
+	function tk_is_buddypress(){
+			if ( defined( 'BP_VERSION' ) ){ return true; }else{ return false; }
+	}
+	
+	/**
+	* tk_get_page_type
 	* 
 	* @return string: the page type of the current shown page
 	*/ 
-	function get_page_type(){
+	function tk_get_page_type(){
 		
 		// if is wordpress and no buddypress
-		if( $this->get_wp_type() == "wp" ) {
+		if( $this->tk_get_wp_type() == "wp" ) {
 			if( is_admin() ) $page_type = 'wp-admin';
-			if( ( is_home() || is_front_page()) && !$this->is_signup() ) $page_type = 'wp-home';
+			if( ( is_home() || is_front_page()) && !$this->tk_is_signup() ) $page_type = 'wp-home';
 			if( is_single() ) $page_type = 'wp-post';	
 			if( is_page() && !is_front_page() ){ $page_type = 'wp-page'; }			
 			if( is_sticky() && !is_home()) $page_type = 'wp-sticky';	 				
@@ -60,16 +69,16 @@ class TK_WP_Detect {
 			if( is_tag() ) $page_type = 'wp-tag';
 			if( is_tax() ) $page_type = 'wp-tax'; 
 			if( is_author() ) $page_type = 'wp-author';
-			if( is_archive() && !is_category() && !is_tag() && !is_author() ) $page_type = 'wp-archive';
+			if( is_archive() ) $page_type = 'wp-archive';
 			if( is_search() ) $page_type = 'wp-search';
-			if( $this->is_signup() ) $page_type = 'wp-signup';
+			if( $this->tk_is_signup() ) $page_type = 'wp-signup';
 			if( is_404() ) $page_type = 'wp-404';
 		}
 		
 		// if is wordpress mu
-		if( $this->get_wp_type() == "mu" ) {
+		if( $this->tk_get_wp_type() == "mu" ) {
 			if( is_admin() ) $page_type = 'mu-admin'; // Whats happening here on mu blogs?
-			if( ( is_home() || is_front_page()) && !$this->is_signup() ) $page_type = 'mu-home';
+			if( ( is_home() || is_front_page()) && !$this->tk_is_signup() ) $page_type = 'mu-home';
 			if( is_single() ) $page_type = 'mu-post';	
 			if( is_page() ) $page_type = 'mu-page';	 	
 			if( is_sticky() ) $page_type = 'mu-sticky';	 				
@@ -77,7 +86,7 @@ class TK_WP_Detect {
 			if( is_tag() ) $page_type = 'mu-tag';
 			if( is_tax() ) $page_type = 'mu-tax'; 
 			if( is_author() ) $page_type = 'mu-author';
-			if( is_archive()  && !is_category() && !is_tag() && !is_author() ) $page_type = 'mu-archive';
+			if( is_archive() ) $page_type = 'mu-archive';
 			if( is_search() ) $page_type = 'mu-search';
 			if( is_404() ) $page_type = 'mu-404';
 		}
@@ -85,7 +94,7 @@ class TK_WP_Detect {
 		return apply_filters( 'tk_get_page_type', $page_type );
 	}
 
-	function is_signup(){
+	function tk_is_signup(){
 		if(empty($_REQUEST['action']))
 			return false;
 	
@@ -96,19 +105,10 @@ class TK_WP_Detect {
 		}
 	}
 	
-	/**
-	* is_buddypress
-	* 
-	* @return boolean true if buddypress is installed, false if not.
-	*/ 
-	function is_buddypress(){
-		if ( defined( 'BP_VERSION' ) ){ return true; }else{ return false; }
-	}	
-	
-	function get_bp_page_type( $page_type ){
+	function tk_get_bp_page_type( $page_type ){
 		global $bp;
 		
-		if( is_page() && $this->is_buddypress() && $bp->current_component != '' ){
+		if( is_page() && $this->tk_is_buddypress() && $bp->current_component != '' ){
 
 			$slug = $bp->current_component;
 			$action = $bp->current_action;
@@ -117,7 +117,7 @@ class TK_WP_Detect {
 				$slug = 'profile';	
 			}
 		
-			$component = $this->get_bp_component_by_slug( $slug );
+			$component = $this->tk_get_bp_component_by_slug( $slug );
 			
 			
 			if( $component != '' ){
@@ -138,7 +138,7 @@ class TK_WP_Detect {
 		return apply_filters( 'tk_get_bp_page_type', $page_type );
 	}
 
-	function get_bp_component_by_slug( $slug ){
+	function tk_get_bp_component_by_slug( $slug ){
 		
 		$component_slugs = array();
 		
@@ -164,15 +164,15 @@ class TK_WP_Detect {
 	return $component;	
 	}
 
-	function bp_is_active_component( $slug ){
+	function tk_bp_is_active_component( $slug ){
 		global $bp;
 		
-		$component_name = $this->get_bp_component_by_slug( $slug );
+		$component_name = tk_get_bp_component_by_slug( $slug );
 		
 		$components = array_keys( $bp->active_components );
 		
 		foreach( $components AS $key => $component ){
-			$components_arr[ $key ] = $this->get_bp_component_by_slug( $component );
+			$components_arr[ $key ] = tk_get_bp_component_by_slug( $component );
 		}
 		
 		if( is_array( $components ) ){
@@ -186,47 +186,5 @@ class TK_WP_Detect {
 		}
 	}
 	
-}
-/*
- * tk_get_wp_type
- */
-function tk_get_wp_type(){
-	$tkd = new TK_WP_Detect();
-	return $tkd->tk_get_wp_type();
-}
-/*
- * tk_get_page_type
- */
-function tk_get_page_type(){
-	$tkd = new TK_WP_Detect();
-	return $tkd->get_page_type();
-}
-/*
- * tk_is_signup
- */
-function tk_is_signup(){
-	$tkd = new TK_WP_Detect();
-	return $tkd->is_signup();
-}
-/*
- * tk_is_buddypress
- */
-function tk_is_buddypress(){
-	$tkd = new TK_WP_Detect();
-	return $tkd->is_buddypress();
-}
-/*
- * tk_bp_is_active_component
- */
-function tk_bp_is_active_component( $slug ){
-	$tkd = new TK_WP_Detect();
-	return $tkd->bp_is_active_component( $slug );
-}
-/*
- * tk_get_bp_component_by_slug
- */
-function tk_get_bp_component_by_slug( $slug ){
-	$tkd = new TK_WP_Detect();
-	return $tkd->get_bp_component_by_slug( $slug );
 }
 ?>
