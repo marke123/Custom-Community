@@ -36,10 +36,37 @@ class Custom_Community{
 		$this->loaded();
 		
 		if ( function_exists( 'bp_is_active' ) )
-			BPUnifiedsearch::get_instance();//that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
+			BPUnifiedsearch::get_instance(); //that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
 		
 		if(!is_admin())
 			$Theme_Generator = new CC_Theme_Generator();
+
+		
+
+		$this->framework_init();
+
+		add_action( 'admin_menu',  array( $this, 'init_backend' ) );
+		
+			
+	}
+	
+	function framework_init(){
+
+		// Registering the form where the data have to be saved
+		$args['forms'] = array( 'myform' );
+		$args['text_domain'] = 'my_text_domain';
+	 
+		tk_framework( $args );
+	}
+	 
+	function init_backend(){
+
+		/*
+		* WML
+		*/
+
+	 	tk_wml_parse_file( $this->require_path('/core/includes/tkf/example.xml') );
+ 
 	}
 	
 	/**
@@ -95,6 +122,7 @@ class Custom_Community{
 			
 		require_once($this->require_path('/_inc/ajax.php'));
 		
+		
 		// helper functions
 		require_once($this->require_path('/core/includes/helper-functions.php'));
 		
@@ -114,10 +142,14 @@ class Custom_Community{
 		}
 		
 		// themekraft framework specific functions
-		require_once($this->require_path('/core/includes/tkf/wp/detect.php'));
+		 require_once($this->require_path('/core/includes/tkf/wp/detect.php'));
 		
+		// TKF
+		require_once($this->require_path('/core/includes/tkf/loader.php'));
+		//require_once($this->require_path('/core/includes/tkf/plugin.php'));
+	
 		// admin specific functions
-		//if ( is_admin() )
+		// if ( is_admin() )
 		//	require_once($this->require_path('admin/cheezcap.php'));
 			
 	}

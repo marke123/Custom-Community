@@ -463,7 +463,7 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
 	/* we just need to filter the query and change search_term=The search text*/
 	function cc_show_search_results(){
 	    //filter the ajaxquerystring
-	     add_filter("bp_ajax_querystring","cc_global_search_qs",100,2);
+	   	add_filter("bp_ajax_querystring","cc_global_search_qs",100,2);
 	}
 	
 	//show the search results for member*/
