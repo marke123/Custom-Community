@@ -64,15 +64,13 @@ class CC_Theme_Generator{
 		
 		// custom login
 		add_action('login_head', array( $this, 'custom_login'), 2 );
-		
-		
 	}
 	
 
 	function load_constants(){
 		global $cap, $post;
 
-		$component = explode('-',$this->detect->tk_get_page_type());
+		$component = explode('-',$this->detect->get_page_type());
 		
 		if($cap->sidebar_position == ''){
 			$cap->sidebar_position = 'right';
@@ -445,7 +443,7 @@ class CC_Theme_Generator{
 			return;		
 		}
 
-		$component = explode('-',$this->detect->tk_get_page_type());
+		$component = explode('-',$this->detect->get_page_type());
 		if(!empty($component[2])){	
 		
 			if($component[2] == 'groups' && !empty($component[3])) {
@@ -492,7 +490,7 @@ class CC_Theme_Generator{
 			return;		
 		}
 		
-		$component = explode('-',$this->detect->tk_get_page_type());
+		$component = explode('-',$this->detect->get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
 				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){

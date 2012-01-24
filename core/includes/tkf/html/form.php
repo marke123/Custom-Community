@@ -1,7 +1,5 @@
 <?php
 
-// echo 'FORM';
-
 class TK_Form extends TK_HTML{
 	
 	var $id;

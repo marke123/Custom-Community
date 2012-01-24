@@ -24,7 +24,9 @@ class Custom_Community{
 		add_action( 'cc_init', array( $this, 'load_constants' ), 2 );
 		
 		// Includes necessary files
-		add_action( 'cc_init', array( $this, 'includes' ), 100, 4 );
+		// add_action( 'cc_init', array( $this, 'includes' ), 100, 4 );
+		
+		$this->includes();
 		
 		// Includes the necessary js
 		add_action('wp_enqueue_scripts', array( $this, 'enqueue_script' ), 2 );
@@ -38,35 +40,30 @@ class Custom_Community{
 		if ( function_exists( 'bp_is_active' ) )
 			BPUnifiedsearch::get_instance(); //that is the beauty of singleton, no proliferation of globals and you can always acess the same instance if you want to :)
 		
-		if(!is_admin())
-			$Theme_Generator = new CC_Theme_Generator();
-
-		
-
 		$this->framework_init();
+		
+		add_action( 'init', array( $this, 'generate_theme'), 10 );
 
 		add_action( 'admin_menu',  array( $this, 'init_backend' ) );
-		
-			
+	}
+	
+	function generate_theme(){
+		if(!is_admin())
+			$Theme_Generator = new CC_Theme_Generator();
 	}
 	
 	function framework_init(){
-
 		// Registering the form where the data have to be saved
 		$args['forms'] = array( 'myform' );
 		$args['text_domain'] = 'my_text_domain';
-	 
 		tk_framework( $args );
 	}
 	 
 	function init_backend(){
-
 		/*
 		* WML
 		*/
-
 	 	tk_wml_parse_file( $this->require_path('/core/includes/tkf/example.xml') );
- 
 	}
 	
 	/**
@@ -119,6 +116,9 @@ class Custom_Community{
 	 * @since 1.8.3
 	 */	
 	function includes() {
+		
+		// TKF
+		require_once($this->require_path('/core/includes/tkf/loader.php'));
 			
 		require_once($this->require_path('/_inc/ajax.php'));
 		
@@ -141,13 +141,6 @@ class Custom_Community{
 			require_once($this->require_path('/core/includes/bp/buddydev-search.php'));	
 		}
 		
-		// themekraft framework specific functions
-		 require_once($this->require_path('/core/includes/tkf/wp/detect.php'));
-		
-		// TKF
-		require_once($this->require_path('/core/includes/tkf/loader.php'));
-		//require_once($this->require_path('/core/includes/tkf/plugin.php'));
-	
 		// admin specific functions
 		// if ( is_admin() )
 		//	require_once($this->require_path('admin/cheezcap.php'));

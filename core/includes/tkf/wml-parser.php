@@ -37,10 +37,9 @@ class TK_WML_Parser{
 		$this->display= array();
 		
 		// Menu & Pages
-		$functions['menu'] = array( 'title' => '', 'page' => array(), 'slug' => '', 'capability' => 'edit_posts', 'parent' => '',  'icon' => '', 'position' => '', 'return_object' => $return_object );
-		$functions['page'] = array( 'title' => '', 'content' => '', 'headline' => '', 'slug' => '', 'icon' => '' );
+		$functions['menu'] = array( 'id' => '', 'title' => '', 'page' => array(), 'slug' => '', 'capability' => 'edit_posts', 'parent' => '',  'icon' => '', 'position' => '', 'return_object' => $return_object );
+		$functions['page'] = array( 'id' => '', 'title' => '', 'content' => '', 'headline' => '', 'slug' => '', 'icon' => '' );
 		$bound_content['menu'] = 'page';
-		// tk_db_menu( $menu_title, $title = '', $elements = array(), $menu_slug = '', $capability = '', $icon_url = '', $position = '', $return_object = FALSE )
 		
 		// Tabs
 		$functions['tabs'] = array( 'id' =>'', 'tab' => array(), 'return_object' => $return_object );
@@ -52,6 +51,11 @@ class TK_WML_Parser{
 		$functions['section'] = array( 'id' => '', 'title' => '', 'content' => '' );
 		$bound_content['accordion'] = 'section';
 		
+		// Autocomplete
+		$functions['autocomplete'] = array( 'name' => '', 'value' => array(), 'label' => '', 'return_object' => $return_object );
+		$functions['value'] = array( 'content' => '' );
+		$bound_content['autocomplete'] = 'value';
+		
 		// Form
 		$functions['form'] = array( 'id' => '', 'name' => '', 'content' => '', 'return_object' => $return_object );
 		
@@ -61,7 +65,7 @@ class TK_WML_Parser{
 		$functions['colorpicker'] = array( 'name' => '', 'label' => '', 'tooltip' => '', 'return_object' => $return_object );
 		$functions['file'] = array( 'name' => '', 'label' => '', 'tooltip' => '', 'return_object' => $return_object );
 				
-		$functions['checkbox'] = array( 'name' => '', 'label' => '', 'tooltip' => '', 'return_object' => $return_object );
+		$functions['checkbox'] = array( 'name' => '', 'description' => '', 'label' => '', 'tooltip' => '', 'return_object' => $return_object );
 		$functions['radio'] = array( 'name' => '', 'value' => '', 'description' => '', 'label' => '', 'tooltip' => '', 'return_object' => $return_object );
 		
 		$functions['select'] = array( 'name' => '', 'option' => array(), 'label' => '', 'tooltip' => '',  'return_object' => $return_object );
@@ -87,8 +91,9 @@ class TK_WML_Parser{
 		$doc = new DOMDocument();
 				
 		set_error_handler( array( $this, 'wml_error' ) );
-		if( !$doc->loadXML( $xml_string ) )
+		if( !$doc->loadXML( $xml_string ) ){
 			return FALSE;
+		}
 		restore_error_handler();
 		
 		return $this->load_dom( $doc );
@@ -103,8 +108,9 @@ class TK_WML_Parser{
 			return FALSE;
 		}
 		set_error_handler( array( $this, 'wml_error' ) );
-		if( !$doc->load( $source ) )
+		if( !$doc->load( $source ) ){
 			return FALSE;
+		}
 		restore_error_handler();
 				
 		return $this->load_dom( $doc );
@@ -270,9 +276,10 @@ class TK_WML_Parser{
 /*
  * Menu functions
  */
-function tk_db_menu( $title = '', $elements = array(), $menu_slug = '', $capability = '', $parent_slug = '', $icon_url = '', $position = '', $return_object = FALSE ){
+function tk_db_menu( $id = '', $title = '', $elements = array(), $menu_slug = '', $capability = '', $parent_slug = '', $icon_url = '', $position = '', $return_object = FALSE ){
 	
 	$args = array(
+			'id' => $id,
 			'menu_title' => $title,
 			'page_title' => $title,
 			'capability' => $capability,
@@ -282,11 +289,10 @@ function tk_db_menu( $title = '', $elements = array(), $menu_slug = '', $capabil
 			'position' => $position,
 			'object_menu' => TRUE
 	);
-	
 	return tk_admin_pages( $elements, $args, $return_object );
 }
-function tk_db_page( $title, $content, $headline = '', $menu_slug = '' , $icon_url = '' ){
-	$page = array( 'menu_title' => $title, 'page_title' => $title, 'content' => $content, 'headline' => $headline, 'menu_slug' => $menu_slug, 'icon_url' => $icon_url );
+function tk_db_page( $id, $title, $content, $headline = '', $menu_slug = '' , $icon_url = '' ){
+	$page = array( 'id' => $id, 'menu_title' => $title, 'page_title' => $title, 'content' => $content, 'headline' => $headline, 'menu_slug' => $menu_slug, 'icon_url' => $icon_url );
 	return $page;
 }
 
@@ -309,15 +315,35 @@ function tk_db_accordion( $id, $elements = array(), $return_object = TRUE ){
 function tk_db_section( $id, $title, $content = '' ){
 	return array( 'id' => $id, 'title' => $title, 'content' => $content );
 }
+/*
+ * Autocomplete functions
+ */
+function tk_db_autocomplete( $name = '', $values = array(), $label, $return_object = TRUE ){
+	if( trim( $label ) != '' ){
+		
+		tk_add_text_string( $label );
+		tk_add_text_string( $tooltip );
+		
+		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
+		$after_element = '</div></div>';
+	}	
+	$args = array(
+		'id' => $name,
+		'before_element' => $before_element,
+		'after_element' => $after_element
+	);
+
+	return tk_jqueryui_autocomplete( $name, $values, $args, $return_object );
+}
+function tk_db_value( $value ){
+	return $value;
+}
 
 /*
  * Form function
  */
 function tk_db_form( $id, $name, $content = '', $return_object = TRUE ){
 	$form = tk_form( $id, $name, $content, $return_object );
-	/* echo '<pre>';
-	print_r( $form );
-	echo '</pre>'; */
 	return $form;
 }
 
@@ -357,6 +383,76 @@ function tk_db_textarea( $name, $label, $tooltip, $return_object = TRUE ){
 	);
 	return tk_form_textarea( $name, $args, $return_object );
 }
+function tk_db_checkbox( $name, $description, $label, $tooltip, $return_object = TRUE ){
+	if( trim( $label ) != '' ){
+		
+		tk_add_text_string( $label );
+		tk_add_text_string( $tooltip );
+		
+		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
+		$after_element = ' ' . $description . '</div></div>';
+	}else{
+		$after_element = ' ' . $description;
+	}
+	$args = array(
+		'id' => $name,
+		'before_element' => $before_element,
+		'after_element' => $after_element
+	);
+	return tk_form_checkbox( $name, $args, $return_object );
+}
+function tk_db_radio( $name, $value, $description, $label, $tooltip, $return_object = TRUE ){
+	if( trim( $label ) != '' ){
+		
+		tk_add_text_string( $label );
+		tk_add_text_string( $tooltip );
+		tk_add_text_string( $description );
+		
+		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
+		$after_element = ' ' . $description . '</div></div>';
+	}else{
+		$after_element = ' ' . $description;
+	}
+	$args = array(
+		'id' => $name,
+		'before_element' => $before_element,
+		'after_element' => $after_element
+	);
+	return tk_form_radiobutton( $name, $value, $args, $return_object );
+}
+
+function tk_db_select( $name, $options, $label, $tooltip, $return_object = TRUE ){
+	if( trim( $label ) != '' ){
+			
+		tk_add_text_string( $label );
+		tk_add_text_string( $tooltip );
+		
+		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
+		$after_element = '</div></div>';
+	}		 
+	$args = array(
+		'id' => $name,
+		'before_element' => $before_element,
+		'after_element' => $after_element
+	);
+	return tk_form_select( $name, $options, $args , $return_object );
+}
+function tk_db_option( $name, $value ){
+	tk_add_text_string( $value );
+	return array( 'name' => $name, 'value' => $value );
+}
+
+function tk_db_button( $name, $return_object = TRUE ){
+		
+	tk_add_text_string( $name );
+	
+	$args = array(
+		'id' => $name,
+		'before_element' => $before_element,
+		'after_element' => $after_element
+	);
+	return tk_form_button( $name, $args, $return_object );
+}
 
 function tk_db_colorpicker( $name, $label, $tooltip, $return_object = TRUE ){
 	if( trim( $label ) != '' ){
@@ -390,75 +486,6 @@ function tk_db_file( $name, $label, $tooltip, $return_object = TRUE ){
 		'after_element' => $after_element
 	);
 	return tk_form_fileuploader( $name, $args, $return_object );
-}
-
-function tk_db_checkbox( $name, $label, $tooltip, $return_object = TRUE ){
-	if( trim( $label ) != '' ){
-		
-		tk_add_text_string( $label );
-		tk_add_text_string( $tooltip );
-		
-		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '</div></div>';
-	}		 
-	$args = array(
-		'id' => $name,
-		'before_element' => $before_element,
-		'after_element' => $after_element
-	);
-	return tk_form_checkbox( $name, $args, $return_object );
-}
-function tk_db_radio( $name, $value, $description, $label, $tooltip, $return_object = TRUE ){
-	if( trim( $label ) != '' ){
-		
-		tk_add_text_string( $label );
-		tk_add_text_string( $tooltip );
-		tk_add_text_string( $description );
-		
-		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '</div></div>';
-	}		 
-	$args = array(
-		'id' => $name,
-		'before_element' => $before_element,
-		'after_element' => $after_element
-	);
-	return tk_form_radiobutton( $name, $value, $args, $return_object );
-}
-
-function tk_db_select( $name, $options, $label, $tooltip, $return_object = TRUE ){
-	if( trim( $label ) != '' ){
-			
-		tk_add_text_string( $label );
-		tk_add_text_string( $tooltip );
-		
-		$before_element = '<div class="tk_field_row"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '</div></div>';
-	}		 
-	$args = array(
-		'id' => $name,
-		'before_element' => $before_element,
-		'after_element' => $after_element
-	);
-	return tk_form_select( $name, $options, $args , $return_object );
-}
-function tk_db_option( $name, $value ){
-		
-	tk_add_text_string( $value );
-		
-	return array( 'name' => $name, 'value' => $value );
-}
-
-function tk_db_button( $name, $return_object = TRUE ){
-		
-	tk_add_text_string( $name );
-	
-	$args = array(
-		'id' => $name,
-		'before_element' => $before_element,
-		'after_element' => $after_element
-	);
-	return tk_form_button( $name, $args, $return_object );
 }
 
 /*
