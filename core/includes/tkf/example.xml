@@ -1,67 +1,832 @@
 <?xml version="1.0" ?>
 <wml>
-	<menu title="Custom Menu">
-		<page title="Tabs" headline="Tab test">
-			<p>You can also put in Text here like in HTML</p>
+	<menu title="CC Settings">
+		<page title="Theme Settings" headline="Theme Settings">
+		<form name="tkf">
+			<p>Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank"> Themekraft</a>.</p>
+			<p> For support, check out the <a href="http://themekraft.com/forums/" target="_blank"> FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank"> FAQ</a>. 
+				Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank"> Get the Full Version</a>
+			</p>
+
+						
 			<tabs>
-				<tab title="Tab 1">
-					Content in Tab 1
+				<tab title="General">
+					<accordion>
+						<section title="Colour scheme">
+
+							<select name="style_css" label="Colour scheme" tooltip="Select the colour scheme of your website.">
+								<option name="white" value="white" />
+								<option name="grey" value="grey" />
+								<option name="dark" value="dark" />
+								<option name="more colour schemes in the pro version" value="more" />
+							</select>
+
+						</section>
+						
+						<section title="Website width">
+
+							<textfield name="website_width" label="Website Width:" tooltip="Just type in the number, either in px or %. Default is 1000. Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview." />
+							
+							<select name="website_width_unit" label="Fluid or static width?" tooltip="Do you want your layout fluid(%) or static(px)? Notes: when you use the slideshow, better don't use fluid width. And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.">
+								<option name="px" value="px" />
+								<option name="%" value="%" />
+							</select>
+
+						</section>
+						
+						<section title="Background">
+							
+							<select name="add_custom_background" label="Use standard WP settings" tooltip="Enable this option, if you like to use the standard wordpress settings page.">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+						
+							<colorpicker name="bg_body_color" label="Background colour" tooltip="Change your background colour" />
+								
+							<file name="bg_body_img" label="Background image" tooltip="Insert your own background image. Upload or insert url." />
+
+							<select name="bg_body_img_fixed" label="Fixed background image" tooltip="Fix the position of your body background image">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+						
+							<select name="bg_body_img_pos" label="Background position" tooltip="Position of the background image: center, left, right">
+								<option name="center" value="center" />
+								<option name="left" value="left" />
+								<option name="right" value="right" />
+							</select>
+
+							<select name="bg_body_img_repeat" label="Background repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+						
+						</section>
+
+						<section title="Container">
+							
+							<colorpicker name="bg_container_color" label="Container colour" tooltip="Change the background colour of the content part,write transparent for no color" />
+							
+							<select name="bg_container_nolines" label="Show vertical lines" tooltip="The vertical lines that divide your container are default, you can disable them if you like.">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>
+						
+							<colorpicker name="v_line_color" label="Vertical lines colour" tooltip="Change the colour of the vertical lines. Tip: Best is to have them in the colour of the background and other lines." />
+							
+							<file name="bg_container_img" label="Container BG image" tooltip="Change background image for the container (currently the vertical lines that separate the sidebars). Upload or insert url." />
+
+							<select name="bg_container_img_repeat" label="Container BG repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+
+							<select name="container_corner_radius" label="Container corner radius" tooltip="Do you want your container corners to be rounded?">
+								<option name="rounded" value="rounded" />
+								<option name="not rounded" value="not rounded" />
+							</select>
+
+						</section>
+								
+						<section title="Titles">
+							
+							<select name="title_font_style" label="Title font style" tooltip="Change the title font style (h1 and h2)">
+								<option name="Arial, sans-serif" value="Arial, sans-serif" />
+								<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
+								<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
+								<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
+								<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
+								<option name="Times New Roman, Times" value="Times New Roman, Times" />
+								<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+							</select>
+							
+							<textfield name="title_size" label="Title size" tooltip="Change the title font size (h1 and h2), default is 28px, just enter a number" />
+							
+							<select name="title_weight" label="Titles font weight" tooltip="Do you want your titles bold or normal?">
+								<option name="bold" value="bold" />
+								<option name="normal" value="normal" />
+							</select>
+								
+							<colorpicker name="title_color" label="Title colour" tooltip="Change title colour" />
+							
+						</section>
+						
+						<section title="Subtitles">
+							
+							<select name="subtitle_font_style" label="Subtitle font style" tooltip="Change the subtitle font style (h3-h6)">
+								<option name="Arial, sans-serif" value="Arial, sans-serif" />
+								<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
+								<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
+								<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
+								<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
+								<option name="Times New Roman, Times" value="Times New Roman, Times" />
+								<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+							
+							</select>
+							
+							<select name="subtitle_weight" label="Subtitles font weight" tooltip="Do you want your Subtitles bold or normal?">
+								<option name="bold" value="bold" />
+								<option name="normal" value="normal" />
+							</select>
+
+							<colorpicker name="subtitle_color" label="Subtitle colour" tooltip="Change subtitle colour" />
+														
+						</section>
+						
+						<section title="Excerpts">
+							
+							<select name="excerpt_on" label="Show excerpts" tooltip="Just for category and archive views: use excerpts or show full content of your posts">
+								<option name="content" value="content" />
+								<option name="excerpt" value="excerpt" />
+							</select>
+							
+							<textfield name="excerpt_length" label="Excerpt length" tooltip="Change the excerpt length, default is 30 words" />
+																					
+						</section>
+						
+						<section title="Fonts">
+							
+							<select name="font_style" label="Font style" tooltip="Change the font style">
+								<option name="Arial, sans-serif" value="Arial, sans-serif" />
+								<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
+								<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
+								<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
+								<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
+								<option name="Times New Roman, Times" value="Times New Roman, Times" />
+								<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+							</select>
+
+							<textfield name="font_size" label="Font size" tooltip="Change the standard font size, default is 13px, just enter a number" />
+	
+							<colorpicker name="font_color" label="Font colour" tooltip="Change font colour" />
+							
+						</section>
+						
+						<section title="Links">
+
+							<colorpicker name="link_color" label="Link colour" tooltip="Change link colour
+										Notes: You just need to change the link colour to have a nice effect on all link and button colours.
+										The hover colour will automatically be your font colour or the default font colour.
+										Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
+			
+							<colorpicker name="link_color_hover" label="Link hover colour" tooltip="Change link colour for mouse moves over." />
+							
+							<select name="link_color_subnav_adapt" label="BP subnavigation adapting" tooltip="Use link hover colour for the BuddyPress subnav also?
+										By default the subnav links adapts the link colour and link hover colour. 
+										Sometimes the link hover colour can look ugly here and you don't want the subnav to adapt. 
+										Then you can change the colour adapting here easily.">
+								<option name="just the link colour" value="just the link colour" />
+								<option name="link colour and hover colour" value="link colour and hover colour" />
+							</select>
+							
+							<select name="link_underline" label="Link underline" tooltip="Choose if (and when) to underline links.">
+								<option name="never" value="never" />
+								<option name="always" value="always" />
+								<option name="just for mouse over" value="just for mouse over" />
+								<option name="just when normal" value="just when normal" />
+							</select>	
+						
+							<colorpicker name="link_bg_color" label="Link bg colour" tooltip="Change link background colour." />
+
+							<colorpicker name="link_bg_color_hover" label="Link bg hover colour" tooltip="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
+											
+							<select name="link_styling_title_adapt" label="Titles adapting" tooltip="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
+								<option name="just the hover effect" value="just the hover effect" />
+								<option name="link colour and hover colour" value="link colour and hover colour" />
+								<option name="...the underline effects too" value="...the underline effects too" />
+								<option name="the background colours too" value="the background colours too" />
+								<option name="adapt all link styles" value="adapt all link styles" />
+							</select>
+																				
+						</section>
+						
+						<section title="Favicon image">
+							
+							<file name="favicon" label="Favicon image" tooltip="Insert your own favicon image. Upload or insert url." />
+							
+						</section>
+						
+						<section title="Default homepage">
+												
+							<select name="default_homepage_hide_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
+									This option is for the standard WordPress Homepage showing your latest articles. 
+									To select a page as your homepage, go to Settings -> Reading.">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>
+							
+							<select name="default_homepage_last_posts" label="Last 3 Posts on home" tooltip="Display last 3 posts.">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>
+							
+							<select name="default_homepage_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
+									You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
+								<option name="bubbles" value="bubbles" />
+								<option name="default" value="default" />
+							</select>	
+							
+							<select name="default_homepage_hide_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>	
+																			
+						</section>
+						<section title="Login">
+							
+							<file name="bg_loginpage_img" label="Login page logo" tooltip="Insert your own image for the login page. Upload or insert url." />
+							
+							<textfield name="login_logo_height" label="Login logo height" tooltip="Define the login logo height, the width should be 326px max" />
+							
+							<file name="bg_loginpage_body_img" label="Login page bg image" tooltip="Insert your own image for the login page background. Upload or insert url." />
+							
+							<colorpicker name="bg_loginpage_body_color" label="Login page bg colour" tooltip="Change login page background colour" />
+							
+							<colorpicker name="bg_loginpage_backtoblog_fade_1" label="Login page bg fade colour 1" tooltip="Change login page backtoblog colour fade 1" />
+							<colorpicker name="bg_loginpage_backtoblog_fade_2" label="Login page bg fade colour 2" tooltip="Change login page backtoblog colour fade 2" />
+							
+						</section>
+					</accordion>
 				</tab>
-				<tab title="Tab 2">
-					Content in Tab 2
+				<tab title="Header">
+					<accordion>
+						<section title="Use standard Wordpress custom image header settings">
+							
+							<select name="add_custom_image_header" label="Use standard Wordpress custom image header settings" tooltip="Enable this option, if you like to use the standard wordpress settings Page.">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+							
+						</section>
+						
+						<section title="Show header text">
+						
+							<select name="header_text" label="Show header text" tooltip="Show header text or not?">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>	
+							
+						</section>
+						
+						<section title="Header text colour">
+							
+							<colorpicker name="header_text_color" label="Header text colour" tooltip="Change header font colour" />
+						
+						</section>
+						
+						<section title="Logo">
+							
+							<file name="logo" label="Logo" tooltip="Insert your own Logo. Upload or insert url." />
+
+						</section>
+						
+						<section title="Header height">
+							
+							<textfield name="header_height" label="Header height" tooltip="Your header height in px (and navigation position (y) at the same time), just enter a number. This is not your header image height, you can specify your header image separately in the fields below. Try 25px or 63px less than your header-image-height to fit perfectly..." />
+							
+						</section>
+						
+						<section title="Header width">
+							
+							<select name="header_width" label="Header width" tooltip="Do you like the header in full width or as wide as your site?">
+								<option name="default" value="default" />
+								<option name="full-width" value="full-width" />
+							</select>	
+							
+						</section>
+						
+						<section title="Header image">
+
+							<file name="header_img" label="Header image" tooltip="Insert your own header image. Upload or insert url.
+								Default width is 1000px, the height (and full width option) can be adjusted above.
+								For no image write none." />
+
+							<select name="header_img_repeat" label="Header image repeat" tooltip="Repeat header image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+
+							<select name="header_img_x" label="Header image x-position" tooltip="If header image is smaller, you can choose to align left, center or right">
+								<option name="left" value="left" />
+								<option name="center" value="center" />
+								<option name="right" value="right" />
+							</select>
+							
+							<textfield name="header_img_y" label="Header image y-position" tooltip="Distance from header image to top (in px), just enter a number" />
+						
+						</section>
+					</accordion>
 				</tab>
-				<tab title="Tab 3">
-					Content in Tab 3
+				<tab title="Menu">
+					<accordion>
+						<section title="Show the 'Home' menu item">
+					
+							<select name="menue_disable_home" label="Show the 'Home' menu item" tooltip="You can disable the 'Home' menu item in the main navigation">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+						
+						</section>
+
+						<section title="Show community navigation">
+							
+							<select name="menue_enable_community" label="Show community navigation" tooltip="Enable Buddypress menu-items in the main navigation">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+													
+						</section>
+						
+						<section title="Menu x-position">
+							
+							<select name="menu_x" label="Menu x-position" tooltip="Align the menu left or right">
+								<option name="left" value="left" />
+								<option name="right" value="right" />
+							</select>
+
+						</section>
+						
+						<section title="Menu style">
+							
+							<select name="bg_menu_style" label="Menu style" tooltip="Choose a menu style">
+								<option name="tab style" value="tab style" />
+								<option name="closed style" value="closed style" />
+								<option name="simple" value="simple" />
+								<option name="bordered" value="bordered" />
+							</select>
+							
+						</section>
+
+						<section title="Menu border bottom">
+	
+							<colorpicker name="menu_underline" label="Menu border bottom" tooltip="Would you like to underline your menu? Select a colour." />
+								
+						</section>
+
+						<section title="Menu font colour">
+						
+							<colorpicker name="menue_link_color" label="Menu font colour" tooltip="Change menu font colour." />
+						
+						</section>
+						
+						<section title="Menu font colour » current and mouse over">
+						
+							<colorpicker name="menue_link_color_current" label="Menu font colour current and mouse over" tooltip="Change menu font colour from currently displayed menu item or when mouse moves over" />
+						
+						</section>
+						
+						<section title="Menu background">
+						
+							<colorpicker name="bg_menue_link_color" label="Menu background colour" tooltip="Change the menu bar's general background colour" />
+							
+							<file name="bg_menu_img" label="Menu background image" tooltip="Insert your own background image for the menu bar. Upload or insert url." />
+							
+							<select name="bg_menu_img_repeat" label="Menu background repeat" tooltip="Repeat background image: x =horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+							
+							<colorpicker name="bg_menue_link_color_current" label="Menu background colour current" tooltip="Change background colour from currently displayed menu item" />
+							
+							<file name="bg_menu_img_current" label="Menu background image current" tooltip="Background image of the currently displayed menu item. Upload or insert url." />
+
+							<select name="bg_menu_img_current_repeat" label="Menu background image repeat current" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+							
+							<colorpicker name="bg_menue_link_color_hover" label="Menu background colour mouse over and drop down list" tooltip="Change a menu item's background colour when mouse moves over it, and drop down background colour" />
+							
+							<colorpicker name="bg_menue_link_color_dd_hover" label="Menu background colour drop down list mouse over" tooltip="Change background colour of hovered drop down menu item (when the mouse moves over it)" />
+							
+						</section>
+						
+						<section title="Menu corner radius">
+
+							<select name="menu_corner_radius" label="Menu corner radius" tooltip="Do you want your menu corners to be rounded?">
+								<option name="all rounded" value="all rounded" />
+								<option name="just the bottom ones" value="just the bottom ones" />
+								<option name="not rounded" value="not rounded" />
+							</select>
+
+						</section>
+						
+					</accordion>
 				</tab>
+				<tab title="Sidebars">
+					<accordion>
+						<section title="Sidebar default position">
+							
+							<select name="sidebar_position" label="Sidebar default position" tooltip="Where do you like to have your sidebars? Define your default layout.">
+								<option name="right" value="right" />
+								<option name="left and right" value="left and right" />
+								<option name="left" value="left" />
+								<option name="full-width" value="full-width" />
+							</select>
+
+						</section>
+						
+						<section title="Left sidebar">
+						
+							<textfield name="leftsidebar_width" label="Left sidebar width" tooltip="Change the left sidebar width - in pixel. Just enter a number. " />
+							
+							<colorpicker name="bg_leftsidebar_color" label="Left sidebar background colour" tooltip="Change background colour of the left sidebar." />
+							
+							<file name="bg_leftsidebar_img" label="Left sidebar background image" tooltip="Your own background image for the left sidebar. Upload or insert url." />
+							
+							<select name="bg_leftsidebar_img_repeat" label="Left sidebar background repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+							
+						</section>
+						
+						<section title="Right sidebar">
+							
+							<textfield name="rightsidebar_width" label="Right sidebar width" tooltip="Change the right sidebar width - in pixel. Just enter a number." />
+							
+							<colorpicker name="bg_rightsidebar_color" label="Right sidebar background colour" tooltip="Change background colour of the right sidebar." />
+							
+							<file name="bg_rightsidebar_img" label="Right sidebar background image" tooltip="Your own background image for the right sidebar. Upload or insert url." />
+							
+							<select name="bg_rightsidebar_img_repeat" label="Right sidebar background repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+							
+						</section>
+						
+						<section title="Sidebar widget title style">
+							
+							<select name="bg_widgettitle_style" label="Sidebar widget title style" tooltip="Choose a style for the widget titles">
+								<option name="angled" value="angled" />
+								<option name="rounded" value="rounded" />
+								<option name="transparent" value="transparent" />
+							</select>
+							
+						</section>
+
+						<section title="Sidebar widget title fonts">
+							
+							<select name="widgettitle_font_style" label="Sidebar widget title font style" tooltip="Change the widget title's font style">
+								<option name="Arial, sans-serif" value="Arial, sans-serif" />
+								<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
+								<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
+								<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
+								<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
+								<option name="Times New Roman, Times" value="Times New Roman, Times" />
+								<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+							</select>
+							
+							<textfield name="widgettitle_font_size" label="Widget title font size" tooltip="Font size of your widget titles in px, just enter a number, default=13" />
+							
+							<colorpicker name="widgettitle_font_color" label="Sidebar widget title font colour" tooltip="Change font colour of the widget titles" />
+
+						</section>
+
+						<section title="Sidebar widget titles background">
+							
+							<colorpicker name="bg_widgettitle_color" label="Sidebar widget title background colour" tooltip="Change background colour of the widget titles" />
+
+							<file name="bg_widgettitle_img" label="Sidebar widget title background image" tooltip="Your own background image for the widget title. Upload or insert url." />
+
+							<select name="bg_widgettitle_img_repeat" label="Sidebar widget title background repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+
+
+						</section>
+
+						<section title="Capitalizing">
+							
+							<select name="capitalize_widgets_li" label="Capitalizing in widgets" tooltip="Capitalize the fonts in lists in your widgets?">
+								<option name="no" value="no" />
+								<option name="yes" value="yes" />
+							</select>
+														
+							<select name="capitalize_widgettitles" label="Capitalizing the widget titles" tooltip="Capitalize the titles in your widgets?">
+								<option name="no" value="no" />
+								<option name="yes" value="yes" />
+							</select>
+							
+						</section>
+
+					</accordion>
+				</tab>
+				
+				<tab title="Footer">
+					<accordion>
+						
+						<section title="Footer width">
+							
+							<select name="footer_width" label="Footer width" tooltip="Do you like the footer in full width or as wide as your site?">
+								<option name="default" value="default" />
+								<option name="full-width" value="full-width" />
+							</select>
+
+						</section>
+						
+						<section title="Footer height">
+							
+							<textfield name="footerall_height" label="Footer height" tooltip="Change the footer height, in px, just enter a number This option is not the footer widget height, you can define that one below." />
+							
+						</section>
+						
+						<section title="Footer background">
+							
+							<colorpicker name="bg_footerall_color" label="Footer background" tooltip="Change background colour of the footer" />
+
+							<file name="bg_footerall_img" label="Footer background image" tooltip="Background image for the footer background. Upload or insert url." />
+
+							<select name="bg_footerall_img_repeat" label="Footer background image repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+							
+							
+						</section>
+						
+						<section title="Footer widgets">
+							
+							<textfield name="footer_height" label="Footer widget height" tooltip="Change the footer widgets height, in px, just enter a number. This option is nice to have your footer widget areas all the same height." />
+							
+							<colorpicker name="bg_footer_color" label="Footer widget background" tooltip="Change background colour of the footer widgets" />
+							
+							<file name="bg_footer_img" label="Footer widget background image" tooltip="Background image for the footer widgets background. Upload or insert url." />
+
+							<select name="bg_footer_img_repeat" label="Footer widget background image repeat" tooltip="Repeat background image: x=horizontally, y=vertically">
+								<option name="no repeat" value="no repeat" />
+								<option name="x" value="x" />
+								<option name="y" value="y" />
+								<option name="x+y" value="x+y" />
+							</select>
+
+						</section>
+						
+					</accordion>
+				</tab>
+				<tab title="Buddypress">
+					<accordion>
+						<section title="Login bar header">
+							
+							<select name="bp_login_bar_top" label="Login bar header" tooltip="Select a login bar at the top of the header">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+							
+						</section>
+						
+						<section title="Use Buddypress default sub-navigation">
+							
+							<select name="bp_default_navigation" label="Use Buddypress default sub-navigation" tooltip="This sub-navigation is the secondary level navigation,
+								e.g. for profile it contains: [Public, Edit Profile, Change Avatar]
+								If you use the community navigation widget, you don't need this navigation.
+								If you want to use a horizontally sub-navigation - choose this one.">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+							
+						</section>
+						
+						<section title="BuddyPress sub navigation background colour">
+							
+							<colorpicker name="bg_content_nav_color" label="BuddyPress sub navigation background colour" tooltip="Change the background colour of the Buddypress component sub navigation" />
+
+						</section>
+						
+						<section title="Search bar">
+														
+							<select name="menue_enable_search" label="Show search bar" tooltip="enable BuddyPress search bar in header">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+							
+							<select name="buddydev_search" label="Use global Buddydev search instead of bp-search" tooltip="Replace the BuddyPress search (which comes with dropdown menu) with the Buddydev search. The Buddydev search is an easy one-field global search with nice result-listing.">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+							
+							<select name="searchbar_x" label="Search bar x-position" tooltip="If selected, you want the search bar left or right?">
+								<option name="right" value="right" />
+								<option name="left" value="left" />
+							</select>
+							
+							<textfield name="searchbar_y" label="Search bar y-position" tooltip="Distance from search bar to top (in px), just enter a number" />
+							
+						</section>
+						
+						<section title="Login sidebar">
+							
+							<select name="login_sidebar" label="Login sidebar" tooltip="Turn auto Buddypress login in the right sidebar on/off. You can add this feature as a widget into every widgetarea you like.">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+							
+							<textfield name="bp_login_sidebar_text" label="Login sidebar text" tooltip="Define the text displayed in the login sidebar when you're logged out." />
+							
+						</section>
+						
+						<section title="Profile">
+							
+							<select name="bp_profile_header" label="Show Profile header" tooltip="Display profile header, can be used as widget area">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+							
+							<select name="bp_profile_sidebars" label="Profile Sidebars" tooltip="Where do you like to have your sidebars in profiles? 
+								default = the global settings and sidebars will be used
+								none = no sidebars, full width
+								left = left profile sidebar, this will overwrite the global settings and display the left profile sidebar
+								right = right profile sidebar, this will overwrite the global settings and display the right profile sidebar
+								left and right = This option will display the left and right profile sidebars and overwrite the global settings
+								Note: all sidebars can be filled with widgets. Without widgets there will be the user avatar and information like in the member header">
+								<option name="default" value="default" />
+								<option name="none" value="none" />
+								<option name="left" value="left" />
+								<option name="right" value="right" />
+								<option name="left and right" value="left and right" />
+							</select>
+							
+							<textfield name="bp_profiles_avatar_size" label="Profile avatar size" tooltip="Define the size of the profile avatar. Width and height is the same." />
+							
+							<textfield name="bp_profiles_nav_order" label="Profile menu order" tooltip="Change the menu order in the profiles. Write the order in by slug, comma-separated.
+								Note: a slug is the name as it is written in the url,
+								means all letters in small, no symbols, ..." />
+							
+							
+						</section>
+						
+						<section title="Groups">
+							
+							<select name="bp_groups_header" label="Show Groups header" tooltip="Display group header, can be used as widget area">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+							
+							<select name="bp_groups_sidebars" label="Groups Sidebars" tooltip="Where do you like to have your sidebars in groups? 
+								default = the global settings and sidebars will be used
+								none = no sidebars, full width
+								left = left group sidebar, this will overwrite the global settings and display the left group sidebar
+								right = right group sidebar, this will overwrite the global settings and display the right group sidebar
+								left and right = This option will display the left and right group sidebars and overwrite the global settings
+								Note: all sidebars can be filled with widgets. Without widgets there will be the user avatar and information like in the group header">
+								<option name="default" value="default" />
+								<option name="none" value="none" />
+								<option name="left" value="left" />
+								<option name="right" value="right" />
+								<option name="left and right" value="left and right" />
+							</select>
+							
+							<textfield name="bp_groups_avatar_size" label="Groups avatar size" tooltip="Define the size of the group avatar. Width and height is the same." />
+							
+							<textfield name="bp_groups_nav_order" label="Groups menu order" tooltip="Change the menu order in the groups. Write the order in by slug, comma-separated.
+								Note: a slug is the name as it is written in the url,
+								means all letters in small, no symbols, ..." />
+							
+							
+						</section>
+					</accordion>
+				</tab>
+				<tab title="Slideshow">
+					<accordion>
+						
+						<section title="Enable slideshow">
+							
+							<select name="enable_slideshow_home" label="Enable slideshow" tooltip="Enable slideshow">
+								<option name="home" value="home" />
+								<option name="off" value="off" />
+								<option name="all" value="all" />
+							</select>
+						
+						</section>
+						<section title="Slideshow post categories">
+							jo
+						</section>
+						<section title="Amount">
+							jo
+						</section>
+						<section title="Post type">
+							jo
+						</section>
+						<section title="Page IDs">
+							jo
+						</section>
+						<section title="Sliding time">
+							jo
+						</section>
+						<section title="Order posts by">
+							jo
+						</section>
+						<section title="Slideshow style">
+							jo
+						</section>
+						<section title="Caption">
+							jo
+						</section>
+						<section title="Shadow">
+							jo
+						</section>
+					</accordion>
+				</tab>
+				<tab title="CSS">
+					<p>jo</p>
+				</tab>
+				<tab title="Get the Pro">
+					<p>jo</p>
+				</tab>
+
 			</tabs>
-		</page>
-		<page title="Accordions" headline="Accordion test">
-			<p>You can also put in Text here like in HTML</p>
-			<accordion>
-				<section title="Section 1">
-					Content in Section 1
-				</section>
-				<section title="Section 2">
-					Content in Section 3
-				</section>
-				<section title="Section 3">
-					Content in Section 3
-				</section>
-			</accordion>
-		</page>
-		<page title="Forms" headline="Form test">
-			<p>You can also put in Text here like in HTML</p>
-			<form name="form1">
-				<textfield name="name" label="Name:" />
-				<textarea name="name" label="Long text:" />
-				<checkbox name="mycheckbox" label="Check this:" description="Checkbox description" />
-				<radio name="radiotest" label="Radio test" value="1" description="Button 1" />
-				<radio name="radiotest" value="2" description="Button 2" />
-				<radio name="radiotest" value="3" description="Button 3" />
-				<select name="myselect" label="Select box" tooltip="Some entries in a dropdown">
-					<option name="First entry" value="first" />
-					<option name="Second entry" value="second" />
-					<option name="Third entry" value="third" />
-					<option name="Fourth entry" value="fourth" />
-				</select>
-				<colorpicker name="colorforme" label="Color" tooltip="Select a colour" />
-				<file name="ourfile" label="File" tooltip="Upload your file!" />
-				<button name="Save" />
+	
+			<br></br>
+			<button name="Save" />
+	
 			</form>
+
 		</page>
-		<page title="Nested HTML" headline="Usind HTML in WML">
-			<p>As you can see,you can use HTML in WML.</p>
+		
+		
+		<page title="Getting started" headline="Getting Strated">
+		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
+		<style type="text/css" media="screen, projection">
+		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
+		</style>
+		<script type="text/javascript">
+			if (typeof(Zenbox) !== "undefined") {
+				Zenbox.init({
+					dropboxID:   "20040053",
+					url:         "https://themekraft.zendesk.com",
+					tabID:       "questions",
+					tabColor:    "black",
+					tabPosition: "Left",
+					hide_tab: true
+		  		});
+			}
+		</script>
+			<p>How to start and where to find help</p>
 			<table class="widefat">
 				<tr>
-					<td>HTML Table</td>
+					<td>Watsh the Totorials</td>
 				</tr>
 				<tr>
 					<td>
-						<accordion>
-							<section title="Section 1">
-								Content of an accordion in HTML
-							</section>
-						</accordion>
+					<div id="message" class="info">
+						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
+					</div>
+					</td>
+				</tr>
+			</table>
+			<table class="widefat">
+				<tr>
+					<td>Use the forum</td>
+				</tr>
+				<tr>
+					<td>
+					<div id="message" class="info">
+						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
+					</div>
+					</td>
+				</tr>
+			</table>
+			<table class="widefat">
+				<tr>
+					<td>Check the Knowledgebase or write a ticket</td>
+				</tr>
+				<tr>
+					<td>
+					<div id="message" class="info">
+						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
+					</div>
+					</td>
+				</tr>
+			</table>
+			<table class="widefat">
+				<tr>
+					<td>Get Premium Support from our Premiu member Product specialists</td>
+				</tr>
+				<tr>
+					<td>
+					<div id="message" class="info">
+						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
+					</div>
 					</td>
 				</tr>
 			</table>
