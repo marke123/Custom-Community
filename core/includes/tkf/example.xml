@@ -719,36 +719,79 @@
 						
 						</section>
 						<section title="Slideshow post categories">
-							jo
+							
+							<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
+								You can select the category the posts should be taken from.
+								For more info check out the.">
+								<option name="svenw" value="svenw" />
+							</select>
+
 						</section>
 						<section title="Amount">
-							jo
+							
+							<textfield name="slideshow_amount" label="Amount" tooltip="Define the amount of posts. This option works just with the full width image slider." />
+							
 						</section>
+						
 						<section title="Post type">
-							jo
+							
+							<textfield name="slideshow_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
+							
 						</section>
+						
 						<section title="Page IDs">
-							jo
+						
+							<textfield name="slideshow_show_page" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
+						
 						</section>
+						
 						<section title="Sliding time">
-							jo
+						
+							<textfield name="slideshow_time" label="Sliding time" tooltip="Define the sliding time in ms" />
+						
 						</section>
+						
 						<section title="Order posts by">
-							jo
+						
+							<textfield name="slideshow_orderby" label="Order posts by" tooltip="svenw" />
+											
 						</section>
+						
 						<section title="Slideshow style">
-							jo
+						
+							<select name="slideshow_style" label="Slideshow style" tooltip="Select a type of slideshow.">
+								<option name="default" value="default" />
+								<option name="full width" value="full width"/>
+							</select>
+						
 						</section>
+						
 						<section title="Caption">
-							jo
+							
+							<select name="slideshow_caption" label="Caption" tooltip="Show just the images or also titles and excerpts?">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+
 						</section>
+						
 						<section title="Shadow">
-							jo
+							
+							<select name="slideshow_shadow" label="Shadow" tooltip="Select if you'd like to have a shadow under the top slideshow. Note: just for bright background and static width between 990 and about 1100 pixels.">
+								<option name="no shadow" value="no shadow" />
+								<option name="shadow" value="shadow" />
+								<option name="sharper shadow" value="sharper shadow" />
+							</select>
+							
 						</section>
+						
 					</accordion>
 				</tab>
 				<tab title="CSS">
-					<p>jo</p>
+					
+					<textarea name="overwrite_css" label="Overwrite CSS" tooltip="svenw"/>
+
+	
 				</tab>
 				<tab title="Get the Pro">
 					<p>jo</p>
