@@ -2,9 +2,9 @@
 // shortcode horizontal line
 function h_line($atts) { 
 
-	global $cap;
+	global $tkf;
 	
-	switch ($cap->style_css)
+	switch ($tkf->style_css)
         {
         case 'dark':
 	    	$color = '333333';
@@ -297,7 +297,7 @@ add_shortcode('cc_third_col_right', 'third_col_right');
 
 // list posts
 function cc_list_posts($atts,$content = null) {
-	global $cap, $cc_page_options, $post;	
+	global $tkf, $cc_page_options, $post;	
 	$tmp = '';
 	
 	extract(shortcode_atts(array(
@@ -458,21 +458,21 @@ function slider($atts,$content = null) {
 		$tmp .= '}'. chr(13);
 	}
 	
-	if($caption_height != ""){
+	if($tkftion_height != ""){
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
-		$tmp .= 'height:'.$caption_height.'px;'. chr(13);
+		$tmp .= 'height:'.$tkftion_height.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
 	}
 	
-	if($caption_width != ""){
+	if($tkftion_width != ""){
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
-		$tmp .= 'width:'.$caption_width.'px;'. chr(13);
+		$tmp .= 'width:'.$tkftion_width.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
 	}
 	
-	if($caption_top != ""){
+	if($tkftion_top != ""){
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
-		$tmp .= 'top:'.$caption_top.'px;'. chr(13);
+		$tmp .= 'top:'.$tkftion_top.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
 	}
 	
@@ -559,7 +559,7 @@ function slider($atts,$content = null) {
 		    
 			$tmp .='	<a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);
 
-			if($caption == 'on'){
+			if($tkftion == 'on'){
 				$tmp .=' <div class="info" >'. chr(13);
 				$tmp .='	<h2><a href="'.$url.'" >'.get_the_title().'</a></h2>'. chr(13);
 				$tmp .='	<p>'.get_the_excerpt().'</p>'. chr(13);

@@ -54,7 +54,7 @@ class Custom_Community{
 	
 	function framework_init(){
 		// Registering the form where the data have to be saved
-		$args['forms'] = array( 'myform' );
+		$args['forms'] = array( 'cc-config' );
 		$args['text_domain'] = 'my_text_domain';
 		tk_framework( $args );
 	}

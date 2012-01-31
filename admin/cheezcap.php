@@ -8,8 +8,7 @@
 // License: GNU General Public License, version 2 (GPL), http://www.gnu.org/licenses/gpl-2.0.html
 //
 
-require_once( dirname(__FILE__) . '/get-pro.php' );
-require_once( dirname(__FILE__) . '/post-metabox.php' );
+
 require_once( dirname(__FILE__) . '/library.php' );
 require_once( dirname(__FILE__) . '/config.php' );
 

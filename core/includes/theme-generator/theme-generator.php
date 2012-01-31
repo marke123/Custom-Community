@@ -68,45 +68,45 @@ class CC_Theme_Generator{
 	
 
 	function load_constants(){
-		global $cap, $post;
+		global $tkf, $post;
 
 		$component = explode('-',$this->detect->get_page_type());
 		
-		if($cap->sidebar_position == ''){
-			$cap->sidebar_position = 'right';
-			$cap->menue_disable_home = true;
-			$cap->enable_slideshow_home = 'home';
-			$cap->header_text = 'off';
-			$cap->preview = true;
+		if($tkf->sidebar_position == ''){
+			$tkf->sidebar_position = 'right';
+			$tkf->menue_disable_home = true;
+			$tkf->enable_slideshow_home = 'home';
+			$tkf->header_text = 'off';
+			$tkf->preview = true;
 		}	
 		
-		$sidebar_position = $cap->sidebar_position;
+		$sidebar_position = $tkf->sidebar_position;
 		
 		if(!empty($component[2])){
-			if($component[2] == 'groups' && !empty($component[3]) && $cap->bp_groups_sidebars != 'default') {
-				$sidebar_position = $cap->bp_groups_sidebars;
-			} elseif($component[2] == 'profile' && !empty($component[3]) && $cap->bp_profile_sidebars != 'default') {
-				$sidebar_position = $cap->bp_profile_sidebars;
+			if($component[2] == 'groups' && !empty($component[3]) && $tkf->bp_groups_sidebars != 'default') {
+				$sidebar_position = $tkf->bp_groups_sidebars;
+			} elseif($component[2] == 'profile' && !empty($component[3]) && $tkf->bp_profile_sidebars != 'default') {
+				$sidebar_position = $tkf->bp_profile_sidebars;
 			}
 		}
 			
-		$leftsidebar_width = $cap->leftsidebar_width;
-		$rightsidebar_width = $cap->rightsidebar_width;
+		$leftsidebar_width = $tkf->leftsidebar_width;
+		$rightsidebar_width = $tkf->rightsidebar_width;
 		
 		switch ($sidebar_position) {
-			case 'left': $cap->rightsidebar_width = 0; break;
-			case 'right': $cap->leftsidebar_width = 0; break;
-			case 'none': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
-			case 'full-width': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+			case 'left': $tkf->rightsidebar_width = 0; break;
+			case 'right': $tkf->leftsidebar_width = 0; break;
+			case 'none': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
+			case 'full-width': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
 		}
 		
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
 		
 		switch ($tmp) {
-			case 'left-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = 0; break;
-			case 'right-sidebar.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = $rightsidebar_width; break;
-			case 'left-and-right-sidebar.php': $cap->leftsidebar_width = $leftsidebar_width; $cap->rightsidebar_width = $rightsidebar_width; break;
-			case 'full-width.php': $cap->leftsidebar_width = 0; $cap->rightsidebar_width = 0; break;
+			case 'left-sidebar.php': $tkf->leftsidebar_width = $leftsidebar_width; $tkf->rightsidebar_width = 0; break;
+			case 'right-sidebar.php': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = $rightsidebar_width; break;
+			case 'left-and-right-sidebar.php': $tkf->leftsidebar_width = $leftsidebar_width; $tkf->rightsidebar_width = $rightsidebar_width; break;
+			case 'full-width.php': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
 		}
 
 	}
@@ -120,9 +120,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function innerrim_before_header(){
-		global $cap;
+		global $tkf;
 		
-		if ($cap->header_width != "full-width") {
+		if ($tkf->header_width != "full-width") {
 			echo '<div id="innerrim">'; 
 		}
 	}
@@ -136,9 +136,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function innerrim_after_header(){
-		global $cap;
+		global $tkf;
 		
-		if ($cap->header_width == "full-width") {
+		if ($tkf->header_width == "full-width") {
 			echo '<div id="innerrim">';
 		}
 	}
@@ -153,10 +153,10 @@ class CC_Theme_Generator{
 	 */	
 	
 	function menue_enable_search(){
-		global $cap;
+		global $tkf;
 
 		if(defined('BP_VERSION')){
-			if($cap->menue_enable_search){?>
+			if($tkf->menue_enable_search){?>
 			<div id="search-bar" role="search">
 				<div class="padder">
 					
@@ -188,22 +188,22 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function header_logo(){
-		global $cap;	
+		global $tkf;	
 			if(is_home()): ?>
 			<div id="logo">
 			<h1><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h1>
 			<div id="blog-description"><?php bloginfo('description'); ?></div>
 			
-			<?php if($cap->logo){ ?>
-			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
+			<?php if($tkf->logo){ ?>
+			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><img src="<?php echo $tkf->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
 			<?php } ?>
 			</div>
 		<?php else: ?>
 			<div id="logo">
 			<h4><a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?></a></h4>
 			<div id="blog-description"><?php bloginfo('description'); ?></div>
-			<?php if($cap->logo){ ?>
-			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><img src="<?php echo $cap->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
+			<?php if($tkf->logo){ ?>
+			<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><img src="<?php echo $tkf->logo?>" alt="<?php if(defined('BP_VERSION')){ bp_site_name(); } else { bloginfo('name'); } ?>"></img></a>
 			<?php } ?>
 			</div>
 		<?php endif;
@@ -218,10 +218,10 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function bp_menu(){
-		global $cap;	
+		global $tkf;	
 	
 		if(!defined('BP_VERSION')) :
-			if($cap->menue_disable_home == true){ ?>
+			if($tkf->menue_disable_home == true){ ?>
 				<ul>
 					<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 						<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
@@ -230,12 +230,12 @@ class CC_Theme_Generator{
 			<?php } ?>
 		<?php else : ?>
 			<ul>
-			<?php if($cap->menue_disable_home == true){ ?>
+			<?php if($tkf->menue_disable_home == true){ ?>
 				<li id="nav-home"<?php if ( is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
 				</li>
 			<?php }?>
-				<?php if($cap->menue_enable_community == true){ ?>
+				<?php if($tkf->menue_enable_community == true){ ?>
 				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'cc' ) ?>"><?php _e( 'Community', 'cc' ) ?></a>
 					<ul class="children">
@@ -290,14 +290,14 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function slideshow_home(){
-		global $cap;	
+		global $tkf;	
 		$cc_page_options=cc_get_page_meta();
 	
 		if(defined('BP_VERSION')){ 
-			if($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home  == 'home' && is_front_page() || $cap->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+			if($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home  == 'home' && is_front_page() || $tkf->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
 				echo cc_slidertop(); // located under wp/templatetags
 			}
-		} elseif($cap->enable_slideshow_home == 'all' || $cap->enable_slideshow_home == 'home' && is_home() || $cap->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+		} elseif($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
 			echo cc_slidertop(); // located under wp/templatetags
 		}
 	}
@@ -311,10 +311,10 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function favicon(){
-		global $cap;	
+		global $tkf;	
 		
-		if($cap->favicon != '') {
-			echo '<link rel="shortcut icon" href="'.$cap->favicon.'" />';
+		if($tkf->favicon != '') {
+			echo '<link rel="shortcut icon" href="'.$tkf->favicon.'" />';
 		}
 	}
 	
@@ -328,9 +328,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function innerrim_before_footer(){
-		global $cap;
+		global $tkf;
 		
-		if ($cap->footer_width == "full-width") {
+		if ($tkf->footer_width == "full-width") {
 			echo '</div><!-- #innerrim -->'; 
 		}
 	}
@@ -344,9 +344,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function innerrim_after_footer(){
-		global $cap;
+		global $tkf;
 		
-		if ($cap->footer_width != "full-width") {
+		if ($tkf->footer_width != "full-width") {
 			echo '</div><!-- #innerrim -->';
 		}
 	}
@@ -360,9 +360,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function footer_content(){ 
-		global $cap;
+		global $tkf;
 		if( ! dynamic_sidebar( 'footerfullwidth' )) :
-			if($cap->preview == true){ ?>
+			if($tkf->preview == true){ ?>
 				<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
 						<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'cc'); ?></h3>
 						<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas (2 full width and 6 columns). <br>
@@ -373,7 +373,7 @@ class CC_Theme_Generator{
 			<?php } ?>	
 		<?php endif; ?>
 	
-		<?php  if (is_active_sidebar('footerleft') || $cap->preview == true ){ ?>
+		<?php  if (is_active_sidebar('footerleft') || $tkf->preview == true ){ ?>
 		<div class="widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footerleft' )){ ?>
 				<div class="widget">
@@ -386,8 +386,8 @@ class CC_Theme_Generator{
 	  	</div>
 		<?php  } ?>
   	
-  		<?php if (is_active_sidebar('footercenter') || $cap->preview == true){ ?>
-		<div <?php if(!is_active_sidebar('footerleft') && $cap->preview != true ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
+  		<?php if (is_active_sidebar('footercenter') || $tkf->preview == true){ ?>
+		<div <?php if(!is_active_sidebar('footerleft') && $tkf->preview != true ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footercenter' )){ ?>
 				<div class="widget">
 					<h3 class="widgettitle" ><?php _e('Archives', 'cc'); ?></h3>
@@ -399,7 +399,7 @@ class CC_Theme_Generator{
 	  	</div>
   		<?php } ?>
   	
-  		<?php if (is_active_sidebar('footerright') || $cap->preview == true ){ ?>
+  		<?php if (is_active_sidebar('footerright') || $tkf->preview == true ){ ?>
 		<div class="widgetarea cc-widget cc-widget-right">
 			<?php if( ! dynamic_sidebar( 'footerright' )){ ?>
 				<div class="widget">
@@ -432,7 +432,7 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_left(){
-		global $cap, $bp, $post;
+		global $tkf, $bp, $post;
 		
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
 		if( $tmp == 'full-width.php' || $tmp == 'right-sidebar.php')
@@ -447,23 +447,23 @@ class CC_Theme_Generator{
 		if(!empty($component[2])){	
 		
 			if($component[2] == 'groups' && !empty($component[3])) {
-				if($cap->bp_groups_sidebars == 'left' || $cap->bp_groups_sidebars == 'left and right' ){
+				if($tkf->bp_groups_sidebars == 'left' || $tkf->bp_groups_sidebars == 'left and right' ){
 					locate_template( array( 'groups/single/group-sidebar-left.php' ), true );
-				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right" && $cap->bp_groups_sidebars == "default"){
+				} elseif($tkf->bp_groups_sidebars == "default" && $tkf->sidebar_position == "left" || $tkf->sidebar_position == "left and right" && $tkf->bp_groups_sidebars == "default"){
 					locate_template( array( 'sidebar-left.php' ), true );
 				}
 			} elseif($component[2] == 'profile' && !empty($component[3])) {
 			
-				if($cap->bp_profile_sidebars == 'left' || $cap->bp_profile_sidebars == 'left and right' ){
+				if($tkf->bp_profile_sidebars == 'left' || $tkf->bp_profile_sidebars == 'left and right' ){
 					locate_template( array( 'members/single/member-sidebar-left.php' ), true );
-				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "left" || $cap->sidebar_position == "left and right" && $cap->bp_profile_sidebars == "default"){
+				} elseif( $tkf->bp_profile_sidebars == "default" && $tkf->sidebar_position == "left" || $tkf->sidebar_position == "left and right" && $tkf->bp_profile_sidebars == "default"){
 					locate_template( array( 'sidebar-left.php' ), true );
 				}
-			} else if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+			} else if($tkf->sidebar_position == "left" || $tkf->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar-left.php' ), true );
 			}  
 		} else {
-			if($cap->sidebar_position == "left" || $cap->sidebar_position == "left and right"){
+			if($tkf->sidebar_position == "left" || $tkf->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar-left.php' ), true );
 			}    
 	  	}
@@ -478,7 +478,7 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function sidebar_right(){
-		global $cap, $bp, $post;
+		global $tkf, $bp, $post;
 	
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
 		
@@ -493,22 +493,22 @@ class CC_Theme_Generator{
 		$component = explode('-',$this->detect->get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
-				if($cap->bp_groups_sidebars == 'right' || $cap->bp_groups_sidebars == 'left and right' ){
+				if($tkf->bp_groups_sidebars == 'right' || $tkf->bp_groups_sidebars == 'left and right' ){
 					locate_template( array( 'groups/single/group-sidebar-right.php' ), true );
-				} elseif($cap->bp_groups_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right" && $cap->bp_groups_sidebars == "default"){
+				} elseif($tkf->bp_groups_sidebars == "default" && $tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right" && $tkf->bp_groups_sidebars == "default"){
 					locate_template( array( 'sidebar.php' ), true );
 				}
 			} elseif($component[2] == 'profile' && !empty($component[3])) {
-				if($cap->bp_profile_sidebars == 'right' || $cap->bp_profile_sidebars == 'left and right' ){
+				if($tkf->bp_profile_sidebars == 'right' || $tkf->bp_profile_sidebars == 'left and right' ){
 					locate_template( array( 'members/single/member-sidebar-right.php' ), true );
-				} elseif( $cap->bp_profile_sidebars == "default" && $cap->sidebar_position == "right" || $cap->sidebar_position == "left and right" && $cap->bp_profile_sidebars == "default"){
+				} elseif( $tkf->bp_profile_sidebars == "default" && $tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right" && $tkf->bp_profile_sidebars == "default"){
 					locate_template( array( 'sidebar.php' ), true );
 				}
-			} else if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+			} else if($tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar.php' ), true );
 			}     
 		} else {
-			if($cap->sidebar_position == "right" || $cap->sidebar_position == "left and right"){
+			if($tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right"){
 				locate_template( array( 'sidebar.php' ), true );
 			}    
   		}
@@ -524,9 +524,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function login_sidebar_widget(){
-		global $cap;
+		global $tkf;
 	
-		if(defined('BP_VERSION')) { if($cap->login_sidebar != 'off' || $cap->login_sidebar == false){ cc_login_widget();}}
+		if(defined('BP_VERSION')) { if($tkf->login_sidebar != 'off' || $tkf->login_sidebar == false){ cc_login_widget();}}
 	
 	}
 	
@@ -540,9 +540,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function default_homepage_last_posts(){
-		global $cap;
+		global $tkf;
 		
-		if( $cap->preview == true  || $cap->default_homepage_last_posts == 'show') {
+		if( $tkf->preview == true  || $tkf->default_homepage_last_posts == 'show') {
 			$args = array(
 				'amount' => '3',
 		 	);
@@ -561,9 +561,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function excerpt_on(){
-		global $cap;
+		global $tkf;
 	
-		if($cap->excerpt_on != 'content'){
+		if($tkf->excerpt_on != 'content'){
 			add_filter('excerpt_length', 'cc_excerpt_length');
 			the_excerpt( __( 'Read the rest of this entry &rarr;', 'cc' ) );
 		} else {
@@ -581,8 +581,8 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function before_group_home_content(){
-		global $cap;
-		if( $cap->bp_groups_header == false || $cap->bp_groups_header == 'on'):?>
+		global $tkf;
+		if( $tkf->bp_groups_header == false || $tkf->bp_groups_header == 'on'):?>
 			<div id="item-header">
 				<?php if( ! dynamic_sidebar( 'groupheader' )) : ?>
 				 <?php locate_template( array( 'groups/single/group-header.php' ), true ) ?>
@@ -609,7 +609,7 @@ class CC_Theme_Generator{
 				<h2><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
 			</div>
 		<?php endif;?>
-		<?php if($cap->bp_default_navigation == true){?>
+		<?php if($tkf->bp_default_navigation == true){?>
 			<div id="item-nav">
 				<div class="item-list-tabs no-ajax" id="object-nav">
 					<ul>
@@ -631,9 +631,9 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function before_member_home_content(){
-		global $cap;
+		global $tkf;
 
-		if($cap->bp_profile_header == false || $cap->bp_profile_header == 'on'): ?>
+		if($tkf->bp_profile_header == false || $tkf->bp_profile_header == 'on'): ?>
 			<div id="item-header">
 				<?php if( ! dynamic_sidebar( 'memberheader' )) : ?>
 					<?php locate_template( array( 'members/single/member-header.php' ), true ) ?>
@@ -663,7 +663,7 @@ class CC_Theme_Generator{
 			</div>
 		<?php endif;?>
 			
-		<?php if($cap->bp_default_navigation == true){?>
+		<?php if($tkf->bp_default_navigation == true){?>
 		<div id="item-nav">
 			<div class="item-list-tabs no-ajax" id="object-nav">
 				<ul>
@@ -686,39 +686,39 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function custom_login() { 
-		global $cap;?> 
+		global $tkf;?> 
 		<style type="text/css">
 		
 		login h1 {
-			<?php if($cap->bg_loginpage_img){ ?>
-				background-image: url('<?php echo $cap->bg_loginpage_img; ?>');
+			<?php if($tkf->bg_loginpage_img){ ?>
+				background-image: url('<?php echo $tkf->bg_loginpage_img; ?>');
 			<?php } ?>
 			color:#777;
 		}
 		h1 a {
-			<?php if($cap->bg_loginpage_img){ ?>
-				background-image: url('<?php echo $cap->bg_loginpage_img; ?>');
-				height:<?php echo $cap->login_logo_height; ?>px;
+			<?php if($tkf->bg_loginpage_img){ ?>
+				background-image: url('<?php echo $tkf->bg_loginpage_img; ?>');
+				height:<?php echo $tkf->login_logo_height; ?>px;
 			<?php } ?>
 			clear: both;
 		}
 		
-		<?php if($cap->bg_loginpage_body_img || $cap->bg_loginpage_body_color){ ?>
+		<?php if($tkf->bg_loginpage_body_img || $tkf->bg_loginpage_body_color){ ?>
 			html, boddy, .login {
-				<?php if($cap->bg_loginpage_body_img){ ?>
-					background-image: url('<?php echo $cap->bg_loginpage_body_img; ?>');
+				<?php if($tkf->bg_loginpage_body_img){ ?>
+					background-image: url('<?php echo $tkf->bg_loginpage_body_img; ?>');
 				<?php } ?>
-				<?php if($cap->bg_loginpage_body_color){ ?>
-					background-color: #<?php echo $cap->bg_loginpage_body_color; ?>;
+				<?php if($tkf->bg_loginpage_body_color){ ?>
+					background-color: #<?php echo $tkf->bg_loginpage_body_color; ?>;
 				<?php } ?>
 				height: 100%;
 				padding-top: 0px;
 			}
 		<?php } ?>
 		
-		<?php if($cap->bg_loginpage_body_color){ ?>
+		<?php if($tkf->bg_loginpage_body_color){ ?>
 		body {
-			color:#<?php echo $cap->bg_loginpage_body_color; ?>;
+			color:#<?php echo $tkf->bg_loginpage_body_color; ?>;
 		}
 		<?php } ?>
 		#login{
@@ -739,9 +739,9 @@ class CC_Theme_Generator{
 		#lostpasswordform {
 			border-color:#999;
 		}
-		<?php if($cap->bg_loginpage_backtoblog_fade_1 && $cap->bg_loginpage_backtoblog_fade_2){ ?>
+		<?php if($tkf->bg_loginpage_backtoblog_fade_1 && $tkf->bg_loginpage_backtoblog_fade_2){ ?>
 			#backtoblog {
-				 background: -moz-linear-gradient(center bottom , #<?php echo $cap->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $cap->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;
+				 background: -moz-linear-gradient(center bottom , #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;
 			}
 		<?php } ?>
 		</style>

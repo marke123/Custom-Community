@@ -2,7 +2,7 @@
 <wml>
 	<menu title="CC Settings">
 		<page title="Theme Settings" headline="Theme Settings">
-		<form name="tkf">
+		<form name="cc-config">
 			<p>Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank"> Themekraft</a>.</p>
 			<p> For support, check out the <a href="http://themekraft.com/forums/" target="_blank"> FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank"> FAQ</a>. 
 				Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank"> Get the Full Version</a>
