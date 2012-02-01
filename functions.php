@@ -1,7 +1,7 @@
 <?php
 	
-require_once( dirname(__FILE__) . '/admin/get-pro.php' );
-require_once( dirname(__FILE__) . '/admin/post-metabox.php' );
+require_once( dirname(__FILE__) . '/core/get-pro.php' );
+require_once( dirname(__FILE__) . '/core/post-metabox.php' );
 require_once( dirname(__FILE__) . '/core/loader.php');
 
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */

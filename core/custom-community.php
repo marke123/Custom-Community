@@ -45,6 +45,8 @@ class Custom_Community{
 		add_action( 'init', array( $this, 'generate_theme'), 10 );
 
 		add_action( 'admin_menu',  array( $this, 'init_backend' ) );
+		
+		add_action( 'init', array( $this, 'set_globals' ), 2 );
 	}
 	
 	function generate_theme(){
@@ -53,10 +55,19 @@ class Custom_Community{
 	}
 	
 	function framework_init(){
+		
 		// Registering the form where the data have to be saved
 		$args['forms'] = array( 'cc-config' );
 		$args['text_domain'] = 'my_text_domain';
 		tk_framework( $args );
+		
+		 
+	}
+	 
+	function set_globals(){
+		global $tkf;
+			
+		$tkf = tk_get_values( 'cc-config' );
 	}
 	 
 	function init_backend(){

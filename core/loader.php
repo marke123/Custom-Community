@@ -12,6 +12,7 @@ define( 'CC_VERSION', '1.8.5' );
 function cc_init() {
 	require( dirname( __FILE__ ) . '/custom-community.php' );
 	$cc = new Custom_Community;
+	
 }
 add_action( 'after_setup_theme', 'cc_init', 1, 1 );
 
