@@ -74,7 +74,7 @@ class Custom_Community{
 		/*
 		* WML
 		*/
-	 	tk_wml_parse_file( $this->require_path('/core/includes/tkf/example.xml') );
+	 	tk_wml_parse_file( $this->require_path('/core/includes/tkf/cc-config.xml') );
 	}
 	
 	/**
