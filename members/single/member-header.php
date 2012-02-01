@@ -1,10 +1,10 @@
 <?php do_action( 'bp_before_member_header' ) ?>
-<?php global $cap ?>
+<?php global $tkf ?>
 <div id="item-header-avatar">
 	<a href="<?php bp_user_link() ?>">
 		<?php $asize = '150';
-		if($cap->bp_profiles_avatar_size !=  '') 
-			$asize = $cap->bp_profiles_avatar_size;?>
+		if($tkf->bp_profiles_avatar_size !=  '') 
+			$asize = $tkf->bp_profiles_avatar_size;?>
 		
 		<?php bp_displayed_user_avatar( 'type=full&width='.$asize.'&height='.$asize ) ?>
 	</a>

@@ -1,9 +1,9 @@
 <?php
 function dynamic_css(){
-global $cap;
+global $tkf;
 
-if($cap->menu_x == ""){
-$cap->menu_x = 'left'; 
+if($tkf->menu_x == ""){
+$tkf->menu_x = 'left'; 
 }
 
 ob_start(); ?>
@@ -28,7 +28,7 @@ max-width:100%;
 min-width:100%;
 padding-top:0 !important;
 width:100%;
-<?php switch ($cap->bg_body_img_pos)
+<?php switch ($tkf->bg_body_img_pos)
     {
     	case 'left':
     		echo 'background-position: left top;';	
@@ -44,7 +44,7 @@ width:100%;
         	break;
     } 
 ?>
-<?php if($cap->bg_body_img_fixed){ ?>
+<?php if($tkf->bg_body_img_fixed){ ?>
 background-attachment: fixed;
 <?php } ?>
 }
@@ -182,7 +182,7 @@ z-index:1000;
 #header {
 position: relative;
 color: #<?php echo $font_color; ?>;
-<?php if($cap->header_img == ''){?>
+<?php if($tkf->header_img == ''){?>
 background: url(<?php echo get_template_directory_uri() ?>/images/default-header.png);
 <?php } ?>
 -moz-border-radius-bottomleft: 6px;
@@ -288,7 +288,7 @@ ul#nav a:focus { outline: none; }
 #nav-home {
 float:left;
 }
-<?php if($cap->menu_x =="right"){ ?>
+<?php if($tkf->menu_x =="right"){ ?>
 	#nav-home {
 	    float: right;
 	}
@@ -515,8 +515,8 @@ div#content .padder {
 -moz-border-radius: 0px !important;
 border-left: none;
 border-right: none;
-margin-left: <?php echo $cap->leftsidebar_width ?>px;
-margin-right: <?php echo $cap->rightsidebar_width ?>px;
+margin-left: <?php echo $tkf->leftsidebar_width ?>px;
+margin-right: <?php echo $tkf->rightsidebar_width ?>px;
 min-height: 300px;
 padding-top: 30px;
 overflow: hidden;
@@ -2777,7 +2777,7 @@ div.cc_slider ul.ui-tabs-nav {
     position: absolute;
     right: 0;
     top: 0;
-    width: <?php if ($cap->website_width != '' && $cap->website_width_unit == 'px' ) { $width = $cap->website_width; $i = $width - 756; echo $i; echo 'px'; } else { echo '244px'; } ?>;
+    width: <?php if ($tkf->website_width != '' && $tkf->website_width_unit == 'px' ) { $width = $tkf->website_width; $i = $width - 756; echo $i; echo 'px'; } else { echo '244px'; } ?>;
 }
 div.cc_slider ul.ui-tabs-nav li{
 padding:1px 2px 1px 13px;
@@ -3428,36 +3428,36 @@ textarea { resize: vertical; }
 -------------------------------------------------------------- */ 
 
 
-<?php if($cap->website_width != ''): ?>
+<?php if($tkf->website_width != ''): ?>
 /** ***   
 website width  **/
 #innerrim {
-	max-width: <?php echo $cap->website_width; echo $cap->website_width_unit; ?>;
-	min-width: <?php echo $cap->website_width; echo $cap->website_width_unit; ?>;
+	max-width: <?php echo $tkf->website_width; echo $tkf->website_width_unit; ?>;
+	min-width: <?php echo $tkf->website_width; echo $tkf->website_width_unit; ?>;
 } 
 <?php endif; ?>	
 
-<?php if($cap->v_line_color != ''): ?>
+<?php if($tkf->v_line_color != ''): ?>
 /** ***   
 colour of the vertical lines  **/
 .v_line {
-	border-color: #<?php echo $cap->v_line_color; ?>;
+	border-color: #<?php echo $tkf->v_line_color; ?>;
 } 
 <?php endif; ?>	
 
-<?php if($cap->bg_body_color || $cap->bg_body_img):?>
+<?php if($tkf->bg_body_color || $tkf->bg_body_img):?>
 /** ***   
 body background colour, image and repeat  **/
 
 body {
-<?php if($cap->bg_body_color){?>
-	background-color: <?php if($cap->bg_body_color != 'transparent') { ?>#<?php } ?><?php echo $cap->bg_body_color?>;
+<?php if($tkf->bg_body_color){?>
+	background-color: <?php if($tkf->bg_body_color != 'transparent') { ?>#<?php } ?><?php echo $tkf->bg_body_color?>;
 <?php } ?>
-<?php if($cap->bg_body_img){?>
-	background-image:url(<?php echo $cap->bg_body_img?>);	
+<?php if($tkf->bg_body_img){?>
+	background-image:url(<?php echo $tkf->bg_body_img?>);	
 <?php } ?>
 <?php 
-		switch ($cap->bg_body_img_repeat)
+		switch ($tkf->bg_body_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -3477,7 +3477,7 @@ body {
 <?php endif; ?>
 
 
-<?php if($cap->bg_body_color != "" && $cap->bg_body_color != "transparent"):?>
+<?php if($tkf->bg_body_color != "" && $tkf->bg_body_color != "transparent"):?>
 /** ***   
 Adapting to body background colour  **/
 
@@ -3486,34 +3486,34 @@ div.pagination, div#subnav.item-list-tabs,
 div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle,
 div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a,
 div#footer .cc-widget h3.widgettitle, #header .cc-widget h3.widgettitle, div#footer .cc-widget h3.widgettitle a, #header .cc-widget h3.widgettitle a   { 
-	background-color: #<?php echo $cap->bg_body_color?>;
+	background-color: #<?php echo $tkf->bg_body_color?>;
 }
 
 .boxgrid {
-	border-color: #<?php echo $cap->bg_body_color?>;
+	border-color: #<?php echo $tkf->bg_body_color?>;
 }
 <?php endif; ?>
 
-<?php if($cap->bg_container_nolines == 'hide' ) { ?>
+<?php if($tkf->bg_container_nolines == 'hide' ) { ?>
 /** ***   
 hide the vertical lines in the container  **/
 
 	.v_line { display: none; }	
 <?php }?>
 
-<?php if($cap->bg_container_color != '' || $cap->bg_container_img != '' || $cap->container_corner_radius != ''): ?>
+<?php if($tkf->bg_container_color != '' || $tkf->bg_container_img != '' || $tkf->container_corner_radius != ''): ?>
 /** ***   
 container background colour, image, repeat, corner radius and line correction  **/
 
 div#container, body.activity-permalink div#container {
-	<?php if($cap->bg_container_color ){ ?> 
-		background-color: <?php if($cap->bg_container_color != 'transparent') { ?>#<?php } ?><?php echo $cap->bg_container_color;?>; 
+	<?php if($tkf->bg_container_color ){ ?> 
+		background-color: <?php if($tkf->bg_container_color != 'transparent') { ?>#<?php } ?><?php echo $tkf->bg_container_color;?>; 
 	<?php } ?>
 	
-	<?php if($cap->bg_container_img){?>
-		background-image:url(<?php echo $cap->bg_container_img?>);	
+	<?php if($tkf->bg_container_img){?>
+		background-image:url(<?php echo $tkf->bg_container_img?>);	
 		<?php 
-				switch ($cap->bg_container_img_repeat)
+				switch ($tkf->bg_container_img_repeat)
 		        {
 		        case 'no repeat':
 					?>background-repeat: no-repeat;<?php	
@@ -3530,7 +3530,7 @@ div#container, body.activity-permalink div#container {
 		        } ?>
 	<?php	} ?>	
 			 
-	<?php if($cap->container_corner_radius =='not rounded' ) { ?>
+	<?php if($tkf->container_corner_radius =='not rounded' ) { ?>
 		-moz-border-radius: 0px;
 		-webkit-border-radius: 0px; 
 		border-radius: 0px; 
@@ -3544,20 +3544,20 @@ div#container, body.activity-permalink div#container {
 }
 <?php endif; ?>	
 
-<?php if($cap->bg_container_color != '' || $cap->bg_container_img != '' || $cap->container_corner_radius != ''): ?>
+<?php if($tkf->bg_container_color != '' || $tkf->bg_container_img != '' || $tkf->container_corner_radius != ''): ?>
 /** ***  
 adapting footer widgets to container background colour, image, repeat and corner radius - if it is NOT specified extra for the footer! **/
 
-	<?php if($cap->bg_container_color && !$cap->bg_footer_color){ ?> 
+	<?php if($tkf->bg_container_color && !$tkf->bg_footer_color){ ?> 
 		div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right { 
-			background-color: <?php if($cap->bg_container_color != 'transparent') { ?>#<?php } ?><?php echo $cap->bg_container_color; ?>; 
+			background-color: <?php if($tkf->bg_container_color != 'transparent') { ?>#<?php } ?><?php echo $tkf->bg_container_color; ?>; 
 		}
 	<?php } ?>
 	
-	<?php if($cap->bg_container_img && !$cap->bg_footer_img){?>
+	<?php if($tkf->bg_container_img && !$tkf->bg_footer_img){?>
 		div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
-			background-image:url(<?php echo $cap->bg_container_img?>);	
-				<?php switch ($cap->bg_container_img_repeat) {
+			background-image:url(<?php echo $tkf->bg_container_img?>);	
+				<?php switch ($tkf->bg_container_img_repeat) {
 			        case 'no repeat':
 						?>background-repeat: no-repeat;<?php	
 			        	break;
@@ -3574,7 +3574,7 @@ adapting footer widgets to container background colour, image, repeat and corner
 		}
 	<?php } ?>
 
-	<?php if($cap->container_corner_radius == 'not rounded' ) { ?>
+	<?php if($tkf->container_corner_radius == 'not rounded' ) { ?>
 		#footer, div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
 			-moz-border-radius: 0px;
 			-webkit-border-radius: 0px; 
@@ -3589,18 +3589,18 @@ adapting footer widgets to container background colour, image, repeat and corner
 
 <?php endif; ?>	
 
-<?php if($cap->bg_footer_color != '' || $cap->bg_footer_img != '' || $cap->footer_height != ''): ?>
+<?php if($tkf->bg_footer_color != '' || $tkf->bg_footer_img != '' || $tkf->footer_height != ''): ?>
 /** ***   
 footer WIDGETS and header WIDGETS - height, bg_color, image and repeat  **/
 
 #footer .cc-widget, #header .cc-widget{
-	<?php if($cap->bg_footer_color) { ?>
-		background-color: <?php if($cap->bg_footer_color != 'transparent') { ?>#<?php } echo $cap->bg_footer_color;?> !important; 
+	<?php if($tkf->bg_footer_color) { ?>
+		background-color: <?php if($tkf->bg_footer_color != 'transparent') { ?>#<?php } echo $tkf->bg_footer_color;?> !important; 
 	<?php } ?>
-	<?php if($cap->bg_footer_img) { ?>
-		background-image:url(<?php echo $cap->bg_footer_img; ?>);
+	<?php if($tkf->bg_footer_img) { ?>
+		background-image:url(<?php echo $tkf->bg_footer_img; ?>);
 		<?php 
-		switch ($cap->bg_footer_img_repeat)
+		switch ($tkf->bg_footer_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -3617,24 +3617,24 @@ footer WIDGETS and header WIDGETS - height, bg_color, image and repeat  **/
         }
 		?>		
 	<?php } ?>
-	<?php if($cap->footer_height) { ?>
-		height:<?php echo $cap->footer_height; ?>px; 
+	<?php if($tkf->footer_height) { ?>
+		height:<?php echo $tkf->footer_height; ?>px; 
 	<?php } ?>
 	}
 <?php endif; ?>	
 
-<?php if($cap->bg_footerall_color != '' || $cap->bg_footerall_img != '' || $cap->footerall_height != ''): ?>
+<?php if($tkf->bg_footerall_color != '' || $tkf->bg_footerall_img != '' || $tkf->footerall_height != ''): ?>
 /** ***   
 footer - height, color, image and repeat  **/
 
 #footer {
-	<?php if($cap->bg_footerall_color) { ?>
-		background-color: <?php if($cap->bg_footerall_color != 'transparent') { ?>#<?php } echo $cap->bg_footerall_color;?>; 
+	<?php if($tkf->bg_footerall_color) { ?>
+		background-color: <?php if($tkf->bg_footerall_color != 'transparent') { ?>#<?php } echo $tkf->bg_footerall_color;?>; 
 	<?php } ?>
-	<?php if($cap->bg_footerall_img) { ?>
-		background-image:url(<?php echo $cap->bg_footerall_img; ?>);
+	<?php if($tkf->bg_footerall_img) { ?>
+		background-image:url(<?php echo $tkf->bg_footerall_img; ?>);
 		<?php 
-		switch ($cap->bg_footerall_img_repeat)
+		switch ($tkf->bg_footerall_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -3651,32 +3651,32 @@ footer - height, color, image and repeat  **/
         }
 		?>		
 	<?php } ?>
-	<?php if($cap->footerall_height) { ?>
-		height:<?php echo $cap->footerall_height; ?>px; 
+	<?php if($tkf->footerall_height) { ?>
+		height:<?php echo $tkf->footerall_height; ?>px; 
 	<?php } ?>
 	}
 <?php endif; ?>	
 
-<?php if($cap->bg_footer_color != '' || $cap->bg_container_color): ?>
+<?php if($tkf->bg_footer_color != '' || $tkf->bg_container_color): ?>
 /** ***   
 Adapting buttons font color in the footer widgets. Either to footer background color or to container background colour  **/
 
 #footer .cc-widget a.button, #header .cc-widget a.button { 
-<?php if($cap->bg_footer_color != '' &&  $cap->bg_footer_color != 'transparent') { ?>
-		color: #<?php echo $cap->bg_footer_color; ?> !important; 
-	<?php } elseif ($cap->bg_container_color && $cap->bg_container_color != 'transparent') { ?>
-		color: #<?php echo $cap->bg_container_color; ?> !important; 
+<?php if($tkf->bg_footer_color != '' &&  $tkf->bg_footer_color != 'transparent') { ?>
+		color: #<?php echo $tkf->bg_footer_color; ?> !important; 
+	<?php } elseif ($tkf->bg_container_color && $tkf->bg_container_color != 'transparent') { ?>
+		color: #<?php echo $tkf->bg_container_color; ?> !important; 
 	<?php } ?> 	
 }
 <?php endif; ?>	
 
-<?php if($cap->bg_container_color && $cap->bg_container_color != 'transparent' ){?>
+<?php if($tkf->bg_container_color && $tkf->bg_container_color != 'transparent' ){?>
 /** ***   
 slideshow and other stuff that wants some BACKGROUND tweaking to container background colour  **/
 
 #slider-top,  
 div#subnav.item-list-tabs ul li.selected a, div#subnav.item-list-tabs ul li.current a {
-	background-color: #<?php echo $cap->bg_container_color;?>; 
+	background-color: #<?php echo $tkf->bg_container_color;?>; 
 } 
 
 /** ***   
@@ -3685,21 +3685,21 @@ buttons and widgets that want some FONT COLOR tweaking to the container backgrou
 a.comment-edit-link, a.comment-reply-link, a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
 .activity-list div.activity-meta a.acomment-reply, 
 .activity-list div.activity-meta a  {
-	color: #<?php echo $cap->bg_container_color?> !important;
+	color: #<?php echo $tkf->bg_container_color?> !important;
 }
 <?php };?>
 
-<?php if($cap->font_style){?>
+<?php if($tkf->font_style){?>
 /** ***   
 font family  **/
 
 a, div.post p.date a, div.post p.postmetadata a, div.comment-meta a, div.comment-options a, span.highlight, #item-nav a, div.widget ul li a:hover, 
 body {
-	font-family: <?php echo $cap->font_style?>;
+	font-family: <?php echo $tkf->font_style?>;
 }
 <?php };?> 
 
-<?php if($cap->font_size){?>
+<?php if($tkf->font_size){?>
 /** ***   
 standard font size  **/
 
@@ -3780,12 +3780,12 @@ div.comment-options a:hover,
 div.widget ul li a, 
 .widget li.cat-item a, 
 #item-nav a:hover {
-	font-size: <?php echo $cap->font_size?>px;
+	font-size: <?php echo $tkf->font_size?>px;
 }
 <?php };?> 
 
 
-<?php if($cap->font_color != ""):?>
+<?php if($tkf->font_color != ""):?>
 	/** ***   
 	font colour  **/
 	
@@ -3804,10 +3804,10 @@ div.widget ul li a,
 	.activity-list .activity-content .comment-header, div.activity-comments div.acomment-meta,  
 	div.activity-comments form div.ac-reply-content, li span.unread-count, tr.unread span.unread-count, div.item-list-tabs ul li a span.unread-count, ul#topic-post-list li div.poster-meta, 
 	div.admin-links, #comments h3, #trackbacks h3, #respond h3, #footer, div#item-header span.activity, div#item-header h2 span.highlight, #item-nav a:hover {
-		color:#<?php echo $cap->font_color?>;
+		color:#<?php echo $tkf->font_color?>;
 	} 
 	div#item-header h2 span.highlight, div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a {
-		color:#<?php echo $cap->font_color?> !important;
+		color:#<?php echo $tkf->font_color?> !important;
 	} 
 
 /** ***   
@@ -3815,56 +3815,56 @@ buttons and widgets that want some adapting to the font colour  **/
 
 a.comment-edit-link, a.comment-reply-link, a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
 .activity-list div.activity-meta a  {
-	background:#<?php echo $cap->font_color?>;
+	background:#<?php echo $tkf->font_color?>;
 }  
 
 div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle { 
-	color:#<?php echo $cap->font_color?>;
+	color:#<?php echo $tkf->font_color?>;
 }
 <?php endif; ?>
 
-<?php if($cap->title_font_style != "" || $cap->title_size != "" || $cap->title_color != "" || $cap->title_weight != ""):?>
+<?php if($tkf->title_font_style != "" || $tkf->title_size != "" || $tkf->title_color != "" || $tkf->title_weight != ""):?>
 /** ***   
 title font style, size, weight and colour  **/
 
 h1, h2, h1 a, h2 a, h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus {
-<?php if($cap->title_font_style){?>
-	font-family: <?php echo $cap->title_font_style?>;
+<?php if($tkf->title_font_style){?>
+	font-family: <?php echo $tkf->title_font_style?>;
 <?php };?>
-<?php if($cap->title_size){?>
-	font-size: <?php echo $cap->title_size?>px;
+<?php if($tkf->title_size){?>
+	font-size: <?php echo $tkf->title_size?>px;
 <?php };?>
-<?php if($cap->title_weight){?>
-	font-weight:<?php echo $cap->title_weight?>;
+<?php if($tkf->title_weight){?>
+	font-weight:<?php echo $tkf->title_weight?>;
 <?php };?>
 }
 
 h1, h2, h1 a, h2 a {
-<?php if($cap->title_color){?>
-	color:#<?php echo $cap->title_color?>;
+<?php if($tkf->title_color){?>
+	color:#<?php echo $tkf->title_color?>;
 <?php };?>
 }
 
 <?php endif; ?>
 
-<?php if($cap->subtitle_font_style != "" || $cap->subtitle_color != "" || $cap->subtitle_weight != ""):?>
+<?php if($tkf->subtitle_font_style != "" || $tkf->subtitle_color != "" || $tkf->subtitle_weight != ""):?>
 /** ***   
 subtitle font style, weight and colour  **/
 
 h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
-<?php if($cap->subtitle_font_style){?>
-	font-family: <?php echo $cap->subtitle_font_style?>;
+<?php if($tkf->subtitle_font_style){?>
+	font-family: <?php echo $tkf->subtitle_font_style?>;
 <?php };?>
-<?php if($cap->subtitle_color){?>
-	color:#<?php echo $cap->subtitle_color?>;
+<?php if($tkf->subtitle_color){?>
+	color:#<?php echo $tkf->subtitle_color?>;
 <?php };?>
-<?php if($cap->subtitle_weight){?>
-	font-weight:<?php echo $cap->subtitle_weight?>;
+<?php if($tkf->subtitle_weight){?>
+	font-weight:<?php echo $tkf->subtitle_weight?>;
 <?php };?>
 }
 <?php endif; ?>
 
-<?php if($cap->link_color){?>
+<?php if($tkf->link_color){?>
 	/** ***   
 	link colour  **/
 	
@@ -3878,7 +3878,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	#footer div.widget ul li.current_page_item a, 
 	#header div.widget ul li.current_page_item a, 
 	#subnav a:hover  {
-		color:#<?php echo $cap->link_color?>;
+		color:#<?php echo $tkf->link_color?>;
 	}
 	
 	/** ***   
@@ -3900,12 +3900,12 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	div.activity-meta a.fav:hover, 
 	a.unfav:hover, 
 	div#item-header h2 span.highlight span {
-		background-color:#<?php echo $cap->link_color?>;
-		background-color:#<?php echo $cap->link_color?> !important;
+		background-color:#<?php echo $tkf->link_color?>;
+		background-color:#<?php echo $tkf->link_color?> !important;
 	}
 <?php } ?> 
 
-<?php if($cap->link_color_hover != ""):?>
+<?php if($tkf->link_color_hover != ""):?>
 	/** ***   
 	link colour hover  **/
 	
@@ -3923,24 +3923,24 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	div.widget ul li a:hover, 
 	div.widget ul li.recentcomments a:hover,  
 	div.widget-title ul.item-list li a:hover {
-		color:#<?php echo $cap->link_color_hover ?>;
+		color:#<?php echo $tkf->link_color_hover ?>;
 	}
 
-	<?php if ( $cap->link_color_subnav_adapt == "link colour and hover colour" ) { ?> 
+	<?php if ( $tkf->link_color_subnav_adapt == "link colour and hover colour" ) { ?> 
 		#subnav a:hover, #subnav a:focus, div.item-list-tabs ul li a:hover, div.item-list-tabs ul li a:focus {
-			color:#<?php echo $cap->link_color_hover ?>;
+			color:#<?php echo $tkf->link_color_hover ?>;
 		} 	
 	<?php } ?>
 	
 <?php endif; ?>
 
-<?php if($cap->link_underline != "never" && $cap->link_underline != "" ): ?>
+<?php if($tkf->link_underline != "never" && $tkf->link_underline != "" ): ?>
 
-	<?php if($cap->link_underline == "just for mouse over"){ 
+	<?php if($tkf->link_underline == "just for mouse over"){ 
 		$stylethis = 'a:hover, a:focus'; 
 	} else {
 		
-		if($cap->link_underline == "always") { 
+		if($tkf->link_underline == "always") { 
 		$stylethis = 'a, a:hover, a:focus';
 		} else { 
 			$stylethis = 'a:hover, a:focus { text-decoration: none; } a';
@@ -3956,53 +3956,53 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	
 <?php endif; ?>
 
-<?php if($cap->link_bg_color != ""):?>
+<?php if($tkf->link_bg_color != ""):?>
 	/** ***   
 	link BACKGROUND colour  **/
 	
 	a {
-		background-color: <?php if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+		background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
 	} 
 <?php endif; ?>
 
-<?php if($cap->link_bg_color_hover != ""):?>
+<?php if($tkf->link_bg_color_hover != ""):?>
 	/** ***   
 	link BACKGROUND colour hover  **/
 	
 	a:hover, a:focus {
-		background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+		background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
 	} 
 <?php endif; ?>
 
-<?php if($cap->link_styling_title_adapt != "just the hover effect"):?>
+<?php if($tkf->link_styling_title_adapt != "just the hover effect"):?>
 /** ***   
 	link styling titles adapt**/
 
-	<?php if ($cap->link_hover_color != '') { 
+	<?php if ($tkf->link_hover_color != '') { 
 	// use the link hover colour anyway - if one is selected ?>
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-					color: #<?php echo $cap->link_hover_color; ?>; 
+					color: #<?php echo $tkf->link_hover_color; ?>; 
 				} 
 	<?php } ?>
 
 
-	<?php switch ($cap->link_styling_title_adapt) { 
+	<?php switch ($tkf->link_styling_title_adapt) { 
         
 		case 'link colour and hover colour': ?>
         
         	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-        		color: #<?php echo $cap->link_color; ?>;
+        		color: #<?php echo $tkf->link_color; ?>;
         	}
 			
 		<?php break; 
 	
 		case 'no, only the link colour!': ?>
         
-        	<?php if ($cap->link_bg_color_hover || $cap->link_bg_color_hover) { ?>
+        	<?php if ($tkf->link_bg_color_hover || $tkf->link_bg_color_hover) { ?>
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-					color: #<?php if (!$cap->font_color) { echo $font_color; } else { echo $cap->font_color;  } ?>; 
+					color: #<?php if (!$tkf->font_color) { echo $font_color; } else { echo $tkf->font_color;  } ?>; 
 				} 
 			<?php } ?>
 			
@@ -4010,13 +4010,13 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 		
 		case 'link colour and hover colour': ?>
         
-        	<?php if($cap->link_underline != "never"): ?>
+        	<?php if($tkf->link_underline != "never"): ?>
 
-				<?php if($cap->link_underline == "just for mouse over"){ 
+				<?php if($tkf->link_underline == "just for mouse over"){ 
 					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
 				} else {	
-					if($cap->link_underline == "always") { 
+					if($tkf->link_underline == "always") { 
 						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
 					} else { 
@@ -4041,13 +4041,13 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 		
 		case 'adapt all link styles': ?>
         
-        	<?php if($cap->link_underline != "never"): ?>
+        	<?php if($tkf->link_underline != "never"): ?>
 
-				<?php if($cap->link_underline == "just for mouse over"){ 
+				<?php if($tkf->link_underline == "just for mouse over"){ 
 					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
 				} else {	
-					if($cap->link_underline == "always") { 
+					if($tkf->link_underline == "always") { 
 						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
 					} else { 
@@ -4068,22 +4068,22 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 			
 			<?php endif; ?>
 			
-			<?php if($cap->link_bg_color != ""):?>
+			<?php if($tkf->link_bg_color != ""):?>
 				/** ***   
 				title links BACKGROUND colour  **/
 				
 				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <?php if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+					background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
 				} 
 			<?php endif; ?>
 			
-			<?php if($cap->link_bg_color_hover != ""):?>
+			<?php if($tkf->link_bg_color_hover != ""):?>
 				/** ***   
 				title links BACKGROUND colour hover  **/
 				
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+					background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
 				} 
 			<?php endif; ?>
 			
@@ -4092,22 +4092,22 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 		
 		case 'the background colours too': ?>
         
-			<?php if($cap->link_bg_color != ""):?>
+			<?php if($tkf->link_bg_color != ""):?>
 				/** ***   
 				title links BACKGROUND colour  **/
 				
 				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <?php if ( $cap->link_bg_color != 'transparent' ) { echo '#'; } echo $cap->link_bg_color ?>;
+					background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
 				} 
 			<?php endif; ?>
 			
-			<?php if($cap->link_bg_color_hover != ""):?>
+			<?php if($tkf->link_bg_color_hover != ""):?>
 				/** ***   
 				title links BACKGROUND colour hover  **/
 				
 				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <?php if ( $cap->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $cap->link_bg_color_hover ?>;
+					background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
 				} 
 			<?php endif; ?>
 						
@@ -4123,7 +4123,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	
 <?php endif; ?>
 
-<?php if($cap->default_homepage_hide_avatar == "hide"){?>
+<?php if($tkf->default_homepage_hide_avatar == "hide"){?>
 /** ***   
 standard wordpress home page: hide avatar**/
 
@@ -4138,7 +4138,7 @@ body.home.bubble div.post div.author-box {
 }
 <?php } ?>
 
-<?php if($cap->default_homepage_style == "bubbles"){?>
+<?php if($tkf->default_homepage_style == "bubbles"){?>
 /** ***   
 standard wordpress home page: bubble style**/
 
@@ -4147,7 +4147,7 @@ body.bubble div.post h2.posttitle {
     margin: 0 0 12px;
 }
 
-<?php if($cap->default_homepage_hide_avatar == "hide") { ?>
+<?php if($tkf->default_homepage_hide_avatar == "hide") { ?>
 	div.post span.marker { display: none; }
 <?php } else { ?>
 	div.post span.marker {
@@ -4185,7 +4185,7 @@ display: block;
 }
 <?php } ?>
 
-<?php if($cap->default_homepage_hide_date == "hide"){?>
+<?php if($tkf->default_homepage_hide_date == "hide"){?>
 /** ***   
 standard wordpress home page: hide date, category and author**/
 
@@ -4194,23 +4194,23 @@ body.home div.post p.date {
 }
 <?php } ?>
 
-<?php if($cap->header_height){?>
+<?php if($tkf->header_height){?>
 /** ***   
 header height / navigation position **/
 
 #access {
-	margin-top:<?php echo $cap->header_height; ?>px;
+	margin-top:<?php echo $tkf->header_height; ?>px;
 }
 <?php } ?> 
 
-<?php if($cap->header_img != ''){?>
+<?php if($tkf->header_img != ''){?>
 /** ***   
 header image, repeat  **/
 
 #header {
-	background-image:url(<?php echo $cap->header_img?>);	
+	background-image:url(<?php echo $tkf->header_img?>);	
 		<?php 
-		switch ($cap->header_img_repeat)
+		switch ($tkf->header_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -4229,20 +4229,20 @@ header image, repeat  **/
         	break;
        	}
 		?>
-	<?php if($cap->header_img_x == 'center' ){?>
-		background-position: center <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
-	<?php } elseif($cap->header_img_x == 'right' ){?>
-		background-position: right <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
+	<?php if($tkf->header_img_x == 'center' ){?>
+		background-position: center <?php if($tkf->header_img_y){ echo $tkf->header_img_y; } else { echo '0'; }?>px;
+	<?php } elseif($tkf->header_img_x == 'right' ){?>
+		background-position: right <?php if($tkf->header_img_y){ echo $tkf->header_img_y; } else { echo '0'; }?>px;
 	<?php }?>  
-	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
-		background-position: left <?php echo $cap->header_img_y ?>px;
+	<?php if((!$tkf->header_img_x || $tkf->header_img_x == 'left') && $tkf->header_img_y){?>
+		background-position: left <?php echo $tkf->header_img_y ?>px;
 	<?php } ?>
 }
-<?php } elseif ( get_header_image() != '' && $cap->add_custom_image_header == true ) { ?>
+<?php } elseif ( get_header_image() != '' && $tkf->add_custom_image_header == true ) { ?>
 	#header {
 	background-image:url(<?php echo header_image(); ?>);	
 		<?php 
-		switch ($cap->header_img_repeat)
+		switch ($tkf->header_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -4261,40 +4261,40 @@ header image, repeat  **/
         	break;
        	}
 		?>
-	<?php if($cap->header_img_x == 'center' ){?>
-		background-position: center <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
-	<?php } elseif($cap->header_img_x == 'right' ){?>
-		background-position: right <?php if($cap->header_img_y){ echo $cap->header_img_y; } else { echo '0'; }?>px;
+	<?php if($tkf->header_img_x == 'center' ){?>
+		background-position: center <?php if($tkf->header_img_y){ echo $tkf->header_img_y; } else { echo '0'; }?>px;
+	<?php } elseif($tkf->header_img_x == 'right' ){?>
+		background-position: right <?php if($tkf->header_img_y){ echo $tkf->header_img_y; } else { echo '0'; }?>px;
 	<?php }?>  
-	<?php if((!$cap->header_img_x || $cap->header_img_x == 'left') && $cap->header_img_y){?>
-		background-position: left <?php echo $cap->header_img_y ?>px;
+	<?php if((!$tkf->header_img_x || $tkf->header_img_x == 'left') && $tkf->header_img_y){?>
+		background-position: left <?php echo $tkf->header_img_y ?>px;
 	<?php } ?>
 }
 <?php } ?>
 
-<?php if ( $cap->header_text == 'off' ) { ?>
+<?php if ( $tkf->header_text == 'off' ) { ?>
 	#header div#logo h1, #header #desc, #header div#logo h4, div#blog-description { 
 		display: none; 
 	}
 <?php } ?>
 
-<?php if ( $cap->header_text_color) { ?>
+<?php if ( $tkf->header_text_color) { ?>
 	#header div#logo h1 a, #header div#logo h4 a, #desc, div#blog-description { 
-		color:#<?php echo $cap->header_text_color ?>; 
+		color:#<?php echo $tkf->header_text_color ?>; 
 	}
 <?php } ?>			
 
-<?php if($cap->searchbar_x != "" || $cap->searchbar_y != ""): ?>
+<?php if($tkf->searchbar_x != "" || $tkf->searchbar_y != ""): ?>
 	/** ***   
 	header search bar position  **/
 
-	<?php if($cap->searchbar_y){?>
+	<?php if($tkf->searchbar_y){?>
 		#header #search-bar { 
-			top:<?php echo $cap->searchbar_y; ?>px !important;
+			top:<?php echo $tkf->searchbar_y; ?>px !important;
 		}
 	<?php } ?>
 	
-	<?php if($cap->searchbar_x == 'left'){?>
+	<?php if($tkf->searchbar_x == 'left'){?>
 		#header #search-bar { 
 			left:0; 
 		}
@@ -4304,11 +4304,11 @@ header image, repeat  **/
 	<?php } ?>
 <?php endif; ?>
  
-<?php if($cap->bg_menu_style != "tab style"): ?>
+<?php if($tkf->bg_menu_style != "tab style"): ?>
 /** ***   
 menu style  **/ 
 
-<?php if($cap->bg_menu_style == 'closed style'){?>
+<?php if($tkf->bg_menu_style == 'closed style'){?>
 	#access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 	#access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a, 
 	#access ul li.current_page_item > a:hover, #access ul li.current-menu-item > a:hover,
@@ -4326,7 +4326,7 @@ menu style  **/
 		margin-bottom: 0px;
 	}	
 <?php } ?>
-<?php if($cap->bg_menu_style == 'simple'){?>
+<?php if($tkf->bg_menu_style == 'simple'){?>
 	div#access {
 		background-color: transparent;
 	}	
@@ -4346,7 +4346,7 @@ menu style  **/
 	}
 <?php } ?>
 
-<?php if($cap->bg_menu_style == 'bordered'){?>
+<?php if($tkf->bg_menu_style == 'bordered'){?>
 	div#access {
 		background-color: transparent;
 		border-top: 1px solid #<?php echo $container_bg_color ?>;
@@ -4364,7 +4364,7 @@ menu style  **/
 
 <?php endif; ?>
 
-<?php if($cap->menu_x == 'right'){?>
+<?php if($tkf->menu_x == 'right'){?>
 /** ***   
 menu x-position  **/
 
@@ -4373,7 +4373,7 @@ div.menu ul {
 }
 <?php } ?>
 
-<?php if($cap->menue_link_color	) { ?>
+<?php if($tkf->menue_link_color	) { ?>
 /** ***   
 menu font colour  **/
 
@@ -4382,11 +4382,11 @@ menu font colour  **/
 #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
 #access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 #access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a  {
-	color: #<?php echo $cap->menue_link_color?>;
+	color: #<?php echo $tkf->menue_link_color?>;
 }
 <?php } ?>
 
-<?php if($cap->menue_link_color_current	) { ?>
+<?php if($tkf->menue_link_color_current	) { ?>
 /** ***   
 menu font colour current and mouse over **/ 
 
@@ -4402,7 +4402,7 @@ div#access div.menu ul li a:focus,
 #access ul li.current-menu-item > a, 
 #access ul li.current-menu-parent > a, 
 #access li.selected > a {
-	color: #<?php echo $cap->menue_link_color_current?>;
+	color: #<?php echo $tkf->menue_link_color_current?>;
 } 
 
 /** ***   
@@ -4413,26 +4413,26 @@ IE browser hack for menu font colour current and mouse over  **/
 * html #access ul li.current-menu-item a,
 * html #access ul li.current-menu-parent a,
 * html #access ul li a:hover {
-	color: #<?php echo $cap->menue_link_color_current?>;
+	color: #<?php echo $tkf->menue_link_color_current?>;
 } 
 <?php } ?>
 
-<?php if($cap->bg_menue_link_color != "" || $cap->menu_underline != "" || $cap->bg_menu_img != ""):?>
+<?php if($tkf->bg_menue_link_color != "" || $tkf->menu_underline != "" || $tkf->bg_menu_img != ""):?>
 /** ***   
 menu background colour, border-bottom, image and repeat  **/ 
 
 #access {
-<?php if($cap->bg_menue_link_color	){?>
-	background-color: <?php if ( $cap->bg_menue_link_color != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color; ?>;
+<?php if($tkf->bg_menue_link_color	){?>
+	background-color: <?php if ( $tkf->bg_menue_link_color != 'transparent' ) { echo '#'; } echo $tkf->bg_menue_link_color; ?>;
 <?php } ?>
-<?php if($cap->menu_underline ){?>
-	border-bottom: 1px solid #<?php echo $cap->menu_underline?>;
+<?php if($tkf->menu_underline ){?>
+	border-bottom: 1px solid #<?php echo $tkf->menu_underline?>;
 <?php } ?>
-<?php if($cap->bg_menu_img){?>
-	background-image:url(<?php echo $cap->bg_menu_img?>);	
+<?php if($tkf->bg_menu_img){?>
+	background-image:url(<?php echo $tkf->bg_menu_img?>);	
 <?php } ?>
 <?php 
-		switch ($cap->bg_menu_img_repeat)
+		switch ($tkf->bg_menu_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -4450,12 +4450,12 @@ menu background colour, border-bottom, image and repeat  **/
 } 
 <?php endif; ?>
 
-<?php if($cap->menu_corner_radius != ""):?>
+<?php if($tkf->menu_corner_radius != ""):?>
 /** ***   
 menu corner radius  **/ 
 
 #access {
-<?php if($cap->menu_corner_radius == 'just the bottom ones'){?>
+<?php if($tkf->menu_corner_radius == 'just the bottom ones'){?>
 	-moz-border-radius-topleft:0px;
 	-moz-border-radius-topright:0px;
 	-webkit-border-top-left-radius:0px;
@@ -4463,7 +4463,7 @@ menu corner radius  **/
 	border-top-left-radius:0px;
 	border-top-right-radius:0px;
 <?php } ?> 
-<?php if($cap->menu_corner_radius == 'not rounded'){?>
+<?php if($tkf->menu_corner_radius == 'not rounded'){?>
 	-moz-border-radius:0px;
 	-webkit-border-radius:0px;
 	border-radius:0px;
@@ -4472,19 +4472,19 @@ menu corner radius  **/
 <?php endif; ?>
 
 
-<?php if($cap->bg_menue_link_color_current	){?>
+<?php if($tkf->bg_menue_link_color_current	){?>
 /** ***   
 menu background colour, image and repeat of current  **/ 
 
 #access ul li.current_page_item > a, #access ul li.current-menu-ancestor > a, 
 #access ul li.current-menu-item > a, #access li.selected > a, #access ul li.current-menu-parent > a, 
 #access ul li.current_page_item, #access ul li.current-menu-item, #access li.selected {
-	background-color: <?php if ( $cap->bg_menue_link_color_current != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_current; ?>;
-	<?php if($cap->bg_menu_img_current){?>
-	background-image:url(<?php echo $cap->bg_menu_img_current?>);	
+	background-color: <?php if ( $tkf->bg_menue_link_color_current != 'transparent' ) { echo '#'; } echo $tkf->bg_menue_link_color_current; ?>;
+	<?php if($tkf->bg_menu_img_current){?>
+	background-image:url(<?php echo $tkf->bg_menu_img_current?>);	
 	<?php } ?>
-	<?php if($cap->bg_menu_img_current) {
-		switch ($cap->bg_menu_img_current_repeat) {
+	<?php if($tkf->bg_menu_img_current) {
+		switch ($tkf->bg_menu_img_current_repeat) {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
         break;
@@ -4502,7 +4502,7 @@ menu background colour, image and repeat of current  **/
 } 
 <?php } ?>
 
-<?php if($cap->bg_menue_link_color_hover){?>
+<?php if($tkf->bg_menue_link_color_hover){?>
 /** ***   
 menu background colour hover and drop down list  **/ 
 
@@ -4510,35 +4510,35 @@ menu background colour hover and drop down list  **/
 #access ul li.current-menu-item a:hover,  
 #access li:hover > a, #access ul ul:hover > a, 
 #access ul ul li, #access ul ul a {
-	background-color: <?php if ( $cap->bg_menue_link_color_hover != 'transparent' ) { echo '#'; } echo $cap->bg_menue_link_color_hover; ?> !important;
+	background-color: <?php if ( $tkf->bg_menue_link_color_hover != 'transparent' ) { echo '#'; } echo $tkf->bg_menue_link_color_hover; ?> !important;
 }
 <?php } ?> 
 
-<?php if($cap->bg_menue_link_color_dd_hover	){?>
+<?php if($tkf->bg_menue_link_color_dd_hover	){?>
 /** ***   
 menu background colour drop down menu item hover  **/ 
 
 #access ul.children li:hover > a,
 #access ul.sub-menu li:hover > a {
-	background: #<?php echo $cap->bg_menue_link_color_dd_hover?> !important;
+	background: #<?php echo $tkf->bg_menue_link_color_dd_hover?> !important;
 } 
 <?php } ?>
 
-<?php if ( $cap->leftsidebar_width != "") { ?>
+<?php if ( $tkf->leftsidebar_width != "") { ?>
 	/** ***   
 	left sidebar width  **/ 
 
 	div#leftsidebar {
-		width: <?php echo $cap->leftsidebar_width ?>px;
-		margin-right: -<?php echo$cap->leftsidebar_width ?>px;
+		width: <?php echo $tkf->leftsidebar_width ?>px;
+		margin-right: -<?php echo$tkf->leftsidebar_width ?>px;
 	} 
 	
 	div.v_line_left {
-		margin-left: <?php echo $cap->leftsidebar_width ?>px;
+		margin-left: <?php echo $tkf->leftsidebar_width ?>px;
 	}
 	
 	<?php // change the width of the widget titles, which is always 41px less because of its padding.. 
-	$old = $cap->leftsidebar_width; $wdth = $old - 41; ?>
+	$old = $tkf->leftsidebar_width; $wdth = $old - 41; ?>
 	 
 	div#leftsidebar h3.widgettitle { 
 		width: <?php echo $wdth ?>px;
@@ -4546,17 +4546,17 @@ menu background colour drop down menu item hover  **/
 	
 <?php } ?>
 
-<?php if ( $cap->bg_leftsidebar_color != "" || $cap->bg_leftsidebar_img != "") { ?>
+<?php if ( $tkf->bg_leftsidebar_color != "" || $tkf->bg_leftsidebar_img != "") { ?>
 /** ***   
 left sidebar background colour  **/ 
 
 div#leftsidebar {
-	<?php if ( $cap->bg_leftsidebar_color != "" ) { ?>background-color: #<?php echo $cap->bg_leftsidebar_color; } ?>;
+	<?php if ( $tkf->bg_leftsidebar_color != "" ) { ?>background-color: #<?php echo $tkf->bg_leftsidebar_color; } ?>;
 	
-	<?php if($cap->bg_leftsidebar_img != ""){ ?>
-		background-image:url(<?php echo $cap->bg_leftsidebar_img ?>);	
+	<?php if($tkf->bg_leftsidebar_img != ""){ ?>
+		background-image:url(<?php echo $tkf->bg_leftsidebar_img ?>);	
 	
-		<?php switch ($cap->bg_leftsidebar_img_repeat)
+		<?php switch ($tkf->bg_leftsidebar_img_repeat)
 		        {
 		        case 'no repeat':
 					?>background-repeat: no-repeat;<?php	
@@ -4576,22 +4576,22 @@ div#leftsidebar {
 } 
 <?php } ?>
 
-<?php if ( $cap->rightsidebar_width != "") { ?>
+<?php if ( $tkf->rightsidebar_width != "") { ?>
 	/** ***   
 	right sidebar width  **/ 
 
 	div#sidebar {
-		width: <?php echo $cap->rightsidebar_width ?>px;
-		margin-left: -<?php echo$cap->rightsidebar_width ?>px;
+		width: <?php echo $tkf->rightsidebar_width ?>px;
+		margin-left: -<?php echo$tkf->rightsidebar_width ?>px;
 	} 
 	
 	
 	div.v_line_right {
-		right: <?php echo $cap->rightsidebar_width ?>px;
+		right: <?php echo $tkf->rightsidebar_width ?>px;
 	}
 	
 	<?php // change the width of the widget titles, which is always 41px less because of its padding.. 
-	$old = $cap->rightsidebar_width; $wdth = $old - 41; ?>
+	$old = $tkf->rightsidebar_width; $wdth = $old - 41; ?>
 	 
 	div#sidebar h3.widgettitle { 
 		width: <?php echo $wdth ?>px;
@@ -4599,17 +4599,17 @@ div#leftsidebar {
 	
 <?php } ?>
 
-<?php if ( $cap->bg_rightsidebar_color != "" || $cap->bg_rightsidebar_img != "") { ?>
+<?php if ( $tkf->bg_rightsidebar_color != "" || $tkf->bg_rightsidebar_img != "") { ?>
 /** ***   
 right sidebar background colour  **/ 
 
 div#sidebar {
-	<?php if ( $cap->bg_rightsidebar_color != "" ) { ?>background-color: #<?php echo $cap->bg_rightsidebar_color; } ?>;
+	<?php if ( $tkf->bg_rightsidebar_color != "" ) { ?>background-color: #<?php echo $tkf->bg_rightsidebar_color; } ?>;
 	
-	<?php if($cap->bg_rightsidebar_img != ""){ ?>
-		background-image:url(<?php echo $cap->bg_rightsidebar_img ?>);	
+	<?php if($tkf->bg_rightsidebar_img != ""){ ?>
+		background-image:url(<?php echo $tkf->bg_rightsidebar_img ?>);	
 	
-		<?php switch ($cap->bg_rightsidebar_img_repeat)
+		<?php switch ($tkf->bg_rightsidebar_img_repeat)
 		        {
 		        case 'no repeat':
 					?>background-repeat: no-repeat;<?php	
@@ -4629,13 +4629,13 @@ div#sidebar {
 } 
 <?php } ?>
 
-<?php if($cap->bg_widgettitle_style != "" || $cap->bg_widgettitle_color != "" || $cap->bg_widgettitle_img != "" ): ?>
+<?php if($tkf->bg_widgettitle_style != "" || $tkf->bg_widgettitle_color != "" || $tkf->bg_widgettitle_img != "" ): ?>
 /** ***   
 sidebars: widget title style, background colour and image  **/ 
 
 div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle {
 <?php 
-		switch ($cap->bg_widgettitle_style) {
+		switch ($tkf->bg_widgettitle_style) {
         case 'angled':
 			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin: 0 0 12px -20px; padding: 5px 22px 5px 20px;<?php 	
         	break;
@@ -4644,14 +4644,14 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
         	break;	
         }
 ?>
-<?php if($cap->bg_widgettitle_color){?>
-	background-color: #<?php echo $cap->bg_widgettitle_color?>;
+<?php if($tkf->bg_widgettitle_color){?>
+	background-color: #<?php echo $tkf->bg_widgettitle_color?>;
 <?php } ?>
-<?php if($cap->bg_widgettitle_img){ ?>
-	background-image:url(<?php echo $cap->bg_widgettitle_img?>);	
+<?php if($tkf->bg_widgettitle_img){ ?>
+	background-image:url(<?php echo $tkf->bg_widgettitle_img?>);	
 <?php } ?>
 <?php 
-		switch ($cap->bg_widgettitle_img_repeat)
+		switch ($tkf->bg_widgettitle_img_repeat)
         {
         case 'no repeat':
 			?>background-repeat: no-repeat;<?php	
@@ -4671,7 +4671,7 @@ div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.wi
 /* just for the left sidebar */
 div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
 <?php 
-		switch ($cap->bg_widgettitle_style) {
+		switch ($tkf->bg_widgettitle_style) {
         case 'angled':
 			?>-moz-border-radius:0 0 0 0; -webkit-border-radius:0; border-radius:0; margin:0 0 12px -20px; padding:5px 22px 5px 19px;<?php 	
         	break;
@@ -4683,19 +4683,19 @@ div#leftsidebar h3.widgettitle, div#leftsidebar h3.widgettitle a {
 }
 <?php endif; ?>
 
-<?php if($cap->widgettitle_font_size || $cap->widgettitle_font_color || $cap->widgettitle_font_style){?>
+<?php if($tkf->widgettitle_font_size || $tkf->widgettitle_font_color || $tkf->widgettitle_font_style){?>
 /** ***   
 sidebars: widget title font style, size and color **/ 
 
 	div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle, 
 	div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a {
-	font-family: <?php echo $cap->widgettitle_font_style ?>;
-	<?php if($cap->widgettitle_font_size != "") { ?>font-size: <?php echo $cap->widgettitle_font_size; } ?>px; 
-	<?php if($cap->widgettitle_font_color != "") { ?>color: #<?php echo $cap->widgettitle_font_color; } ?>;
+	font-family: <?php echo $tkf->widgettitle_font_style ?>;
+	<?php if($tkf->widgettitle_font_size != "") { ?>font-size: <?php echo $tkf->widgettitle_font_size; } ?>px; 
+	<?php if($tkf->widgettitle_font_color != "") { ?>color: #<?php echo $tkf->widgettitle_font_color; } ?>;
 }
 <?php } ?>
 
-<?php if($cap->capitalize_widgets_li == 'yes'){?>
+<?php if($tkf->capitalize_widgets_li == 'yes'){?>
 /** ***   
 widgets: capitalize fonts in lists**/ 
 
@@ -4703,7 +4703,7 @@ div.widget-title ul.item-list li a, div.widget ul li a { text-transform: upperca
 
 <?php } ?>
 
-<?php if($cap->capitalize_widgettitles == 'yes'){?>
+<?php if($tkf->capitalize_widgettitles == 'yes'){?>
 /** ***   
 widgets: capitalize widgettitles**/ 
 
@@ -4721,16 +4721,16 @@ div.post div.post-content {
 }
 <?php } ?>
 
-<?php if($cap->bg_content_nav_color){?>
+<?php if($tkf->bg_content_nav_color){?>
 /** ***   
 BuddyPress sub navigation background colour  **/ 
 
 div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a, 
 div.pagination, div#subnav.item-list-tabs {
-	background-color: #<?php echo $cap->bg_content_nav_color?>;
+	background-color: #<?php echo $tkf->bg_content_nav_color?>;
 }
 div.item-list-tabs {
-border-bottom: 4px solid #<?php echo $cap->bg_content_nav_color?>;
+border-bottom: 4px solid #<?php echo $tkf->bg_content_nav_color?>;
 }
 
 <?php } ?>
@@ -4738,8 +4738,8 @@ border-bottom: 4px solid #<?php echo $cap->bg_content_nav_color?>;
 /** ***   
 overwrite css area adding  **/ 
 
-<?php if($cap->overwrite_css){
-	echo $cap->overwrite_css;
+<?php if($tkf->overwrite_css){
+	echo $tkf->overwrite_css;
 }
 ?>
 </style>

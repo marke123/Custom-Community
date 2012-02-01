@@ -22,9 +22,9 @@
 
 	<div id="item-header-avatar">
 		<a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>">
-			<?php global $cap;  $asize = '150';
-			if($cap->bp_groups_avatar_size !=  '') 
-				$asize = $cap->bp_groups_avatar_size;
+			<?php global $tkf;  $asize = '150';
+			if($tkf->bp_groups_avatar_size !=  '') 
+				$asize = $tkf->bp_groups_avatar_size;
 	
 			bp_group_avatar('type=full&width='.$asize.'&height='.$asize); ?>
 		</a>

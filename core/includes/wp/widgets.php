@@ -95,7 +95,7 @@ function widget_community_nav() { ?>
  * @since 1.8.3
  */	
 function cc_login_widget(){?>
-	<?php global $cap;?>
+	<?php global $tkf;?>
 		<?php do_action( 'bp_inside_before_sidebar' ) ?>
 	
 		<?php if ( is_user_logged_in() ) : ?>
@@ -124,10 +124,10 @@ function cc_login_widget(){?>
 			<?php do_action( 'bp_before_sidebar_login_form' ) ?>
 			<div class="widget">
 			<p id="login-text">
-			<?php if(!$cap->bp_login_sidebar_text) { ?>
+			<?php if(!$tkf->bp_login_sidebar_text) { ?>
 				<?php _e( 'To start connecting please log in first.', 'cc' ) ?>
 			<?php } else { ?>
-				<?php echo $cap->bp_login_sidebar_text; ?>
+				<?php echo $tkf->bp_login_sidebar_text; ?>
 			<?php } ?>
 				<?php if ( bp_get_signup_allowed() ) : ?>
 					<?php printf( __( ' You can also <a href="%s" title="Create an account">create an account</a>.', 'cc' ), site_url( BP_REGISTER_SLUG . '/' ) ) ?>

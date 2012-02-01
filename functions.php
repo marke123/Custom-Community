@@ -1,6 +1,7 @@
 <?php
 	
-require_once( dirname(__FILE__) . '/admin/cheezcap.php');
+require_once( dirname(__FILE__) . '/core/get-pro.php' );
+require_once( dirname(__FILE__) . '/core/post-metabox.php' );
 require_once( dirname(__FILE__) . '/core/loader.php');
 
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
@@ -25,7 +26,7 @@ if ( ! function_exists( 'cc_setup' ) ):
  *
  */
 function cc_setup() {
-global $cap, $content_width;
+global $tkf, $content_width;
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
@@ -61,7 +62,7 @@ global $cap, $content_width;
 	) );
 	
 	// This theme allows users to set a custom background
-	if($cap->add_custom_background == true){
+	if($tkf->add_custom_background == true){
 		add_custom_background();
 	}
 	// Your changeable header business starts here
@@ -78,18 +79,18 @@ global $cap, $content_width;
 
 	// Add a way for the custom header to be styled in the admin panel that controls
 	// custom headers. See cc_admin_header_style(), below.
-	if($cap->add_custom_image_header == true){
+	if($tkf->add_custom_image_header == true){
 		add_custom_image_header( 'cc_header_style', 'cc_admin_header_style', 'cc_admin_header_image' );
 	}
 	
 	// Define Content with
 	$content_width  = "670";
-	if($cap->sidebar_position == "left and right"){
+	if($tkf->sidebar_position == "left and right"){
 		$content_width  = "432";
 	}
 	
 	// Define disable the admin bar
-	if($cap->bp_login_bar_top == 'off') {
+	if($tkf->bp_login_bar_top == 'off') {
 		define( 'BP_DISABLE_ADMIN_BAR', true );
 	}
 	
@@ -441,7 +442,7 @@ function cc_widgets_init(){
 	);
 
 }
-if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp_is_active')) {
+if($tkf->buddydev_search == true && defined('BP_VERSION') && function_exists('bp_is_active')) {
 		
 	//* Add these code to your functions.php to allow Single Search page for all buddypress components*/
 	//	Remove Buddypress search drowpdown for selecting members etc
@@ -463,7 +464,7 @@ if($cap->buddydev_search == true && defined('BP_VERSION') && function_exists('bp
 	/* we just need to filter the query and change search_term=The search text*/
 	function cc_show_search_results(){
 	    //filter the ajaxquerystring
-	     add_filter("bp_ajax_querystring","cc_global_search_qs",100,2);
+	   	add_filter("bp_ajax_querystring","cc_global_search_qs",100,2);
 	}
 	
 	//show the search results for member*/

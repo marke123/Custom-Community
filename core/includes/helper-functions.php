@@ -16,8 +16,8 @@ function cc_require_path($path){
  * @since 1.8.3
  */
 function cc_slider_shadow() {
-	global $cap;
-	if ($cap->slideshow_shadow == "shadow") { 
+	global $tkf;
+	if ($tkf->slideshow_shadow == "shadow") { 
 		return "slider-shadow.png"; 
 	} else { 
 		return "slider-shadow-sharp.png"; 
@@ -31,10 +31,10 @@ function cc_slider_shadow() {
  * @since 1.8.3
  */
 function cc_excerpt_length() {
-	global $cap;
+	global $tkf;
 	$excerpt_length = 30;
-	if($cap->excerpt_length){
-		$excerpt_length = $cap->excerpt_length;
+	if($tkf->excerpt_length){
+		$excerpt_length = $tkf->excerpt_length;
 	}
 	return $excerpt_length;
 }
@@ -47,12 +47,12 @@ function cc_excerpt_length() {
  */
 add_action( 'bp_init', 'cc_change_profile_tab_order' );
 function cc_change_profile_tab_order() {
-	global $bp, $cap;
+	global $bp, $tkf;
 	
-	if($cap->bp_profiles_nav_order == '')
+	if($tkf->bp_profiles_nav_order == '')
 		return;
 	
-	$order = $cap->bp_profiles_nav_order;
+	$order = $tkf->bp_profiles_nav_order;
 	$order = str_replace(' ','',$order); 
 	$order = explode(",", $order);
 	$i = 1;
@@ -72,7 +72,7 @@ function cc_change_profile_tab_order() {
  */
 add_action('bp_init', 'cc_change_groups_tab_order');
 function cc_change_groups_tab_order() {
-	global $bp, $cap;
+	global $bp, $tkf;
 
 	
 	// In BP 1.3, bp_options_nav for groups is keyed by group slug instead of by 'groups', to
@@ -81,11 +81,11 @@ function cc_change_groups_tab_order() {
 	$group_slug = isset( $bp->groups->current_group->slug ) ? $bp->groups->current_group->slug : false;
 	
 	
-	if($cap->bp_groups_nav_order == '')
+	if($tkf->bp_groups_nav_order == '')
 		return;
 
 		
-	$order = $cap->bp_groups_nav_order;
+	$order = $tkf->bp_groups_nav_order;
 	$order = str_replace(' ','',$order); 
 	$order = explode(",", $order);
 	$i = 1;
@@ -104,7 +104,7 @@ function cc_change_groups_tab_order() {
  */
 	
 function cc_switch_css(){
-	global $cap;
+	global $tkf;
 		
 	$switch_css =  array(
 	'body_bg_color' => 'ffffff',
@@ -117,8 +117,8 @@ function cc_switch_css(){
 	'link_color' => '489ed5',
 	);
 
-	if ($cap->style_css != false):;
-	switch ($cap->style_css){
+	if ($tkf->style_css != false):;
+	switch ($tkf->style_css){
         case 'dark':
 			$switch_css =  array(
 			'body_bg_color' => '333333',
@@ -207,11 +207,11 @@ function cc_color_scheme(){
 	echo cc_get_color_scheme();
 }
 	function cc_get_color_scheme(){
-		global $cap;
+		global $tkf;
 		if(isset( $_GET['show_style']))
-			$cap->style_css = $_GET['show_style']; 
+			$tkf->style_css = $_GET['show_style']; 
 			
-		switch ($cap->style_css)
+		switch ($tkf->style_css)
 	        {
 	        case 'dark':
 			$color = 'dark';
@@ -245,13 +245,13 @@ function cc_color_scheme(){
  * @since 1.8.3
  */	
 function cc_slidertop(){
-	global $cc_page_options, $cap;
+	global $cc_page_options, $tkf;
 
 	$cc_page_options = cc_get_page_meta();
 	
 	$slidercat = '0' ;
 	$slider_style = 'default';
-	$caption = 'on';
+	$tkftion = 'on';
 	$slideshow_amount = '4';
 	$slideshow_time = '5000';
 	$slideshow_orderby = 'DESC';
@@ -271,7 +271,7 @@ function cc_slidertop(){
 			$slider_style = $cc_page_options["cc_page_slider_style"];
 		}
 		if( $cc_page_options["cc_page_slider_caption"] != '' ){
-			$caption = $cc_page_options["cc_page_slider_caption"];
+			$tkftion = $cc_page_options["cc_page_slider_caption"];
 		}
 		if( $cc_page_options["cc_page_slider_amount"]  != '' ){
 			$slideshow_amount = $cc_page_options["cc_page_slider_amount"];
@@ -282,7 +282,7 @@ function cc_slidertop(){
 		if( $cc_page_options["cc_page_slider_orderby"] != '' ){
 			$slideshow_orderby = $cc_page_options["cc_page_slider_orderby"];
 		}
-		if( $cap->$cc_page_options["cc_page_slider_post_type"] != '' ){
+		if( $tkf->$cc_page_options["cc_page_slider_post_type"] != '' ){
 			$slideshow_post_type = $cc_page_options["cc_page_slider_post_type"];
 		}
 		if( $cc_page_options["cc_page_slider_show_page"] != '' ){
@@ -291,29 +291,29 @@ function cc_slidertop(){
 
 	}else{
 
-		if( $cap->slideshow_cat != '' ){
-			$slidercat = $cap->slideshow_cat;
+		if( $tkf->slideshow_cat != '' ){
+			$slidercat = $tkf->slideshow_cat;
 		}
-		if( $cap->slideshow_style != '' ){
-			$slider_style = $cap->slideshow_style;
+		if( $tkf->slideshow_style != '' ){
+			$slider_style = $tkf->slideshow_style;
 		}
-		if( $cap->slideshow_caption != '' ){
-			$caption = $cap->slideshow_caption;
+		if( $tkf->slideshow_caption != '' ){
+			$tkftion = $tkf->slideshow_caption;
 		}
-		if( $cap->slideshow_amount != '' ){
-			$slideshow_amount = $cap->slideshow_amount;
+		if( $tkf->slideshow_amount != '' ){
+			$slideshow_amount = $tkf->slideshow_amount;
 		}
-		if( $cap->slideshow_time != '' ){
-			$slideshow_time = $cap->slideshow_time;
+		if( $tkf->slideshow_time != '' ){
+			$slideshow_time = $tkf->slideshow_time;
 		}
-		if( $cap->slideshow_orderby != '' ){
-			$slideshow_orderby = $cap->slideshow_orderby;
+		if( $tkf->slideshow_orderby != '' ){
+			$slideshow_orderby = $tkf->slideshow_orderby;
 		}
-		if( $cap->slideshow_post_type != '' ){
-			$slideshow_post_type = $cap->slideshow_post_type;
+		if( $tkf->slideshow_post_type != '' ){
+			$slideshow_post_type = $tkf->slideshow_post_type;
 		}
-		if( $cap->slideshow_show_page != '' ){
-			$slideshow_show_page = $cap->slideshow_show_page;
+		if( $tkf->slideshow_show_page != '' ){
+			$slideshow_show_page = $tkf->slideshow_show_page;
 		}
 		
 	}
@@ -331,7 +331,7 @@ function cc_slidertop(){
 			'amount' => $slideshow_amount,
 			'category_name' => $slidercat,
 			'slider_nav' => 'off',
-			'caption' => $caption,
+			'caption' => $tkftion,
 			'caption_width' => '1000',
 			'width' => '1000',
 			'height' => '250',
@@ -346,7 +346,7 @@ function cc_slidertop(){
 			'amount' => '4',
 			'category_name' => $slidercat,
 			'slider_nav' => 'on',
-			'caption' => $caption,
+			'caption' => $tkftion,
 			'id' => 'slidertop',
 			'time_in_ms' => $slideshow_time,
 			'orderby' => $slideshow_orderby,
@@ -358,7 +358,7 @@ function cc_slidertop(){
 	$tmp = '<div id="cc_slider-top">';
 	$tmp .= slider($atts,$content = null);
 	$tmp .= '</div>';
-	if($cap->slideshow_shadow != "no shadow"){
+	if($tkf->slideshow_shadow != "no shadow"){
 		$tmp .= '<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="'.get_template_directory_uri().'/images/slideshow/'.cc_slider_shadow().'"></img></div>';
 	}
 		
