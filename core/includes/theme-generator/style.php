@@ -2642,8 +2642,9 @@ list-style: none;
 margin: 0;
 }
 div.menu ul {
-float:left;
+/*float:left;*/
 }
+div.menu .menu{ display:inline}
 #access .menu-header li,
 div.menu li {
 float: left;
@@ -2911,7 +2912,7 @@ margin-bottom:25px;
 -moz-border-radius: 6px;
 -webkit-border-radius: 6px;
 border-radius: 6px;
-width: 222px;
+width: 215px;
 height: 160px;
 float: left;
 background: #161613;

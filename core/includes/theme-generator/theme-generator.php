@@ -689,13 +689,13 @@ class CC_Theme_Generator{
 		global $tkf;?> 
 		<style type="text/css">
 		
-		login h1 {
+		#login h1 a{
 			<?php if($tkf->bg_loginpage_img){ ?>
 				background-image: url('<?php echo $tkf->bg_loginpage_img; ?>');
 			<?php } ?>
 			color:#777;
 		}
-		h1 a {
+		#login h1 a {
 			<?php if($tkf->bg_loginpage_img){ ?>
 				background-image: url('<?php echo $tkf->bg_loginpage_img; ?>');
 				height:<?php echo $tkf->login_logo_height; ?>px;
@@ -704,7 +704,7 @@ class CC_Theme_Generator{
 		}
 		
 		<?php if($tkf->bg_loginpage_body_img || $tkf->bg_loginpage_body_color){ ?>
-			html, boddy, .login {
+			html, body.login {
 				<?php if($tkf->bg_loginpage_body_img){ ?>
 					background-image: url('<?php echo $tkf->bg_loginpage_body_img; ?>');
 				<?php } ?>
@@ -741,7 +741,11 @@ class CC_Theme_Generator{
 		}
 		<?php if($tkf->bg_loginpage_backtoblog_fade_1 && $tkf->bg_loginpage_backtoblog_fade_2){ ?>
 			#backtoblog {
-				 background: -moz-linear-gradient(center bottom , #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;
+				background: -moz-linear-gradient(center bottom , #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;
+				background: -webkit-linear-gradient(bottom, #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;				
+				background: -o-linear-gradient(bottom, #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;
+				background: -ms-linear-gradient((bottom, #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;
+				background: linear-gradient(bottom, #<?php echo $tkf->bg_loginpage_backtoblog_fade_1; ?>, #<?php echo $tkf->bg_loginpage_backtoblog_fade_2; ?>) repeat scroll 0 0 transparent;				
 			}
 		<?php } ?>
 		</style>

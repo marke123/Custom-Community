@@ -28,17 +28,23 @@
 
 				</div>
 
-				<?php while (have_posts()) : the_post(); ?>
+				<?php 
+				global $cc_post_options;								
+				while (have_posts()) : the_post(); 
+				$cc_post_options=cc_get_post_meta(); 
+				?>
 
 					<?php do_action( 'bp_before_blog_post' ) ?>
 
 					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
+						<?php if($cc_post_options['cc_post_template_avatar'] != '1') { ?>
 						<div class="author-box">
 							<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-						<?php if(defined('BP_VERSION')){ ?>
-							<p><?php printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
-						<?php } ?>						</div>
+							<?php if(defined('BP_VERSION')){ ?>
+								<p><?php printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
+							<?php } ?>						
+						</div>
+						<?php } ?>
 
 						<div class="post-content">
 							<h2 class="posttitle"><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php _e( 'Permanent Link to', 'cc' ) ?> <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
