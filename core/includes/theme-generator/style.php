@@ -2740,6 +2740,10 @@ color: #<?php echo $font_color; ?>;
 
 /* =Slider
 -------------------------------------------------------------- */
+div.slidershadow{
+	margin-top:-12px; 
+	margin-bottom:-30px;
+}
 div#cc_slider-top {
 -moz-border-radius:6px;
 -webkit-border-radius:6px;

@@ -359,7 +359,7 @@ function cc_slidertop(){
 	$tmp .= slider($atts,$content = null);
 	$tmp .= '</div>';
 	if($tkf->slideshow_shadow != "no shadow"){
-		$tmp .= '<div class="slidershadow" style="margin-top:-12px; margin-bottom:-30px;"><img src="'.get_template_directory_uri().'/images/slideshow/'.cc_slider_shadow().'"></img></div>';
+		$tmp .= '<div class="slidershadow"><img src="'.get_template_directory_uri().'/images/slideshow/'.cc_slider_shadow().'"></img></div>';
 	}
 		
 	return $tmp;
