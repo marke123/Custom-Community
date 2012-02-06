@@ -282,7 +282,7 @@ function cc_slidertop(){
 		if( $cc_page_options["cc_page_slider_orderby"] != '' ){
 			$slideshow_orderby = $cc_page_options["cc_page_slider_orderby"];
 		}
-		if( $tkf->$cc_page_options["cc_page_slider_post_type"] != '' ){
+		if( $cc_page_options["cc_page_slider_post_type"] != '' ){
 			$slideshow_post_type = $cc_page_options["cc_page_slider_post_type"];
 		}
 		if( $cc_page_options["cc_page_slider_show_page"] != '' ){
