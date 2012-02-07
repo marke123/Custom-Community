@@ -35,7 +35,7 @@ Visit our forums for support questions or just to participate with your ideas!
 http://themekraft.com/forums/ 
 
 
-************************************************************* 
+************************************************************** 
 
 Footer Credits 
 
