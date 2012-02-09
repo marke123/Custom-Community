@@ -297,7 +297,7 @@ add_shortcode('cc_third_col_right', 'third_col_right');
 
 // list posts
 function cc_list_posts($atts,$content = null) {
-	global $tkf, $cc_page_options, $post;	
+	global $tkf, $cc_page_options, $post, $more;	
 	$tmp = '';
 	
 	extract(shortcode_atts(array(
@@ -311,7 +311,7 @@ function cc_list_posts($atts,$content = null) {
 		'order' => '',
 	), $atts));
 
-	$img_position = 'boxgrid';
+	//$img_position = 'boxgrid';
     	
 	if($category_name == 'all-categories'){
 		$category_name = '0';
@@ -333,7 +333,7 @@ function cc_list_posts($atts,$content = null) {
 	remove_all_filters('posts_orderby');
 	query_posts($args);
 	
-	
+	$more = 0;
 	if (have_posts()) : while (have_posts()) : the_post();
 
 		if($img_position == 'boxgrid'){
@@ -412,12 +412,17 @@ function slider($atts,$content = null) {
 		$category_name = '0';
 	}
 	
-	if($page_id != '' && $post_type = 'post'){
+	if($page_id != '' && $post_type == 'post'){
 		 $post_type = 'page';
 	}
 
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
+	}
+
+	// Allow multiple post types to be comma-separated
+	if(strpos($post_type, ',') !== false){
+		$post_type = explode(',',$post_type);
 	}
 	
 	$tmp = '<script type="text/javascript">'. chr(13);

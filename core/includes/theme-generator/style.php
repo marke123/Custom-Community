@@ -2642,8 +2642,9 @@ list-style: none;
 margin: 0;
 }
 div.menu ul {
-float:left;
+/*float:left;*/
 }
+div.menu .menu{ display:inline}
 #access .menu-header li,
 div.menu li {
 float: left;
@@ -2739,6 +2740,10 @@ color: #<?php echo $font_color; ?>;
 
 /* =Slider
 -------------------------------------------------------------- */
+div.slidershadow{
+	margin-top:-12px; 
+	margin-bottom:-30px;
+}
 div#cc_slider-top {
 -moz-border-radius:6px;
 -webkit-border-radius:6px;
@@ -2911,7 +2916,7 @@ margin-bottom:25px;
 -moz-border-radius: 6px;
 -webkit-border-radius: 6px;
 border-radius: 6px;
-width: 222px;
+width: 215px;
 height: 160px;
 float: left;
 background: #161613;
