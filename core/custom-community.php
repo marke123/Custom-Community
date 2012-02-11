@@ -52,6 +52,13 @@ class Custom_Community{
 	function generate_theme(){
 		if(!is_admin())
 			$Theme_Generator = new CC_Theme_Generator();
+				
+			$args = array('echo' => '0','hide_empty' => '0');
+			$categories = get_categories($args);
+			foreach($categories as $category) {
+				tk_select_add_option( 'slideshow_cat', $category->slug , $category->name );
+			}
+				
 	}
 	
 	function framework_init(){
@@ -59,7 +66,7 @@ class Custom_Community{
 		// Registering the form where the data have to be saved
 		$args['forms'] = array( 'cc-config' );
 		$args['text_domain'] = 'my_text_domain';
-		tk_framework( $args );
+		tk_framework( $args ); 
 		
 		 
 	}
