@@ -238,18 +238,24 @@ function cc_add_page_meta($id){
 	
 	if(!empty($_POST["cc_page_slider_on"]))
 		update_post_meta($post->ID, "_cc_page_slider_on",cc_clean_input( $_POST["cc_page_slider_on"], 'checkbox') );	
+	else
+		update_post_meta($post->ID, "_cc_page_slider_on",cc_clean_input( '', 'checkbox') );	
 
 	if(!empty($_POST["cc_page_slider_cat"]))
 		update_post_meta($post->ID, "_cc_page_slider_cat",cc_clean_input( $_POST["cc_page_slider_cat"], 'text') );
 
 	if(!empty($_POST["cc_page_template_on"]))
 		update_post_meta($post->ID, "_cc_page_template_on",cc_clean_input( $_POST["cc_page_template_on"], 'checkbox') );
+	else
+		update_post_meta($post->ID, "_cc_page_template_on",cc_clean_input( '', 'checkbox') );
 
 	if(!empty($_POST["cc_page_template_cat"]))
 		update_post_meta($post->ID, "_cc_page_template_cat",cc_clean_input( $_POST["cc_page_template_cat"], 'text') );
 	
 	if(!empty($_POST["cc_page_template_amount"]))
 		update_post_meta($post->ID, "_cc_page_template_amount",cc_clean_input( $_POST["cc_page_template_amount"], 'text') );
+	else
+		update_post_meta($post->ID, "_cc_page_template_amount",cc_clean_input( 0, 'text') );
 	
 	if(!empty($_POST["cc_page_slider_orderby"]))
 		update_post_meta($post->ID, "_cc_page_slider_orderby",cc_clean_input( $_POST["cc_page_slider_orderby"], 'text') );
