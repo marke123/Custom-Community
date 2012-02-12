@@ -515,8 +515,22 @@ div#content .padder {
 -moz-border-radius: 0px !important;
 border-left: none;
 border-right: none;
-margin-left: <?php echo $tkf->leftsidebar_width ?>px;
-margin-right: <?php if($tkf->rightsidebar_width==""){ echo "224"; } else { echo $tkf->rightsidebar_width; } ?>px;
+margin-left: <?php 
+	if($tkf->sidebar_position == "left" || $tkf->sidebar_position == "left and right"){
+		if($tkf->leftsidebar_width =="") {
+	 		echo "224"; 
+		} else {
+	 		echo $tkf->leftsidebar_width; 
+		} 
+	} ?>px;
+margin-right: <?php 
+	if($tkf->sidebar_position == "" || $tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right"){
+		if($tkf->rightsidebar_width =="") {
+	 		echo "224"; 
+		} else {
+	 		echo $tkf->rightsidebar_width; 
+		} 
+	} ?>px;
 min-height: 300px;
 padding-top: 30px;
 overflow: hidden;
