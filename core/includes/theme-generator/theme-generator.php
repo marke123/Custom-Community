@@ -547,7 +547,7 @@ class CC_Theme_Generator{
 				'amount' => '3',
 		 	);
 				
-			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 
+			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
 		}
 	}
 	

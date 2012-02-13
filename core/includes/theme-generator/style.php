@@ -2923,6 +2923,11 @@ margin-bottom:25px;
 
 /* =list posts img mouse over effect
 -------------------------------------------------------------- */
+
+div.first_posts_home {
+	margin-top: -44px;
+}
+
 .boxgrid {
 -moz-background-clip: border;
 -moz-background-inline-policy: continuous;
