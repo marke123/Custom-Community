@@ -421,5 +421,9 @@ function cc_list_posts_on_page(){
         }
 	}
 }
-
+if (!function_exists('bp_core_get_userlink')){
+	function bp_core_get_userlink(){
+		return get_the_author_link();	
+	}
+}
 ?>

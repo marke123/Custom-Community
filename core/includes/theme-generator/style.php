@@ -4198,7 +4198,15 @@ body.home div.post p.date {
 	display: none;
 }
 <?php } ?>
+<?php if($tkf->default_homepage_hide_author == "hide"){?>
+/** ***   
+standard wordpress home page: hide author name (name as link to profile if buddypress activated)**/
 
+body.home div.post p.date span {
+	display: none;
+}
+
+<?php } ?>
 <?php if($tkf->header_height){?>
 /** ***   
 header height / navigation position **/
