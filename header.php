@@ -20,48 +20,52 @@
  
  	<?php do_action( 'bp_before_header' ) ?>
 	
-	<div id="header">	
+	<div id="header"> 
+		
+		<?php do_action( 'bp_first_inside_header' ) ?>	
+		
+	    	<?php wp_nav_menu( array( 'container_class' => 'menu menu-top', 'theme_location' => 'menu_top','container' => 'div', 'fallback_cb' => false ) ); ?>
+		
+			<?php if( ! dynamic_sidebar( 'headerfullwidth' )) :?>
+			<?php endif; ?>
 	
-    	<?php wp_nav_menu( array( 'container_class' => 'menu menu-top', 'theme_location' => 'menu_top','container' => 'div', 'fallback_cb' => false ) ); ?>
+			<?php if (is_active_sidebar('headerleft') ){ ?>
+				<div class="widgetarea cc-widget">
+					<?php dynamic_sidebar( 'headerleft' )?>
+			  	</div>
+			<?php } ?>
 	
-		<?php if( ! dynamic_sidebar( 'headerfullwidth' )) :?>
-		<?php endif; ?>
-
-		<?php if (is_active_sidebar('headerleft') ){ ?>
-			<div class="widgetarea cc-widget">
-				<?php dynamic_sidebar( 'headerleft' )?>
-		  	</div>
-		<?php } ?>
-
-  		<?php if (is_active_sidebar('headercenter') ){ ?>
-			<div <?php if(!is_active_sidebar('headerleft')) { echo 'style="margin-left:350px !important"'; } ?> class="widgetarea cc-widget">
-				<?php dynamic_sidebar( 'headercenter' ) ?>
-		  	</div>
-  		<?php } ?>
-
-  		<?php if (is_active_sidebar('headerright') ){ ?>
-			<div class="widgetarea cc-widget cc-widget-right">
-				<?php dynamic_sidebar( 'headerright' ) ?>
-		  	</div>
-	  	<?php } ?>
-  		
-		<?php do_action( 'bp_before_access')?>
-				
-		<div id="access">
-    		<div class="menu">
+	  		<?php if (is_active_sidebar('headercenter') ){ ?>
+				<div <?php if(!is_active_sidebar('headerleft')) { echo 'style="margin-left:350px !important"'; } ?> class="widgetarea cc-widget">
+					<?php dynamic_sidebar( 'headercenter' ) ?>
+			  	</div>
+	  		<?php } ?>
 	
-				<?php do_action('bp_menu') ?>
-
-				<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-				<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary','container' => '' ) ); ?>
-
+	  		<?php if (is_active_sidebar('headerright') ){ ?>
+				<div class="widgetarea cc-widget cc-widget-right">
+					<?php dynamic_sidebar( 'headerright' ) ?>
+			  	</div>
+		  	<?php } ?>
+	  		
+			<?php do_action( 'bp_before_access')?>
+					
+			<div id="access">
+	    		<div class="menu">
+		
+					<?php do_action('bp_menu') ?>
+	
+					<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
+					<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary','container' => '' ) ); ?>
+	
+				</div>
 			</div>
-		</div>
+			
+			<?php do_action( 'bp_after_header_nav' ) ?>
+			
+			<div class="clear"></div>
+				
+		<?php do_action( 'bp_last_inside_header' ) ?>
 		
-		<?php do_action( 'bp_after_header_nav' ) ?>
-		
-		<div class="clear"></div>
-	
 	</div><!-- #header -->
 
 	<?php do_action( 'bp_after_header' ) ?>		
