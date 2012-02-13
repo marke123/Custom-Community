@@ -755,6 +755,9 @@ class CC_Theme_Generator{
 			color:#<?php echo $tkf->bg_loginpage_body_color; ?>;
 		}
 		<?php } ?>
+		<?php if ($tkf->login_page_css){
+			print $tkf->login_page_css;		
+		} ?>
 		#login{
 		    margin: auto;
     		padding-top: 30px;
