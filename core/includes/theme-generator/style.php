@@ -179,6 +179,12 @@ z-index:1000;
 /* > Header
 -------------------------------------------------------------- */
 
+div.inner {
+	margin: 0 auto;
+	max-width: 1000px;
+	min-width: 1000px;
+}
+
 #header {
 position: relative;
 color: #<?php echo $font_color; ?>;
@@ -2923,6 +2929,11 @@ margin-bottom:25px;
 
 /* =list posts img mouse over effect
 -------------------------------------------------------------- */
+
+div.first_posts_home {
+	margin-top: -44px;
+}
+
 .boxgrid {
 -moz-background-clip: border;
 -moz-background-inline-policy: continuous;
@@ -3450,7 +3461,7 @@ textarea { resize: vertical; }
 <?php if($tkf->website_width != ''): ?>
 /** ***   
 website width  **/
-#innerrim {
+#innerrim, .inner {
 	max-width: <?php echo $tkf->website_width; echo $tkf->website_width_unit; ?>;
 	min-width: <?php echo $tkf->website_width; echo $tkf->website_width_unit; ?>;
 } 
