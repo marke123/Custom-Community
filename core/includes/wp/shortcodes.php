@@ -564,7 +564,7 @@ function slider($atts,$content = null) {
 		    
 			$tmp .='	<a class="reflect" href="'.$url.'">'.$ftrdimg.'</a>'. chr(13);
 
-			if($tkftion == 'on'){
+			if($caption == 'on'){
 				$tmp .=' <div class="info" >'. chr(13);
 				$tmp .='	<h2><a href="'.$url.'" >'.get_the_title().'</a></h2>'. chr(13);
 				$tmp .='	<p>'.get_the_excerpt().'</p>'. chr(13);
@@ -596,6 +596,11 @@ function slider($atts,$content = null) {
 		   
 		wp_reset_query();
 		return $tmp . chr(13);
+}
+add_shortcode('cc_slideshow', 'cc_slideshow');
+
+function cc_slideshow($atts,$content = null) {
+	return slider($atts);
 }
 
 // nothing

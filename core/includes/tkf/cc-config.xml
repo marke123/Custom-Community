@@ -234,6 +234,11 @@
 								<option name="show" value="show" />
 								<option name="hide" value="hide" />
 							</select>	
+							
+							<select name="default_homepage_hide_author" label="Show author name">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>
 																			
 						</section>
 						<section title="Login">
@@ -792,6 +797,9 @@
 					<textarea name="overwrite_css" label="Overwrite CSS" tooltip="svenw"/>
 
 	
+				</tab>
+				<tab title="Login Page CSS">
+					<textarea name="login_page_css" label="Overwrite Login Page CSS" value="lorem"/>					
 				</tab>
 				<tab title="Get the Pro">
 					<p>jo</p>
