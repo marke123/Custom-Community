@@ -799,7 +799,7 @@
 	
 				</tab>
 				<tab title="Login Page CSS">
-					<textarea name="login_page_css" label="Overwrite Login Page CSS" value="lorem"/>					
+					<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>					
 				</tab>
 				<tab title="Get the Pro">
 					<p>jo</p>
