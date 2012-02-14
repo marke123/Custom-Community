@@ -31,6 +31,8 @@ class CC_Theme_Generator{
 		
 		// header.php
 		add_action( 'bp_before_header', array( $this, 'innerrim_before_header' ), 2 );
+		add_action( 'bp_first_inside_header', array ($this, 'div_inner_start_inside_header'));
+		add_action( 'bp_last_inside_header', array ($this, 'div_inner_end_inside_header'));	
 		add_action( 'bp_after_header', array( $this, 'innerrim_after_header' ), 2 );
 		add_action( 'bp_before_access', array( $this, 'menue_enable_search' ), 2 );
 		add_action( 'bp_before_access', array( $this, 'header_logo' ), 2 );
@@ -124,6 +126,38 @@ class CC_Theme_Generator{
 		
 		if ($tkf->header_width != "full-width") {
 			echo '<div id="innerrim">'; 
+		}
+	}
+	
+	/**
+	 * header: add div class 'inner' inside the header if the header is set to full width
+	 * 
+	 * located: header.php - do_action( 'bp_first_inside_header' )
+	 *
+	 * @package Custom Community
+	 * @since 2.0
+	 */	
+	function div_inner_start_inside_header(){
+		global $tkf;
+		
+		if ($tkf->header_width == "full-width") {
+			echo '<div class="inner">'; 
+		}
+	}
+	
+	/**
+	 * header: add div end for class 'inner' inside the header if the header is set to full width
+	 * 
+	 * located: header.php - do_action( 'bp_last_inside_header' )
+	 *
+	 * @package Custom Community
+	 * @since 2.0
+	 */	
+	function div_inner_end_inside_header(){
+		global $tkf;
+		
+		if ($tkf->header_width == "full-width") {
+			echo '</div><!-- .inner -->'; 
 		}
 	}
 	
@@ -547,7 +581,7 @@ class CC_Theme_Generator{
 				'amount' => '3',
 		 	);
 				
-			echo '<div style="margin-top:-44px;">'.cc_list_posts($args).'</div>'; 
+			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
 		}
 	}
 	

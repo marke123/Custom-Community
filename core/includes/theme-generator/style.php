@@ -179,6 +179,12 @@ z-index:1000;
 /* > Header
 -------------------------------------------------------------- */
 
+div.inner {
+	margin: 0 auto;
+	max-width: 1000px;
+	min-width: 1000px;
+}
+
 #header {
 position: relative;
 color: #<?php echo $font_color; ?>;
@@ -516,8 +522,22 @@ div#content .padder {
 -moz-border-radius: 0px !important;
 border-left: none;
 border-right: none;
-margin-left: <?php echo $tkf->leftsidebar_width ?>px;
-margin-right: <?php echo $tkf->rightsidebar_width ?>px;
+margin-left: <?php 
+	if($tkf->sidebar_position == "left" || $tkf->sidebar_position == "left and right"){
+		if($tkf->leftsidebar_width =="") {
+	 		echo "224"; 
+		} else {
+	 		echo $tkf->leftsidebar_width; 
+		} 
+	} ?>px;
+margin-right: <?php 
+	if($tkf->sidebar_position == "" || $tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right"){
+		if($tkf->rightsidebar_width =="") {
+	 		echo "224"; 
+		} else {
+	 		echo $tkf->rightsidebar_width; 
+		} 
+	} ?>px;
 min-height: 300px;
 padding-top: 30px;
 overflow: hidden;
@@ -2911,6 +2931,11 @@ margin-bottom:25px;
 
 /* =list posts img mouse over effect
 -------------------------------------------------------------- */
+
+div.first_posts_home {
+	margin-top: -44px;
+}
+
 .boxgrid {
 -moz-background-clip: border;
 -moz-background-inline-policy: continuous;
@@ -3438,7 +3463,7 @@ textarea { resize: vertical; }
 <?php if($tkf->website_width != ''): ?>
 /** ***   
 website width  **/
-#innerrim {
+#innerrim, .inner {
 	max-width: <?php echo $tkf->website_width; echo $tkf->website_width_unit; ?>;
 	min-width: <?php echo $tkf->website_width; echo $tkf->website_width_unit; ?>;
 } 
