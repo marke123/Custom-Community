@@ -196,7 +196,7 @@ min-height: 50px;
 height:auto !important;
 padding-top: 25px; 
 background-repeat: no-repeat; 
-z-index: 999;
+z-index: 99;
 }
 #header #search-bar {
 position: absolute;
@@ -207,6 +207,7 @@ text-align: right;
 }
 #logo{
 position: absolute;
+left:0;
 }
 #header div#logo h1, #header div#logo h4 {
 left: 20px;
@@ -2525,6 +2526,7 @@ font-size: 13px;
 margin-left: 12px;
 position: absolute;
 width: 100%;
+left:0;
 }
 
 div.menu-top.menu ul {

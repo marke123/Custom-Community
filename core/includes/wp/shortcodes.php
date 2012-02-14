@@ -311,7 +311,7 @@ function cc_list_posts($atts,$content = null) {
 		'order' => '',
 	), $atts));
 
-	//$img_position = 'boxgrid';
+	$img_position = 'boxgrid';
     	
 	if($category_name == 'all-categories'){
 		$category_name = '0';
@@ -343,7 +343,7 @@ function cc_list_posts($atts,$content = null) {
 			if(!isset($thePath[0])){
 			$thePath[0] = get_template_directory_uri().'/images/slideshow/noftrdimg-222x160.jpg';
 			}
-			$tmp .= '<div class="boxgrid captionfull" style="background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
+			$tmp .= '<div class="boxgrid captionfull" onclick="document.location.href=\''. get_permalink().'\'" style="cursor:pointer;background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
 			$tmp .= '<div class="cover boxcaption">';
 			$tmp .= '<h3 style="padding-left:8px;"><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
 			$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
