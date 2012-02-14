@@ -6,7 +6,7 @@ define( 'CC_VERSION', '1.8.5' );
  * loads custom community files
  *
  * @package Custom Community
- * @since 1.8.3
+ * @since 2.0
  */
 
 function cc_init() {
