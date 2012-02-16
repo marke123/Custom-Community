@@ -2815,6 +2815,7 @@ background:none transparent;
 border: none; 
 float:none;   
 margin: 0;
+white-space: normal; 
 }
 div.cc_slider ul.ui-tabs-nav li img {
 float:left; margin:2px 5px 2px 0;
