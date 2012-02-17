@@ -43,6 +43,8 @@ class CC_Theme_Generator{
 		
 		// footer.php
 		add_action( 'bp_before_footer', array( $this, 'innerrim_before_footer' ), 2 );
+		add_action( 'bp_first_inside_footer', array ($this, 'div_inner_start_inside_footer'));
+		add_action( 'bp_last_inside_footer', array ($this, 'div_inner_end_inside_footer'));
 		add_action( 'bp_after_footer', array( $this, 'innerrim_after_footer' ), 2 );
 		add_action( 'bp_footer', array( $this, 'footer_content' ), 2 );
 		
@@ -366,6 +368,38 @@ class CC_Theme_Generator{
 		
 		if ($tkf->footer_width == "full-width") {
 			echo '</div><!-- #innerrim -->'; 
+		}
+	}
+	
+	/**
+	 * header: add div class 'inner' inside the footer if the footer is set to full width
+	 * 
+	 * located: footer.php - do_action( 'bp_first_inside_footer' )
+	 *
+	 * @package Custom Community
+	 * @since 2.0
+	 */	
+	function div_inner_start_inside_footer(){
+		global $tkf;
+		
+		if ($tkf->footer_width == "full-width") {
+			echo '<div class="inner">'; 
+		}
+	}
+	
+	/**
+	 * header: add div end for class 'inner' inside the footer if the footer is set to full width
+	 * 
+	 * located: header.php - do_action( 'bp_last_inside_footer' )
+	 *
+	 * @package Custom Community
+	 * @since 2.0
+	 */	
+	function div_inner_end_inside_footer(){
+		global $tkf;
+		
+		if ($tkf->footer_width == "full-width") {
+			echo '</div><!-- .inner -->'; 
 		}
 	}
 
