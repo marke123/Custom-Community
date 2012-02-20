@@ -234,6 +234,11 @@
 								<option name="show" value="show" />
 								<option name="hide" value="hide" />
 							</select>	
+							
+							<select name="default_homepage_hide_author" label="Show author name">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>
 																			
 						</section>
 						<section title="Login">
@@ -723,7 +728,7 @@
 							<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
 								You can select the category the posts should be taken from.
 								For more info check out the.">
-								<option name="All categories" value="all-categories" />
+								<option name="svenw" value="svenw" />
 							</select>
 
 						</section>
@@ -792,6 +797,9 @@
 					<textarea name="overwrite_css" label="Overwrite CSS" tooltip="svenw"/>
 
 	
+				</tab>
+				<tab title="Login Page CSS">
+					<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>					
 				</tab>
 				<tab title="Get the Pro">
 					<p>jo</p>

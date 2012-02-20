@@ -202,7 +202,7 @@ min-height: 50px;
 height:auto !important;
 padding-top: 25px; 
 background-repeat: no-repeat; 
-z-index: 999;
+z-index: 99;
 }
 #header #search-bar {
 position: absolute;
@@ -213,6 +213,7 @@ text-align: right;
 }
 #logo{
 position: absolute;
+left:0;
 }
 #header div#logo h1, #header div#logo h4 {
 left: 20px;
@@ -2545,6 +2546,7 @@ font-size: 13px;
 margin-left: 12px;
 position: absolute;
 width: 100%;
+left:0;
 }
 
 div.menu-top.menu ul {
@@ -2813,6 +2815,7 @@ background:none transparent;
 border: none; 
 float:none;   
 margin: 0;
+white-space: normal; 
 }
 div.cc_slider ul.ui-tabs-nav li img {
 float:left; margin:2px 5px 2px 0;
@@ -4223,7 +4226,15 @@ body.home div.post p.date {
 	display: none;
 }
 <?php } ?>
+<?php if($tkf->default_homepage_hide_author == "hide"){?>
+/** ***   
+standard wordpress home page: hide author name (name as link to profile if buddypress activated)**/
 
+body.home div.post p.date span {
+	display: none;
+}
+
+<?php } ?>
 <?php if($tkf->header_height){?>
 /** ***   
 header height / navigation position **/
