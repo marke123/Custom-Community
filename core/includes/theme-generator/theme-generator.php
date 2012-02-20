@@ -372,7 +372,7 @@ class CC_Theme_Generator{
 	}
 	
 	/**
-	 * header: add div class 'inner' inside the footer if the footer is set to full width
+	 * footer: add div class 'inner' inside the footer if the footer is set to full width
 	 * 
 	 * located: footer.php - do_action( 'bp_first_inside_footer' )
 	 *
@@ -388,7 +388,7 @@ class CC_Theme_Generator{
 	}
 	
 	/**
-	 * header: add div end for class 'inner' inside the footer if the footer is set to full width
+	 * footer: add div end for class 'inner' inside the footer if the footer is set to full width
 	 * 
 	 * located: header.php - do_action( 'bp_last_inside_footer' )
 	 *
