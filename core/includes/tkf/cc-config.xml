@@ -806,14 +806,10 @@
 				</tab>
 
 			</tabs>
-			
-			<br />
-			<button name="Save" />
-			
-			<br /><br />
-			<export name="Export settings" label="Export" forms="cc-config" />
-			<import name="Import settings" label="Import" />
 	
+			<br></br>
+			<button name="Save" />
+			<export name="Export settings" label="Export" forms="cc-config" /><import name="Import settings" label="Import" />
 			</form>
 
 		</page>
