@@ -6,10 +6,12 @@ Description: Speed up your wordpress developement with our framework
 Author: Sven Wagener, Sven Lehnert
 Author URI: http://themekraft.com/
 License: GNU GENERAL PUBLIC LICENSE 3.0 http://www.gnu.org/licenses/gpl.txt
-Version: 0.1.0
+Version: 0.1.1
 Text Domain: tkframework
 Site Wide Only: false
 */
+
+// Schau mal was hier steht Ja was soll das?  SO! kjhg
 
 function framework_init(){
  // Registering the form where the data have to be saved
@@ -17,6 +19,7 @@ function framework_init(){
  $args['text_domain'] = 'my_text_domain';
  
  require_once( 'loader.php' );
+ 
  tk_framework( $args );
 }
 add_action( 'plugins_loaded', 'framework_init' );
@@ -117,6 +120,8 @@ function init_backend(){
  tk_autocomplete_add_value( 'city', 'Dusseldorf' );
  tk_autocomplete_delete_value( 'city', 'New York' );
  
+ add_filter( 'tk_fileupload_tempfile', 'tkf_fileactions', 1, 2 );
+ 
  /*
   * Example with WML file
   */
@@ -130,5 +135,17 @@ function init_backend(){
   * Getting back values from form fields
   */
  $values = tk_get_values( 'myform' );
+ 
 }
 add_action( 'admin_menu', 'init_backend' );
+
+function tkf_fileactions( $file, $input ){
+	/*
+	echo '<pre>';
+	print_r( $file );
+	echo '</pre>';
+	*/
+	return $file;
+	
+}
+
