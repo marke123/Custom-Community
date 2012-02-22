@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <wml>
-	<menu title="CC Settings">
+	<menu title="CC Settings" parent_slug="themes.php">
 		<page title="Theme Settings" headline="Theme Settings">
 		<form name="cc-config">
 			<p>Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank"> Themekraft</a>.</p>
@@ -809,7 +809,7 @@
 	
 			<br></br>
 			<button name="Save" />
-	
+			<export name="Export settings" label="Export" forms="cc-config" /><import name="Import settings" label="Import" />
 			</form>
 
 		</page>
