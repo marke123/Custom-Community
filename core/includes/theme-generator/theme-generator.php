@@ -73,7 +73,7 @@ class CC_Theme_Generator{
 
 	function load_constants(){
 		global $tkf, $post;
-
+		
 		$component = explode('-',$this->detect->get_page_type());
 		
 		if($tkf->sidebar_position == ''){
