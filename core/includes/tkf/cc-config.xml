@@ -811,11 +811,11 @@
 			<button name="Save" />
 			<export name="Export settings" label="Export" forms="cc-config" /><import name="Import settings" label="Import" />
 			</form>
-
+		
 		</page>
 		
 		
-		<page title="Getting started" headline="Getting Strated">
+		<page title="Getting started" headline="Getting started">
 		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
 		<style type="text/css" media="screen, projection">
 		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
@@ -832,56 +832,149 @@
 		  		});
 			}
 		</script>
-			<p>How to start and where to find help</p>
-			<table class="widefat">
-				<tr>
-					<td>Watsh the Totorials</td>
-				</tr>
-				<tr>
-					<td>
-					<div id="message" class="info">
-						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
-					</div>
-					</td>
-				</tr>
-			</table>
-			<table class="widefat">
-				<tr>
-					<td>Use the forum</td>
-				</tr>
-				<tr>
-					<td>
-					<div id="message" class="info">
-						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
-					</div>
-					</td>
-				</tr>
-			</table>
-			<table class="widefat">
-				<tr>
-					<td>Check the Knowledgebase or write a ticket</td>
-				</tr>
-				<tr>
-					<td>
-					<div id="message" class="info">
-						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
-					</div>
-					</td>
-				</tr>
-			</table>
-			<table class="widefat">
-				<tr>
-					<td>Get Premium Support from our Premiu member Product specialists</td>
-				</tr>
-				<tr>
-					<td>
-					<div id="message" class="info">
-						<p><em>Technical problems? Found a Bug? Please <a href="" onClick="script: Zenbox.show(); return false;">click here</a>.</em></p>
-					</div>
-					</td>
-				</tr>
-			</table>
+		
+			<p>Here you find help. Tutorials and support.<br />
+			Technical problems? Found a bug? Browse our Knowledge Base or create a ticket: <a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></p>
+		
+			<form name="cc-config">
+				
+				<br />
+	
+							
+				<tabs>
+					<tab title="Installation">
+							
+							<h3>Watch the video tutorial</h3>
+									
+								Here comes the video... 
+							
+							<br />	
+							<h3>Upload via WordPress Backend</h3>
+									
+									 1. Go to APPEARANCE > THEMES<br />
+									 2. Click on "upload" and choose the zip file<br />
+									 3. Click on "activate"... <br />
+									
+									 That's it! Check how your site looks.   
+									
+							<br />	
+							<h3>Upload via FTP</h3>
+									
+									Use an FTP Program like e.g Filezilla or similar.<br />
+									
+									 1. Unpack the zip file<br />
+									 2. Copy the new folder to your directory in wp-content/themes/<br />
+									 3. Go to APPEARANCE > THEMES<br />
+									 4. You should see Custom Community Pro Theme there<br />
+									 5. Click on "activate"... <br />
+									
+									 Done! Check how your site looks.   
+							
+							<br />
+							<h3><em>Technical problems? Found a bug? </em><a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></h3>
+										
+						
+					</tab>
+					<tab title="First steps">
+						
+						<h3>1. Theme Settings</h3>
+
+						Go to “Appearance” >> “Theme Settings”.
+						<br />
+						Click yourself through the several options to customize the theme to your needs. If you think an option is not described easy enough or should be done else, please give us feedback, we’d love to improve it!
+						<br />
+						<br />
+						
+						<h3>2. Page Templates, Shortcodes and more</h3>
+						
+						When creating the posts and pages, you can use many other features like page templates, listing your latest posts, using a slideshow, or nice shortcodes. Just in case you’d like to do more…
+						<br />
+						How to use them? There are demo sites with many examples and explanations of all features:
+						<br />
+						Free version demo: http://www.custom-community.themekraft.com/
+						<br />
+						Pro version demo: http://custom-community-pro.themekraft.com
+						<br />
+						Browse through the pages to get an overview and see how each of the features work and to get some inspiration and tips for tweaking.
+						<br />
+						And it will probably save you some time to have a quick look in the FAQ, for example for topics like creating your custom homepage and listing your latest posts in it… :)
+						<br />
+						<br />
+						
+						<h3>3. Customizing more…</h3>
+						
+						If you are about to customize more and change or add code, please read about changing theme files and create a child theme for your purposes. That’s the easy, clean and hassle-free way!
+						<br />
+						<br />
+						
+						<h3>4. Get some further inspiration</h3>
+						
+						Take a quick tour through our showcase and see what others made with Custom Community!
+						<br />
+						http://themekraft.com/showcase/
+						<br />
+						Don’t forget to show off your new creation to the community and post your site to our showcase!    
+						<br />	
+						<br />
+						
+						<h3><em>Technical problems? Found a bug? </em><a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></h3>
+						
+					</tab>
+	
+					<tab title="Updating">
+						
+						<h3>Watch the video tutorial</h3>
+									
+								Here comes the video... 
+							
+							<br />	
+							<h3>Update via WordPress Backend</h3>
+									
+									 1. Go to APPEARANCE > THEMES<br />
+									 2. Click on "upload" and choose the zip file<br />
+									 3. Click on "activate"... <br />
+									
+									 That's it! Check your version number.   
+							
+							<br />	
+							<h3>Update via FTP</h3>
+									
+									Use an FTP Program like e.g Filezilla or similar.<br />
+									
+									 1. Unpack the zip file<br />
+									 2. Delete everything INSIDE the folder of wp-content/themes/custom-community (or "custom-community-pro")<br />
+									 3. Copy the contents of the unpacked zip folder to this empty folder<br />
+									 4. Go to APPEARANCE > THEMES<br />
+									 5. You should see Custom Community (Pro) Theme there - with the newer version number.<br />
+									
+									 Done!    
+							
+							<br />
+							<h3><em>Technical problems? Found a bug? </em><a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></h3>
+										
+		
+					</tab>
+								
+					<tab title="Free Support">
+						
+						<h3>Technical Problems? Found a bug? 
+						<br />
+						Browse our Knowledge Base or create a ticket. 
+						<br />
+						<a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></h3>			
+					
+					</tab>
 			
+					
+					<tab title="Get Premium Support">
+					
+						Dickes Bild Junge.	
+											
+					</tab>
+	
+	
+				</tabs>
+			</form>			
 		</page>
 	</menu>
 </wml>
