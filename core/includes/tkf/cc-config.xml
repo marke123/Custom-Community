@@ -2,12 +2,28 @@
 <wml>
 	<menu title="CC Settings" parent_slug="themes.php">
 		<page title="Theme Settings" headline="Theme Settings">
+		
+		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
+		<style type="text/css" media="screen, projection">
+		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
+		</style>
+		<script type="text/javascript">
+			if (typeof(Zenbox) !== "undefined") {
+				Zenbox.init({
+					dropboxID:   "20040053",
+					url:         "https://themekraft.zendesk.com",
+					tabID:       "questions",
+					tabColor:    "black",
+					tabPosition: "Left",
+					hide_tab: true
+		  		});
+			}
+		</script>
+		
 		<form name="cc-config">
-			<p>Custom Community is proudly brought to you by <a style="color:#abc214" href="http://themekraft.com/" target="_blank"> Themekraft</a>.</p>
-			<p> For support, check out the <a href="http://themekraft.com/forums/" target="_blank"> FORUM</a> and <a href="http://themekraft.com/faq/" target="_blank"> FAQ</a>. 
-				Looking for more? <a style="color:#ff9900" href="https://themekraft.com/theme/custom-community-pro/" target="_blank"> Get the Full Version</a>
-			</p>
-
+			<p>Custom Community is proudly brought to you by <a href="http://themekraft.com/" target="_blank">Themekraft</a>. Looking for more? <a href="http://themekraft.com/shop/custom-community-pro/" target="_blank">Get the Pro Version.</a></p>
+			<p><a href="themes.php?page=autoslug_cc-settings_1" target="_blank">Getting started guide and support here.</a> Personal assistance by our product experts? <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
+			
 						
 			<tabs>
 				<tab title="General">
@@ -833,8 +849,11 @@
 			}
 		</script>
 		
-			<p>Here you find help. Tutorials and support.<br />
-			Technical problems? Found a bug? Browse our Knowledge Base or create a ticket: <a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></p>
+			<p>Find quick help. Getting started guide and support.
+			<br />
+			Technical problems? Found a bug? <a href="#" onClick="script: Zenbox.show(); return false;">Browse our Knowledge Base or create a ticket.</a>
+			<br />
+			Personal assistance by our product experts? <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
 		
 			<form name="cc-config">
 				
@@ -842,46 +861,19 @@
 	
 							
 				<tabs>
-					<tab title="Installation">
-							
-							<h3>Watch the video tutorial</h3>
-									
-								Here comes the video... 
-							
-							<br />	
-							<h3>Upload via WordPress Backend</h3>
-									
-									 1. Go to APPEARANCE > THEMES<br />
-									 2. Click on "upload" and choose the zip file<br />
-									 3. Click on "activate"... <br />
-									
-									 That's it! Check how your site looks.   
-									
-							<br />	
-							<h3>Upload via FTP</h3>
-									
-									Use an FTP Program like e.g Filezilla or similar.<br />
-									
-									 1. Unpack the zip file<br />
-									 2. Copy the new folder to your directory in wp-content/themes/<br />
-									 3. Go to APPEARANCE > THEMES<br />
-									 4. You should see Custom Community Pro Theme there<br />
-									 5. Click on "activate"... <br />
-									
-									 Done! Check how your site looks.   
-							
-							<br />
-							<h3><em>Technical problems? Found a bug? </em><a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></h3>
-										
-						
-					</tab>
 					<tab title="First steps">
 						
 						<h3>1. Theme Settings</h3>
 
-						Go to “Appearance” >> “Theme Settings”.
+						Go to <a href="themes.php?page=cc-settings" title="Theme Settings">APPEARANCE > THEME SETTINGS</a>.
 						<br />
-						Click yourself through the several options to customize the theme to your needs. If you think an option is not described easy enough or should be done else, please give us feedback, we’d love to improve it!
+						Click through the several options to customize the theme to your needs. You can see further descriptions when you hover the option. 
+						<br />
+
+						<br />  						
+						If you think an option is not described easy enough or should be done else, please give us feedback <a href="#" title="Create a support ticket">here</a> or <a href="#" title="Create a ticket at Github">create a ticket at Github directly</a>. 
+						<br />
+						We’d love to improve it for you!
 						<br />
 						<br />
 						
@@ -957,11 +949,14 @@
 								
 					<tab title="Free Support">
 						
-						<h3>Technical Problems? Found a bug? 
+						<p>Technical Problems? Found a bug? 
 						<br />
-						Browse our Knowledge Base or create a ticket. 
+						<a href="#" onClick="script: Zenbox.show(); return false;">Browse our Knowledge Base or create a ticket.</a> 
 						<br />
-						<a href="#" onClick="script: Zenbox.show(); return false;">Click here.</a></h3>			
+						Our support team helps you to get your theme up and running.  
+						<br />
+						Personal assistance by our product experts? <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a>
+						</p>			
 					
 					</tab>
 			
