@@ -3,27 +3,91 @@
 	<menu title="CC Settings" parent_slug="themes.php">
 		<page title="Theme Settings" headline="Theme Settings">
 		
-		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
-		<style type="text/css" media="screen, projection">
-		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
-		</style>
-		<script type="text/javascript">
-			if (typeof(Zenbox) !== "undefined") {
-				Zenbox.init({
-					dropboxID:   "20040053",
-					url:         "https://themekraft.zendesk.com",
-					tabID:       "questions",
-					tabColor:    "black",
-					tabPosition: "Left",
-					hide_tab: true
-		  		});
-			}
-		</script>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		
-		<form name="cc-config">
-			<p>Custom Community is proudly brought to you by <a href="http://themekraft.com/" target="_blank">Themekraft</a>. Looking for more? <a href="http://themekraft.com/shop/custom-community-pro/" target="_blank">Get the Pro Version.</a></p>
-			<p><a href="themes.php?page=autoslug_cc-settings_1" target="_blank">Getting started guide and support here.</a> Personal assistance by our product experts? <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
-			
+		<div id="fb-root"></div>
+		
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+
+		<style>
+		
+			div.wrap h2 {
+				width: 200px;
+				float: left;
+			}
+			div.ccadmin_right_box {
+				width: 260px; 
+				float: right;
+				height: auto;
+				overflow: auto;
+				padding: 10px;
+			}
+			div.ccadmin_right_box p {
+				font-size: 12px; 
+				text-align: left;
+			}
+			div.ccadmin_main_box {
+				width: 450px;
+				height: auto;
+				overflow: auto;
+			}
+			div.cc_theme_settings_form {
+				float: none;
+				margin-top: 20px;
+			}
+			div.cc-logo {
+				width: auto; 
+				height: auto; 
+				position: absolute;
+				left: 0;
+				margin-top: 60px;
+			}
+			div.ccadmin_right_box img {
+				margin-bottom: 12px;
+			}
+			div.wrap p.cc_subline {
+				font-style: italic; 
+				margin-bottom: 22px; 
+				line-height: 12px;
+			}
+			div.fb-like {
+				float: left; 
+			}
+			iframe.twitter-follow-button {
+				float: right;
+			}
+		</style>
+		
+		<div class="cc-logo">
+			<a href="http://themekraft.com/custom-community" target="_blank">
+					<img src="../wp-content/themes/custom-community/core/includes/admin/cc-logo.png"></img>
+			</a>
+		</div>
+		
+		<div class="ccadmin_right_box">
+			<p>Custom Community is proudly brought to you by</p> 
+			<a href="http://themekraft.com/" target="_blank">
+				<img src="../wp-content/themes/custom-community/core/includes/admin/themekraft-logo-s.png"></img>
+			</a>
+			<a href="https://twitter.com/themekraft" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow</a>
+			<div class="fb-like" data-href="http://themekraft.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="lucida grande"></div> 
+		</div>
+		
+		<div class="ccadmin_main_box">			
+			<p class="cc_subline">Enjoy this free version! You are up-to-date with version 2.0</p>
+			<p>Getting Started: <a href="themes.php?page=autoslug_cc-settings_1" target="_blank">Tutorials and free support.</a></p> 
+			<p>Personal assistance: <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
+			<p>Looking for more? <a href="http://themekraft.com/shop/custom-community-pro/" target="_blank">Get the pro version.</a></p>
+		</div>
+		
+		<div class="cc_theme_settings_form">
+		<form class="cc_theme_settings_form" name="cc-config">
 						
 			<tabs>
 				<tab title="General">
@@ -744,7 +808,6 @@
 							<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
 								You can select the category the posts should be taken from.
 								For more info check out the.">
-								<option name="svenw" value="svenw" />
 							</select>
 
 						</section>
@@ -827,33 +890,113 @@
 			<button name="Save" />
 			<export name="Export settings" label="Export" forms="cc-config" /><import name="Import settings" label="Import" />
 			</form>
+			</div>
+			
+			<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
+			<style type="text/css" media="screen, projection">
+			  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
+			</style>
+			<script type="text/javascript">
+				if (typeof(Zenbox) !== "undefined") {
+					Zenbox.init({
+						dropboxID:   "20040053",
+						url:         "https://themekraft.zendesk.com",
+						tabID:       "questions",
+						tabColor:    "black",
+						tabPosition: "Left",
+						hide_tab: true
+			  		});
+				}
+			</script>
 		
 		</page>
 		
 		
 		<page title="Getting started" headline="Getting started">
-		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
-		<style type="text/css" media="screen, projection">
-		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
-		</style>
-		<script type="text/javascript">
-			if (typeof(Zenbox) !== "undefined") {
-				Zenbox.init({
-					dropboxID:   "20040053",
-					url:         "https://themekraft.zendesk.com",
-					tabID:       "questions",
-					tabColor:    "black",
-					tabPosition: "Left",
-					hide_tab: true
-		  		});
-			}
-		</script>
 		
-			<p>Find quick help. Getting started guide and support.
-			<br />
-			Technical problems? Found a bug? <a href="#" onClick="script: Zenbox.show(); return false;">Browse our Knowledge Base or create a ticket.</a>
-			<br />
-			Personal assistance by our product experts? <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+		
+		<div id="fb-root"></div>
+		
+			<script>(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));</script>
+
+		<style>
+		
+			div.wrap h2 {
+				width: 200px;
+				float: left;
+			}
+			div.ccadmin_right_box {
+				width: 260px; 
+				float: right;
+				height: auto;
+				overflow: auto;
+				padding: 10px;
+			}
+			div.ccadmin_right_box p {
+				font-size: 12px; 
+				text-align: left;
+			}
+			div.ccadmin_main_box {
+				width: 450px;
+				height: auto;
+				overflow: auto;
+			}
+			div.cc_theme_settings_form {
+				float: none;
+				margin-top: 20px;
+			}
+			div.cc-logo {
+				width: auto; 
+				height: auto; 
+				position: absolute;
+				left: 0;
+				margin-top: 60px;
+			}
+			div.ccadmin_right_box img {
+				margin-bottom: 12px;
+			}
+			div.wrap p.cc_subline {
+				font-style: italic; 
+				margin-bottom: 22px; 
+				line-height: 12px;
+			}
+			div.fb-like {
+				float: left; 
+			}
+			iframe.twitter-follow-button {
+				float: right;
+			}
+		</style>
+		
+		<div class="cc-logo">
+			<a href="http://themekraft.com/custom-community" target="_blank">
+					<img src="../wp-content/themes/custom-community/core/includes/admin/cc-logo.png"></img>
+			</a>
+		</div>
+		
+		<div class="ccadmin_right_box">
+			<p>Custom Community is proudly brought to you by</p> 
+			<a href="http://themekraft.com/" target="_blank">
+				<img src="../wp-content/themes/custom-community/core/includes/admin/themekraft-logo-s.png"></img>
+			</a>
+			<a href="https://twitter.com/themekraft" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow</a>
+			<div class="fb-like" data-href="http://themekraft.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="lucida grande"></div> 
+		</div>
+		
+		<div class="ccadmin_main_box">			
+			<p class="cc_subline">Find quick help. Getting started guide and support.</p>
+			<p>Technical problems? Found a bug? <a href="#" onClick="script: Zenbox.show(); return false;">Browse our knowledge base or create a ticket.</a></p> 
+			<p>Personal assistance by our product experts? <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
+		</div>
+		
+		<div class="cc_theme_settings_form">
 		
 			<form name="cc-config">
 				
@@ -969,7 +1112,25 @@
 	
 	
 				</tabs>
-			</form>			
+			</form>
+			</div>
+			
+			<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
+			<style type="text/css" media="screen, projection">
+			  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
+			</style>
+			<script type="text/javascript">
+				if (typeof(Zenbox) !== "undefined") {
+					Zenbox.init({
+						dropboxID:   "20040053",
+						url:         "https://themekraft.zendesk.com",
+						tabID:       "questions",
+						tabColor:    "black",
+						tabPosition: "Left",
+						hide_tab: true
+			  		});
+				}
+			</script>			
 		</page>
 	</menu>
 </wml>
