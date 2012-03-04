@@ -29,7 +29,7 @@ function cc_setup() {
 	global $tkf, $content_width;
 	
 	if( !is_object( $tkf ) )
-		return false;
+	//	return false;
 
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
