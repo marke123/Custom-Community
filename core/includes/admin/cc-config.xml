@@ -6,20 +6,25 @@
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		
 		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
 		
-			<script>(function(d, s, id) {
-			  var js, fjs = d.getElementsByTagName(s)[0];
-			  if (d.getElementById(id)) return;
-			  js = d.createElement(s); js.id = id;
-			  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
-			  fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
-
 		<style>
-		
+			
+			span.fb_edge_comment_widget {
+				display: none;
+			}
 			div.wrap h2 {
 				width: 200px;
 				float: left;
+			}
+			div.ccadmin_main_box a {
+				margin-left: 6px;
 			}
 			div.ccadmin_right_box {
 				width: 260px; 
@@ -76,7 +81,7 @@
 				<img src="../wp-content/themes/custom-community/core/includes/admin/themekraft-logo-s.png"></img>
 			</a>
 			<a href="https://twitter.com/themekraft" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow</a>
-			<div class="fb-like" data-href="http://themekraft.com" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="lucida grande"></div> 
+			<div class="fb-like" data-href="http://themekraft.com/" data-send="false" data-layout="button_count" data-width="80" data-show-faces="false" data-font="lucida grande"></div> 
 		</div>
 		
 		<div class="ccadmin_main_box">			
@@ -262,13 +267,24 @@
 								<option name="just the link colour" value="just the link colour" />
 								<option name="link colour and hover colour" value="link colour and hover colour" />
 							</select>
-							
+						
 							<select name="link_underline" label="Link underline" tooltip="Choose if (and when) to underline links.">
 								<option name="never" value="never" />
 								<option name="always" value="always" />
 								<option name="just for mouse over" value="just for mouse over" />
 								<option name="just when normal" value="just when normal" />
 							</select>	
+							
+							<br />
+							<span style="color:#888888; font-style: italic;">
+								______ Advanced link styling options _________________________________________________________
+							</span>
+							<br />
+							<span style="font-size:11px; color:#888888; font-style: italic;">
+									This part is beta - use with care! :)  
+							</span>
+							<br />
+							
 						
 							<colorpicker name="link_bg_color" label="Link bg colour" tooltip="Change link background colour." />
 
@@ -286,7 +302,7 @@
 						
 						<section title="Favicon image">
 							
-							<file name="favicon" label="Favicon image" tooltip="Insert your own favicon image. Upload or insert url." />
+							<file name="favicon" label="Favicon image" tooltip="Insert your own favicon image. Upload or insert url. For best results use 114x114px PNG format." />
 							
 						</section>
 						
@@ -334,6 +350,7 @@
 							<colorpicker name="bg_loginpage_backtoblog_fade_1" label="Login page bg fade colour 1" tooltip="Change login page backtoblog colour fade 1" />
 							<colorpicker name="bg_loginpage_backtoblog_fade_2" label="Login page bg fade colour 2" tooltip="Change login page backtoblog colour fade 2" />
 							
+							<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
 						</section>
 					</accordion>
 				</tab>
@@ -876,9 +893,6 @@
 					<textarea name="overwrite_css" label="Overwrite CSS" tooltip="svenw"/>
 
 	
-				</tab>
-				<tab title="Login Page CSS">
-					<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>					
 				</tab>
 				<tab title="Get the Pro">
 					<p>jo</p>
