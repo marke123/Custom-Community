@@ -15,10 +15,7 @@
 					<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 						<div class="author-box">
-							<?php echo get_avatar( get_the_author_meta( 'user_email' ), '50' ); ?>
-							<?php if(defined('BP_VERSION')){ ?>
-							<p><?php printf( __( 'by %s', 'cc' ), bp_core_get_userlink( $post->post_author ) ) ?></p>
-							<?php } ?>
+							<?php printf( __( '<a href=" %s "> %s </a> <p> by %s </p>', 'cc' ), bp_core_get_user_domain($post->post_author), get_avatar( get_the_author_meta( 'user_email' ), '50' ),bp_core_get_userlink( $post->post_author ) ) ?>
 						</div>
 
 						<div class="post-content">
