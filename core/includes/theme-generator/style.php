@@ -4216,9 +4216,6 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 		?>		
 		
       <?php } ?>
-
-
-	
 	
 <?php endif; ?>
 
@@ -4301,6 +4298,7 @@ body.home div.post p.date span {
 }
 
 <?php } ?>
+
 <?php if($tkf->header_height){?>
 /** ***   
 header height / navigation position **/
@@ -4451,6 +4449,9 @@ menu style  **/
     }
     #access a {
     padding: 0 12px 2px 12px;
+	border-radius: 6px; 
+	-moz-border-radius: 6px; 
+	-webkit-border-radius: 6px;
 	}
 	div#access div.menu ul li a:hover, div#access div.menu ul li a:focus, 
 	#access ul ul :hover > a, #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
@@ -4466,6 +4467,9 @@ menu style  **/
 		background-color: transparent;
 		border-top: 1px solid #<?php echo $container_bg_color ?>;
 		border-bottom: 1px solid #<?php echo $container_bg_color ?>;
+		border-radius: 0; 
+		-moz-border-radius: 0; 
+		-webkit-border-radius: 0;
 	}	
 	div#access div.menu ul li a:hover, div#access div.menu ul li a:focus, 
 	#access ul ul :hover > a, #access ul.children li:hover > a, #access ul.sub-menu li:hover > a, 
@@ -4486,6 +4490,10 @@ menu x-position  **/
 div.menu ul { 
 	float: right;
 }
+#access div.menu {
+    margin-left: 0;
+}
+
 <?php } ?>
 
 <?php if($tkf->menue_link_color	) { ?>
@@ -4536,7 +4544,7 @@ IE browser hack for menu font colour current and mouse over  **/
 /** ***   
 menu background colour, border-bottom, image and repeat  **/ 
 
-#access {
+div#access {
 <?php if($tkf->bg_menue_link_color	){?>
 	background-color: <?php if ( $tkf->bg_menue_link_color != 'transparent' ) { echo '#'; } echo $tkf->bg_menue_link_color; ?>;
 <?php } ?>
