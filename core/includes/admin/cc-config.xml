@@ -261,15 +261,7 @@
 										Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
 			
 							<colorpicker name="link_color_hover" label="Link hover colour" tooltip="Change link colour for mouse moves over." />
-							
-							<select name="link_color_subnav_adapt" label="BP subnavigation adapting" tooltip="Use link hover colour for the BuddyPress subnav also?
-										By default the subnav links adapts the link colour and link hover colour. 
-										Sometimes the link hover colour can look ugly here and you don't want the subnav to adapt. 
-										Then you can change the colour adapting here easily.">
-								<option name="just the link colour" value="just the link colour" />
-								<option name="link colour and hover colour" value="link colour and hover colour" />
-							</select>
-						
+													
 							<select name="link_underline" label="Link underline" tooltip="Choose if (and when) to underline links.">
 								<option name="never" value="never" />
 								<option name="always" value="always" />
@@ -277,26 +269,22 @@
 								<option name="just when normal" value="just when normal" />
 							</select>	
 							
-							<br />
-							<span style="color:#888888; font-style: italic;">
-								______ Advanced link styling options _________________________________________________________
-							</span>
-							<br />
-							<span style="font-size:11px; color:#888888; font-style: italic;">
-									This part is beta - use with care! :)  
-							</span>
-							<br />
-							
-						
 							<colorpicker name="link_bg_color" label="Link bg colour" tooltip="Change link background colour." />
 
 							<colorpicker name="link_bg_color_hover" label="Link bg hover colour" tooltip="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
+
+							<select name="link_color_subnav_adapt" label="BP submenu adapting" tooltip="Use link hover colour for the BuddyPress submenu also? If you have BP installed, have a look at a profile page for example. By default the submenu links adapt the link colour and link hover colour. Sometimes the link hover colour can look ugly here and you don't want the submenu to adapt. Then you can change the colour adapting here easily.">
+								<option name="just the link colour" value="just the link colour" />
+								<option name="link colour and hover colour" value="link colour and hover colour" />
+							</select>
 											
 							<select name="link_styling_title_adapt" label="Titles adapting" tooltip="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
+								<option name="no adapting at all" value="no adapting at all" />
 								<option name="just the hover effect" value="just the hover effect" />
 								<option name="link colour and hover colour" value="link colour and hover colour" />
 								<option name="...the underline effects too" value="...the underline effects too" />
-								<option name="the background colours too" value="the background colours too" />
+								<option name="just the underline effects" value="just the underline effects" />
+								<option name="just the background colours" value="just the background colours" />
 								<option name="adapt all link styles" value="adapt all link styles" />
 							</select>
 																				
