@@ -4577,7 +4577,7 @@ div#access {
 /** ***   
 menu corner radius  **/ 
 
-#access {
+div#access {
 <?php if($tkf->menu_corner_radius == 'just the bottom ones'){?>
 	-moz-border-radius-topleft:0px;
 	-moz-border-radius-topright:0px;
@@ -4594,6 +4594,33 @@ menu corner radius  **/
 }
 <?php endif; ?>
 
+<?php if($tkf->menu_item_corner_radius != "default" && $tkf->menu_item_corner_radius != ""):?>
+/** ***   
+menu item corner radius  **/ 
+
+div#access a, 
+#access ul li.current_page_item > a, 
+#access ul li.current-menu-ancestor > a, 
+#access ul li.current-menu-item > a, 
+#access ul li.selected > a, 
+#access ul li.current-menu-parent > a, 
+#access ul li.current_page_item, 
+#access ul li.current-menu-item {
+<?php if($tkf->menu_item_corner_radius == 'all rounded'){?>
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	}
+	div#access { 
+	padding-bottom: 3px;  
+<?php } ?> 
+<?php if($tkf->menu_item_corner_radius == 'not rounded'){?>
+	-moz-border-radius:0px;
+	-webkit-border-radius:0px;
+	border-radius:0px;
+<?php } ?> 
+}
+<?php endif; ?>
 
 <?php if($tkf->bg_menue_link_color_current	){?>
 /** ***   

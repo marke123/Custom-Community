@@ -486,6 +486,10 @@
 								<option name="x+y" value="x+y" />
 							</select>
 							
+						</section>
+
+						<section title="Menu background » current">
+
 							<colorpicker name="bg_menue_link_color_current" label="Menu background colour current" tooltip="Change background colour from currently displayed menu item" />
 							
 							<file name="bg_menu_img_current" label="Menu background image current" tooltip="Background image of the currently displayed menu item. Upload or insert url." />
@@ -497,17 +501,27 @@
 								<option name="x+y" value="x+y" />
 							</select>
 							
+						</section>
+
+						<section title="Menu background » mouse over and drop down list">
+
 							<colorpicker name="bg_menue_link_color_hover" label="Menu background colour mouse over and drop down list" tooltip="Change a menu item's background colour when mouse moves over it, and drop down background colour" />
 							
-							<colorpicker name="bg_menue_link_color_dd_hover" label="Menu background colour drop down list mouse over" tooltip="Change background colour of hovered drop down menu item (when the mouse moves over it)" />
+							<colorpicker name="bg_menue_link_color_dd_hover" label="Menu background colour drop down list item when mouse over" tooltip="Change background colour of the drop down list's menu item when hovered (when the mouse moves over it)" />
 							
 						</section>
 						
 						<section title="Menu corner radius">
 
-							<select name="menu_corner_radius" label="Menu corner radius" tooltip="Do you want your menu corners to be rounded?">
+							<select name="menu_corner_radius" label="Menu bar corner radius" tooltip="Do you want your menu bar's corners to be rounded?">
 								<option name="all rounded" value="all rounded" />
 								<option name="just the bottom ones" value="just the bottom ones" />
+								<option name="not rounded" value="not rounded" />
+							</select>
+							
+							<select name="menu_item_corner_radius" label="Menu item corner radius" tooltip="Do you want your menu item's corners to be rounded?">
+								<option name="default" value="default" />
+								<option name="all rounded" value="all rounded" />
 								<option name="not rounded" value="not rounded" />
 							</select>
 
