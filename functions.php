@@ -4,6 +4,8 @@ require_once( dirname(__FILE__) . '/core/get-pro.php' );
 require_once( dirname(__FILE__) . '/core/post-metabox.php' );
 require_once( dirname(__FILE__) . '/core/loader.php');
 
+require( dirname( __FILE__ ) . '/core/custom-community.php' );
+
 /** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
 add_action( 'after_setup_theme', 'cc_setup' );
 if ( ! function_exists( 'cc_setup' ) ):
@@ -28,9 +30,11 @@ if ( ! function_exists( 'cc_setup' ) ):
 function cc_setup() {
 	global $tkf, $content_width;
 	
-	if( !is_object( $tkf ) )
-		return false;
-
+	$cc = new Custom_Community;
+	
+	
+	print_r($tkf);
+	
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 
