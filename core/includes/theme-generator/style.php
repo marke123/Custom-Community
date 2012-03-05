@@ -3960,7 +3960,12 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	}
 
 	<?php if ( $tkf->link_color_subnav_adapt == "link colour and hover colour" ) { ?> 
-		#subnav a:hover, #subnav a:focus, div.item-list-tabs ul li a:hover, div.item-list-tabs ul li a:focus {
+		#subnav a:hover, 
+		#subnav a:focus, 
+		div#item-nav ul li a:hover,
+		div#item-nav ul li a:focus,
+		div.item-list-tabs ul li a:hover, 
+		div.item-list-tabs ul li a:focus {
 			color:#<?php echo $tkf->link_color_hover ?>;
 		} 	
 	<?php } ?>
@@ -4313,7 +4318,7 @@ header image, repeat  **/
 }
 <?php } ?>
 
-<?php if ( $tkf->header_text == 'off' ) { ?>
+<?php if ( $tkf->header_text == 'hide' ) { ?>
 	#header div#logo h1, #header #desc, #header div#logo h4, div#blog-description { 
 		display: none; 
 	}
@@ -4344,6 +4349,14 @@ header image, repeat  **/
 		}
 	<?php } ?>
 <?php endif; ?>
+
+<?php if($tkf->header_width == 'full-width'){ ?>
+/** *** 
+header full width: give the logo some space to the left if header full width is selected **/
+	#header div#logo {
+		left: 8px;
+	}
+<?php } ?>
  
 <?php if($tkf->bg_menu_style != "tab style"): ?>
 /** ***   

@@ -32,9 +32,12 @@ function cc_setup() {
 	
 	$cc = new Custom_Community;
 	
-	
+	//echo 'nich da ';
 	print_r($tkf);
 	
+	if( !is_object( $tkf ) )
+	//	return false;
+
 	// This theme styles the visual editor with editor-style.css to match the theme style.
 	add_editor_style();
 

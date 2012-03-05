@@ -422,8 +422,16 @@ function cc_list_posts_on_page(){
 	}
 }
 if (!function_exists('bp_core_get_userlink')){
-	function bp_core_get_userlink(){
-		return get_the_author_link();	
+	function bp_core_get_userlink($post_author_id){
+		return '<a title="admin" href="'.get_author_posts_url($post_author_id).'">'.get_the_author_link($post_author_id).'</a>';	
 	}
 }
+if (!function_exists('bp_core_get_user_domain')){
+	function bp_core_get_user_domain($post_author_id){
+		return get_author_posts_url($post_author_id);	
+	}
+}
+
+
+
 ?>
