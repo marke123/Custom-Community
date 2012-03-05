@@ -86,7 +86,7 @@ h3, h3 a, h3 a:hover, h3 a:focus { font-size: 20px; }
 h4, h4 a, h4 a:hover, h4 a:focus { font-size: 16px; margin-bottom: 15px; }
 h5, h5 a, h5 a:hover, h5 a:focus { font-size: 14px; margin-bottom: 0; }
 h6, h6 a, h6 a:hover, h6 a:focus { font-size: 12px; margin-bottom: 0; }
-a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration: none; padding: 1px 0; }
+a { font-style:normal; color: #<?php echo $link_color; ?>; text-decoration: none; }
 a:hover, a:active { color: #<?php echo $font_color; ?>; }
 a:focus { outline: none; }
 .padder { padding: 20px; }
@@ -2151,8 +2151,8 @@ overflow: hidden;
 div.post .tags { float: left; }
 div.post .comments { float: right; }
 
-div.post img { margin: 15px 0; border: none; border: none !important; }
-div.post img.wp-smiley { padding: 0 !important; margin: 0 !important; border: none; float: none !important; clear: none !important; }
+div.post img { margin: 15px 0; border: none; border: none; }
+div.post img.wp-smiley { padding: 0; margin: 0; border: none; float: none; clear: none; }
 
 div.post img.centered, img.aligncenter {
 display: block;
@@ -3956,7 +3956,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	div.widget ul li a:hover, 
 	div.widget ul li.recentcomments a:hover,  
 	div.widget-title ul.item-list li a:hover {
-		color:#<?php echo $tkf->link_color_hover ?>;
+		color: #<?php echo $tkf->link_color_hover ?>;
 	}
 
 	<?php if ( $tkf->link_color_subnav_adapt == "link colour and hover colour" ) { ?> 
@@ -4001,6 +4001,11 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	a {
 		background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
 	} 
+	
+	a img, div.post a img {
+		padding: 0; 
+		margin: 0;
+	} 
 <?php endif; ?>
 
 <?php if($tkf->link_bg_color_hover != ""):?>
@@ -4010,50 +4015,50 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	a:hover, a:focus {
 		background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
 	} 
+	
+	a img, div.post a img {
+		padding: 0; 
+		margin: 0;
+	} 
 <?php endif; ?>
 
-<?php if($tkf->link_styling_title_adapt != "just the hover effect"):?>
-/** ***   
-	link styling titles adapt**/
+<?php if($tkf->link_styling_title_adapt != "no adapting at all"):?>
+	/** ***   
+	TITLES ADAPTING to link styling **/
 
-	<?php if ($tkf->link_hover_color != '') { 
-	// use the link hover colour anyway - if one is selected ?>
-				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-					color: #<?php echo $tkf->link_hover_color; ?>; 
-				} 
+	<?php if ($tkf->link_styling_title_adapt == 'just the hover effect' && $tkf->link_color_hover != '') { 
+	// "Just the hover effect" is selected ?>
+		h1 a:hover, h2 a:hover, h2.posttitle a:hover, h2.pagetitle a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+		h1 a:focus, h2 a:focus, h2.posttitle a:focus, h2.pagetitle a:hover, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+			color: #<?php echo $tkf->link_color_hover ?>; 
+		} 
 	<?php } ?>
 
 
 	<?php switch ($tkf->link_styling_title_adapt) { 
-        
+    
+    	// TITLES ADAPT link colour and hover colour     
 		case 'link colour and hover colour': ?>
         
         	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
         		color: #<?php echo $tkf->link_color; ?>;
         	}
-			
-		<?php break; 
-	
-		case 'no, only the link colour!': ?>
-        
-        	<?php if ($tkf->link_bg_color_hover || $tkf->link_bg_color_hover) { ?>
-				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-					color: #<?php if (!$tkf->font_color) { echo $font_color; } else { echo $tkf->font_color;  } ?>; 
-				} 
-			<?php } ?>
+        	
+        	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+			h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+				color: #<?php echo $tkf->link_color_hover ?>; 
+			}
 			
 		<?php break; 
 		
-		case 'link colour and hover colour': ?>
+		case '...the underline effects too': ?>
         
         	<?php if($tkf->link_underline != "never"): ?>
 
 				<?php if($tkf->link_underline == "just for mouse over"){ 
-					$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
-				} else {	
+						$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+						h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
+					} else {	
 					if($tkf->link_underline == "always") { 
 						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
 										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
@@ -4067,16 +4072,80 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 				} ?>
 				
 				/** ***   
-				title links underline  **/
+				TITLE ADAPT links underline  **/
 				
 				<?php echo $stylethis ?> {
 					text-decoration: underline;
 				} 	
+				
+				/** *** 
+				title links colour and hover colour **/
+				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	        		color: #<?php echo $tkf->link_color; ?>;
+	        	}
+	        	
+	        	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+					color: #<?php echo $tkf->link_color_hover ?>; 
+				}
 			
 			<?php endif; ?>
 			
 		<?php break; 
-		
+		case 'just the underline effects': ?>
+        
+			<?php if($tkf->link_underline != "never"): ?>
+
+				<?php if($tkf->link_underline == "just for mouse over"){ 
+						$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+						h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
+					} else {	
+					if($tkf->link_underline == "always") { 
+						$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
+					} else { 
+						$stylethis = 	'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+										h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+										text-decoration: none; 
+										} 
+										h1 a, h2 a, h3 a, h4 a, h5 a, h6 a';
+					}
+				} ?>
+				
+				/** ***   
+				TITLE ADAPT links underline  **/
+				
+				<?php echo $stylethis ?> {
+					text-decoration: underline;
+				} 	
+				
+			<?php endif; ?>			
+						
+		<?php break;
+				
+		case 'just the background colours': ?>
+        
+			<?php if($tkf->link_bg_color != ""):?>
+				/** ***   
+				title links BACKGROUND colour  **/
+				
+				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+					background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
+				} 
+			<?php endif; ?>
+			
+			<?php if($tkf->link_bg_color_hover != ""):?>
+				/** ***   
+				title links BACKGROUND colour hover  **/
+				
+				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
+					background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
+				} 
+			<?php endif; ?>
+						
+		<?php break; 
+
 		case 'adapt all link styles': ?>
         
         	<?php if($tkf->link_underline != "never"): ?>
@@ -4102,9 +4171,24 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 				
 				<?php echo $stylethis ?> {
 					text-decoration: underline;
-				} 	
+				}
 			
 			<?php endif; ?>
+			
+			<?php if($tkf->link_color != ""):?>			
+				/** *** 
+				title links colour and hover colour **/
+				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	        		color: #<?php echo $tkf->link_color; ?>;
+	        	}
+			<?php endif; ?>			   
+
+			<?php if($tkf->link_color_hover != ""):?>	        	
+	        	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
+				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
+					color: #<?php echo $tkf->link_color_hover ?>; 
+				}	
+			<?php endif; ?>		
 			
 			<?php if($tkf->link_bg_color != ""):?>
 				/** ***   
@@ -4126,29 +4210,6 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 			<?php endif; ?>
 			
 			
-		<?php break; 
-		
-		case 'the background colours too': ?>
-        
-			<?php if($tkf->link_bg_color != ""):?>
-				/** ***   
-				title links BACKGROUND colour  **/
-				
-				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-					background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
-				} 
-			<?php endif; ?>
-			
-			<?php if($tkf->link_bg_color_hover != ""):?>
-				/** ***   
-				title links BACKGROUND colour hover  **/
-				
-				h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-				h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-					background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
-				} 
-			<?php endif; ?>
-						
 		<?php break; 
 		
 		
