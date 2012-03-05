@@ -14,6 +14,6 @@ function cc_init() {
 	$cc = new Custom_Community;
 	
 }
-add_action( 'after_setup_theme', 'cc_init', 1, 1 );
+add_action( 'after_setup_theme', 'cc_init', 0, 1 );
 
 ?>
