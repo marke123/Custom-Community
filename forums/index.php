@@ -20,7 +20,7 @@
 
 			<form action="" method="post" id="forums-search-form" class="dir-form">
 
-				<h3><?php _e( 'Forums Directory', 'cc' ); ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button show-hide-new" href="#new-topic" id="new-topic-button"><?php _e( 'New Topic', 'cc' ); ?></a><?php endif; ?></h3>
+				<h2 class="pagettitle"><?php _e( 'Forums Directory', 'cc' ); ?><?php if ( is_user_logged_in() ) : ?> &nbsp;<a class="button show-hide-new" href="#new-topic" id="new-topic-button"><?php _e( 'New Topic', 'cc' ); ?></a><?php endif; ?></h2>
 
 				<?php do_action( 'bp_before_directory_forums_content' ); ?>
 

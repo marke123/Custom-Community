@@ -244,6 +244,8 @@ label.accessibly-hidden {
 #header div#logo h1 a, #header div#logo h4 a {
 color: #<?php echo $font_color; ?>;
 font-size: 26px;
+background-color: transparent; 
+text-decoration: none;
 }
 
 /* > Navigation
@@ -563,7 +565,7 @@ div#content div#item-header {
 margin-top:0;
 overflow:hidden;
 }
-div#item-header div#item-header-content { margin-left: 170px; }
+div#item-header div#item-header-content { float: left; }
 
 div#item-header h2 {
 font-size: 28px;
@@ -617,12 +619,14 @@ overflow: hidden;
 margin: 15px 0 5px 0;
 }
 
-div#item-header div#item-actions {
-float: right;
-width: 20%;
-margin: 0 0 15px 15px;
-text-align: right;
+div#item-header div#item-actions {	
+    clear: both;
+    float: left;
+    margin: 0 0 15px 15px;
+    text-align: left;
+    width: 20%;
 }
+
 div#item-header div#item-actions h3 {
 font-size: 12px;
 margin: 0 0 5px 0;
@@ -4882,8 +4886,16 @@ div.pagination, div#subnav.item-list-tabs {
 div.item-list-tabs {
 border-bottom: 4px solid #<?php echo $tkf->bg_content_nav_color?>;
 }
-
 <?php } ?>
+
+<?php if($tkf->bp_show_group_admins == "hide"){ ?>
+/** hide the group admins and mods by setting display to "none" **/ 
+	
+body.groups div#item-header div#item-actions {	
+	display: none; 
+}
+<?php } ?>
+
 
 /** ***   
 overwrite css area adding  **/ 

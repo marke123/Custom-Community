@@ -9,7 +9,7 @@
 
 			<?php if ( bp_account_was_activated() ) : ?>
 
-				<h2 class="widgettitle"><?php _e( 'Account Activated', 'cc' ) ?></h2>
+				<h2 class="pagettitle"><?php _e( 'Account Activated', 'cc' ) ?></h2>
 
 				<?php do_action( 'bp_before_activate_content' ) ?>
 
