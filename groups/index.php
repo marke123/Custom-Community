@@ -20,7 +20,7 @@
 
 		<form action="" method="post" id="groups-directory-form" class="dir-form">
 
-			<h3><?php _e( 'Groups Directory', 'cc' ); ?><?php if ( is_user_logged_in() && bp_user_can_create_groups() ) : ?> &nbsp;<a class="button" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() . '/create' ); ?>"><?php _e( 'Create a Group', 'cc' ); ?></a><?php endif; ?></h3>
+			<h2 class="pagetitle""><?php _e( 'Groups Directory', 'cc' ); ?><?php if ( is_user_logged_in() && bp_user_can_create_groups() ) : ?> &nbsp;<a class="button" href="<?php echo trailingslashit( bp_get_root_domain() . '/' . bp_get_groups_root_slug() . '/create' ); ?>"><?php _e( 'Create a Group', 'cc' ); ?></a><?php endif; ?></h2>
 
 			<?php do_action( 'bp_before_directory_groups_content' ); ?>
 

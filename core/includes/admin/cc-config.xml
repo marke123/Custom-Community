@@ -788,6 +788,11 @@
 								<option name="off" value="off" />
 							</select>
 							
+							<select name="bp_show_group_admins" label="Show admins and moderators" tooltip="Display admins and moderators in the group header?">
+								<option name="show" value="show" />
+								<option name="hide" value="hide" />
+							</select>					
+							
 							<select name="bp_groups_sidebars" label="Groups Sidebars" tooltip="Where do you like to have your sidebars in groups? 
 								default = the global settings and sidebars will be used
 								none = no sidebars, full width

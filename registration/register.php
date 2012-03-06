@@ -20,7 +20,7 @@
 
 			<?php if ( 'request-details' == bp_get_current_signup_step() ) : ?>
 
-				<h2><?php _e( 'Create an Account', 'cc' ) ?></h2>
+				<h2 class="pagettitle"><?php _e( 'Create an Account', 'cc' ) ?></h2>
 
 				<?php do_action( 'template_notices' ) ?>
 
