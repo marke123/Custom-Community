@@ -829,6 +829,7 @@
 							</select>
 						
 						</section>
+
 						<section title="Slideshow post categories">
 							
 							<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
@@ -837,6 +838,16 @@
 							</select>
 
 						</section>
+						
+						<section title="Slideshow style">
+						
+							<select name="slideshow_style" label="Slideshow style" tooltip="Select a type of slideshow.">
+								<option name="default" value="default" />
+								<option name="full width" value="full width"/>
+							</select>
+						
+						</section>
+						
 						<section title="Amount">
 							
 							<textfield name="slideshow_amount" label="Amount" tooltip="Define the amount of posts. This option works just with the full width image slider." />
@@ -866,16 +877,7 @@
 							<textfield name="slideshow_orderby" label="Order posts by" tooltip="svenw" />
 											
 						</section>
-						
-						<section title="Slideshow style">
-						
-							<select name="slideshow_style" label="Slideshow style" tooltip="Select a type of slideshow.">
-								<option name="default" value="default" />
-								<option name="full width" value="full width"/>
-							</select>
-						
-						</section>
-						
+												
 						<section title="Caption">
 							
 							<select name="slideshow_caption" label="Caption" tooltip="Show just the images or also titles and excerpts?">
