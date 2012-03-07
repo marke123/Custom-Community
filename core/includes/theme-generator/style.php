@@ -346,10 +346,13 @@ div#sidebar {
 border-top-right-radius:6px;
 background:transparent;
 border-left:none;
-float:right;
+height: 100%;
+position: absolute;
+right: 0;
 margin-left:-224px;
 margin-top: 0px;
 width:224px;
+float: right;
 }
 
 div.widgetarea {
@@ -497,9 +500,10 @@ background:transparent;
 border-left:0 none;
 border-right:none;
 float:left;
+height: 100%;
+position: absolute;
 margin-right:-225px;
 margin-top: 0px;
-position:relative;
 width:225px;
 }
 .paddersidebar{ padding:30px 15px 30px 20px; }
