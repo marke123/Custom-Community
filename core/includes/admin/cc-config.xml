@@ -835,6 +835,8 @@
 							<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
 								You can select the category the posts should be taken from.
 								For more info check out the.">
+									<option name="All categories" value="all-categories" />
+							
 							</select>
 
 						</section>
