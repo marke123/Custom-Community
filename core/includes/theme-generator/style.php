@@ -347,7 +347,6 @@ border-top-right-radius:6px;
 background:transparent;
 border-left:none;
 height: auto;
-overflow: auto;
 position: relative;
 margin-left:-224px;
 margin-top: 0px;
@@ -500,13 +499,13 @@ background:transparent;
 border-left:0 none;
 border-right:none;
 float:left;
-height: auto; 
-overflow: auto; 
+height: auto;
+position: relative; 
 margin-right:-225px;
 margin-top: 0px;
 width:225px;
-position: relative;
 }
+
 .paddersidebar{ padding:30px 15px 30px 20px; }
 
 div#sidebar div.item-options a.selected,
