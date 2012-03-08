@@ -588,8 +588,10 @@ function slider($atts,$content = null) {
 		else :
 			$tmp .='<div id="cc_slider_prev" class="cc_slider" style="background: #ededed;">'. chr(13);
 			$tmp .='<div id="featured_prev" class="featured" style="background: #ededed;">'. chr(13);
-			$tmp .='<h2 class="center" style="margin-top:50px; margin-left: 20px;">'.__( 'Empty Slideshow', 'cc' ).'</h2>'. chr(13);
-			$tmp .='<p class="center" style="margin-top:20px; margin-left: 20px;">'.__( 'You have no posts selected for your slideshow! <br>Check your theme settings for the global slideshow or the page settings for page slideshows... <br>and write a post! Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'cc' ).'</p>'. chr(13);
+			$tmp .='<h2 class="center" style="margin-top:50px; margin-left: 20px;">'.__( 'Ooops..', 'cc' ).'</h2>'. chr(13);
+			$tmp .='<p class="center" style="margin-top:20px; margin-left: 20px;">'.__( 'Something went wrong with the slideshow! 
+				<br />Check your theme settings for the slideshow or the page settings for a single page slideshow... 
+				<br />Check the <a href="http://themekraft.com/faq/slideshow/" target="_blank">FAQ</a> for more.', 'cc' ).'</p>'. chr(13);
 			$tmp .='</div></div>'. chr(13);
 			
 		endif;
