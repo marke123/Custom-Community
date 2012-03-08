@@ -15,6 +15,22 @@
 		}(document, 'script', 'facebook-jssdk'));</script>
 		
 		<style>
+			/* Theme Settings page jQuery CSS overwrite */ 
+									
+			.ui-accordion .ui-accordion-header a { color: #888888; }
+			
+			.ui-accordion .ui-accordion-header.ui-state-hover a { color: #555555; }
+			
+			div.ui-accordion h3.ui-accordion-header:hover,
+			div.ui-accordion h3.ui-accordion-header:focus {
+				border: 1px solid #D3D3D3;
+			}
+			
+			div.ui-tabs div.ui-tabs-panel {
+			    padding: 1.5em 0;
+			}
+						
+			/* other Theme Settings page specific CSS */
 			
 			span.fb_edge_comment_widget {
 				display: none;
