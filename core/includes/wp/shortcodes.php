@@ -408,14 +408,17 @@ function slider($atts,$content = null) {
 		
 	), $atts));
 
-	if($category_name == 'all-categories'){
+
+	if($category_name == 'all-categories' || $page_id != '' || $post_type != ''){
 		$category_name = '0';
 	}
+	
 	
 	if($page_id != '' && $post_type == 'post'){
 		 $post_type = 'page';
 	}
 
+	
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
 	}
