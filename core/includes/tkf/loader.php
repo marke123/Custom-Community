@@ -82,7 +82,9 @@ if( !function_exists( 'tkf_init_010' ) ){
 		add_action( 'admin_init', 'tk_register_option_groups' ); // should not be here
 		
 		add_action( 'after_setup_theme', 'tk_load_framework', 1 );
-		add_action( 'after_setup_theme', 'tk_load_jqueryui', 1 );
+		
+		if(is_admin())
+			add_action( 'after_setup_theme', 'tk_load_jqueryui', 1 );
 	}
 	
 	function tk_register_option_groups(){
