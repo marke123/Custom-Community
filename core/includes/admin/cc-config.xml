@@ -122,7 +122,7 @@
 				margin-left: 6px;
 			}
 			div.ccadmin_right_box {
-				width: 355px; 
+				width: 257px; 
 				float: right;
 				height: auto;
 				overflow: auto;
@@ -130,7 +130,7 @@
 			}
 			div.ccadmin_right_box p {
 				font-size: 12px; 
-				text-align: left;
+				text-align: right;
 				margin-top: 0;
 				float: right;
 			}
@@ -152,14 +152,19 @@
 				margin-top: 60px;
 			}
 			div.ccadmin_right_box img.cc_admin_tk_logo {
-				margin-bottom: 0;
-				width: 98px;
-				height: 15px;
+				height: 36px;
+			    margin-bottom: 6px;
+			    margin-top: 12px;
+			    margin-right: -2px;
+			    padding-bottom: 5px;
+			    border-bottom: 1px solid transparent;
+			    width: 256px;
 				float: right;
-				background: url("../wp-content/themes/custom-community/core/includes/admin/themekraft-logo-small.png") no-repeat scroll 0 0 transparent;
+				background: url("../wp-content/themes/custom-community/core/includes/admin/themekraft-logo-s.png") no-repeat scroll 0 0 transparent;
 			}
-			div.ccadmin_right_box img.cc_admin_tk_logo:hover {
-				background: url("../wp-content/themes/custom-community/core/includes/admin/themekraft-logo-small-hover.png") no-repeat scroll 0 0 transparent;
+			div.ccadmin_right_box img.cc_admin_tk_logo:hover {			
+				border-bottom: 1px solid #bbd22a;
+				
 			}
 			div.wrap p.cc_subline {
 				font-style: italic; 
