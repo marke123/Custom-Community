@@ -202,7 +202,7 @@
 			<p>Looking for more? <a href="http://themekraft.com/shop/custom-community-pro/" target="_blank">Get the pro version.</a></p>
 		</div>
 		
-		<div class="cc_theme_settings_form">
+		<div class="cc_theme_settings_form metabox-holder has-right-sidebar ">
 		<form class="cc_theme_settings_form" name="cc-config">
 						
 			<tabs>
@@ -381,11 +381,6 @@
 							<colorpicker name="link_bg_color" label="Link bg colour" tooltip="Change link background colour." />
 
 							<colorpicker name="link_bg_color_hover" label="Link bg hover colour" tooltip="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
-
-							<select name="link_color_subnav_adapt" label="BP submenu adapting" tooltip="Use link hover colour for the BuddyPress submenu also? If you have BP installed, have a look at a profile page for example. By default the submenu links adapt the link colour and link hover colour. Sometimes the link hover colour can look ugly here and you don't want the submenu to adapt. Then you can change the colour adapting here easily.">
-								<option name="just the link colour" value="just the link colour" />
-								<option name="link colour and hover colour" value="link colour and hover colour" />
-							</select>
 											
 							<select name="link_styling_title_adapt" label="Titles adapting" tooltip="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
 								<option name="no adapting at all" value="no adapting at all" />
@@ -534,16 +529,7 @@
 							</select>
 						
 						</section>
-
-						<section title="Show community navigation">
 							
-							<select name="menue_enable_community" label="Show community navigation" tooltip="Enable Buddypress menu-items in the main navigation">
-								<option name="Disabled" value="false" />
-								<option name="Enabled" value="true" />
-							</select>
-													
-						</section>
-						
 						<section title="Menu x-position">
 							
 							<select name="menu_x" label="Menu x-position" tooltip="Align the menu left or right">
@@ -799,7 +785,9 @@
 						
 					</accordion>
 				</tab>
-				<tab title="BuddyPress">
+
+				<tab title="Buddypress" id="buddypress">
+
 					<accordion>
 						<section title="Login bar header">
 							
@@ -810,9 +798,20 @@
 							
 						</section>
 						
-						<section title="Use Buddypress default sub-navigation">
+						<section title="Show community dropdown in main menu">
 							
-							<select name="bp_default_navigation" label="Use Buddypress default sub-navigation" tooltip="This sub-navigation is the secondary level navigation,
+							<select name="menue_enable_community" label="Show community dropdown in main menu?" tooltip="Enable BuddyPress menu-items in the main navigation">
+								<option name="Disabled" value="false" />
+								<option name="Enabled" value="true" />
+							</select>
+							
+													
+						</section>
+					
+						
+						<section title="BuddyPress sub-menu in profiles and groups">
+							
+							<select name="bp_default_navigation" label="Use Buddypress default sub-menu in groups and profiles" tooltip="This sub-navigation is the secondary level navigation,
 								e.g. for profile it contains: [Public, Edit Profile, Change Avatar]
 								If you use the community navigation widget, you don't need this navigation.
 								If you want to use a horizontally sub-navigation - choose this one.">
@@ -820,14 +819,15 @@
 								<option name="Enabled" value="true" />
 							</select>
 							
-						</section>
-						
-						<section title="BuddyPress sub navigation background colour">
+							<select name="link_color_subnav_adapt" label="BuddyPress sub-menu link colour styling" tooltip="If you have set link colours, should BuddyPress use your link hover colour for the BP sub-menu also? Have a look at a profile page for example. By default the sub-menu links adapt the link colour and link hover colour. Sometimes the link hover colour can look ugly here and you don't want the submenu to adapt. Then you can change the colour adapting here easily.">
+								<option name="just use the link colour" value="just the link colour" />
+								<option name="use link colour and hover colour" value="link colour and hover colour" />
+							</select>
 							
-							<colorpicker name="bg_content_nav_color" label="BuddyPress sub navigation background colour" tooltip="Change the background colour of the Buddypress component sub navigation" />
+							<colorpicker name="bg_content_nav_color" label="BuddyPress sub-menu background colour" tooltip="Change the background colour of the BuddyPress component sub-menu." />
 
 						</section>
-						
+												
 						<section title="Search bar">
 														
 							<select name="menue_enable_search" label="Show search bar" tooltip="enable BuddyPress search bar in header">
@@ -1022,22 +1022,24 @@
 
 			</tabs>
 	
-			<br></br>
-			<button name="Save" />
-			<br /><br />
 			
-			<div class="cc_export_import">
-				<div class="tk_field_row cc_export_import_header">
-					<h2>Import and export</h2>
-					<br />
-					<p>Import and export your theme settings. <a href="#">More help?</a></p> 
-				</div>
+			<div class="inner-sidebar">
 				
-				<export name="Export settings" label="Export" forms="cc-config" />
-				<import name="Import settings" label="Import" />
-			</div>			
-			</form>
+				<div class="postbox">
+					
+					<div title="Click to toggle" class="handlediv"><br></br></div><h3 class="hndle"><span>Test</span></h3>
+					<div class="inside">
+						<button name="Save" />
+						<export name="Export settings" label="Export" forms="cc-config" /><import name="Import settings" label="Import" />
+					
+					</div>
+				</div>
+
 			</div>
+		
+			</form>
+		
+		</div>
 			
 			<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
 			<style type="text/css" media="screen, projection">
@@ -1262,6 +1264,11 @@
 	
 				</tabs>
 			</form>
+			</div>
+			
+			<div>
+				
+				
 			</div>
 			
 			<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>

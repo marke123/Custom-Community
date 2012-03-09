@@ -146,14 +146,21 @@ function cc_setup() {
 }
 	
 	function generate_theme(){
-		if(!is_admin())
-			$Theme_Generator = new CC_Theme_Generator();
-				
-			$args = array('echo' => '0','hide_empty' => '0');
-			$categories = get_categories($args);
-			foreach($categories as $category) {
-				tk_select_add_option( 'slideshow_cat', $category->slug , $category->name );
-			}
+		
+		$Theme_Generator = new CC_Theme_Generator();
+	
+		$args = array('echo' => '0','hide_empty' => '0');
+		$categories = get_categories($args);
+		foreach($categories as $category) {
+			tk_select_add_option( 'slideshow_cat', $category->slug , $category->name );
+		}
+
+		/*
+		 * Hiding elemts by id 
+		 */
+		if(!defined('BP_VERSION'))
+			tk_hide_element( 'buddypress' );
+
 				
 	}
 	
@@ -255,11 +262,7 @@ function cc_setup() {
 			require_once($this->require_path('/core/includes/bp/templatetags.php'));
 			require_once($this->require_path('/core/includes/bp/buddydev-search.php'));	
 		}
-		
-		// admin specific functions
-		// if ( is_admin() )
-		//	require_once($this->require_path('admin/cheezcap.php'));
-			
+				
 	}
 	
 	### add css and js
