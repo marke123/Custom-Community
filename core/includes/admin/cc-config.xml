@@ -95,11 +95,7 @@
 				display: none;
 			}
 			div.wrap h2 {
-				width: 200px;
 				float: left;
-			}
-			div.ccadmin_main_box a {
-				margin-left: 6px;
 			}
 			div.ccadmin_right_box {
 				width: 257px; 
@@ -115,7 +111,7 @@
 				float: right;
 			}
 			div.ccadmin_main_box {
-				margin-top: 8px;
+				padding: 52px 0 0 24px;
 				width: 450px;
 				height: auto;
 				overflow: auto;
@@ -129,7 +125,7 @@
 				height: auto; 
 				position: absolute;
 				left: 0;
-				margin-top: 60px;
+				margin-top: 52px;
 			}
 			div.ccadmin_right_box img.cc_admin_tk_logo {
 				height: 36px;
@@ -146,17 +142,30 @@
 				border-bottom: 1px solid #bbd22a;
 				
 			}
-			div.wrap p.cc_subline {
-				font-style: italic; 
-				margin-bottom: 22px; 
-				line-height: 12px;
-			}
 			div.fb-like {
 				float: left; 
 			}
 			iframe.twitter-follow-button {
 				float: right;
 			}
+			div.getting_started, 
+			div.support {
+				width: auto; 
+				float: left;
+				padding: 4px 22px; 
+			}
+			div.getting_started p, 
+			div.support p {
+				font-size: 15px; 
+				font-weight: bold; 
+				color: #888888; 
+				margin-bottom: 8px;
+			}
+			div.getting_started a, 
+			div.support a {
+				font-size: 15px; 
+			}
+
 		</style>
 		
 		<div class="cc-logo">
@@ -176,10 +185,15 @@
 		</div>
 		
 		<div class="ccadmin_main_box">			
-			<p class="cc_subline">Enjoy this free version! You are up-to-date with version 2.0</p>
-			<p>Getting Started: <a href="themes.php?page=autoslug_cc-settings_1" target="_blank">Tutorials and free support.</a></p> 
-			<p>Personal assistance: <a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support.</a></p>
-			<p>Looking for more? <a href="http://themekraft.com/shop/custom-community-pro/" target="_blank">Get the pro version.</a></p>
+			<div class="getting_started">
+				<p>Getting Started.</p> 
+				<a href="themes.php?page=autoslug_cc-settings_1" target="_blank">Tutorials and free support</a>
+			</div>
+
+			<div class="support"> 
+				<p>Personal assistance?</p> 
+				<a href="http://themekraft.com/shop/premium-support/" title="Get Premium Support" target="_blank">Get premium support</a>
+			</div>
 		</div>
 		
 		<div class="cc_theme_settings_form">
