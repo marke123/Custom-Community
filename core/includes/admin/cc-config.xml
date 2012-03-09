@@ -786,7 +786,7 @@
 					</accordion>
 				</tab>
 
-				<tab title="Buddypress" id="buddypress">
+				<tab title="BuddyPress" id="buddypress">
 
 					<accordion>
 						<section title="Login bar header">
