@@ -68,8 +68,7 @@ class TK_Jqueryui{
 			wp_enqueue_style( 'jquery-colorpicker-css', TKF_URL . '/includes/css/colorpicker.css' );
 			wp_enqueue_style( 'tkf-css', TKF_URL . '/includes/css/tkf.css' );
 			wp_enqueue_style( 'thickbox' );
-			wp_enqueue_style( 'jquery-ui-selectable' );
-				 
+								 
 		}
 		
 		$jqueryui_url = '';
