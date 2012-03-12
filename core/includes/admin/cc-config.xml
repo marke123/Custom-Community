@@ -2,7 +2,9 @@
 <wml>
 	<menu title="CC Settings" parent_slug="themes.php">
 		<page title="Theme Settings" headline="Theme Settings">
-
+			
+		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
+		
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		
 		<div id="fb-root"></div>
@@ -96,6 +98,7 @@
 			}
 			div.wrap h2 {
 				float: left;
+				margin-left: 46px;
 			}
 			div.ccadmin_right_box {
 				width: 257px; 
@@ -111,7 +114,7 @@
 				float: right;
 			}
 			div.ccadmin_main_box {
-				padding: 52px 0 0 24px;
+				padding: 67px 0 0 0;
 				width: 450px;
 				height: auto;
 				overflow: auto;
@@ -125,14 +128,14 @@
 				height: auto; 
 				position: absolute;
 				left: 0;
-				margin-top: 52px;
+				margin-top: 67px;
 			}
 			div.ccadmin_right_box img.cc_admin_tk_logo {
 				height: 36px;
 			    margin-bottom: 6px;
-			    margin-top: 12px;
+			    margin-top: 18px;
 			    margin-right: -2px;
-			    padding-bottom: 5px;
+			    padding-bottom: 6px;
 			    border-bottom: 1px solid transparent;
 			    width: 256px;
 				float: right;
@@ -164,6 +167,20 @@
 			div.getting_started a, 
 			div.support a {
 				font-size: 15px; 
+			}
+			div#publishing-action.cc_settings_save {
+				height: 34px;
+			}
+			div.save_it {
+				color: #888888;
+				margin-top: 4px;
+				float: left;
+			}
+			div#submitpost {
+				height: 44px;
+			}
+			div.cc_theme_settings_form div#side-sortables {
+			    padding-top: 0.5em;
 			}
 
 		</style>
@@ -205,13 +222,37 @@
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
 				
 					<div id="submitdiv" class="postbox">
-						<div title="Click to toggle" class="handlediv"><br></br></div><h3 class="hndle"><span>Test</span></h3>
+						<div title="Click to toggle" class="handlediv"><br></br></div><h3 class="hndle"><span>Save</span></h3>
 						<div class="inside">
-							<input type="submit" id="Save" value="save" class="button-primary" />
-							<export name="Export settings" label="Export" forms="cc-config" />
-							<import name="Import settings" label="Import" />
+							<div id="submitpost" class="submitbox">
+								
+								<div id="major-publishing-actions">
+									<div class="save_it">Save theme settings</div>
+									<div id="publishing-action" class="cc_settings_save">
+										<input type="submit" id="Save" value="Save" class="button-primary" />
+									</div>
+								</div>
+
+							</div>	
 						</div>
 					</div>
+			
+					<div id="cc_import_export" class="postbox">
+						<div title="Click to toggle" class="handlediv"><br></br></div><h3 class="hndle"><span>Import / Export</span></h3>
+						
+						<div class="inside">
+							<div id="import_export_box" class="submitbox">
+								
+								<div id="minor-publishing">
+									<export name="Export settings" label="Export" forms="cc-config" />
+									<import name="Import settings" label="Import" />
+								</div>
+								
+							</div>	
+						</div>
+						
+					</div>
+			
 					
 				</div>
 			</div>
