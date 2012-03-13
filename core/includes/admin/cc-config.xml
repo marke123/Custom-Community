@@ -966,6 +966,7 @@
 									<select name="bp_profile_header" label="Show Profile header" tooltip="Display profile header, can be used as widget area">
 										<option name="on" value="on" />
 										<option name="off" value="off" />
+										<option name="just the title" value="just-title" />
 									</select>
 									
 									<select name="bp_profile_sidebars" label="Profile Sidebars" tooltip="Where do you like to have your sidebars in profiles? 
@@ -996,6 +997,7 @@
 									<select name="bp_groups_header" label="Show Groups header" tooltip="Display group header, can be used as widget area">
 										<option name="on" value="on" />
 										<option name="off" value="off" />
+										<option name="just the title" value="just-title" />
 									</select>
 									
 									<select name="bp_show_group_admins" label="Show admins and moderators" tooltip="Display admins and moderators in the group header?">
