@@ -219,6 +219,31 @@
 		<div id="poststuff" class="metabox-holder has-right-sidebar">			
 			
 			<div id="side-info-column" class="inner-sidebar">
+				
+				<accordion id='Sidebar'>
+					
+					<section title="Save" id='sidebar-save'>
+						
+							<div id="major-publishing-actions">
+									<div class="save_it">Save theme settings</div>
+									<div id="publishing-action" class="cc_settings_save">
+										<input type="submit" id="Save" value="Save" class="button-primary" />
+									</div>
+								</div>
+						
+					</section>
+					
+					<section title="Import / Export" id='sidebar-import-export'>
+						
+						<div id="minor-publishing">
+							<export name="Export settings" label="Export" forms="cc-config" />
+							<import name="Import settings" label="Import" />
+						</div>
+				
+					</section>
+						
+				</accordion>
+				
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
 				
 					<div id="submitdiv" class="postbox">
@@ -842,7 +867,28 @@
 						</tab>
 		
 						<tab title="Buddypress" id="buddypress">
-		
+							
+							<tab title="test">
+								Das ein Test
+							</tab>
+							
+							<accordion>
+								<section title="1">
+									<accordion>
+										<section title="1.1">
+											1.1
+										</section>
+										<section title="2.1">
+											2.1
+										</section>
+									</accordion>
+								</section>
+								<section title="2">
+									2
+								</section>
+							</accordion>
+							
+							
 							<accordion>
 								<section title="Login bar header">
 									
