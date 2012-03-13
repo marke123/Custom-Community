@@ -84,8 +84,7 @@ function cc_setup() {
 	if ( function_exists( 'add_theme_support' ) ) {
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size( 222, 160, true );
-		add_image_size( 'slider-top-large', 1006, 250, true  );
-		add_image_size( 'slider-large', 990, 250, true  );
+		add_image_size( 'slider-top-large', 1000, 250, true  );
 		add_image_size( 'slider-middle', 756, 250, true  );
 		add_image_size( 'slider-thumbnail', 80, 50, true );
 		add_image_size( 'post-thumbnails', 222, 160, true  );
