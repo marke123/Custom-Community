@@ -51,7 +51,7 @@ class CC_Theme_Generator{
 		// sidebars
 		add_action( 'sidebar_left', array( $this, 'sidebar_left' ), 2 );
 		add_action( 'sidebar_right', array( $this, 'sidebar_right' ), 2 );
-		add_action( 'bp_inside_after_sidebar', array( $this, 'login_sidebar_widget' ), 2 );
+		add_action( 'bp_before_after_sidebar', array( $this, 'login_sidebar_widget' ), 2 );
 		
 		// home
 		add_action( 'bp_before_blog_home', array( $this, 'default_homepage_last_posts' ), 2 );
