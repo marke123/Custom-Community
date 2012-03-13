@@ -93,26 +93,37 @@ class CC_Theme_Generator{
 				$sidebar_position = $tkf->bp_profile_sidebars;
 			}
 		}
-			
-		$leftsidebar_width = $tkf->leftsidebar_width;
-		$rightsidebar_width = $tkf->rightsidebar_width;
-		
-		switch ($sidebar_position) {
-			case 'left': $tkf->rightsidebar_width = 0; break;
-			case 'right': $tkf->leftsidebar_width = 0; break;
-			case 'none': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
-			case 'full-width': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
+				
+		if($tkf->leftsidebar_width == ''){
+			$tkf->leftsidebar_width = '224';
 		}
+		
+		
+		if($tkf->rightsidebar_width == ''){
+			$tkf->rightsidebar_width = '224';
+		}
+		
 		
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
 		
-		switch ($tmp) {
-			case 'left-sidebar.php': $tkf->leftsidebar_width = $leftsidebar_width; $tkf->rightsidebar_width = 0; break;
-			case 'right-sidebar.php': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = $rightsidebar_width; break;
-			case 'left-and-right-sidebar.php': $tkf->leftsidebar_width = $leftsidebar_width; $tkf->rightsidebar_width = $rightsidebar_width; break;
-			case 'full-width.php': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
+		if($tmp == 'left-sidebar.php' || $tmp == 'right-sidebar.php' || $tmp == 'left-and-right-sidebar.php' || $tmp == 'full-width.php' ){
+			switch ($tmp) {
+				case 'left-sidebar.php': $tkf->rightsidebar_width = 0; break;
+				case 'right-sidebar.php': $tkf->leftsidebar_width = 0; break;
+				case 'full-width.php': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
+			}
+		} else {
+			switch ($sidebar_position) {
+				case 'left': $tkf->rightsidebar_width = 0; break;
+				case 'right': $tkf->leftsidebar_width = 0; break;
+				case 'none': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
+				case 'full-width': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
+			}			
 		}
+	
 
+	
+		
 	}
 	
 	/**
@@ -672,7 +683,7 @@ class CC_Theme_Generator{
 					</div>
 				<?php } ?>
 			</div>
-		<?php else:?>
+		<?php elseif($tkf->bp_groups_header == 'just-title'):?>
 			<div id="item-header">
 				<h2><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
 			</div>
@@ -725,7 +736,7 @@ class CC_Theme_Generator{
 					</div>
 				<?php } ?>
 			</div>
-		<?php else:?>
+		<?php elseif($tkf->bp_profile_header == 'just-title'): ?>
 			<div id="item-header">
 				<h2 class="fn"><a href="<?php bp_user_link() ?>"><?php bp_displayed_user_fullname() ?></a> <span class="highlight">@<?php bp_displayed_user_username() ?> <span>?</span></span></h2>
 			</div>
