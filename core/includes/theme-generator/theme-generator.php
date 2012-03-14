@@ -78,10 +78,10 @@ class CC_Theme_Generator{
 		
 		if($tkf->sidebar_position == ''){
 			$tkf->sidebar_position = 'right';
-			$tkf->menue_disable_home = true;
+			$tkf->menue_disable_home = 'true';
 			$tkf->enable_slideshow_home = 'home';
 			$tkf->header_text = 'off';
-			$tkf->preview = true;
+			$tkf->preview = 'true';
 		}	
 		
 		$sidebar_position = $tkf->sidebar_position;
@@ -203,10 +203,9 @@ class CC_Theme_Generator{
 		global $tkf;
 
 		if(defined('BP_VERSION')){
-			if($tkf->menue_enable_search){?>
+			if($tkf->menue_enable_search == 'true'){?>
 			<div id="search-bar" role="search">
 				<div class="padder">
-					
 						<form action="<?php echo bp_search_form_action() ?>" method="post" id="search-form">
 							<input type="text" id="search-terms" name="search-terms" value="<?php echo isset( $_REQUEST['s'] ) ? esc_attr( $_REQUEST['s'] ) : ''; ?>" />
 							<?php echo bp_search_form_type_select() ?>
@@ -268,7 +267,7 @@ class CC_Theme_Generator{
 		global $tkf;	
 	
 		if(!defined('BP_VERSION')) :
-			if($tkf->menue_disable_home == true){ ?>
+			if($tkf->menue_disable_home == 'true'){ ?>
 				<ul>
 					<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 						<a href="<?php echo home_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
@@ -277,12 +276,12 @@ class CC_Theme_Generator{
 			<?php } ?>
 		<?php else : ?>
 			<ul>
-			<?php if($tkf->menue_disable_home == true){ ?>
+			<?php if($tkf->menue_disable_home == 'true'){ ?>
 				<li id="nav-home"<?php if ( is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo home_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
 				</li>
 			<?php }?>
-				<?php if($tkf->menue_enable_community == true){ ?>
+				<?php if($tkf->menue_enable_community == 'true'){ ?>
 				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
 					<a href="<?php echo home_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'cc' ) ?>"><?php _e( 'Community', 'cc' ) ?></a>
 					<ul class="children">
@@ -441,7 +440,7 @@ class CC_Theme_Generator{
 	function footer_content(){ 
 		global $tkf;
 		if( ! dynamic_sidebar( 'footerfullwidth' )) :
-			if($tkf->preview == true){ ?>
+			if($tkf->preview == 'true'){ ?>
 				<div class="widget" style="margin-bottom: 0; padding: 12px; border: 1px solid #dddddd;">
 						<h3 class="widgettitle" ><?php _e('20 widget areas all over the site', 'cc'); ?></h3>
 						<div><p style="font-size: 16px; line-height:170%;">4 header + 4 footer widget areas (2 full width and 6 columns). <br>
@@ -452,7 +451,7 @@ class CC_Theme_Generator{
 			<?php } ?>	
 		<?php endif; ?>
 	
-		<?php  if (is_active_sidebar('footerleft') || $tkf->preview == true ){ ?>
+		<?php  if (is_active_sidebar('footerleft') || $tkf->preview == 'true' ){ ?>
 		<div class="widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footerleft' )){ ?>
 				<div class="widget">
@@ -465,8 +464,8 @@ class CC_Theme_Generator{
 	  	</div>
 		<?php  } ?>
   	
-  		<?php if (is_active_sidebar('footercenter') || $tkf->preview == true){ ?>
-		<div <?php if(!is_active_sidebar('footerleft') && $tkf->preview != true ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
+  		<?php if (is_active_sidebar('footercenter') || $tkf->preview == 'true'){ ?>
+		<div <?php if(!is_active_sidebar('footerleft') && $tkf->preview != 'true' ) { echo 'style="margin-left: 34% !important;"'; } ?> class="widgetarea cc-widget">
 			<?php if( ! dynamic_sidebar( 'footercenter' )){ ?>
 				<div class="widget">
 					<h3 class="widgettitle" ><?php _e('Archives', 'cc'); ?></h3>
@@ -478,7 +477,7 @@ class CC_Theme_Generator{
 	  	</div>
   		<?php } ?>
   	
-  		<?php if (is_active_sidebar('footerright') || $tkf->preview == true ){ ?>
+  		<?php if (is_active_sidebar('footerright') || $tkf->preview == 'true' ){ ?>
 		<div class="widgetarea cc-widget cc-widget-right">
 			<?php if( ! dynamic_sidebar( 'footerright' )){ ?>
 				<div class="widget">
@@ -605,7 +604,7 @@ class CC_Theme_Generator{
 	function login_sidebar_widget(){
 		global $tkf;
 	
-		if(defined('BP_VERSION')) { if($tkf->login_sidebar != 'off' || $tkf->login_sidebar == false){ cc_login_widget();}}
+		if(defined('BP_VERSION')) { if($tkf->login_sidebar != 'off' || $tkf->login_sidebar == 'false'){ cc_login_widget();}}
 	
 	}
 	
@@ -621,7 +620,7 @@ class CC_Theme_Generator{
 	function default_homepage_last_posts(){
 		global $tkf;
 		
-		if( $tkf->preview == true  || $tkf->default_homepage_last_posts == 'show') {
+		if( $tkf->preview == 'true'  || $tkf->default_homepage_last_posts == 'show') {
 			$args = array(
 				'amount' => '3',
 		 	);
@@ -661,7 +660,7 @@ class CC_Theme_Generator{
 	 */	
 	function before_group_home_content(){
 		global $tkf;
-		if( $tkf->bp_groups_header == false || $tkf->bp_groups_header == 'on'):?>
+		if( $tkf->bp_groups_header == 'false' || $tkf->bp_groups_header == 'on'):?>
 			<div id="item-header">
 				<?php if( ! dynamic_sidebar( 'groupheader' )) : ?>
 				 <?php locate_template( array( 'groups/single/group-header.php' ), true ) ?>
@@ -688,7 +687,7 @@ class CC_Theme_Generator{
 				<h2><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
 			</div>
 		<?php endif;?>
-		<?php if($tkf->bp_default_navigation == true){?>
+		<?php if($tkf->bp_default_navigation == 'true'){?>
 			<div id="item-nav">
 				<div class="item-list-tabs no-ajax" id="object-nav">
 					<ul>
@@ -712,7 +711,7 @@ class CC_Theme_Generator{
 	function before_member_home_content(){
 		global $tkf;
 
-		if($tkf->bp_profile_header == false || $tkf->bp_profile_header == 'on'): ?>
+		if($tkf->bp_profile_header == 'false' || $tkf->bp_profile_header == 'on'): ?>
 			<div id="item-header">
 				<?php if( ! dynamic_sidebar( 'memberheader' )) : ?>
 					<?php locate_template( array( 'members/single/member-header.php' ), true ) ?>
@@ -742,7 +741,7 @@ class CC_Theme_Generator{
 			</div>
 		<?php endif;?>
 			
-		<?php if($tkf->bp_default_navigation == true){?>
+		<?php if($tkf->bp_default_navigation == 'true'){?>
 		<div id="item-nav">
 			<div class="item-list-tabs no-ajax" id="object-nav">
 				<ul>
