@@ -509,6 +509,11 @@
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
+							
+									<select name="default_homepage_hide_comments" label="Show comments link under entry">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
 																					
 								</section>
 								<section title="Login">
@@ -601,7 +606,12 @@
 						</tab>
 						<tab title="Menu">
 							<accordion>
-								<section title="Show the 'Home' menu item">
+								<section title="Show / Hide the 'Home' menu item or disable the main navigation ">
+							
+									<select name="show_main_navigation" label="Show main navigation" tooltip="You can disable the main navigation">
+										<option name="Enabled" value="true" />
+										<option name="Disabled" value="false" />
+									</select>
 							
 									<select name="menue_disable_home" label="Show the 'Home' menu item" tooltip="You can disable the 'Home' menu item in the main navigation">
 										<option name="Disabled" value="false" />
@@ -1043,6 +1053,9 @@
 								</section>
 		
 								<section title="Slideshow post categories">
+							
+									<checkbox name="slideshow_sticky" label="Show only sticky posts" description="Show only sticky posts" />
+							
 									
 									<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
 										You can select the category the posts should be taken from.
@@ -1050,7 +1063,7 @@
 											<option name="All categories" value="all-categories" />
 									
 									</select>
-		
+									
 								</section>
 								
 								<section title="Slideshow style">
