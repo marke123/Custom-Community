@@ -8,7 +8,7 @@
 			<?php if ( have_posts() ) : ?>
 
 			   	<header class="page-header">
-						<h3 class="page-title">
+						<h2 class="pagetitle">
 							<?php if ( is_day() ) : ?>
 								<?php printf( __( 'Daily Archives: %s', 'cc' ), '<span>' . get_the_date() . '</span>' ); ?>
 							<?php elseif ( is_month() ) : ?>
@@ -18,7 +18,7 @@
 							<?php else : ?>
 								<?php printf( __( 'You are browsing the Blog for %1$s.', 'cc' ), wp_title( false, false ) ); ?>
 							<?php endif; ?>
-						</h3>
+						</h2>
 				</header>
 
 				<div class="navigation">

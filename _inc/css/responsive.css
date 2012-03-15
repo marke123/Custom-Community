@@ -177,7 +177,7 @@ Hello, this is the BuddyPress Responsive theme stylesheet
 	form#whats-new-form div#whats-new-avatar {
 		display:none;
 	}
-	form#whats-new-form h5 {
+	form#whats-new-form p {
 		margin: 0 0 0 0px;
 	}
 	form#whats-new-form #whats-new-content {
