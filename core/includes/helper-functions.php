@@ -251,7 +251,7 @@ function cc_slidertop(){
 	
 	$slidercat = '0' ;
 	$slider_style = 'default';
-	$tkftion = 'on';
+	$caption = 'on';
 	$slideshow_amount = '4';
 	$slideshow_time = '5000';
 	$slideshow_orderby = 'DESC';

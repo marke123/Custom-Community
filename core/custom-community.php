@@ -283,6 +283,7 @@ function cc_setup() {
 		$categories = get_categories($args);
 		foreach($categories as $category) {
 			tk_select_add_option( 'slideshow_cat', $category->slug , $category->name );
+			tk_select_add_option( 'last_posts_cat', $category->slug , $category->name );
 		}
 
 		/*
