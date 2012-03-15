@@ -404,7 +404,8 @@ function slider($atts,$content = null) {
 		'slider_nav_hover_color' => '',
 		'slider_nav_selected_color' => '',
 		'slider_nav_font_color' => '',
-		'time_in_ms' => '5000'
+		'time_in_ms' => '5000',
+		'slideshow_sticky' => ''
 		
 	), $atts));
 
@@ -468,19 +469,19 @@ function slider($atts,$content = null) {
 	
 	if($tkftion_height != ""){
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
-		$tmp .= 'height:'.$tkftion_height.'px;'. chr(13);
+		$tmp .= 'height:'.$caption_height.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
 	}
 	
 	if($tkftion_width != ""){
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
-		$tmp .= 'width:'.$tkftion_width.'px;'. chr(13);
+		$tmp .= 'width:'.$caption_width.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
 	}
 	
 	if($tkftion_top != ""){
 	    $tmp .= '#featured'.$id.' .ui-tabs-panel .info{'. chr(13);
-		$tmp .= 'top:'.$tkftion_top.'px;'. chr(13);
+		$tmp .= 'top:'.$caption_top.'px;'. chr(13);
 		$tmp .= '}'. chr(13);
 	}
 	
@@ -529,14 +530,28 @@ function slider($atts,$content = null) {
 	}
 	$tmp .= '</style>'. chr(13);	
 	
-	$args = array(
-		'orderby' => $orderby,
-		'post_type' => $post_type,
-		'post__in' => $page_id,
-		'category_name' => $category_name,
-		'posts_per_page' => $amount
-	);
 	
+	echo $slideshow_sticky;
+	
+	if($slideshow_sticky == 'on') {
+	
+		$args = array(
+			'posts_per_page' => $amount,
+			'post__in'  => get_option( 'sticky_posts' ),
+			'ignore_sticky_posts' => 1
+		);
+	
+	} else {
+		
+		$args = array(
+			'orderby' => $orderby,
+			'post_type' => $post_type,
+			'post__in' => $page_id,
+			'category_name' => $category_name,
+			'posts_per_page' => $amount
+		);
+	
+	}
 	remove_all_filters('posts_orderby');
 	query_posts($args);
 	

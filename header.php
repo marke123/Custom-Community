@@ -48,17 +48,22 @@
 		  	<?php } ?>
 	  		
 			<?php do_action( 'bp_before_access')?>
+			
+			
+				<div id="access">
+		    		<div class="menu">
+		    			
+						<?php global $tkf; if($tkf->show_main_navigation == 'true'){ ?>
+						
+									<?php do_action('bp_menu') ?>
 					
-			<div id="access">
-	    		<div class="menu">
-		
-					<?php do_action('bp_menu') ?>
-	
-					<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
-					<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary','container' => '' ) ); ?>
-	
+									<?php /* Our navigation menu.  If one isn't filled out, wp_nav_menu falls back to wp_page_menu.  The menu assiged to the primary position is the one used.  If none is assigned, the menu with the lowest ID is used.  */ ?>
+									<?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary','container' => '' ) ); ?>
+						<?php } ?>
+			
+					</div>
 				</div>
-			</div>
+			
 			
 			<?php do_action( 'bp_after_header_nav' ) ?>
 			

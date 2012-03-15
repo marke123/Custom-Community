@@ -2145,6 +2145,18 @@ overflow: hidden;
 div.post .tags { float: left; }
 div.post .comments { float: right; }
 
+<?php if($tkf->default_homepage_hide_comments == "hide"){?>
+
+/** ***   
+standard wordpress home page: hide comments**/
+
+div.post .comments  {
+	display: none;
+}
+
+<?php } ?>
+
+
 div.post img { margin: 15px 0; border: none; border: none; }
 div.post img.wp-smiley { padding: 0; margin: 0; border: none; float: none; clear: none; }
 

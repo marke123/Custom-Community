@@ -266,58 +266,60 @@ class CC_Theme_Generator{
 	function bp_menu(){
 		global $tkf;	
 	
-		if(!defined('BP_VERSION')) :
-			if($tkf->menue_disable_home == 'true'){ ?>
+			
+			if(!defined('BP_VERSION')) :
+				if($tkf->menue_disable_home == 'true'){ ?>
+					<ul>
+						<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
+							<a href="<?php echo home_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
+						</li>
+					</ul>
+				<?php } ?>
+			<?php else : ?>
 				<ul>
-					<li id="nav-home"<?php if ( is_home() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
+				<?php if($tkf->menue_disable_home == 'true'){ ?>
+					<li id="nav-home"<?php if ( is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
 						<a href="<?php echo home_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
 					</li>
-				</ul>
-			<?php } ?>
-		<?php else : ?>
-			<ul>
-			<?php if($tkf->menue_disable_home == 'true'){ ?>
-				<li id="nav-home"<?php if ( is_front_page() ) : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo home_url() ?>" title="<?php _e( 'Home', 'cc' ) ?>"><?php _e( 'Home', 'cc' ) ?></a>
-				</li>
-			<?php }?>
-				<?php if($tkf->menue_enable_community == 'true'){ ?>
-				<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
-					<a href="<?php echo home_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'cc' ) ?>"><?php _e( 'Community', 'cc' ) ?></a>
-					<ul class="children">
-						<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
-							<li<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo home_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'cc' ) ?>"><?php _e( 'Activity', 'cc' ) ?></a>
-							</li>
-						<?php endif; ?>
-		
-						<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user() ) : ?> class="selected"<?php endif; ?>>
-							<a href="<?php echo home_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'cc' ) ?>"><?php _e( 'Members', 'cc' ) ?></a>
-						</li>
-		
-						<?php if ( bp_is_active( 'groups' ) ) : ?>
-							<li<?php if ( bp_is_page( BP_GROUPS_SLUG ) || bp_is_group() ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo home_url() ?>/<?php echo BP_GROUPS_SLUG ?>/" title="<?php _e( 'Groups', 'cc' ) ?>"><?php _e( 'Groups', 'cc' ) ?></a>
-							</li>
-							<?php if ( bp_is_active( 'forums' ) && ( function_exists( 'bp_forums_is_installed_correctly' ) && !(int) bp_get_option( 'bp-disable-forum-directory' ) ) && bp_forums_is_installed_correctly() ) : ?>
-								<li<?php if ( bp_is_page( BP_FORUMS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-									<a href="<?php echo home_url() ?>/<?php echo BP_FORUMS_SLUG ?>/" title="<?php _e( 'Forums', 'cc' ) ?>"><?php _e( 'Forums', 'cc' ) ?></a>
+				<?php }?>
+					<?php if($tkf->menue_enable_community == 'true'){ ?>
+					<li id="nav-community"<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) || (bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user()) || (bp_is_page( BP_GROUPS_SLUG ) || bp_is_group()) || bp_is_page( BP_FORUMS_SLUG ) || bp_is_page( BP_BLOGS_SLUG ) )  : ?> class="page_item current-menu-item"<?php endif; ?>>
+						<a href="<?php echo home_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Community', 'cc' ) ?>"><?php _e( 'Community', 'cc' ) ?></a>
+						<ul class="children">
+							<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
+								<li<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) ) : ?> class="selected"<?php endif; ?>>
+									<a href="<?php echo home_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'cc' ) ?>"><?php _e( 'Activity', 'cc' ) ?></a>
 								</li>
 							<?php endif; ?>
-						<?php endif; ?>
-		
-						<?php if ( bp_is_active( 'blogs' ) && is_multisite() ) : ?>
-							<li<?php if ( bp_is_page( BP_BLOGS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
-								<a href="<?php echo home_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'cc' ) ?>"><?php _e( 'Blogs', 'cc' ) ?></a>
+			
+							<li<?php if ( bp_is_page( BP_MEMBERS_SLUG ) || bp_is_user() ) : ?> class="selected"<?php endif; ?>>
+								<a href="<?php echo home_url() ?>/<?php echo BP_MEMBERS_SLUG ?>/" title="<?php _e( 'Members', 'cc' ) ?>"><?php _e( 'Members', 'cc' ) ?></a>
 							</li>
-						<?php endif; ?>
-					</ul>
-				</li>
-        		<?php do_action( 'bp_nav_items' ); ?>
-        		<?php } ?>
-			</ul>
-		<?php endif;
-		}
+			
+							<?php if ( bp_is_active( 'groups' ) ) : ?>
+								<li<?php if ( bp_is_page( BP_GROUPS_SLUG ) || bp_is_group() ) : ?> class="selected"<?php endif; ?>>
+									<a href="<?php echo home_url() ?>/<?php echo BP_GROUPS_SLUG ?>/" title="<?php _e( 'Groups', 'cc' ) ?>"><?php _e( 'Groups', 'cc' ) ?></a>
+								</li>
+								<?php if ( bp_is_active( 'forums' ) && ( function_exists( 'bp_forums_is_installed_correctly' ) && !(int) bp_get_option( 'bp-disable-forum-directory' ) ) && bp_forums_is_installed_correctly() ) : ?>
+									<li<?php if ( bp_is_page( BP_FORUMS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
+										<a href="<?php echo home_url() ?>/<?php echo BP_FORUMS_SLUG ?>/" title="<?php _e( 'Forums', 'cc' ) ?>"><?php _e( 'Forums', 'cc' ) ?></a>
+									</li>
+								<?php endif; ?>
+							<?php endif; ?>
+			
+							<?php if ( bp_is_active( 'blogs' ) && is_multisite() ) : ?>
+								<li<?php if ( bp_is_page( BP_BLOGS_SLUG ) ) : ?> class="selected"<?php endif; ?>>
+									<a href="<?php echo home_url() ?>/<?php echo BP_BLOGS_SLUG ?>/" title="<?php _e( 'Blogs', 'cc' ) ?>"><?php _e( 'Blogs', 'cc' ) ?></a>
+								</li>
+							<?php endif; ?>
+						</ul>
+					</li>
+	        		<?php do_action( 'bp_nav_items' ); ?>
+	        		<?php } ?>
+				</ul>
+			<?php endif;
+			
+	}
 
 	
 	function remove_home_nav_from_fallback( $args ) {
@@ -623,6 +625,7 @@ class CC_Theme_Generator{
 		if( $tkf->preview == 'true'  || $tkf->default_homepage_last_posts == 'show') {
 			$args = array(
 				'amount' => '3',
+				'post__not_in' => get_option( 'sticky_posts' )
 		 	);
 				
 			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
