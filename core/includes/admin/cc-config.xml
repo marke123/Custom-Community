@@ -493,18 +493,33 @@
 									
 									
 									<hr></hr>
-									<select name="default_homepage_last_posts" label="Last 3 Posts on home" tooltip="Display last 3 posts.">
+									<select name="default_homepage_last_posts" label="Last Posts on home" tooltip="Display last posts on the homepage.">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
-									<checkbox name="last_posts_sticky" label="Show only sticky posts" description="Show only sticky posts" />
+									
+									<select name="default_homepage_last_posts_style" label="Last Posts Style" tooltip="Select a template to use: ">
+										<option name="img-mouse-over" value="img-mouse-over" />
+										<option name="more options in the pro version" value="pro" />
+									</select>
+									
+									<checkbox name="last_posts_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
 									<select name="last_posts_cat" label="Last Post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
 										You can select the category the posts should be taken from.
 										For more info check out the.">
 											<option name="All categories" value="all-categories" />
 									
 									</select>
-									<textfield name="last_posts_amount" label="Amount" tooltip="Define the amount of posts." />
+									
+									<textfield name="last_posts_amount" label="Amount" tooltip="Define the amount of posts 0 is all." />
+									<textfield name="last_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
+									
+									<select name="last_posts_pagination" label="Show pagination" tooltip="Show pagination">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+									
+									
 									<textfield name="last_posts_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
 									<textfield name="last_posts_show_page" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
 								
