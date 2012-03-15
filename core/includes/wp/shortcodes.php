@@ -309,7 +309,8 @@ function cc_list_posts($atts,$content = null) {
 		'post_type' => 'post',
 		'orderby' => '',
 		'order' => '',
-		'last_posts_sticky' => ''
+		'last_posts_sticky' => '',
+		'last_posts_pagination' => 'show'
 	), $atts));
 
 	$img_position = 'boxgrid';
@@ -322,29 +323,41 @@ function cc_list_posts($atts,$content = null) {
 		$page_id = explode(',',$page_id);
 	}
 	
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+		
 	if($last_posts_sticky == 'on') {
 
 		$args = array(
 			'amount' => $last_posts_sticky,
 			'post__in'  => get_option( 'sticky_posts' ),
-			'ignore_sticky_posts' => 1
+			'ignore_sticky_posts' => 1,
+			'posts_per_page' => $amount,
+		
 		);
 	
 	} else {
-		
+			
 		$args = array(
+		'amount' => $amount,
 		'orderby' => $orderby,
 		'order' => $order,
 		'post_type' => $post_type,
 		'post__in' => $page_id,
 		'category_name' => $category_name,
-		'posts_per_page' => $amount
+		'posts_per_page' => $amount,
+		'paged' => $paged,
+		'ignore_sticky_posts' => 1
+		
 	);
 
 			}			
 				
 	remove_all_filters('posts_orderby');
 	query_posts($args);
+
+
+	 
+
 	
 	$more = 0;
 	if (have_posts()) : while (have_posts()) : the_post();
@@ -376,6 +389,12 @@ function cc_list_posts($atts,$content = null) {
 	endwhile; endif;
 	
 	$tmp .='<div class="clear"></div>';
+	if($tkf->last_posts_pagination == 'show'){
+		$tmp .='<div id="navigation">';
+		$tmp .='<div class="alignleft">'. next_posts_link('&laquo; Older Entries') .'</div>';
+		$tmp .='<div class="alignright">' . previous_posts_link('Newer Entries &raquo;') .'</div>';
+		$tmp .='</div><!-- End navigation -->';
+	}
 	
 	if($img_position == 'boxgrid'){
 		$tmp .= '<script type="text/javascript">';

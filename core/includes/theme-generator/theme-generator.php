@@ -634,24 +634,17 @@ class CC_Theme_Generator{
 				$tkf->last_posts_post_type = 'post';
 			}
 		
-			if($tkf->last_posts_sticky == 'on') {
-		
-					$args = array(
-						'amount' => $tkf->last_posts_amount,
-						'last_posts_sticky'  => 'on',
-					);
-				
-				} else {
-					
-					$args = array(
-						'orderby' => $orderby,
-						'category_name' => $tkf->last_posts_cat,
-						'post_type' => $tkf->last_posts_post_type,
-						'page_id' => $tkf->last_posts_show_page,
-						'posts_per_page' => $tkf->last_posts_amount
-				);
-			
-			}
+			$args = array(
+				'amount' => $tkf->last_posts_amount,
+				'last_posts_sticky'  => $tkf->last_posts_sticky,
+				'orderby' => $orderby,
+				'category_name' => $tkf->last_posts_cat,
+				'post_type' => $tkf->last_posts_post_type,
+				'page_id' => $tkf->last_posts_show_page,
+				'posts_per_page' => $tkf->last_posts_per_page,
+				'last_posts_pagination' => $tkf->last_posts_pagination
+			);
+	
 				
 			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
 		}
