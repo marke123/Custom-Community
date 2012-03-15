@@ -623,10 +623,35 @@ class CC_Theme_Generator{
 		global $tkf;
 		
 		if( $tkf->preview == 'true'  || $tkf->default_homepage_last_posts == 'show') {
-			$args = array(
-				'amount' => '3',
-				'post__not_in' => get_option( 'sticky_posts' )
-		 	);
+						
+			if($tkf->last_posts_amount == ''){
+				$tkf->last_posts_amount = '3';
+			}
+			if($tkf->last_posts_cat == 'all-categories'){
+				$tkf->last_posts_cat = '0';
+			}
+			if($tkf->last_posts_post_type == ''){
+				$tkf->last_posts_post_type = 'post';
+			}
+		
+			if($tkf->last_posts_sticky == 'on') {
+		
+					$args = array(
+						'amount' => $tkf->last_posts_amount,
+						'last_posts_sticky'  => 'on',
+					);
+				
+				} else {
+					
+					$args = array(
+						'orderby' => $orderby,
+						'category_name' => $tkf->last_posts_cat,
+						'post_type' => $tkf->last_posts_post_type,
+						'page_id' => $tkf->last_posts_show_page,
+						'posts_per_page' => $tkf->last_posts_amount
+				);
+			
+			}
 				
 			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
 		}

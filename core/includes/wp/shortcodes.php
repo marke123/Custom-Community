@@ -309,6 +309,7 @@ function cc_list_posts($atts,$content = null) {
 		'post_type' => 'post',
 		'orderby' => '',
 		'order' => '',
+		'last_posts_sticky' => ''
 	), $atts));
 
 	$img_position = 'boxgrid';
@@ -321,7 +322,17 @@ function cc_list_posts($atts,$content = null) {
 		$page_id = explode(',',$page_id);
 	}
 	
-	$args = array(
+	if($last_posts_sticky == 'on') {
+
+		$args = array(
+			'amount' => $last_posts_sticky,
+			'post__in'  => get_option( 'sticky_posts' ),
+			'ignore_sticky_posts' => 1
+		);
+	
+	} else {
+		
+		$args = array(
 		'orderby' => $orderby,
 		'order' => $order,
 		'post_type' => $post_type,
@@ -329,7 +340,9 @@ function cc_list_posts($atts,$content = null) {
 		'category_name' => $category_name,
 		'posts_per_page' => $amount
 	);
-	
+
+			}			
+				
 	remove_all_filters('posts_orderby');
 	query_posts($args);
 	
@@ -343,12 +356,12 @@ function cc_list_posts($atts,$content = null) {
 			if(!isset($thePath[0])){
 			$thePath[0] = get_template_directory_uri().'/images/slideshow/noftrdimg-222x160.jpg';
 			}
-			$tmp .= '<div class="boxgrid captionfull" onclick="document.location.href=\''. get_permalink().'\'" style="cursor:pointer;background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
+			$tmp .= '<a href="'. get_permalink().'" title="'. get_the_title().'"><div class="boxgrid captionfull" onclick="document.location.href=\''. get_permalink().'\'" style="cursor:pointer;background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
 			$tmp .= '<div class="cover boxcaption">';
 			$tmp .= '<h3 style="padding-left:8px;"><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
 			$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
 			$tmp .= '</div>';		
-			$tmp .= '</div>';		
+			$tmp .= '</div></a>';		
 		} else {
 			$tmp .= '<div class="listposts '.$img_position.'">';
 			if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
@@ -529,9 +542,6 @@ function slider($atts,$content = null) {
 		$tmp .= '}'. chr(13);
 	}
 	$tmp .= '</style>'. chr(13);	
-	
-	
-	echo $slideshow_sticky;
 	
 	if($slideshow_sticky == 'on') {
 	
