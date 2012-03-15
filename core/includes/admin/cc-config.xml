@@ -481,53 +481,47 @@
 								</section>
 								
 								<section title="Default homepage">
+									
+									<h4>Featured Posts</h4>	
 														
+									<select name="default_homepage_last_posts" label="Show / hide featured posts" tooltip="Display your featured posts on the homepage.">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+									
+									<select name="default_homepage_last_posts_style" label="Featured posts listing style" tooltip="Select a template to use: ">
+										<option name="img-mouse-over" value="img-mouse-over" />
+										<option name="more options in the pro version" value="pro" />
+									</select>
+									
+									<checkbox name="last_posts_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
+									
+									<select name="last_posts_cat" label="Featured post categories" tooltip="You can select the category the posts should be taken from.">
+											<option name="All categories" value="all-categories" />
+									</select>
+									
+									<textfield name="last_posts_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
+
+									<textfield name="last_posts_show_page" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
+
+									<textfield name="last_posts_amount" label="Amount of featured posts" tooltip="Define the amount of posts - 0 means all." />
+																		
+									<select name="last_posts_pagination" label="Show pagination" tooltip="Show pagination">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+
+									<textfield name="last_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
+																	
+																
+									<h4>Latest Posts</h4>								
+									
 									<select name="default_homepage_hide_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
 											This option is for the standard WordPress Homepage showing your latest articles. 
 											To select a page as your homepage, go to Settings -> Reading.">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
-									
-									
-									
-									
-									<hr></hr>
-									<select name="default_homepage_last_posts" label="Last Posts on home" tooltip="Display last posts on the homepage.">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-									
-									<select name="default_homepage_last_posts_style" label="Last Posts Style" tooltip="Select a template to use: ">
-										<option name="img-mouse-over" value="img-mouse-over" />
-										<option name="more options in the pro version" value="pro" />
-									</select>
-									
-									<checkbox name="last_posts_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
-									<select name="last_posts_cat" label="Last Post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
-										You can select the category the posts should be taken from.
-										For more info check out the.">
-											<option name="All categories" value="all-categories" />
-									
-									</select>
-									
-									<textfield name="last_posts_amount" label="Amount" tooltip="Define the amount of posts 0 is all." />
-									<textfield name="last_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
-									
-									<select name="last_posts_pagination" label="Show pagination" tooltip="Show pagination">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-									
-									
-									<textfield name="last_posts_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
-									<textfield name="last_posts_show_page" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
-								
-								<hr></hr>
-								
-																	
-									
-									
 									
 									<select name="default_homepage_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
 											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
