@@ -290,7 +290,7 @@
 							<accordion>
 								<section title="Colour scheme">
 		
-									<select name="style_css" label="Colour scheme" tooltip="Select the colour scheme of your website.">
+									<select name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
@@ -301,9 +301,9 @@
 								
 								<section title="Website width">
 		
-									<textfield name="website_width" label="Website Width:" tooltip="Just type in the number, either in px or %. Default is 1000. Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview." />
+									<textfield name="website_width" label="Website Width:" description="Just type in the number, either in px or %. Default is 1000. Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview." />
 									
-									<select name="website_width_unit" label="Fluid or static width?" tooltip="Do you want your layout fluid(%) or static(px)? Notes: when you use the slideshow, better don't use fluid width. And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.">
+									<select name="website_width_unit" label="Fluid or static width?" description="Do you want your layout fluid(%) or static(px)? Notes: when you use the slideshow, better don't use fluid width. And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.">
 										<option name="px" value="px" />
 										<option name="%" value="%" />
 									</select>
@@ -551,6 +551,15 @@
 									
 									<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
 								</section>
+								
+								<section title="Register">
+									
+									<select name="register_profile_groups" label="Add profile groups to the register page">
+										<option name="all" value="0" />
+									</select>
+									
+								</section>
+								
 							</accordion>
 						</tab>
 						<tab title="Header">
