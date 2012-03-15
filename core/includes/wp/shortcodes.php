@@ -394,7 +394,15 @@ function cc_list_posts($atts,$content = null) {
 		$tmp .='<div class="alignleft">'. next_posts_link('&laquo; Older Entries') .'</div>';
 		$tmp .='<div class="alignright">' . previous_posts_link('Newer Entries &raquo;') .'</div>';
 		$tmp .='</div><!-- End navigation -->';
+		if(function_exists('wp_pagenavi')){
+			ob_start();
+				wp_pagenavi();
+				$tmp .= ob_get_contents();
+			ob_end_clean();
+		}
 	}
+	
+	
 	
 	if($img_position == 'boxgrid'){
 		$tmp .= '<script type="text/javascript">';
