@@ -287,14 +287,18 @@ class Custom_Community{
 			
 		}
 
-		if ( bp_is_active( 'xprofile' ) ) :
-			 if ( bp_has_profile() ) : 
-				while ( bp_profile_groups() ) : bp_the_profile_group(); 
-					tk_select_add_option( 'register_profile_groups',  bp_get_the_profile_group_id() , bp_get_the_profile_group_name() );
-				endwhile;
-			endif;
-		endif; 
 		
+		if(defined('BP_VERSION')){
+			
+			if ( bp_is_active( 'xprofile' ) ) :
+				 if ( bp_has_profile() ) : 
+					while ( bp_profile_groups() ) : bp_the_profile_group(); 
+						tk_select_add_option( 'register_profile_groups',  bp_get_the_profile_group_id() , bp_get_the_profile_group_name() );
+					endwhile;
+				endif;
+			endif; 
+		
+		}
 		/*
 		 * Hiding elemts by id 
 		 */
