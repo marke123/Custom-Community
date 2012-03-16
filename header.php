@@ -25,7 +25,7 @@
 				
 				jQuery.fx.interval = 100;
 
-				jQuery('#testoo').fadeToggle(600).load(link + ' #testoo2', function(){ jQuery('#testoo').fadeToggle(400); 
+				jQuery('#featured_posts').fadeToggle(600).load(link + ' #list_posts', function(){ jQuery('#featured_posts').fadeToggle(400); 
 				boxgrid();
 	
 				});
