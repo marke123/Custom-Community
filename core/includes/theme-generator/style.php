@@ -155,8 +155,6 @@ font-size: 19px !important;
 font-style: italic;
 }
 
-
-
 /* > Admin Bar
 -------------------------------------------------------------- */
 
@@ -184,25 +182,24 @@ div.inner {
 	max-width: 1000px;
 	min-width: 1000px;
 }
-
 #header {
-position: relative;
-color: #<?php echo $font_color; ?>;
-<?php if($tkf->header_img == ''){?>
-background: url(<?php echo get_template_directory_uri() ?>/images/default-header.png);
-<?php } ?>
--moz-border-radius-bottomleft: 6px;
--webkit-border-bottom-left-radius: 6px;
-border-bottom-left-radius: 6px;
--moz-border-radius-bottomright: 6px;
--webkit-border-bottom-right-radius: 6px;
-border-bottom-right-radius: 6px;
-margin-bottom: 12px;
-min-height: 50px;
-height:auto !important;
-padding-top: 25px; 
-background-repeat: no-repeat; 
-z-index: 99;
+	position: relative;
+	color: #<?php echo $font_color; ?>;
+	<?php if($tkf->header_img == ''){?>
+		background: url(<?php echo get_template_directory_uri() ?>/images/default-header.png);
+	<?php } ?>
+	-moz-border-radius-bottomleft: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	margin-bottom: 12px;
+	min-height: 50px;
+	height:auto !important;
+	padding-top: 25px; 
+	background-repeat: no-repeat; 
+	z-index: 99;
 }
 #header #search-bar {
 position: absolute;
@@ -329,13 +326,18 @@ border:none;
 
 /* > Sidebar
 -------------------------------------------------------------- */
+
 #sidebar-me, #sidebar-login-form {
 margin-bottom:20px;
 }
 
-.right-sidebar-padder { padding: 30px 15px 30px 20px; }
+.right-sidebar-padder { 
+padding: 30px 15px 30px 20px; 
+}
 
-.left-sidebar-padder { padding:30px 15px 30px 20px; }
+.left-sidebar-padder { 
+padding: 30px 15px 30px 20px; 
+}
 
 div#sidebar {
 -moz-background-clip:border;
@@ -353,7 +355,6 @@ margin-top: 0px;
 width:224px;
 float: right;
 }
-
 div.widgetarea {
 -moz-background-clip:border;
 -moz-background-inline-policy:continuous;
@@ -362,19 +363,15 @@ background:transparent;
 float:left;
 width:224px;
 }
-
 div#sidebar div#sidebar-me img.avatar, div.widgetarea div#sidebar-me img.avatar {
 float: left;
 margin: 0 10px 15px 0;
 }
-
 div#sidebar div#sidebar-me h4, div.widgetarea div#sidebar-me h4 {
 font-size: 16px;
 margin: 0 0 8px 0;
 font-weight: normal;
 }
-
-
 div#sidebar ul#bp-nav, div.widgetarea ul#bp-nav {
 clear: left;
 margin: 15px -16px;
@@ -981,6 +978,29 @@ div#pag-bottom {
 background:none repeat scroll 0 0 transparent;
 margin-top:0;
 }
+
+div.wp-pagenavi {
+    clear: both;
+    margin: 10px 0;
+}
+
+div.wp-pagenavi span.pages {
+	border: none; 
+}
+
+div.wp-pagenavi span.current {
+	border-color: #<?php if($tkf->font_color != "") { echo $tkf->font_color; } else { echo $font_color; } ?>;
+}
+
+.wp-pagenavi a {
+    border: 1px solid #<?php if($tkf->link_color != "") { echo $tkf->link_color; } else { echo $link_color; } ?>;
+}
+
+.wp-pagenavi a:hover {
+    border: 1px solid #<?php if($tkf->link_color_hover != "") { echo $tkf->link_color_hover; } else { echo $font_color; } ?>;
+}
+
+
 
 /* > Error / Success Messages
 -------------------------------------------------------------- */
