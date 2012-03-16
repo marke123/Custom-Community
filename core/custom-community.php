@@ -392,7 +392,7 @@ class Custom_Community{
 		require_once($this->require_path('/core/includes/theme-generator/theme-generator.php'));
 		
 		// wordpress specific functions
-		require_once($this->require_path('/core/includes/wp/shortcodes.php'));
+		require_once($this->require_path('/core/includes/shortcodes.php'));
 		//require_once($this->require_path('/core/includes/wp/templatetags.php'));
 		require_once($this->require_path('/core/includes/wp/widgets.php'));
 
