@@ -516,6 +516,13 @@
 																
 									<h4>Latest Posts</h4>								
 									
+									<select name="default_homepage_show_latest_posts" label="Show / hide your latest posts" tooltip="Show or hide your latest posts (below the featured posts).
+											This option is for the standard WordPress homepage showing your latest articles. 
+											To select a page as your homepage, go to Settings - Reading.">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+									
 									<select name="default_homepage_hide_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
 											This option is for the standard WordPress Homepage showing your latest articles. 
 											To select a page as your homepage, go to Settings -> Reading.">
@@ -528,6 +535,8 @@
 										<option name="bubbles" value="bubbles" />
 										<option name="default" value="default" />
 									</select>	
+
+									<colorpicker name="default_homepage_latest_posts_bg" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
 									
 									<select name="default_homepage_hide_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
 										<option name="show" value="show" />
