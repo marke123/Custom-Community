@@ -1390,10 +1390,9 @@ border-bottom: none;
 padding-bottom: 0;
 }
 
-form#whats-new-form h5 {
+form#whats-new-form p.whats-new-title {
 margin: 0;
-font-weight: normal;
-font-size: 12px;
+font-weight: bold;
 color: #<?php echo $font_color; ?>;
 margin: -5px 0 0 76px;
 padding: 0 0 3px 0;
@@ -1469,12 +1468,6 @@ position:relative;
 padding: 3px 8px;
 }
 
-.activity-list li.mini .activity-avatar img.avatar,
-.activity-list li.mini .activity-avatar img.FB_profile_pic {
-width: 30px;
-height: 30px;
-margin-left: 0;
-}
 .activity-list li.activity_comment .activity-avatar img.avatar, .activity-list li.activity_comment .activity-avatar img.FB_profile_pic {
 height:30px;
 margin-left:0;
@@ -3788,7 +3781,7 @@ table tr td.thread-info p.thread-excerpt,
 table.forum td p.topic-text, 
 table.forum td.td-freshness, 
 form#whats-new-form, 
-form#whats-new-form h5, 
+form#whats-new-form p.whats-new-title, 
 form#whats-new-form #whats-new-textarea, 
 .activity-list li .activity-inreplyto, 
 .activity-list .activity-content .activity-header, 
@@ -3835,7 +3828,7 @@ div.widget ul li a,
 	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus, 
 	div#item-header span.activity, div#item-header h2 span.highlight, div.widget-title ul.item-list li.selected a, 
 	table tr td.label, table tr td.thread-info p.thread-excerpt, table.forum td p.topic-text, table.forum td.td-freshness, form#whats-new-form, 
-	form#whats-new-form h5, .activity-list li .activity-inreplyto, 
+	form#whats-new-form p.whats-new-title, .activity-list li .activity-inreplyto, 
 	.activity-list .activity-content .activity-header, .activity-list .activity-content .comment-header, 
 	.activity-list .activity-content span.time-since,  
 	.activity-list .activity-content .activity-inner, .activity-list .activity-content blockquote, 
