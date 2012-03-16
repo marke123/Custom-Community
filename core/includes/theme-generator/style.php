@@ -1468,12 +1468,6 @@ position:relative;
 padding: 3px 8px;
 }
 
-.activity-list li.activity_comment .activity-avatar img.avatar, .activity-list li.activity_comment .activity-avatar img.FB_profile_pic {
-height:30px;
-margin-left:0;
-width:30px;
-}
-
 body.activity-permalink .activity-list li .activity-avatar img.avatar,
 body.activity-permalink .activity-list li .activity-avatar img.FB_profile_pic {
 width: 100px;
