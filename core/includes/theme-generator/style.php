@@ -3907,6 +3907,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	link colour  **/
 	
 	a,  
+	.activity-list .activity-content a span.time-since, 
 	span.highlight, #item-nav a, 
 	div.widget ul#blog-post-list li a, 
 	div.widget ul li.recentcomments a, 
@@ -3949,6 +3950,7 @@ h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	
 	a:hover, 
 	a:focus, 
+	.activity-list .activity-content a span.time-since:hover,
 	div#sidebar div.item-options a.selected:hover, 
 	div#leftsidebar div.item-options a.selected:hover, 
 	form.standard-form input:focus, 
