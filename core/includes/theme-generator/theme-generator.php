@@ -646,7 +646,7 @@ class CC_Theme_Generator{
 			);
 	
 				
-			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
+			echo '<div id="featured_posts" class="first_posts_home">'.cc_list_posts($args).'</div>'; 
 		}
 	}
 	

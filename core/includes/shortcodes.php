@@ -322,8 +322,6 @@ function cc_list_posts($atts,$content = null) {
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
 	}
-	
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 		
 	if($last_posts_sticky == 'on') {
 
@@ -345,7 +343,7 @@ function cc_list_posts($atts,$content = null) {
 		'post__in' => $page_id,
 		'category_name' => $category_name,
 		'posts_per_page' => $amount,
-		'paged' => $paged,
+		'paged' => get_query_var('paged'),
 		'ignore_sticky_posts' => 1
 		
 	);
@@ -353,14 +351,15 @@ function cc_list_posts($atts,$content = null) {
 			}			
 				
 	remove_all_filters('posts_orderby');
-	query_posts($args);
-
+	
+	$list_post_query = new WP_Query( $args );
+	
 
 	 
 
 	
 	$more = 0;
-	if (have_posts()) : while (have_posts()) : the_post();
+	if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $list_post_query->the_post();
 
 		if($img_position == 'boxgrid'){
 			$thumb = get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
@@ -391,33 +390,22 @@ function cc_list_posts($atts,$content = null) {
 	$tmp .='<div class="clear"></div>';
 	if($tkf->last_posts_pagination == 'show'){
 		$tmp .='<div id="navigation">';
-		$tmp .='<div class="alignleft">'. next_posts_link('&laquo; Older Entries') .'</div>';
-		$tmp .='<div class="alignright">' . previous_posts_link('Newer Entries &raquo;') .'</div>';
+		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
+		$tmp .='<div class="alignright">' . get_previous_posts_link('Newer Entries &raquo;') .'</div>';
 		$tmp .='</div><!-- End navigation -->';
+			
 		if(function_exists('wp_pagenavi')){
 			ob_start();
-				wp_pagenavi();
+				wp_pagenavi( array( 'query' => $list_post_query ) );
 				$tmp .= ob_get_contents();
 			ob_end_clean();
 		}
 	}
 	
+
+	wp_reset_postdata();
 	
-	
-	if($img_position == 'boxgrid'){
-		$tmp .= '<script type="text/javascript">';
-		$tmp .=	'jQuery(document).ready(function(){';
-		$tmp .=	"	jQuery('.boxgrid.captionfull').hover(function(){";
-		$tmp .=	"	jQuery('.cover', this).stop().animate({top:'-90px'},{queue:false,duration:160});";
-		$tmp .=	'}, function() {';
-		$tmp .=	'	jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});';
-		$tmp .=	'});';
-		$tmp .=	'});';
-		$tmp .= '</script>';
-	}
-	wp_reset_query();
-	
-	return '<div class="list-posts-all">'.$tmp.'</div>&nbsp;';	
+	return '<div id="list_posts" class="list-posts-all">'.$tmp.'</div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 
