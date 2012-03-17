@@ -310,7 +310,8 @@ function cc_list_posts($atts,$content = null) {
 		'orderby' => '',
 		'order' => '',
 		'last_posts_sticky' => '',
-		'last_posts_pagination' => 'show'
+		'last_posts_pagination' => 'show',
+		'posts_per_page' => '3'
 	), $atts));
 
 	$img_position = 'boxgrid';
@@ -342,7 +343,7 @@ function cc_list_posts($atts,$content = null) {
 		'post_type' => $post_type,
 		'post__in' => $page_id,
 		'category_name' => $category_name,
-		'posts_per_page' => $amount,
+		'posts_per_page' => $posts_per_page,
 		'paged' => get_query_var('paged'),
 		'ignore_sticky_posts' => 1
 		

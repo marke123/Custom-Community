@@ -480,9 +480,35 @@
 									
 								</section>
 								
-								<section title="Default homepage">
+																<section title="Login">
 									
-									<h4>Featured Posts</h4>	
+									<file name="bg_loginpage_img" label="Login page logo" tooltip="Insert your own image for the login page. Upload or insert url." />
+									
+									<textfield name="login_logo_height" label="Login logo height" tooltip="Define the login logo height, the width should be 326px max" />
+									
+									<file name="bg_loginpage_body_img" label="Login page bg image" tooltip="Insert your own image for the login page background. Upload or insert url." />
+									
+									<colorpicker name="bg_loginpage_body_color" label="Login page bg colour" tooltip="Change login page background colour" />
+									
+									<colorpicker name="bg_loginpage_backtoblog_fade_1" label="Login page bg fade colour 1" tooltip="Change login page backtoblog colour fade 1" />
+									<colorpicker name="bg_loginpage_backtoblog_fade_2" label="Login page bg fade colour 2" tooltip="Change login page backtoblog colour fade 2" />
+									
+									<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
+								</section>
+								
+								<section title="Register">
+									
+									<select name="register_profile_groups" label="Add profile groups to the register page">
+										<option name="all" value="0" />
+									</select>
+									
+								</section>
+								
+							</accordion>
+						</tab>
+						<tab title="Homepage">
+							<accordion>
+								<section title="Featured Posts">
 														
 									<select name="default_homepage_last_posts" label="Show / hide featured posts" tooltip="Display your featured posts on the homepage.">
 										<option name="show" value="show" />
@@ -510,11 +536,29 @@
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
+									
+									<select name="last_posts_pagination_ajax" label="Show pagination in ajax jQery style" tooltip="Show pagination in ajax jQery style">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+
+									<textfield name="last_posts_pagination_ajax_in" label="last_posts_pagination_ajax_in" tooltip="Define the amount of posts per page." />
+									<textfield name="last_posts_pagination_ajax_in_time" label="last_posts_pagination_ajax_in_time" tooltip="Define the amount of posts per page." />
+									<textfield name="last_posts_pagination_ajax_out" label="last_posts_pagination_ajax_out" tooltip="Define the amount of posts per page." />
+									<textfield name="last_posts_pagination_ajax_out_time" label="last_posts_pagination_ajax_out_time" tooltip="Define the amount of posts per page." />
+
+
+									
+									<select name="last_posts_pagination_pagenavi" label="use wp pagenavi plugin for pagination" tooltip="use wp pagenavi plugin for pagination">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+									
 
 									<textfield name="last_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
 																	
-																
-									<h4>Latest Posts</h4>								
+								</section>
+								<section title="Latest Posts">
 									
 									<select name="default_homepage_show_latest_posts" label="Show / hide your latest posts" tooltip="Show or hide your latest posts (below the featured posts).
 											This option is for the standard WordPress homepage showing your latest articles. 
@@ -554,30 +598,6 @@
 									</select>
 																					
 								</section>
-								<section title="Login">
-									
-									<file name="bg_loginpage_img" label="Login page logo" tooltip="Insert your own image for the login page. Upload or insert url." />
-									
-									<textfield name="login_logo_height" label="Login logo height" tooltip="Define the login logo height, the width should be 326px max" />
-									
-									<file name="bg_loginpage_body_img" label="Login page bg image" tooltip="Insert your own image for the login page background. Upload or insert url." />
-									
-									<colorpicker name="bg_loginpage_body_color" label="Login page bg colour" tooltip="Change login page background colour" />
-									
-									<colorpicker name="bg_loginpage_backtoblog_fade_1" label="Login page bg fade colour 1" tooltip="Change login page backtoblog colour fade 1" />
-									<colorpicker name="bg_loginpage_backtoblog_fade_2" label="Login page bg fade colour 2" tooltip="Change login page backtoblog colour fade 2" />
-									
-									<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
-								</section>
-								
-								<section title="Register">
-									
-									<select name="register_profile_groups" label="Add profile groups to the register page">
-										<option name="all" value="0" />
-									</select>
-									
-								</section>
-								
 							</accordion>
 						</tab>
 						<tab title="Header">
