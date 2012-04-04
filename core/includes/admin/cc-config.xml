@@ -495,15 +495,7 @@
 									
 									<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
 								</section>
-								
-								<section title="Register">
-									
-									<select name="register_profile_groups" label="Add profile groups to the register page">
-										<option name="all" value="0" />
-									</select>
-									
-								</section>
-								
+																
 							</accordion>
 						</tab>
 						<tab title="Homepage">
@@ -542,18 +534,40 @@
 										<option name="hide" value="hide" />
 									</select>
 
-									<textfield name="last_posts_pagination_ajax_in" label="last_posts_pagination_ajax_in" tooltip="Define the amount of posts per page." />
+									<select name="last_posts_pagination_ajax_in" label="Select pagination jQery effect" tooltip="Select pagination jQery effect">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+										<option name="slideDown" value="slideDown" />
+										<option name="slideToggle" value="slideToggle" />
+										<option name="animate" value="animate" />
+										<option name="fadeIn" value="fadeIn" />
+										<option name="fadeOut" value="fadeOut" />
+										<option name="fadeTo" value="fadeTo" />
+										<option name="slideUp" value="slideUp" />
+										<option name="toggle" value="toggle" />
+										<option name="fadeToggle" value="fadeToggle" />
+									</select>
 									<textfield name="last_posts_pagination_ajax_in_time" label="last_posts_pagination_ajax_in_time" tooltip="Define the amount of posts per page." />
-									<textfield name="last_posts_pagination_ajax_out" label="last_posts_pagination_ajax_out" tooltip="Define the amount of posts per page." />
+									
+									<select name="last_posts_pagination_ajax_out" label="Show pagination in ajax jQery style" tooltip="Show pagination in ajax jQery style">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+										<option name="slideDown" value="slideDown" />
+										<option name="slideToggle" value="slideToggle" />
+										<option name="animate" value="animate" />
+										<option name="fadeIn" value="fadeIn" />
+										<option name="fadeOut" value="fadeOut" />
+										<option name="fadeTo" value="fadeTo" />
+										<option name="slideUp" value="slideUp" />
+										<option name="toggle" value="toggle" />
+										<option name="fadeToggle" value="fadeToggle" />
+									</select>
 									<textfield name="last_posts_pagination_ajax_out_time" label="last_posts_pagination_ajax_out_time" tooltip="Define the amount of posts per page." />
-
-
 									
 									<select name="last_posts_pagination_pagenavi" label="use wp pagenavi plugin for pagination" tooltip="use wp pagenavi plugin for pagination">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
-									
 
 									<textfield name="last_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
 																	
@@ -1038,6 +1052,14 @@
 									
 								</section>
 								
+								<section title="Register">
+									
+									<select name="register_profile_groups" label="Add profile groups to the register page">
+										<option name="all" value="0" />
+									</select>
+									
+								</section>
+
 								<section title="Profile">
 									
 									<select name="bp_profile_header" label="Show Profile header" tooltip="Display profile header, can be used as widget area">
