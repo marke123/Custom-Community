@@ -495,15 +495,7 @@
 									
 									<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
 								</section>
-								
-								<section title="Register">
-									
-									<select name="register_profile_groups" label="Add profile groups to the register page">
-										<option name="all" value="0" />
-									</select>
-									
-								</section>
-								
+																
 							</accordion>
 						</tab>
 						<tab title="Homepage">
@@ -1060,6 +1052,14 @@
 									
 								</section>
 								
+								<section title="Register">
+									
+									<select name="register_profile_groups" label="Add profile groups to the register page">
+										<option name="all" value="0" />
+									</select>
+									
+								</section>
+
 								<section title="Profile">
 									
 									<select name="bp_profile_header" label="Show Profile header" tooltip="Display profile header, can be used as widget area">
