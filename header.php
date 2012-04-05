@@ -15,9 +15,6 @@
 		<?php wp_head(); ?>
 		
 		<?php global $tkf; ?>
-		echo 'da <br>'
-					jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_out ?>(<?php echo $tkf->last_posts_pagination_ajax_out_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_in ?>(<?php echo $tkf->last_posts_pagination_ajax_in_time ?>); 
-		
 		
 		<script type="text/javascript" charset="utf-8">
 			jQuery(document).ready(function(){
