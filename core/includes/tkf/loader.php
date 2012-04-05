@@ -83,7 +83,7 @@ if( !function_exists( 'tkf_init_010' ) ){
 		
 		add_action( 'after_setup_theme', 'tk_load_framework', 1 );
 		
-		if(is_admin())
+		if( is_admin() )
 			add_action( 'after_setup_theme', 'tk_load_jqueryui', 1 );
 	}
 	
