@@ -116,6 +116,7 @@ endif;
 add_filter('widget_text', 'do_shortcode');
 add_action( 'widgets_init', 'cc_widgets_init' );
 function cc_widgets_init(){
+	global $tkf;
 	register_sidebars( 1,
 		array(
 			'name' => 'sidebar right',
@@ -337,16 +338,28 @@ function cc_widgets_init(){
 			'after_title' => '</h3>'
 		)
 	);
-	register_sidebars( 15,
-		array(
-			'name' => 'shortcode %1$s',
-			'id' => 'shortcode',
-			'before_widget' => '<div id="%1$s" class="widget %2$s">',
-			'after_widget' => '</div><div class="clear"></div>',
-			'before_title' => '<h3 class="widgettitle">',
-			'after_title' => '</h3>'
-		)
-	);
+	
+	if($tkf->widget_shortcode_number == '')
+			$tkf->widget_shortcode_number = '3';
+		
+	for ($i = 1; $i <= $tkf->widget_shortcode_number; $i++) {
+	
+		register_sidebars(1,
+			array(
+				'name' => 'shortcode '.$i,
+				'id' => 'shortcode',
+				'description' => 'Use shortcode: [cc_widget id="'.$i.'"]',
+				'before_widget' => '<div id="'.$i.'" class="widget '.$i.'">',
+				'after_widget' => '</div><div class="clear"></div>',
+				'before_title' => '<h3 class="widgettitle">',
+				'after_title' => '</h3>'
+			)
+		);
+		
+	}	
+		
+		
+	
 
 }
 ?>
