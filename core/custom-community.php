@@ -52,8 +52,6 @@ class Custom_Community{
 
 	}
 	
-		/** Tell WordPress to run cc_setup() when the 'after_setup_theme' hook is run. */
-	//add_action( 'after_setup_theme', 'cc_setup' );
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -410,6 +408,8 @@ class Custom_Community{
 	
 	### add css and js
  	function enqueue_script() {
+ 		global $tkf;
+		
 	     if( is_admin() )
 	        return;
 	
@@ -434,6 +434,18 @@ class Custom_Community{
 		
 		wp_register_script('reflection',get_template_directory_uri() . '/_inc/js/reflection.js','','' );
 		wp_enqueue_script('reflection');
+		
+
+		
+		if($tkf->css_inspector == 'on'){
+			
+			wp_register_script('brosho',get_template_directory_uri() . '/_inc/js/jquery.brosho.js','','' );
+			wp_enqueue_script('brosho');
+			
+			wp_register_style( 'brosho-css', get_template_directory_uri() .'/_inc/css/jquery.brosho.css' );
+			wp_enqueue_style( 'brosho-css' );
+			
+		}
 		
 	}	
 	

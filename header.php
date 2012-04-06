@@ -42,8 +42,25 @@
 			});
 		</script>
 		<!-- End the jQuery ajax pagination -->
-
-		
+	 
+    
+    <style type="text/css" media="screen">
+      .custom-hover {
+        box-shadow: black 0 0 5px;
+        -moz-box-shadow: black 0 0 5px;
+        -webkit-box-shadow: black 0 0 5px;
+      }
+    </style>
+    
+    <script type="text/javascript">
+      jQuery(document).ready(function() {
+        jQuery.fn.brosho({                                         //call to the brosho plugin
+          position:           'bottom',                         //initial position of the editor ('top', 'bottom', 'left', 'right')
+          elementHoverClass:  'custom-hover',                 //a custom hover class
+          editorOpacity:      1                               //full opacity on editor
+        });
+      });
+    </script>
 		
 	</head>
 
