@@ -5,17 +5,27 @@
 			
 		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
 		
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		
 		<div id="fb-root"></div>
+	
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+		}(document, 'script', 'facebook-jssdk'));
 		
+		jQuery.noConflict();
+		jQuery(document).ready(function(){			
+			jQuery('textarea').elastic();
+			jQuery('textarea').trigger('update').linedtextarea({selectedLine: 1}).elastic();
+		});	
+		</script>
+
+
 		<style>
 			/* Theme Settings page jQuery CSS overwrite */ 
 									
@@ -540,7 +550,6 @@
 										<option name="slideDown" value="slideDown" />
 										<option name="slideToggle" value="slideToggle" />
 										<option name="animate" value="animate" />
-										<option name="fadeIn" value="fadeIn" />
 										<option name="fadeOut" value="fadeOut" />
 										<option name="fadeTo" value="fadeTo" />
 										<option name="slideUp" value="slideUp" />
@@ -556,7 +565,6 @@
 										<option name="slideToggle" value="slideToggle" />
 										<option name="animate" value="animate" />
 										<option name="fadeIn" value="fadeIn" />
-										<option name="fadeOut" value="fadeOut" />
 										<option name="fadeTo" value="fadeTo" />
 										<option name="slideUp" value="slideUp" />
 										<option name="toggle" value="toggle" />
@@ -1217,6 +1225,11 @@
 						</tab>
 						<tab title="CSS">
 							
+							<select name="css_inspector" label="Enable the CSS Overwrite Inspector " tooltip="Show just the images or also titles and excerpts?">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+		
 							<textarea name="overwrite_css" label="Overwrite CSS" tooltip="svenw"/>
 		
 			
@@ -1235,23 +1248,23 @@
 		
 		</div>
 			
-			<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
-			<style type="text/css" media="screen, projection">
-			  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
-			</style>
-			<script type="text/javascript">
-				if (typeof(Zenbox) !== "undefined") {
-					Zenbox.init({
-						dropboxID:   "20040053",
-						url:         "https://themekraft.zendesk.com",
-						tabID:       "questions",
-						tabColor:    "black",
-						tabPosition: "Left",
-						hide_tab: true
-			  		});
-				}
-			</script>
-		
+		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
+		<style type="text/css" media="screen, projection">
+		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
+		</style>
+		<script type="text/javascript">
+			if (typeof(Zenbox) !== "undefined") {
+				Zenbox.init({
+					dropboxID:   "20040053",
+					url:         "https://themekraft.zendesk.com",
+					tabID:       "questions",
+					tabColor:    "black",
+					tabPosition: "Left",
+					hide_tab: true
+		  		});
+			}
+		</script>
+	
 		</page>
 		
 		

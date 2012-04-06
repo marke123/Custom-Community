@@ -13,38 +13,7 @@
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 		<?php wp_head(); ?>
-		
-		<?php global $tkf; ?>
-		
-		<script type="text/javascript" charset="utf-8">
-			jQuery(document).ready(function(){
-				boxgrid();
-				
-				jQuery('.wp-pagenavi a, #navigation a').live('click', function(e){
-					e.preventDefault();
-					
-					var link = jQuery(this).attr('href');
-					
-					jQuery.fx.interval = 100;
-		
-					jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_out ?>(<?php echo $tkf->last_posts_pagination_ajax_out_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_in ?>(<?php echo $tkf->last_posts_pagination_ajax_in_time ?>); 
-					boxgrid();
-		
-					});
-				});
-				function boxgrid(){
-					jQuery('.boxgrid.captionfull').hover(function(){
-						jQuery('.cover', this).stop().animate({top:'-90px'},{queue:false,duration:160});
-					}, function() {
-						jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});
-					});
-				}
-			});
-		</script>
-		<!-- End the jQuery ajax pagination -->
-
-		
-		
+			 	
 	</head>
 
 	<body <?php body_class() ?> id="cc">
