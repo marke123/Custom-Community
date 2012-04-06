@@ -75,7 +75,7 @@ class CC_Theme_Generator{
 		global $tkf, $post;
 		
 		$component = explode('-',$this->detect->get_page_type());
-		
+			
 		if($tkf->sidebar_position == ''){
 			$tkf->sidebar_position = 'right';
 			$tkf->menue_disable_home = 'true';

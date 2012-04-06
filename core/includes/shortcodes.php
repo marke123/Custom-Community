@@ -56,6 +56,36 @@ return $tmp;
 }
 add_shortcode('cc_facebook_like', 'facebook_like');
 
+// [shortcode widget]
+function shortcode_widget($atts) { 
+	extract(shortcode_atts(array(
+		'id' => '',
+		'css' => ''
+	), $atts));
+	
+	$tmp .= '<style type="text/css">';
+	$tmp .= 'div.widget'.$id.'{ width:auto !important; }';
+	$tmp .= $css;
+	$tmp .= '</style>';
+	
+	$tmp .= '<div class="widgetarea cc-widget widget'.$id.' widget">';
+	$tmp .= get_dynamic_sidebar( 'shortcode '.$id);
+	$tmp .= '</div><div class="clear"></div>';
+	return $tmp;
+
+}
+function get_dynamic_sidebar($index = 1) 
+{
+	$sidebar_contents = "";
+	ob_start();
+	dynamic_sidebar($index);
+	$sidebar_contents = ob_get_contents();
+	ob_end_clean();
+	return $sidebar_contents;
+}
+add_shortcode('cc_widget', 'shortcode_widget');
+
+
 // blockquote_left = add a quotation, left floated
 function blockquote_left($atts,$content = null) { 
 	return '<span class="cc_blockquote cc_blockquote_left">"'.$content.'"</span>';

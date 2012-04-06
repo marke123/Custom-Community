@@ -25,7 +25,6 @@
 		});	
 		</script>
 
-
 		<style>
 			/* Theme Settings page jQuery CSS overwrite */ 
 									
@@ -234,12 +233,12 @@
 					
 					<section title="Save" id='sidebar-save'>
 						
-							<div id="major-publishing-actions">
-									<div class="save_it">Save theme settings</div>
-									<div id="publishing-action" class="cc_settings_save">
-										<input type="submit" id="Save" value="Save" class="button-primary" />
-									</div>
+						<div id="major-publishing-actions">
+								<div class="save_it">Save theme settings</div>
+								<div id="publishing-action" class="cc_settings_save">
+									<input type="submit" id="Save" value="Save" class="button-primary" />
 								</div>
+						</div>
 						
 					</section>
 					
@@ -298,6 +297,7 @@
 					<tabs>
 						<tab title="General">
 							<accordion>
+													
 								<section title="Colour scheme">
 		
 									<select name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
@@ -803,8 +803,16 @@
 								
 							</accordion>
 						</tab>
-						<tab title="Sidebars">
+						<tab title="Sidebars - Widgets">
 							<accordion>
+								
+								<section title="Shortcode Widgets">
+		
+									<textfield name="widget_shortcode_number" label="How manny shortcode widgets do you need?" description="How manny shortcode widgets do you need?" />
+		
+								</section>						
+		
+								
 								<section title="Sidebar default position">
 									
 									<select name="sidebar_position" label="Sidebar default position" tooltip="Where do you like to have your sidebars? Define your default layout.">
@@ -989,7 +997,7 @@
 							
 							
 							<accordion>
-								<section title="Login bar header">
+								<section title="Buddypress Admin bar header">
 									
 									<select name="bp_login_bar_top" label="Login bar header" tooltip="Select a login bar at the top of the header">
 										<option name="on" value="on" />
