@@ -49,7 +49,11 @@ class Custom_Community{
 		add_action( 'after_setup_theme', array( $this, 'set_globals' ), 10 );
 		
 		add_action( 'after_setup_theme', array( $this, 'cc_setup' ), 20 );
-
+		
+		add_action( 'wp_head', array( $this, 'add_header_script' ) );
+		
+		add_action( 'wp_footer', array( $this, 'add_footer_script' ), 20 );
+		
 	}
 	
 	/**
@@ -406,6 +410,60 @@ class Custom_Community{
 				
 	}
 	
+	function add_header_script() { ?>
+	
+		<?php global $tkf; ?>
+		
+		<script type="text/javascript" charset="utf-8">
+			jQuery(document).ready(function(){
+				boxgrid();
+				
+				jQuery('.wp-pagenavi a, #navigation a').live('click', function(e){
+					e.preventDefault();
+					
+					var link = jQuery(this).attr('href');
+					
+					jQuery.fx.interval = 100;
+		
+					jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_out ?>(<?php echo $tkf->last_posts_pagination_ajax_out_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_in ?>(<?php echo $tkf->last_posts_pagination_ajax_in_time ?>); 
+					boxgrid();
+		
+					});
+				});
+				function boxgrid(){
+					jQuery('.boxgrid.captionfull').hover(function(){
+						jQuery('.cover', this).stop().animate({top:'-90px'},{queue:false,duration:160});
+					}, function() {
+						jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});
+					});
+				}
+			});
+		</script>
+
+	<?php }
+
+	function add_footer_script() { ?>
+	
+		<style type="text/css" media="screen">
+	      .custom-hover {
+	        box-shadow: black 0 0 5px;
+	        -moz-box-shadow: black 0 0 5px;
+	        -webkit-box-shadow: black 0 0 5px;
+	      }
+	    </style>
+	    
+	    <script type="text/javascript">
+	      jQuery(document).ready(function() {
+	        jQuery.fn.brosho({						//call to the brosho plugin
+	          position:           'bottom',			//initial position of the editor ('top', 'bottom', 'left', 'right')
+	          elementHoverClass:  'custom-hover',	//a custom hover class
+	          editorOpacity:      1					//full opacity on editor
+	        });
+	      });
+	    </script>
+		
+	<?php }
+		
 	### add css and js
  	function enqueue_script() {
  		global $tkf;

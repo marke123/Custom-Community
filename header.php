@@ -13,55 +13,7 @@
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 		<?php wp_head(); ?>
-		
-		<?php global $tkf; ?>
-		
-		<script type="text/javascript" charset="utf-8">
-			jQuery(document).ready(function(){
-				boxgrid();
-				
-				jQuery('.wp-pagenavi a, #navigation a').live('click', function(e){
-					e.preventDefault();
-					
-					var link = jQuery(this).attr('href');
-					
-					jQuery.fx.interval = 100;
-		
-					jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_out ?>(<?php echo $tkf->last_posts_pagination_ajax_out_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_in ?>(<?php echo $tkf->last_posts_pagination_ajax_in_time ?>); 
-					boxgrid();
-		
-					});
-				});
-				function boxgrid(){
-					jQuery('.boxgrid.captionfull').hover(function(){
-						jQuery('.cover', this).stop().animate({top:'-90px'},{queue:false,duration:160});
-					}, function() {
-						jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});
-					});
-				}
-			});
-		</script>
-		<!-- End the jQuery ajax pagination -->
-	 
-    
-    <style type="text/css" media="screen">
-      .custom-hover {
-        box-shadow: black 0 0 5px;
-        -moz-box-shadow: black 0 0 5px;
-        -webkit-box-shadow: black 0 0 5px;
-      }
-    </style>
-    
-    <script type="text/javascript">
-      jQuery(document).ready(function() {
-        jQuery.fn.brosho({                                         //call to the brosho plugin
-          position:           'bottom',                         //initial position of the editor ('top', 'bottom', 'left', 'right')
-          elementHoverClass:  'custom-hover',                 //a custom hover class
-          editorOpacity:      1                               //full opacity on editor
-        });
-      });
-    </script>
-		
+			 	
 	</head>
 
 	<body <?php body_class() ?> id="cc">
