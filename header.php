@@ -13,40 +13,7 @@
 		<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
 
 		<?php wp_head(); ?>
-		
-		
-	<script type="text/javascript" charset="utf-8">
-		jQuery(document).ready(function(){
-			boxgrid();
-			
-			jQuery('.wp-pagenavi a, #navigation a').live('click', function(e){
-				e.preventDefault();
-				var link = jQuery(this).attr('href');
-				
-				jQuery.fx.interval = 100;
-
-				jQuery('#featured_posts').fadeToggle(600).load(link + ' #list_posts', function(){ jQuery('#featured_posts').fadeToggle(400); 
-				boxgrid();
-	
-				});
-			});
-			function boxgrid(){
-				jQuery('.boxgrid.captionfull').hover(function(){
-					jQuery('.cover', this).stop().animate({top:'-90px'},{queue:false,duration:160});
-				}, function() {
-					jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});
-				});
-			}
-
-					
-			
-	
-		});
-	</script>
-	<!-- End the jQuery ajax pagination -->
-
-		
-		
+			 	
 	</head>
 
 	<body <?php body_class() ?> id="cc">

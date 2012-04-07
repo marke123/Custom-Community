@@ -5,17 +5,26 @@
 			
 		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
 		
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		
 		<div id="fb-root"></div>
+	
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
 		<script>(function(d, s, id) {
 		  var js, fjs = d.getElementsByTagName(s)[0];
 		  if (d.getElementById(id)) return;
 		  js = d.createElement(s); js.id = id;
 		  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
 		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));</script>
+		}(document, 'script', 'facebook-jssdk'));
 		
+		jQuery.noConflict();
+		jQuery(document).ready(function(){			
+			jQuery('textarea').elastic();
+			jQuery('textarea').trigger('update').linedtextarea({selectedLine: 1}).elastic();
+		});	
+		</script>
+
 		<style>
 			/* Theme Settings page jQuery CSS overwrite */ 
 									
@@ -224,12 +233,12 @@
 					
 					<section title="Save" id='sidebar-save'>
 						
-							<div id="major-publishing-actions">
-									<div class="save_it">Save theme settings</div>
-									<div id="publishing-action" class="cc_settings_save">
-										<input type="submit" id="Save" value="Save" class="button-primary" />
-									</div>
+						<div id="major-publishing-actions">
+								<div class="save_it">Save theme settings</div>
+								<div id="publishing-action" class="cc_settings_save">
+									<input type="submit" id="Save" value="Save" class="button-primary" />
 								</div>
+						</div>
 						
 					</section>
 					
@@ -288,6 +297,7 @@
 					<tabs>
 						<tab title="General">
 							<accordion>
+													
 								<section title="Colour scheme">
 		
 									<select name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
@@ -495,104 +505,90 @@
 									
 									<textarea name="login_page_css" label="Overwrite Login Page CSS" value=""/>
 								</section>
-								
-								<section title="Register">
-									
-									<select name="register_profile_groups" label="Add profile groups to the register page">
-										<option name="all" value="0" />
-									</select>
-									
-								</section>
-								
+																
 							</accordion>
 						</tab>
 						<tab title="Homepage">
 							<accordion>
 								<section title="Featured Posts">
 														
-									<select name="default_homepage_last_posts" label="Show / hide featured posts" tooltip="Display your featured posts on the homepage.">
+									<select name="home_featured_posts" label="Show / hide featured posts" tooltip="Display your featured posts on the homepage.">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
 									
-									<select name="default_homepage_last_posts_style" label="Featured posts listing style" tooltip="Select a template to use: ">
-										<option name="img-mouse-over" value="img-mouse-over" />
+									<select name="home_featured_posts_style" label="Featured posts listing style" tooltip="Select a template to use: ">
+										<option name="image mouse over" value="img-mouse-over" />
+										<option name="bubbles" value="bubbles" />
+										<option name="default" value="default" />
 										<option name="more options in the pro version" value="pro" />
 									</select>
 									
-									<checkbox name="last_posts_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
+									<checkbox name="home_featured_posts_show_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
 									
-									<select name="last_posts_cat" label="Featured post categories" tooltip="You can select the category the posts should be taken from.">
+									<select name="home_featured_posts_category" label="Featured post categories" tooltip="You can select the category the posts should be taken from.">
 											<option name="All categories" value="all-categories" />
 									</select>
 									
-									<textfield name="last_posts_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
+									<textfield name="home_featured_posts_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
 
-									<textfield name="last_posts_show_page" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
+									<textfield name="home_featured_posts_show_pages_by_id" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
 
-									<textfield name="last_posts_amount" label="Amount of featured posts" tooltip="Define the amount of posts - 0 means all." />
-																		
-									<select name="last_posts_pagination" label="Show pagination" tooltip="Show pagination">
+									<textfield name="home_featured_posts_amount" label="Amount of featured posts" tooltip="Define the amount of posts - 0 means all." />
+									
+									<textfield name="home_featured_posts_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
+																											
+									<select name="home_featured_posts_show_pagination" label="Show pagination" tooltip="Show pagination">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
+										<option name="use wp pagenavi plugin" value="pagenavi" />
+										
 									</select>
 									
-									<select name="last_posts_pagination_ajax" label="Show pagination in ajax jQery style" tooltip="Show pagination in ajax jQery style">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
+									<select name="home_featured_posts_pagination_ajax_effect" label="Choose jQery effect" tooltip="Select pagination jQery effect">
+										<option name="none" value="none" />
+										<option name="hide - show" value="hide_show" />
+										<option name="fadeOut - fadeIn" value="fadeOut_fadeIn" />
+										<option name="slideUp - slidedown" value="slideUp_slidedown" />
+										<option name="More in the Pro Version" value="default" />
 									</select>
-
-									<textfield name="last_posts_pagination_ajax_in" label="last_posts_pagination_ajax_in" tooltip="Define the amount of posts per page." />
-									<textfield name="last_posts_pagination_ajax_in_time" label="last_posts_pagination_ajax_in_time" tooltip="Define the amount of posts per page." />
-									<textfield name="last_posts_pagination_ajax_out" label="last_posts_pagination_ajax_out" tooltip="Define the amount of posts per page." />
-									<textfield name="last_posts_pagination_ajax_out_time" label="last_posts_pagination_ajax_out_time" tooltip="Define the amount of posts per page." />
-
-
-									
-									<select name="last_posts_pagination_pagenavi" label="use wp pagenavi plugin for pagination" tooltip="use wp pagenavi plugin for pagination">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-									
-
-									<textfield name="last_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
-																	
+																											
 								</section>
 								<section title="Latest Posts">
 									
-									<select name="default_homepage_show_latest_posts" label="Show / hide your latest posts" tooltip="Show or hide your latest posts (below the featured posts).
+									<select name="home_show_latest_posts" label="Show / hide your latest posts" tooltip="Show or hide your latest posts (below the featured posts).
 											This option is for the standard WordPress homepage showing your latest articles. 
 											To select a page as your homepage, go to Settings - Reading.">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
 									
-									<select name="default_homepage_hide_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
+									<select name="home_latest_posts_show_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
 											This option is for the standard WordPress Homepage showing your latest articles. 
 											To select a page as your homepage, go to Settings -> Reading.">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
 									
-									<select name="default_homepage_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
+									<select name="home_latest_posts_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
 											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
 										<option name="bubbles" value="bubbles" />
 										<option name="default" value="default" />
 									</select>	
 
-									<colorpicker name="default_homepage_latest_posts_bg" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
+									<colorpicker name="home_latest_posts_background_color" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
 									
-									<select name="default_homepage_hide_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
+									<select name="home_latest_posts_show_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>	
 									
-									<select name="default_homepage_hide_author" label="Show author name">
+									<select name="home_latest_posts_show_author" label="Show author name">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
 							
-									<select name="default_homepage_hide_comments" label="Show comments link under entry">
+									<select name="home_latest_posts_show_comments" label="Show comments link under entry">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
@@ -632,14 +628,9 @@
 		
 								</section>
 								
-								<section title="Header height">
+								<section title="Header height - width">
 									
 									<textfield name="header_height" label="Header height" tooltip="Your header height in px (and navigation position (y) at the same time), just enter a number. This is not your header image height, you can specify your header image separately in the fields below. Try 25px or 63px less than your header-image-height to fit perfectly..." />
-									
-								</section>
-								
-								<section title="Header width">
-									
 									<select name="header_width" label="Header width" tooltip="Do you like the header in full width or as wide as your site?">
 										<option name="default" value="default" />
 										<option name="full-width" value="full-width" />
@@ -781,8 +772,16 @@
 								
 							</accordion>
 						</tab>
-						<tab title="Sidebars">
+						<tab title="Sidebars - Widgets">
 							<accordion>
+								
+								<section title="Shortcode Widgets">
+		
+									<textfield name="widget_shortcode_number" label="How manny shortcode widgets do you need?" description="How manny shortcode widgets do you need?" />
+		
+								</section>						
+		
+								
 								<section title="Sidebar default position">
 									
 									<select name="sidebar_position" label="Sidebar default position" tooltip="Where do you like to have your sidebars? Define your default layout.">
@@ -967,7 +966,7 @@
 							
 							
 							<accordion>
-								<section title="Login bar header">
+								<section title="Buddypress Admin bar header">
 									
 									<select name="bp_login_bar_top" label="Login bar header" tooltip="Select a login bar at the top of the header">
 										<option name="on" value="on" />
@@ -1038,6 +1037,14 @@
 									
 								</section>
 								
+								<section title="Register">
+									
+									<select name="register_profile_groups" label="Add profile groups to the register page">
+										<option name="all" value="0" />
+									</select>
+									
+								</section>
+
 								<section title="Profile">
 									
 									<select name="bp_profile_header" label="Show Profile header" tooltip="Display profile header, can be used as widget area">
@@ -1195,6 +1202,11 @@
 						</tab>
 						<tab title="CSS">
 							
+							<select name="css_inspector" label="Enable the CSS Overwrite Inspector " tooltip="Show just the images or also titles and excerpts?">
+								<option name="on" value="on" />
+								<option name="off" value="off" />
+							</select>
+		
 							<textarea name="overwrite_css" label="Overwrite CSS" tooltip="svenw"/>
 		
 			
@@ -1213,23 +1225,23 @@
 		
 		</div>
 			
-			<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
-			<style type="text/css" media="screen, projection">
-			  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
-			</style>
-			<script type="text/javascript">
-				if (typeof(Zenbox) !== "undefined") {
-					Zenbox.init({
-						dropboxID:   "20040053",
-						url:         "https://themekraft.zendesk.com",
-						tabID:       "questions",
-						tabColor:    "black",
-						tabPosition: "Left",
-						hide_tab: true
-			  		});
-				}
-			</script>
-		
+		<script type="text/javascript" src="//asset0.zendesk.com/external/zenbox/v2.4/zenbox.js"></script>
+		<style type="text/css" media="screen, projection">
+		  @import url(//asset0.zendesk.com/external/zenbox/v2.4/zenbox.css);
+		</style>
+		<script type="text/javascript">
+			if (typeof(Zenbox) !== "undefined") {
+				Zenbox.init({
+					dropboxID:   "20040053",
+					url:         "https://themekraft.zendesk.com",
+					tabID:       "questions",
+					tabColor:    "black",
+					tabPosition: "Left",
+					hide_tab: true
+		  		});
+			}
+		</script>
+	
 		</page>
 		
 		
