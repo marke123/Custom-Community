@@ -424,8 +424,23 @@ class Custom_Community{
 					var link = jQuery(this).attr('href');
 					
 					jQuery.fx.interval = 100;
-		
-					jQuery('#featured_posts').<?php echo $tkf->home_featured_posts_pagination_ajax_out_effect ?>(<?php echo $tkf->home_featured_posts_pagination_ajax_out_effect_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->home_featured_posts_pagination_ajax_in_effect ?>(<?php echo $tkf->home_featured_posts_pagination_ajax_in_effect_time ?>); 
+					<?php
+					
+					switch ($tkf->home_featured_posts_pagination_ajax_effect) {
+						case 'hide_show':
+								echo "jQuery('#featured_posts').hide(600).load(link + ' #list_posts', function(){ jQuery('#featured_posts').show('400')";			
+							break;
+						case 'fadeOut_fadeIn':
+								echo "jQuery('#featured_posts').fadeOut('slow').load(link + ' #list_posts', function(){ jQuery('#featured_posts').fadeIn('400')";			
+							break;
+						case 'slideUp_slidedown':
+								echo "jQuery('#featured_posts').slideUp('slow').load(link + ' #list_posts', function(){ jQuery('#featured_posts').slideDown('600')";			
+							break;
+						default:
+								echo "jQuery('#featured_posts').fadeOut(600).load(link + ' #list_posts', function(){ jQuery('#featured_posts').fadeIn(400)";			
+							break;
+					}
+					?>		
 					boxgrid();
 		
 					});

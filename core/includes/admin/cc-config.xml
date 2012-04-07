@@ -535,54 +535,24 @@
 									<textfield name="home_featured_posts_show_pages_by_id" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
 
 									<textfield name="home_featured_posts_amount" label="Amount of featured posts" tooltip="Define the amount of posts - 0 means all." />
-																		
+									
+									<textfield name="home_featured_posts_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
+																											
 									<select name="home_featured_posts_show_pagination" label="Show pagination" tooltip="Show pagination">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
+										<option name="use wp pagenavi plugin" value="pagenavi" />
+										
 									</select>
 									
-									<select name="home_featured_posts_show_pagination_ajax" label="Show pagination in ajax jQery style" tooltip="Show pagination in ajax jQery style">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
+									<select name="home_featured_posts_pagination_ajax_effect" label="Choose jQery effect" tooltip="Select pagination jQery effect">
+										<option name="none" value="none" />
+										<option name="hide - show" value="hide_show" />
+										<option name="fadeOut - fadeIn" value="fadeOut_fadeIn" />
+										<option name="slideUp - slidedown" value="slideUp_slidedown" />
+										<option name="More in the Pro Version" value="default" />
 									</select>
-
-									<select name="home_featured_posts_pagination_ajax_in_effect" label="Select pagination jQery effect" tooltip="Select pagination jQery effect">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-										<option name="slideDown" value="slideDown" />
-										<option name="slideToggle" value="slideToggle" />
-										<option name="animate" value="animate" />
-										<option name="fadeOut" value="fadeOut" />
-										<option name="fadeIn" value="fadeIn" />
-										<option name="fadeTo" value="fadeTo" />
-										<option name="slideUp" value="slideUp" />
-										<option name="toggle" value="toggle" />
-										<option name="fadeToggle" value="fadeToggle" />
-									</select>
-									<textfield name="home_featured_posts_pagination_ajax_in_effect_time" label="home_featured_posts_pagination_ajax_in_effect_time" tooltip="Define the amount of posts per page." />
-									
-									<select name="home_featured_posts_pagination_ajax_out_effect" label="Show pagination in ajax jQery style" tooltip="Show pagination in ajax jQery style">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-										<option name="slideDown" value="slideDown" />
-										<option name="slideToggle" value="slideToggle" />
-										<option name="animate" value="animate" />
-										<option name="fadeOut" value="fadeOut" />
-										<option name="fadeIn" value="fadeIn" />
-										<option name="fadeTo" value="fadeTo" />
-										<option name="slideUp" value="slideUp" />
-										<option name="toggle" value="toggle" />
-										<option name="fadeToggle" value="fadeToggle" />
-									</select>
-									<textfield name="home_featured_posts_pagination_ajax_out_effect_time" label="home_featured_posts_pagination_ajax_out_effect_time" tooltip="Define the amount of posts per page." />
-									
-									<select name="home_featured_posts_show_pagination_pagenavi" label="use wp pagenavi plugin for pagination" tooltip="use wp pagenavi plugin for pagination">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-
-									<textfield name="home_featured_posts_posts_per_page" label="Posts per page" tooltip="Define the amount of posts per page." />
-																	
+																											
 								</section>
 								<section title="Latest Posts">
 									
