@@ -4,7 +4,7 @@
 function featured_post_loop(){
 	 ob_start(); ?>
 
-<div id="post-<?php the_ID(); ?>" class="listposts <?php global $tkf; echo $tkf->home_featured_posts_style ?>">
+<div id="post-<?php the_ID(); ?>"  class="listposts post <?php global $tkf; echo $tkf->home_featured_posts_style ?>">
 
 	<div class="author-box">
 		<?php printf( __( '<a href=" %s "> %s </a> <p> by %s </p>', 'cc' ), bp_core_get_user_domain($post->post_author), get_avatar( get_the_author_meta( 'user_email' ), '50' ),bp_core_get_userlink( $post->post_author ) ) ?>

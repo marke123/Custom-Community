@@ -4658,7 +4658,7 @@ function dynamic_css(){
 	
 	<?php if($tkf->home_latest_posts_show_avatar == "hide"){?>
 	/** ***   
-	standard wordpress home page: hide avatar**/
+	homepage latest posts: hide avatar**/
 	
 	body.home div.post div.post-content, div.comment-content, 
 	body.home.bubble div.post div.post-content, body.bubble div.comment-content {
@@ -4673,7 +4673,7 @@ function dynamic_css(){
 	
 	<?php if($tkf->home_latest_posts_style == "bubbles"){?>
 	/** ***   
-	standard wordpress home page: bubble style**/
+	homepage latest posts: bubble style**/
 	
 	body.bubble div.post h2.posttitle {
 	    line-height: 120%;
@@ -4681,9 +4681,9 @@ function dynamic_css(){
 	}
 	
 	<?php if($tkf->home_latest_posts_show_avatar == "hide") { ?>
-		div.post span.marker { display: none; }
+		div.list-posts-all.bubbles div.post span.marker { display: none; }
 	<?php } else { ?>
-		div.post span.marker {
+		div.list-posts-all.bubbles div.post span.marker {
 		    -moz-transform: rotate(45deg);
 		    -webkit-transform: rotate(45deg);
 		    -o-transform: rotate(45deg);
@@ -4696,7 +4696,7 @@ function dynamic_css(){
 		}
 	<?php } ?>
 	
-	body.bubble div.post div.post-content {
+	div.list-posts-all.bubbles div.post div.post-content {
 		border-radius: 11px;
 		-moz-border-radius: 11px;
 		-webkit-border-radius: 11px; 
@@ -4706,16 +4706,16 @@ function dynamic_css(){
 	    margin-bottom:8px;
 	}
 	
-	body.bubble div.post p.date { 
+	div.list-posts-all.bubbles div.post p.date { 
 		border-top: 1px solid #<?php echo $container_bg_color; ?>;
 		border-bottom: 1px solid #<?php echo $container_bg_color; ?>; 
 	}
 	
-	body.bubble div.post p.postmetadata { 
+	div.list-posts-all.bubbles div.post p.postmetadata { 
 		border-top: 1px solid #<?php echo $container_bg_color; ?>; 
 	}
 	
-	body.bubble div.post div.author-box {
+	div.list-posts-all.bubbles div.post div.author-box {
 		margin-top: 20px;
 		display: block;	
 	}
@@ -4725,24 +4725,24 @@ function dynamic_css(){
 	
 	<?php if($tkf->home_latest_posts_background_color != ""){?>
 	/** ***   
-	standard wordpress home page: latest posts - background colour **/
+	homepage latest posts: background colour **/
 	
 	body.bubble div.post span.marker, 
 	body.bubble div.post div.post-content, 
-	body.home div#blog-latest div.post {
+	body.home div#latest_posts div.post {
 		background-color: <?php if ( $tkf->home_latest_posts_background_color != 'transparent' ) { echo '#'; } echo $tkf->home_latest_posts_background_color ?>;
 	}
 	
 		<?php if($tkf->home_latest_posts_style == "default"){
 			// add a small padding if the default listing style is selected ?>
-			body.home div#blog-latest div.post { padding: 8px; }
+			body.home div#latest_posts div.post { padding: 8px; }
 		<?php } ?>
 	
 	<?php } ?>
 	
 	<?php if($tkf->home_latest_posts_show_date == "hide"){?>
 	/** ***   
-	standard wordpress home page: hide date, category and author**/
+	homepage latest posts: hide date, category and author**/
 	
 	body.home div.post p.date {
 		display: none;
@@ -4751,7 +4751,7 @@ function dynamic_css(){
 	
 	<?php if($tkf->home_latest_posts_show_author == "hide"){?>
 	/** ***   
-	standard wordpress home page: hide author name (name as link to profile if buddypress activated)**/
+	homepage latest posts: hide author name (name as link to profile if buddypress activated)**/
 	
 	body.home div.post p.date span {
 		display: none;
@@ -4763,7 +4763,7 @@ function dynamic_css(){
 	<?php if($tkf->home_latest_posts_show_comments == "hide"){?>
 
 	/** ***   
-	standard wordpress home page: hide comments**/
+	homepage latest posts: hide comments**/
 	
 	div.post .comments  {
 		display: none;

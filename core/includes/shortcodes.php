@@ -446,7 +446,7 @@ function cc_list_posts($atts,$content = null) {
 
 	wp_reset_postdata();
 	
-	return '<div id="featured_posts"><div id="list_posts" class="list-posts-all">'.$tmp.'</div></div>';	
+	return '<div id="featured_posts"><div id="list_posts" class="list-posts-all '. $img_position .' ">'.$tmp.'</div></div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 

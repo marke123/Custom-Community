@@ -869,10 +869,6 @@ class CC_Theme_Generator{
 			}
 		}
 		
-		if(is_home()){
-			$classes[] = 'bubble';
-		}
-		
 		return $classes;
 	
 	}
