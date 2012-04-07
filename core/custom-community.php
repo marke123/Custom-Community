@@ -285,7 +285,7 @@ class Custom_Community{
 		$categories = get_categories($args);
 		foreach($categories as $category) {
 			tk_select_add_option( 'slideshow_cat', $category->slug , $category->name );
-			tk_select_add_option( 'last_posts_cat', $category->slug , $category->name );
+			tk_select_add_option( 'home_featured_posts_category', $category->slug , $category->name );
 			
 		}
 
@@ -425,7 +425,7 @@ class Custom_Community{
 					
 					jQuery.fx.interval = 100;
 		
-					jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_out ?>(<?php echo $tkf->last_posts_pagination_ajax_out_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->last_posts_pagination_ajax_in ?>(<?php echo $tkf->last_posts_pagination_ajax_in_time ?>); 
+					jQuery('#featured_posts').<?php echo $tkf->home_featured_posts_pagination_ajax_out_effect ?>(<?php echo $tkf->home_featured_posts_pagination_ajax_out_effect_time ?>).load(link + ' #list_posts', function(){ jQuery('#featured_posts').<?php echo $tkf->home_featured_posts_pagination_ajax_in_effect ?>(<?php echo $tkf->home_featured_posts_pagination_ajax_in_effect_time ?>); 
 					boxgrid();
 		
 					});

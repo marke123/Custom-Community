@@ -339,13 +339,12 @@ function cc_list_posts($atts,$content = null) {
 		'post_type' => 'post',
 		'orderby' => '',
 		'order' => '',
-		'last_posts_sticky' => '',
-		'last_posts_pagination' => 'show',
+		'home_featured_posts_show_sticky' => '',
+		'home_featured_posts_show_pagination' => 'show',
 		'posts_per_page' => '3'
 	), $atts));
 
-	$img_position = 'boxgrid';
-    	
+		
 	if($category_name == 'all-categories'){
 		$category_name = '0';
 	}
@@ -353,11 +352,11 @@ function cc_list_posts($atts,$content = null) {
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
 	}
-		
-	if($last_posts_sticky == 'on') {
+				
+	if($home_featured_posts_show_sticky == 'on') {
 
 		$args = array(
-			'amount' => $last_posts_sticky,
+			'amount' => $home_featured_posts_show_sticky,
 			'post__in'  => get_option( 'sticky_posts' ),
 			'ignore_sticky_posts' => 1,
 			'posts_per_page' => $amount,
@@ -391,35 +390,46 @@ function cc_list_posts($atts,$content = null) {
 	
 	$more = 0;
 	if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $list_post_query->the_post();
-
-		if($img_position == 'boxgrid'){
-			$thumb = get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
-			$pattern= "/(?<=src=['|\"])[^'|\"]*?(?=['|\"])/i";
-			preg_match($pattern, $thumb, $thePath); 
-			if(!isset($thePath[0])){
-			$thePath[0] = get_template_directory_uri().'/images/slideshow/noftrdimg-222x160.jpg';
-			}
-			$tmp .= '<a href="'. get_permalink().'" title="'. get_the_title().'"><div class="boxgrid captionfull" onclick="document.location.href=\''. get_permalink().'\'" style="cursor:pointer;background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
-			$tmp .= '<div class="cover boxcaption">';
-			$tmp .= '<h3 style="padding-left:8px;"><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
-			$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
-			$tmp .= '</div>';		
-			$tmp .= '</div></a>';		
-		} else {
-			$tmp .= '<div class="listposts '.$img_position.'">';
-			if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
-			$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
-			if($height != 'auto'){ $height = $height.'px'; }
-			$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
-			if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
-			$tmp .= '</div>';
-			if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
+				
+		switch ($img_position) {
+			case 'img-mouse-over':
+				$thumb = get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
+				$pattern= "/(?<=src=['|\"])[^'|\"]*?(?=['|\"])/i";
+				preg_match($pattern, $thumb, $thePath); 
+				if(!isset($thePath[0])){
+				$thePath[0] = get_template_directory_uri().'/images/slideshow/noftrdimg-222x160.jpg';
+				}
+				$tmp .= '<a href="'. get_permalink().'" title="'. get_the_title().'"><div class="boxgrid captionfull" onclick="document.location.href=\''. get_permalink().'\'" style="cursor:pointer;background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
+				$tmp .= '<div class="cover boxcaption">';
+				$tmp .= '<h3 style="padding-left:8px;"><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
+				$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
+				$tmp .= '</div>';		
+				$tmp .= '</div></a>';	
+				break;
+			
+			case 'default':
+				$tmp .= featured_post_loop($tmp);
+			break;
+			case 'bubbles':
+				$tmp .= featured_post_loop($tmp);
+			break;		
+			default:
+					$tmp .= '<div class="listposts '.$img_position.'">';
+					if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
+					$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
+					if($height != 'auto'){ $height = $height.'px'; }
+					$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
+					if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
+					$tmp .= '</div>';
+					if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
+				break;
 		}
+
 		
 	endwhile; endif;
 	
 	$tmp .='<div class="clear"></div>';
-	if($tkf->last_posts_pagination == 'show'){
+	if($tkf->home_featured_posts_show_pagination == 'show'){
 		$tmp .='<div id="navigation">';
 		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
 		$tmp .='<div class="alignright">' . get_previous_posts_link('Newer Entries &raquo;') .'</div>';
@@ -436,7 +446,7 @@ function cc_list_posts($atts,$content = null) {
 
 	wp_reset_postdata();
 	
-	return '<div id="featured_posts" ><div id="list_posts" class="list-posts-all">'.$tmp.'</div></div>';	
+	return '<div id="featured_posts"><div id="list_posts" class="list-posts-all '. $img_position .' ">'.$tmp.'</div></div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 

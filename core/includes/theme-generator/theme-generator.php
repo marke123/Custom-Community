@@ -54,7 +54,7 @@ class CC_Theme_Generator{
 		add_action( 'bp_before_after_sidebar', array( $this, 'login_sidebar_widget' ), 2 );
 		
 		// home
-		add_action( 'bp_before_blog_home', array( $this, 'default_homepage_last_posts' ), 2 );
+		add_action( 'bp_before_blog_home', array( $this, 'home_featured_posts' ), 2 );
 		add_filter('body_class',array( $this, 'home_body_class'), 10 );
 		
 		// helper functions
@@ -615,34 +615,35 @@ class CC_Theme_Generator{
 	 * @package Custom Community
 	 * @since 1.8.3
 	 */	
-	function default_homepage_last_posts(){
+	function home_featured_posts(){
 		global $tkf;
 		
-		if( $tkf->preview == 'true'  || $tkf->default_homepage_last_posts == 'show') {
+		if( $tkf->preview == 'true'  || $tkf->home_featured_posts == 'show') {
 						
-			if($tkf->last_posts_amount == ''){
-				$tkf->last_posts_amount = '3';
+			if($tkf->home_featured_posts_amount == ''){
+				$tkf->home_featured_posts_amount = '3';
 			}
-			if($tkf->last_posts_cat == 'all-categories'){
-				$tkf->last_posts_cat = '0';
+			if($tkf->home_featured_posts_category == 'all-categories'){
+				$tkf->home_featured_posts_category = '0';
 			}
-			if($tkf->last_posts_post_type == ''){
-				$tkf->last_posts_post_type = 'post';
+			if($tkf->home_featured_posts_post_type == ''){
+				$tkf->home_featured_posts_post_type = 'post';
 			}
 		
 			$args = array(
-				'amount' => $tkf->last_posts_amount,
-				'last_posts_sticky'  => $tkf->last_posts_sticky,
+				'amount' => $tkf->home_featured_posts_amount,
+				'img_position' => $tkf->home_featured_posts_style,
+				'home_featured_posts_show_sticky'  => $tkf->home_featured_posts_show_sticky,
 				'orderby' => $orderby,
-				'category_name' => $tkf->last_posts_cat,
-				'post_type' => $tkf->last_posts_post_type,
+				'category_name' => $tkf->home_featured_posts_category,
+				'post_type' => $tkf->home_featured_posts_post_type,
 				'page_id' => $tkf->last_posts_show_page,
-				'posts_per_page' => $tkf->last_posts_per_page,
-				'last_posts_pagination' => $tkf->last_posts_pagination
+				'posts_per_page' => $tkf->home_featured_posts_posts_per_page,
+				'home_featured_posts_show_pagination' => $tkf->home_featured_posts_show_pagination
 			);
 	
 				
-			echo '<div class="first_posts_home">'.cc_list_posts($args).'</div>'; 
+			echo cc_list_posts($args); 
 		}
 	}
 	
@@ -866,10 +867,6 @@ class CC_Theme_Generator{
 				if ( is_front_page() )
 				$classes[] = 'home';
 			}
-		}
-		
-		if(is_home()){
-			$classes[] = 'bubble';
 		}
 		
 		return $classes;
