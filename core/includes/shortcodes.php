@@ -352,7 +352,7 @@ function cc_list_posts($atts,$content = null) {
 	if($page_id != ''){
 		$page_id = explode(',',$page_id);
 	}
-		
+				
 	if($home_featured_posts_show_sticky == 'on') {
 
 		$args = array(
@@ -408,10 +408,10 @@ function cc_list_posts($atts,$content = null) {
 				break;
 			
 			case 'default':
-					locate_template( array( 'loop.php' ), true );
+				$tmp .= featured_post_loop($tmp);
 			break;
 			case 'bubbles':
-					locate_template( array( 'loop.php' ), true );
+				$tmp .= featured_post_loop($tmp);
 			break;		
 			default:
 					$tmp .= '<div class="listposts '.$img_position.'">';
@@ -446,7 +446,7 @@ function cc_list_posts($atts,$content = null) {
 
 	wp_reset_postdata();
 	
-	return '<div id="featured_posts" ><div id="list_posts" class="list-posts-all">'.$tmp.'</div></div>';	
+	return '<div id="featured_posts"><div id="list_posts" class="list-posts-all">'.$tmp.'</div></div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 

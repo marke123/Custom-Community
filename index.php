@@ -8,7 +8,7 @@
 		<?php if ( $tkf->home_show_latest_posts == "show" ) { 
 			// check if you want to show your latest posts - see in APPEARANCE > THEME SETTINGS > GENERAL > DEFAULT HOMEPAGE ?>
 					
-			<div class="page" id="blog-latest">
+			<div class="page" id="latest_posts">
 	
 				<?php if ( have_posts() ) : ?>
 	

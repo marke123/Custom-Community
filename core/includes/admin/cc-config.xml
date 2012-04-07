@@ -553,6 +553,7 @@
 										<option name="slideToggle" value="slideToggle" />
 										<option name="animate" value="animate" />
 										<option name="fadeOut" value="fadeOut" />
+										<option name="fadeIn" value="fadeIn" />
 										<option name="fadeTo" value="fadeTo" />
 										<option name="slideUp" value="slideUp" />
 										<option name="toggle" value="toggle" />
@@ -566,6 +567,7 @@
 										<option name="slideDown" value="slideDown" />
 										<option name="slideToggle" value="slideToggle" />
 										<option name="animate" value="animate" />
+										<option name="fadeOut" value="fadeOut" />
 										<option name="fadeIn" value="fadeIn" />
 										<option name="fadeTo" value="fadeTo" />
 										<option name="slideUp" value="slideUp" />
