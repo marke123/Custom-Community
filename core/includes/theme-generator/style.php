@@ -4656,7 +4656,7 @@ function dynamic_css(){
 		
 	<?php endif; ?>
 	
-	<?php if($tkf->default_homepage_hide_avatar == "hide"){?>
+	<?php if($tkf->home_latest_posts_show_avatar == "hide"){?>
 	/** ***   
 	standard wordpress home page: hide avatar**/
 	
@@ -4671,7 +4671,7 @@ function dynamic_css(){
 	}
 	<?php } ?>
 	
-	<?php if($tkf->default_homepage_style == "bubbles"){?>
+	<?php if($tkf->home_latest_posts_style == "bubbles"){?>
 	/** ***   
 	standard wordpress home page: bubble style**/
 	
@@ -4680,7 +4680,7 @@ function dynamic_css(){
 	    margin: 0 0 12px;
 	}
 	
-	<?php if($tkf->default_homepage_hide_avatar == "hide") { ?>
+	<?php if($tkf->home_latest_posts_show_avatar == "hide") { ?>
 		div.post span.marker { display: none; }
 	<?php } else { ?>
 		div.post span.marker {
@@ -4723,24 +4723,24 @@ function dynamic_css(){
 	
 	
 	
-	<?php if($tkf->default_homepage_latest_posts_bg != ""){?>
+	<?php if($tkf->home_latest_posts_background_color != ""){?>
 	/** ***   
 	standard wordpress home page: latest posts - background colour **/
 	
 	body.bubble div.post span.marker, 
 	body.bubble div.post div.post-content, 
 	body.home div#blog-latest div.post {
-		background-color: <?php if ( $tkf->default_homepage_latest_posts_bg != 'transparent' ) { echo '#'; } echo $tkf->default_homepage_latest_posts_bg ?>;
+		background-color: <?php if ( $tkf->home_latest_posts_background_color != 'transparent' ) { echo '#'; } echo $tkf->home_latest_posts_background_color ?>;
 	}
 	
-		<?php if($tkf->default_homepage_style == "default"){
+		<?php if($tkf->home_latest_posts_style == "default"){
 			// add a small padding if the default listing style is selected ?>
 			body.home div#blog-latest div.post { padding: 8px; }
 		<?php } ?>
 	
 	<?php } ?>
 	
-	<?php if($tkf->default_homepage_hide_date == "hide"){?>
+	<?php if($tkf->home_latest_posts_show_date == "hide"){?>
 	/** ***   
 	standard wordpress home page: hide date, category and author**/
 	
@@ -4749,7 +4749,7 @@ function dynamic_css(){
 	}
 	<?php } ?>
 	
-	<?php if($tkf->default_homepage_hide_author == "hide"){?>
+	<?php if($tkf->home_latest_posts_show_author == "hide"){?>
 	/** ***   
 	standard wordpress home page: hide author name (name as link to profile if buddypress activated)**/
 	
@@ -4760,7 +4760,7 @@ function dynamic_css(){
 	<?php } ?>
 
 
-	<?php if($tkf->default_homepage_hide_comments == "hide"){?>
+	<?php if($tkf->home_latest_posts_show_comments == "hide"){?>
 
 	/** ***   
 	standard wordpress home page: hide comments**/
