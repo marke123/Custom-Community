@@ -4656,34 +4656,20 @@ function dynamic_css(){
 		
 	<?php endif; ?>
 	
-	<?php if($tkf->home_latest_posts_show_avatar == "hide"){?>
+	<?php if($tkf->home_featured_posts_style == "bubbles"){?>
 	/** ***   
-	homepage latest posts: hide avatar**/
+	homepage featured posts: bubble style**/
 	
-	body.home div.post div.post-content, div.comment-content, 
-	body.home.bubble div.post div.post-content, body.bubble div.comment-content {
-	    margin-left: 0;
-	}
-	
-	body.home div.post div.author-box, 
-	body.home.bubble div.post div.author-box {
-		display: none;
-	}
-	<?php } ?>
-	
-	<?php if($tkf->home_latest_posts_style == "bubbles"){?>
-	/** ***   
-	homepage latest posts: bubble style**/
-	
-	body.bubble div.post h2.posttitle {
+	body.home div#featured_posts .bubbles div.post h2.posttitle {
 	    line-height: 120%;
 	    margin: 0 0 12px;
 	}
 	
-	<?php if($tkf->home_latest_posts_show_avatar == "hide") { ?>
-		div.list-posts-all.bubbles div.post span.marker { display: none; }
+	<?php if($tkf->home_featured_posts_show_avatar == "hide") { ?>
+		body.home div#featured_posts .bubbles div.post span.marker { display: none; }
+
 	<?php } else { ?>
-		div.list-posts-all.bubbles div.post span.marker {
+		body.home div#featured_posts .bubbles div.post span.marker {
 		    -moz-transform: rotate(45deg);
 		    -webkit-transform: rotate(45deg);
 		    -o-transform: rotate(45deg);
@@ -4694,9 +4680,14 @@ function dynamic_css(){
 		    position: absolute;
 		    width: 20px;
 		}
+		
+		body.home div#featured_posts .bubbles div.post div.author-box {
+			margin-top: 20px;
+			display: block;	
+		}
 	<?php } ?>
 	
-	div.list-posts-all.bubbles div.post div.post-content {
+	body.home div#featured_posts .bubbles div.post div.post-content {
 		border-radius: 11px;
 		-moz-border-radius: 11px;
 		-webkit-border-radius: 11px; 
@@ -4706,19 +4697,120 @@ function dynamic_css(){
 	    margin-bottom:8px;
 	}
 	
-	div.list-posts-all.bubbles div.post p.date { 
+	body.home div#featured_posts .bubbles div.post p.date { 
 		border-top: 1px solid #<?php echo $container_bg_color; ?>;
 		border-bottom: 1px solid #<?php echo $container_bg_color; ?>; 
 	}
 	
-	div.list-posts-all.bubbles div.post p.postmetadata { 
+	body.home div#featured_posts .bubbles div.post p.postmetadata { 
 		border-top: 1px solid #<?php echo $container_bg_color; ?>; 
 	}
 	
-	div.list-posts-all.bubbles div.post div.author-box {
-		margin-top: 20px;
-		display: block;	
+	<?php } ?>
+	
+	
+	
+	<?php if($tkf->home_featured_posts_background_color != ""){?>
+	/** ***   
+	homepage featured posts: background colour **/
+	
+	body.home div#featured_posts .bubbles div.post span.marker, 
+	body.home div#featured_posts .bubbles div.post div.post-content, 
+	body.home div#featured_posts .default div.post {
+		background-color: <?php if ( $tkf->home_featured_posts_background_color != 'transparent' ) { echo '#'; } echo $tkf->home_featured_posts_background_color ?>;
 	}
+	
+		<?php if($tkf->home_featured_posts_style == "default"){
+			// add a small padding if the default listing style is selected ?>
+			body.home div#featured_posts .default div.post { padding: 8px; }
+		<?php } ?>
+	
+	<?php } ?>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<?php if($tkf->home_latest_posts_show_avatar == "hide"){?>
+	/** ***   
+	homepage latest posts: hide avatar**/
+	
+	body.home div#latest_posts div.list-posts-all div.post div.post-content, 
+	body.home div#latest_posts div.list-posts-all div.comment-content {
+	    margin-left: 0;
+	}
+	
+	body.home div#latest_posts div.list-posts-all div.post div.author-box {
+		display: none;
+	}
+	<?php } elseif($tkf->home_latest_posts_show_avatar == "show_avatar_only"){?>
+	/** ***   
+	homepage latest posts: show avatar only **/
+	
+	body.home div#latest_posts div.author-box p { display: none; }
+	
+	<?php } ?>
+	
+	<?php if($tkf->home_latest_posts_style == "bubbles"){?>
+	/** ***   
+	homepage latest posts: bubble style**/
+	
+	body.home div#latest_posts .bubbles div.post h2.posttitle {
+	    line-height: 120%;
+	    margin: 0 0 12px;
+	}
+	
+	<?php if($tkf->home_latest_posts_show_avatar == "hide") { ?>
+		body.home div#latest_posts .bubbles div.post span.marker { display: none; }
+
+	<?php } else { ?>
+		body.home div#latest_posts .bubbles div.post span.marker {
+		    -moz-transform: rotate(45deg);
+		    -webkit-transform: rotate(45deg);
+		    -o-transform: rotate(45deg);
+		    -ms-transform: rotate(45deg);
+		    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
+		    height: 20px;
+		    margin: 17px 0 0 -25px;
+		    position: absolute;
+		    width: 20px;
+		}
+		
+		body.home div#latest_posts .bubbles div.post div.author-box {
+			margin-top: 20px;
+			display: block;	
+		}
+	<?php } ?>
+	
+	body.home div#latest_posts .bubbles div.post div.post-content {
+		border-radius: 11px;
+		-moz-border-radius: 11px;
+		-webkit-border-radius: 11px; 
+	    background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
+	    margin-left: 85px;
+	    padding: 15px 5px 5px 15px;
+	    margin-bottom:8px;
+	}
+	
+	body.home div#latest_posts .bubbles div.post p.date { 
+		border-top: 1px solid #<?php echo $container_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_bg_color; ?>; 
+	}
+	
+	body.home div#latest_posts .bubbles div.post p.postmetadata { 
+		border-top: 1px solid #<?php echo $container_bg_color; ?>; 
+	}
+	
 	<?php } ?>
 	
 	
@@ -4727,33 +4819,31 @@ function dynamic_css(){
 	/** ***   
 	homepage latest posts: background colour **/
 	
-	body.bubble div.post span.marker, 
-	body.bubble div.post div.post-content, 
-	body.home div#latest_posts div.post {
+	body.home div#latest_posts .bubbles div.post span.marker, 
+	body.home div#latest_posts .bubbles div.post div.post-content, 
+	body.home div#latest_posts .default div.post {
 		background-color: <?php if ( $tkf->home_latest_posts_background_color != 'transparent' ) { echo '#'; } echo $tkf->home_latest_posts_background_color ?>;
 	}
 	
 		<?php if($tkf->home_latest_posts_style == "default"){
 			// add a small padding if the default listing style is selected ?>
-			body.home div#latest_posts div.post { padding: 8px; }
+			body.home div#latest_posts .default div.post { padding: 8px; }
 		<?php } ?>
 	
 	<?php } ?>
 	
 	<?php if($tkf->home_latest_posts_show_date == "hide"){?>
 	/** ***   
-	homepage latest posts: hide date, category and author**/
+	homepage latest posts: hide date, category and author **/
 	
-	body.home div.post p.date {
+	body.home div#latest_posts div.list-posts-all div.post p.date {
 		display: none;
 	}
-	<?php } ?>
-	
-	<?php if($tkf->home_latest_posts_show_author == "hide"){?>
+	<?php } elseif ($tkf->home_latest_posts_show_date == "show_date_category"){?>
 	/** ***   
-	homepage latest posts: hide author name (name as link to profile if buddypress activated)**/
+	homepage latest posts: show date and category **/
 	
-	body.home div.post p.date span {
+	body.home div#latest_posts div.post p.date span {
 		display: none;
 	}
 	
@@ -4767,6 +4857,9 @@ function dynamic_css(){
 	
 	div.post .comments  {
 		display: none;
+	}
+	body.home div#latest_posts div.list-posts-all div.post p.postmetadata {
+	    border-top: none;
 	}
 
 	<?php } ?>

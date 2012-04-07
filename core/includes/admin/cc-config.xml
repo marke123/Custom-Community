@@ -524,6 +524,8 @@
 										<option name="more options in the pro version" value="pro" />
 									</select>
 									
+									<colorpicker name="home_featured_posts_background_color" label="Featured posts background colour" tooltip="Change the background colour of your featured posts. Tip: watch out you have enough contrast to the text colours!" />
+									
 									<checkbox name="home_featured_posts_show_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
 									
 									<select name="home_featured_posts_category" label="Featured post categories" tooltip="You can select the category the posts should be taken from.">
@@ -566,7 +568,8 @@
 									<select name="home_latest_posts_show_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
 											This option is for the standard WordPress Homepage showing your latest articles. 
 											To select a page as your homepage, go to Settings -> Reading.">
-										<option name="show" value="show" />
+										<option name="show avatar and name" value="show_avatar_and_name" />
+										<option name="show avatar only" value="show_avatar_only" />
 										<option name="hide" value="hide" />
 									</select>
 									
@@ -579,15 +582,11 @@
 									<colorpicker name="home_latest_posts_background_color" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
 									
 									<select name="home_latest_posts_show_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
-										<option name="show" value="show" />
+										<option name="show date, category and author name" value="show_date_category_author" />
+										<option name="show date and category" value="show_date_category" />
 										<option name="hide" value="hide" />
 									</select>	
 									
-									<select name="home_latest_posts_show_author" label="Show author name">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-							
 									<select name="home_latest_posts_show_comments" label="Show comments link under entry">
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
