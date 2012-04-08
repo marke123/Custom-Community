@@ -540,9 +540,9 @@
 						<tab title="Homepage">
 							<accordion>
 								
-								<section title="Global Hompage Settings">
+								<section title="Global Hompage Settings" id="global-hompage-settings">
 								
-									<select name="hompage_sidebars" label="Hompage Sidebars" tooltip="Where do you like to have your sidebars on the Homepage? 
+									<select id="global-hompage-settings-section" name="hompage_sidebars" label="Hompage Sidebars" tooltip="Where do you like to have your sidebars on the Homepage? 
 										default = the global settings and sidebars will be used
 										none = no sidebars, full width
 										left = left home sidebar, this will overwrite the global settings and display the left home sidebar
