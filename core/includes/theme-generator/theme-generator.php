@@ -83,9 +83,7 @@ class CC_Theme_Generator{
 				case 'none': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
 				case 'full-width': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
 			}			
-		}	
-		echo $sidebar_position;
-		
+		}		
 	}
 	
 	/**

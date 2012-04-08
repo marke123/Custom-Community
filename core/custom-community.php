@@ -301,12 +301,44 @@ class Custom_Community{
 			endif; 
 		
 		}
+		
+		add_filter( 'tk_jqueryui_accordion_content_section_after_global-hompage-settings', array( $this, 'global_hompage_add_widget' ) );
+		
 		/*
 		 * Hiding elemts by id 
 		 */
 		if(!defined('BP_VERSION'))
 			tk_hide_element( 'buddypress' );
 				
+	}
+	
+	function global_hompage_add_widget($html){
+		global $tkf;
+		
+		$tmp .= '';
+			
+		ob_start();?>
+		<table class="widefat">
+			<tr>
+				<td><b>Home Widget areas </b><br>
+					Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
+					<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
+				</td>
+			</tr>
+		<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
+ 			<tr>
+ 				<td>
+					<?php echo 'Line '. $i . '. ' . ' Number Widgets?' .tk_form_textfield( 'home_widgets_line_widgets_number' ); ?>
+				</td>
+			</tr>
+			
+		<?php } ?>
+		
+		</table><?php
+		$tmp = ob_get_contents();
+		ob_end_clean();
+		
+		return $tmp. $html;
 	}
 	
 	function framework_init(){
