@@ -389,8 +389,27 @@ function cc_widgets_init(){
 		
 	}	
 		
+	for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
 		
-	
+		for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$ln]; $wn++ ){
+			
+			register_sidebars(1,
+				array(
+					'name' => 'home widget line '.$ln.' widget '.$wn ,
+					'id' => 'home_widget_line_'.$ln.'_widget_'.$wn,
+					'description' => 'Home widget line '.$ln.' widget '.$wn,
+					'before_widget' => '<div id="line_'.$ln.'_widget_'.$wn.'" class="widget home_widget_line">',
+					'after_widget' => '</div><div class="clear"></div>',
+					'before_title' => '<h3 class="widgettitle">',
+					'after_title' => '</h3>'
+				)
+			);
+			 
+		}	
+		$wn = 0;	
+		echo '</div>';
+	}	
+
 
 }
 ?>
