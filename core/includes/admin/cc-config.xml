@@ -377,38 +377,7 @@
 									</select>
 		
 								</section>
-								<section title="Global list posts styling for the homepage - archive and category views">
-									
-									
-									<select name="home_latest_posts_show_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
-											This option is for the standard WordPress Homepage showing your latest articles. 
-											To select a page as your homepage, go to Settings -> Reading.">
-										<option name="show avatar and name" value="show_avatar_and_name" />
-										<option name="show avatar only" value="show_avatar_only" />
-										<option name="hide" value="hide" />
-									</select>
-									
-									<select name="home_latest_posts_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
-											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
-										<option name="bubbles" value="bubbles" />
-										<option name="default" value="default" />
-									</select>	
-
-									<colorpicker name="home_latest_posts_background_color" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
-									
-									<select name="home_latest_posts_show_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
-										<option name="show date, category and author name" value="show_date_category_author" />
-										<option name="show date and category" value="show_date_category" />
-										<option name="hide" value="hide" />
-									</select>	
-									
-									<select name="home_latest_posts_show_comments" label="Show comments link under entry">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-																					
-								</section>
-										
+																		
 								<section title="Titles">
 									
 									<select name="title_font_style" label="Title font style" tooltip="Change the title font style (h1 and h2)">
@@ -452,17 +421,6 @@
 		
 									<colorpicker name="subtitle_color" label="Subtitle colour" tooltip="Change subtitle colour" />
 																
-								</section>
-								
-								<section title="Excerpts">
-									
-									<select name="excerpt_on" label="Show excerpts" tooltip="Just for category and archive views: use excerpts or show full content of your posts">
-										<option name="content" value="content" />
-										<option name="excerpt" value="excerpt" />
-									</select>
-									
-									<textfield name="excerpt_length" label="Excerpt length" tooltip="Change the excerpt length, default is 30 words" />
-																							
 								</section>
 								
 								<section title="Fonts">
@@ -521,7 +479,47 @@
 									
 								</section>
 								
-																<section title="Login">
+								<section title="Global list posts styling for the homepage - archive and category views">
+									
+									
+									<select name="home_latest_posts_show_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
+											This option is for the standard WordPress Homepage showing your latest articles. 
+											To select a page as your homepage, go to Settings -> Reading.">
+										<option name="show avatar and name" value="show_avatar_and_name" />
+										<option name="show avatar only" value="show_avatar_only" />
+										<option name="hide" value="hide" />
+									</select>
+									
+									<select name="home_latest_posts_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
+											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
+										<option name="bubbles" value="bubbles" />
+										<option name="default" value="default" />
+									</select>	
+									
+									<select name="excerpt_on" label="Show excerpts" tooltip="Just for category and archive views: use excerpts or show full content of your posts">
+										<option name="content" value="content" />
+										<option name="excerpt" value="excerpt" />
+									</select>
+									
+									<textfield name="excerpt_length" label="Excerpt length" tooltip="Change the excerpt length, default is 30 words" />
+								
+
+									<colorpicker name="home_latest_posts_background_color" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
+									
+									<select name="home_latest_posts_show_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
+										<option name="show date, category and author name" value="show_date_category_author" />
+										<option name="show date and category" value="show_date_category" />
+										<option name="hide" value="hide" />
+									</select>	
+									
+									<select name="home_latest_posts_show_comments" label="Show comments link under entry">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+																					
+								</section>
+
+								<section title="Login">
 									
 									<file name="bg_loginpage_img" label="Login page logo" tooltip="Insert your own image for the login page. Upload or insert url." />
 									

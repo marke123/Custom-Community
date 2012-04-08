@@ -46,6 +46,7 @@ class CC_Theme_Generator{
 		
 		$sidebar_position = $tkf->sidebar_position;
 		
+		
 		if(!empty($component[2])){
 			if($component[2] == 'groups' && !empty($component[3]) && $tkf->bp_groups_sidebars != 'default') {
 				$sidebar_position = $tkf->bp_groups_sidebars;
@@ -53,6 +54,10 @@ class CC_Theme_Generator{
 				$sidebar_position = $tkf->bp_profile_sidebars;
 			}
 		}
+		
+		if(is_home() && $tkf->hompage_sidebars != 'default')
+			$sidebar_position = $tkf->hompage_sidebars;			
+		
 				
 		if($tkf->leftsidebar_width == ''){
 			$tkf->leftsidebar_width = '224';
@@ -62,7 +67,6 @@ class CC_Theme_Generator{
 		if($tkf->rightsidebar_width == ''){
 			$tkf->rightsidebar_width = '224';
 		}
-		
 		
 		$tmp = get_post_meta( $post->ID, '_wp_page_template', true );
 		
@@ -80,6 +84,8 @@ class CC_Theme_Generator{
 				case 'full-width': $tkf->leftsidebar_width = 0; $tkf->rightsidebar_width = 0; break;
 			}			
 		}	
+		echo $sidebar_position;
+		
 	}
 	
 	/**
@@ -477,7 +483,20 @@ class CC_Theme_Generator{
 			locate_template( array( 'sidebar-left.php' ), true );
 			return;		
 		}
-
+		
+		if( is_home()){
+			if($tkf->hompage_sidebars == 'left' || $tkf->hompage_sidebars == 'left and right' || $tkf->hompage_sidebars == 'none'){
+					
+				if($tkf->hompage_sidebars == 'left' || $tkf->hompage_sidebars == 'none')
+					remove_sidebar_right();
+				
+				if($tkf->hompage_sidebars == 'left' || $tkf->hompage_sidebars == 'left and right')
+					locate_template( array( 'home-sidebar-left.php' ), true );
+				
+				return;		
+			}
+		}
+		
 		$component = explode('-',$this->detect->get_page_type());
 		if(!empty($component[2])){	
 		
@@ -525,6 +544,20 @@ class CC_Theme_Generator{
 			return;		
 		}
 		
+		if( is_home()){
+			if($tkf->hompage_sidebars == 'right' || $tkf->hompage_sidebars == 'left and right' || $tkf->hompage_sidebars == 'none'){
+					
+				if($tkf->hompage_sidebars == 'right' || $tkf->hompage_sidebars == 'none')
+					remove_sidebar_left();
+				
+				if($tkf->hompage_sidebars == 'right' || $tkf->hompage_sidebars == 'left and right')
+					locate_template( array( 'home-sidebar-right.php' ), true );
+				
+				return;		
+			}
+		}
+		
+		
 		$component = explode('-',$this->detect->get_page_type());
 		if(!empty($component[2])){	
 			if($component[2] == 'groups' && !empty($component[3])) {
@@ -543,7 +576,7 @@ class CC_Theme_Generator{
 				locate_template( array( 'sidebar.php' ), true );
 			}     
 		} else {
-			if($tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right"){
+			if(($tkf->sidebar_position == "right" || $tkf->sidebar_position == "left and right" )){
 				locate_template( array( 'sidebar.php' ), true );
 			}    
   		}
