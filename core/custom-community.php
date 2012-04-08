@@ -328,7 +328,7 @@ class Custom_Community{
 		<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
  			<tr>
  				<td>
-					<?php echo 'Line '. $i . '. ' . ' Number Widgets?' .tk_form_textfield( 'home_widgets_line_widgets_number' ); ?>
+					<?php echo 'Line '. $i . '. ' . ' Number Widgets?' .tk_form_textfield( 'home_widgets_line_widgets_number', array( 'multi_index' => $i ) ); ?>
 				</td>
 			</tr>
 			
