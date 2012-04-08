@@ -377,6 +377,37 @@
 									</select>
 		
 								</section>
+								<section title="Global list posts styling for the homepage - archive and category views">
+									
+									
+									<select name="home_latest_posts_show_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
+											This option is for the standard WordPress Homepage showing your latest articles. 
+											To select a page as your homepage, go to Settings -> Reading.">
+										<option name="show avatar and name" value="show_avatar_and_name" />
+										<option name="show avatar only" value="show_avatar_only" />
+										<option name="hide" value="hide" />
+									</select>
+									
+									<select name="home_latest_posts_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
+											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
+										<option name="bubbles" value="bubbles" />
+										<option name="default" value="default" />
+									</select>	
+
+									<colorpicker name="home_latest_posts_background_color" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
+									
+									<select name="home_latest_posts_show_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
+										<option name="show date, category and author name" value="show_date_category_author" />
+										<option name="show date and category" value="show_date_category" />
+										<option name="hide" value="hide" />
+									</select>	
+									
+									<select name="home_latest_posts_show_comments" label="Show comments link under entry">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+																					
+								</section>
 										
 								<section title="Titles">
 									
@@ -510,6 +541,35 @@
 						</tab>
 						<tab title="Homepage">
 							<accordion>
+								
+								<section title="Global Hompage Settings">
+								
+									<select name="hompage_sidebars" label="Hompage Sidebars" tooltip="Where do you like to have your sidebars on the Homepage? 
+										default = the global settings and sidebars will be used
+										none = no sidebars, full width
+										left = left home sidebar, this will overwrite the global settings and display the left home sidebar
+										right = right home sidebar, this will overwrite the global settings and display the right home sidebar
+										left and right = This option will display the left and right home sidebars and overwrite the global settings
+										Note: all sidebars can be filled with widgets. Without widgets there will be the default widget used">
+										<option name="default" value="default" />
+										<option name="none" value="none" />
+										<option name="left" value="left" />
+										<option name="right" value="right" />
+										<option name="left and right" value="left and right" />
+									</select>
+								
+								
+									<select name="home_show_latest_posts" label="Show / hide your latest posts" tooltip="Show or hide your latest posts (below the featured posts).
+											This option is for the standard WordPress homepage showing your latest articles. 
+											To select a page as your homepage, go to Settings - Reading.">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+									
+
+									
+								</section>
+			
 								<section title="Featured Posts">
 														
 									<select name="home_featured_posts" label="Show / hide featured posts" tooltip="Display your featured posts on the homepage.">
@@ -519,6 +579,7 @@
 									
 									<select name="home_featured_posts_style" label="Featured posts listing style" tooltip="Select a template to use: ">
 										<option name="image mouse over" value="img-mouse-over" />
+										<option name="posts-img-left-content-right" value="posts-img-left-content-right" />
 										<option name="bubbles" value="bubbles" />
 										<option name="default" value="default" />
 										<option name="more options in the pro version" value="pro" />
@@ -556,43 +617,7 @@
 									</select>
 																											
 								</section>
-								<section title="Latest Posts">
-									
-									<select name="home_show_latest_posts" label="Show / hide your latest posts" tooltip="Show or hide your latest posts (below the featured posts).
-											This option is for the standard WordPress homepage showing your latest articles. 
-											To select a page as your homepage, go to Settings - Reading.">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-									
-									<select name="home_latest_posts_show_avatar" label="Show / hide avatars" tooltip="Show or hide the avatars in the post listing.
-											This option is for the standard WordPress Homepage showing your latest articles. 
-											To select a page as your homepage, go to Settings -> Reading.">
-										<option name="show avatar and name" value="show_avatar_and_name" />
-										<option name="show avatar only" value="show_avatar_only" />
-										<option name="hide" value="hide" />
-									</select>
-									
-									<select name="home_latest_posts_style" label="Post listing style" tooltip="Select a style how to display the latest posts.
-											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
-										<option name="bubbles" value="bubbles" />
-										<option name="default" value="default" />
-									</select>	
-
-									<colorpicker name="home_latest_posts_background_color" label="Post background colour" tooltip="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
-									
-									<select name="home_latest_posts_show_date" label="Show date, category and author" tooltip="Show or hide the date, category and author in the post listing.">
-										<option name="show date, category and author name" value="show_date_category_author" />
-										<option name="show date and category" value="show_date_category" />
-										<option name="hide" value="hide" />
-									</select>	
-									
-									<select name="home_latest_posts_show_comments" label="Show comments link under entry">
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-																					
-								</section>
+								
 							</accordion>
 						</tab>
 						<tab title="Header">
@@ -1119,6 +1144,7 @@
 									
 									<select name="enable_slideshow_home" label="Enable slideshow" tooltip="Enable slideshow">
 										<option name="home" value="home" />
+										<option name="home archive categories" value="home-archive-categories" />
 										<option name="off" value="off" />
 										<option name="all" value="all" />
 									</select>

@@ -338,10 +338,10 @@ class CC_Theme_Generator{
 		$cc_page_options=cc_get_page_meta();
 	
 		if(defined('BP_VERSION')){ 
-			if($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home  == 'home' && is_front_page() || $tkf->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+			if($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home  == 'home' && is_front_page() || $tkf->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1 || is_archive() && $tkf->enable_slideshow_home == 'home-archive-categories'){
 				echo cc_slidertop(); // located under wp/templatetags
 			}
-		} elseif($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1){
+		} elseif($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1 || is_archive() && $tkf->enable_slideshow_home == 'home-archive-categories' ){
 			echo cc_slidertop(); // located under wp/templatetags
 		}
 	}

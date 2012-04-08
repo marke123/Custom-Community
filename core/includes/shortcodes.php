@@ -396,11 +396,7 @@ function cc_list_posts($atts,$content = null) {
 	remove_all_filters('posts_orderby');
 	
 	$list_post_query = new WP_Query( $args );
-	
 
-	 
-
-	
 	$more = 0;
 	if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $list_post_query->the_post();
 				
