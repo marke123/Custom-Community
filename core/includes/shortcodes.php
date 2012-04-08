@@ -1,4 +1,17 @@
 <?php 
+if(!function_exists('show_featured_image')){
+	function show_featured_image($atts, $content='') {
+	
+		if(!$atts['size'])
+			$atts['size'] = 'thumbnail';
+	
+		return '<span class="post_thumbnail '.$atts['class'].'">'.get_the_post_thumbnail(null,$atts['size']).'</span>';
+	}
+	
+	add_shortcode('show_featured_image', 'show_featured_image');
+}
+
+
 // shortcode horizontal line
 function h_line($atts) { 
 
