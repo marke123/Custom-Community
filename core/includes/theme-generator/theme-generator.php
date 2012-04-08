@@ -664,6 +664,7 @@ class CC_Theme_Generator{
 		} else {
 			the_content( __( 'Read the rest of this entry &rarr;', 'cc' ) ); 
 		}
+		
 	}
 	
 
