@@ -278,7 +278,7 @@ class Custom_Community{
 	}
 	
 	function generate_theme(){
-		
+		global $Theme_Generator;
 		$Theme_Generator = new CC_Theme_Generator();
 	
 		$args = array('echo' => '0','hide_empty' => '0');
@@ -388,6 +388,8 @@ class Custom_Community{
 		require_once($this->require_path('/core/includes/tkf/loader.php'));
 			
 		require_once($this->require_path('/_inc/ajax.php'));
+		
+		require_once($this->require_path('/custom-community-hooks.php'));
 		
 		
 		// helper functions
