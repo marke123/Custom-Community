@@ -4,6 +4,17 @@ require_once( dirname(__FILE__) . '/core/get-pro.php' );
 require_once( dirname(__FILE__) . '/core/post-metabox.php' );
 require_once( dirname(__FILE__) . '/core/loader.php');
 
+function remove_sidebar_left(){
+		
+	remove_action( 'sidebar_left', 'sidebar_left', 2 );
+	
+}
+function remove_sidebar_right(){
+		
+	remove_action( 'sidebar_right', 'sidebar_right', 2 );
+	
+}
+
 if ( ! function_exists( 'cc_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
@@ -131,6 +142,26 @@ function cc_widgets_init(){
 		array(
 			'name' => 'sidebar left',
 			'id' => 'leftsidebar',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title' => '<h3 class="widgettitle">',
+			'after_title' => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'home sidebar right',
+			'id' => 'home-sidebar-right',
+			'before_widget' => '<div id="%1$s" class="widget %2$s">',
+			'after_widget' => '</div><div class="clear"></div>',
+			'before_title'  => '<h3 class="widgettitle">',
+			'after_title'   => '</h3>'
+		)
+	);
+	register_sidebars( 1,
+		array(
+			'name' => 'home sidebar left',
+			'id' => 'home-sidebar-left',
 			'before_widget' => '<div id="%1$s" class="widget %2$s">',
 			'after_widget' => '</div><div class="clear"></div>',
 			'before_title' => '<h3 class="widgettitle">',
