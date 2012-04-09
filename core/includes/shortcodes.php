@@ -354,6 +354,9 @@ function cc_list_posts($atts,$content = null) {
 		'order' => '',
 		'show_sticky' => '',
 		'show_pagination' => 'show',
+		'show_pagination_wp_pagenavi' => 'show',
+		'pagination_ajax_effect' => 'fadeOut_fadeIn',
+		'featured_id' => '',
 		'posts_per_page' => '3'
 	), $atts));
 
@@ -387,7 +390,6 @@ function cc_list_posts($atts,$content = null) {
 		'category_name' => $category_name,
 		'posts_per_page' => $posts_per_page,
 		'paged' => get_query_var('paged'),
-		'show_pagination' => $show_pagination,
 		'ignore_sticky_posts' => 1
 		
 	);
@@ -399,6 +401,57 @@ function cc_list_posts($atts,$content = null) {
 	$list_post_query = new WP_Query( $args );
 
 	$more = 0;
+		$tmp_js .= '<script type="text/javascript">'. chr(13);
+	
+		$tmp_js .= 'jQuery(document).ready(function(){'. chr(13);
+		$tmp_js .= 'boxgrid();'. chr(13);
+				
+		$tmp_js .= 'jQuery(\'.wp-pagenavi a, #navigation'.$featured_id.' a\').live(\'click\', function(e){'. chr(13);
+		
+		$tmp_js .= '	e.preventDefault();'. chr(13);
+					
+		$tmp_js .= '	var link = jQuery(this).attr(\'href\');'. chr(13);
+					
+		$tmp_js .= '	jQuery.fx.interval = 100;'. chr(13);
+					
+					switch ($pagination_ajax_effect) {
+						case 'hide_show':
+								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').hide(600).load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').show(\'400\');'. chr(13);		
+							break;
+						case 'fadeOut_fadeIn':
+								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').fadeOut(\'slow\').load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').fadeIn(\'400\');'. chr(13);			
+							break;
+						case 'slideUp_slidedown':
+								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').slideUp(\'slow\').load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').slideDown(\'600\');'. chr(13);			
+							break;
+						default:
+								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').fadeOut(600).load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').fadeIn(400);'. chr(13);			
+							break;
+					}
+					$tmp_js .= 'boxgrid();'. chr(13);
+		
+					$tmp_js .=  '});'. chr(13);
+				$tmp_js .= '});'. chr(13);
+				
+				
+				$tmp_js .= '		function boxgrid(){'. chr(13);
+				$tmp_js .= '	jQuery(\'.boxgrid.captionfull\').hover(function(){'. chr(13);
+				$tmp_js .= '		jQuery(\'.cover\', this).stop().animate({top:\'-90px\'},{queue:false,duration:160});'. chr(13);
+				$tmp_js .= '	}, function() {'. chr(13);
+				$tmp_js .= '		jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});'. chr(13);
+				$tmp_js .= '	});'. chr(13);
+				$tmp_js .= '}'. chr(13);
+				$tmp_js .= '});'. chr(13);
+		
+				
+				
+				
+				
+				
+		$tmp_js .= '</script>'. chr(13);
+	
+	
+	
 	if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $list_post_query->the_post();
 				
 		switch ($img_position) {
@@ -440,23 +493,28 @@ function cc_list_posts($atts,$content = null) {
 	
 	$tmp .='<div class="clear"></div>';
 	if($show_pagination == 'show'){
-		$tmp .='<div id="navigation">';
+		$tmp .='<div id="navigation'.$featured_id.'">';
 		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
 		$tmp .='<div class="alignright">' . get_previous_posts_link('Newer Entries &raquo;') .'</div>';
 		$tmp .='</div><!-- End navigation -->';
-			
-		if(function_exists('wp_pagenavi')){
-			ob_start();
-				wp_pagenavi( array( 'query' => $list_post_query ) );
-				$tmp .= ob_get_contents();
-			ob_end_clean();
+	
+	if(is_home() && $tkf->use_widgetized_home == 'on')
+		$show_pagination_wp_pagenavi = 'hide';
+	
+		if($show_pagination_wp_pagenavi == 'show' ){
+			if(function_exists('wp_pagenavi')){
+				ob_start();
+					wp_pagenavi( array( 'query' => $list_post_query) );
+					$tmp .= ob_get_contents();
+				ob_end_clean();
+			}
 		}
 	}
 	
 
 	wp_reset_postdata();
 	
-	return '<div id="featured_posts"><div id="list_posts" class="list-posts-all '. $img_position .' ">'.$tmp.'</div></div>';	
+	return $tmp_js.'<div id="featured_posts'.$featured_id.'"><div id="list_posts'.$featured_id.'" class="list-posts-all '. $img_position .' ">'.$tmp.'</div></div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 

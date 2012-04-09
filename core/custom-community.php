@@ -311,9 +311,9 @@ class Custom_Community{
 			tk_hide_element( 'buddypress' );
 
 				
-		if($tkf->use_widgetized_home == 'on' ){
-			tk_hide_element( 'featured_posts' );	
-		}
+		//if($tkf->use_widgetized_home == 'on' ){
+		//	tk_hide_element( 'featured_posts' );	
+		//}
 		
 	
 	}
@@ -345,7 +345,7 @@ class Custom_Community{
 		ob_end_clean();
 		
 		$element['id'] = 'global_hompage_add_widget'; 
-		$element['title'] = 'global_hompage_add_widget'; 
+		$element['title'] = 'Home Widget areas'; 
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
@@ -462,46 +462,7 @@ class Custom_Community{
 	
 		<?php global $tkf; ?>
 		
-		<script type="text/javascript" charset="utf-8">
-			jQuery(document).ready(function(){
-				boxgrid();
-				
-				jQuery('.wp-pagenavi a, #navigation a').live('click', function(e){
-					e.preventDefault();
-					
-					var link = jQuery(this).attr('href');
-					
-					jQuery.fx.interval = 100;
-					<?php
-					
-					switch ($tkf->home_featured_posts_pagination_ajax_effect) {
-						case 'hide_show':
-								echo "jQuery('#featured_posts').hide(600).load(link + ' #list_posts', function(){ jQuery('#featured_posts').show('400')";			
-							break;
-						case 'fadeOut_fadeIn':
-								echo "jQuery('#featured_posts').fadeOut('slow').load(link + ' #list_posts', function(){ jQuery('#featured_posts').fadeIn('400')";			
-							break;
-						case 'slideUp_slidedown':
-								echo "jQuery('#featured_posts').slideUp('slow').load(link + ' #list_posts', function(){ jQuery('#featured_posts').slideDown('600')";			
-							break;
-						default:
-								echo "jQuery('#featured_posts').fadeOut(600).load(link + ' #list_posts', function(){ jQuery('#featured_posts').fadeIn(400)";			
-							break;
-					}
-					?>		
-					boxgrid();
-		
-					});
-				});
-				function boxgrid(){
-					jQuery('.boxgrid.captionfull').hover(function(){
-						jQuery('.cover', this).stop().animate({top:'-90px'},{queue:false,duration:160});
-					}, function() {
-						jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});
-					});
-				}
-			});
-		</script>
+
 
 	<?php }
 
