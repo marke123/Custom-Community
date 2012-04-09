@@ -350,11 +350,7 @@ class Custom_Community{
 		$elements[] = $element;
 		$testo = tk_accordion( 'global_hompage_add_widget', $elements );
 		
-		echo '<pre>';
-		print_r( $testo );
-		echo '</pre>';
-		
-		return $html;
+		return $tmp. $html;
 	}
 	
 	function framework_init(){

@@ -273,60 +273,105 @@ function profiles_header_control() {
  *  featured posts widget
  *
  * @package Custom Community
- * @since 1.8.3
+ * @since 2.0
  */	
-function featured_posts($args) {
-  extract($args);
 
-  $options = get_option("featured_posts");
-  if (!is_array( $options )) {
-    $options = array(
-      'featured_posts_listing_style' => 'image-mous-over'
-    );
-  }
+class featured_posts_widget extends WP_Widget {
+	function featured_posts_widget() {
+		  //Constructor
+	        parent::WP_Widget(false, $name = 'Custom Community -> Featured Post', array(
+	            'description' => 'Featured Post'
+	        ));
+	}
+	
+	function widget($args, $instance) {
+		global $post;
+ 		extract( $args );	
+	
+		$selected_category = (is_numeric($instance['category']) ? (int)$instance['category'] : '');
+        $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+        
+	    $listing_style = empty($instance['featured_posts_listing_style']) ? ' ' : apply_filters('widget_title', $instance['featured_posts_listing_style']);
+              	
+		$tmp .= '<div id="featured_posts_widget" class="widget">';
+		
+		if(trim($title) == "") { $title = "Weitere Artikel";  }
+		
+		$tmp .= '<h3 class="featured_posts_widget_title">'.$title.'</h3>';
+		$tmp .= '<ul>';
+		$tmp .= '<div class="border"></div>';
+		
+		$atts = array(
+			'amount' => '12',
+			'category_name' => $selected_category,
+			'img_position' => $listing_style,
+			'height' => 'auto',
+			'page_id' => '',
+			'post_type' => 'post',
+			'orderby' => '',
+			'order' => '',
+			'show_sticky' => '',
+			'show_pagination' => 'show',
+			'posts_per_page' => '3'
+		);
 
-echo 'jo'.$options['featured_posts_listing_style'];
+		$tmp .=  cc_list_posts($atts,$content = null);
+	
+		$tmp .= '</ul>';
+		$tmp .= '</div>';		
+		$tmp .='<div class="clear"></div>';
+		
+		echo $tmp;
+		wp_reset_query();
+	}
+    function update($new_instance, $old_instance) {
+        //update and save the widget
+        return $new_instance;
+    }
+    function form($instance) {
+        //widgetform in backend
+        $selected_category = esc_attr($instance['category']);
+        $title = strip_tags($instance['title']);
+		$listing_style = esc_attr($instance['featured_posts_listing_style']);
+       // Get the existing categories and build a simple select dropdown for the user.
 
-$atts = array(
-		'amount' => '12',
-		'category_name' => '0',
-		'img_position' => $options['featured_posts_listing_style'],
-		'height' => 'auto',
-		'page_id' => '',
-		'post_type' => 'post',
-		'orderby' => '',
-		'order' => '',
-		'home_featured_posts_show_sticky' => '',
-		'home_featured_posts_show_pagination' => 'show',
-		'posts_per_page' => '3'
-	);
-
-	echo cc_list_posts($atts,$content = null);
+		$args = array('echo' => '0','hide_empty' => '0');
+		$categories = get_categories($args);
+		 
+	    $cat_options[] = '<option value="all-categories">All categories</option>';	
+		
+		foreach($categories as $category) {
+		    $selected = $selected_category === $category->slug ? ' selected="selected"' : '';
+            $cat_options[] = '<option value="' . $category->slug .'"' . $selected . '>' . $category->name . '</option>';	
+		}
+		
+		
+		
+		?>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>">Title: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" />
+		</p>
+		<p>
+		    <label for="<?php echo $this->get_field_id('category'); ?>">
+		        <?php _e('Include category (optional):'); ?>
+		    </label>
+		    <select id="<?php echo $this->get_field_id('category'); ?>" class="widefat" name="<?php echo $this->get_field_name('category'); ?>">
+		        <?php echo implode('', $cat_options); ?>
+		    </select>
+		</p>
+		<p>
+			<label for="<?php echo $this->get_field_id('title'); ?>">Featured posts listing style: </label>
+		 	<select name="<?php echo $this->get_field_name('featured_posts_listing_style'); ?>" id="<?php echo $this->get_field_id('featured_posts_listing_style'); ?>">
+			   	<option <?php if($listing_style == 'img-mouse-over'){ ?> selected <?php } ?> value="img-mouse-over">image mouse over</option>
+			   	<option <?php if($listing_style == 'posts-img-left-content-right'){ ?> selected <?php } ?> value="posts-img-left-content-right">posts-img-left-content-right</option>
+			   	<option <?php if($listing_style == 'bubbles'){ ?> selected <?php } ?> value="bubbles">bubbles</option><option value="default">default</option>
+			   	<option <?php if($listing_style == 'default'){ ?> selected <?php } ?> value="pro">more options in the pro version</option>
+			 </select>
+		</p>							
+		
+        <?php
+    }
 }
+register_widget('featured_posts_widget');
 
-function featured_posts_control() {
-  $options = get_option("featured_posts");
-  if (!is_array( $options )) {
-    $options = array(
-      'featured_posts_listing_style' => 'image-mous-over'
-     );
-  }
-
-  if (isset($_POST['featured_posts_submit'])){
-    $options['featured_posts_listing_style'] = htmlspecialchars($_POST['featured_posts_listing_style']);
-    update_option("featured_posts", $options);
-  }?>
-  <p>
-    <label for="featured_posts">Widget Position: </label><br />
-   
-   <select name="featured_posts_listing_style" id="featured_posts">
-   	<option <?php if($options['featured_posts_listing_style'] == 'img-mouse-over'){ ?> selected <?php } ?> value="img-mouse-over">image mouse over</option>
-   	<option <?php if($options['featured_posts_listing_style'] == 'posts-img-left-content-right'){ ?> selected <?php } ?> value="posts-img-left-content-right">posts-img-left-content-right</option>
-   	<option <?php if($options['featured_posts_listing_style'] == 'bubbles'){ ?> selected <?php } ?> value="bubbles">bubbles</option><option value="default">default</option>
-   	<option <?php if($options['featured_posts_listing_style'] == 'default'){ ?> selected <?php } ?> value="pro">more options in the pro version</option>
-   	</select>
-   
-    <input type="hidden" id="featured_posts_submit" name="featured_posts_submit" value="1" />
-  </p>
-<?php
-}
