@@ -1061,7 +1061,7 @@
 								
 								<section title="Register">
 									
-									<select name="register_profile_groups" label="Add profile groups to the register page">
+									<select name="register_profile_groups" multiselect="true" label="Add profile groups to the register page">
 										<option name="all" value="0" />
 									</select>
 									
@@ -1154,7 +1154,7 @@
 									<checkbox name="slideshow_sticky" label="Show only sticky posts" description="Show only sticky posts" />
 							
 									
-									<select name="slideshow_cat" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
+									<select name="slideshow_cat"  multiselect="true" label="Slideshow post categories" tooltip="The slideshow  takes images, titles and text-excerpts of the last 4 posts.
 										You can select the category the posts should be taken from.
 										For more info check out the.">
 											<option name="All categories" value="all-categories" />
@@ -1465,6 +1465,12 @@
 					<tab title="Get Premium Support">
 					
 						Dickes Bild Junge.	
+											
+					</tab>
+					
+					<tab title="Shop" id="shop">
+					
+						 
 											
 					</tab>
 	

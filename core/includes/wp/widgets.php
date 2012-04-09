@@ -288,7 +288,7 @@ class featured_posts_widget extends WP_Widget {
 		global $post;
  		extract( $args );	
 	
-		$selected_category = (is_numeric($instance['category']) ? (int)$instance['category'] : '');
+		$selected_category = esc_attr($instance['category']);
         $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
         
 	    $listing_style = empty($instance['featured_posts_listing_style']) ? ' ' : apply_filters('widget_title', $instance['featured_posts_listing_style']);
@@ -312,9 +312,11 @@ class featured_posts_widget extends WP_Widget {
 			'order' => '',
 			'show_sticky' => '',
 			'show_pagination' => 'show',
-			'posts_per_page' => '3'
+			'show_pagination_wp_pagenavi' => 'hide',
+			'posts_per_page' => '3',
+			'featured_id' => $widget_id
+			
 		);
-
 		$tmp .=  cc_list_posts($atts,$content = null);
 	
 		$tmp .= '</ul>';
