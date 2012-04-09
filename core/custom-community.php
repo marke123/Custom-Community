@@ -309,6 +309,7 @@ class Custom_Community{
 		 */
 		if(!defined('BP_VERSION'))
 			tk_hide_element( 'buddypress' );
+
 				
 		if($tkf->use_widgetized_home == 'on' ){
 			tk_hide_element( 'featured_posts' );	
@@ -317,7 +318,7 @@ class Custom_Community{
 	
 	}
 	
-	function global_hompage_add_widget($html){
+	function global_hompage_add_widget( $html ){
 		global $tkf;
 		
 		$tmp .= '';
@@ -348,9 +349,10 @@ class Custom_Community{
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
-		$testo = tk_accordion( 'global_hompage_add_widget', $elements );
 		
-		return $tmp. $html;
+		$widget_config = tk_accordion( 'global_hompage_add_widget', $elements, FALSE );
+		
+		return $widget_config . $html;
 	}
 	
 	function framework_init(){
