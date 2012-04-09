@@ -71,7 +71,7 @@
 						if($tkf->register_profile_groups == '')
 							$tkf->register_profile_groups = 1;
 							
-						$register_profile_groups = explode(",", trim($tkf->register_profile_groups));
+						$register_profile_groups = $tkf->register_profile_groups;	
 						
 						foreach($register_profile_groups as $register_profile_group){ 
 						

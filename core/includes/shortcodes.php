@@ -546,10 +546,19 @@ function slider($atts,$content = null) {
 		
 	), $atts));
 
-
-	if($category_name == 'all-categories' || $page_id != '' || $post_type != ''){
-		$category_name = '0';
+	print_r( $category_name);
+	
+	if(is_array($category_name)){
+		foreach($category_name as $cat_name){
+			$cat_name2 .= '\''.$cat_name.'\', ';
+		}	
+			
+		$category_name = $cat_name2;
+		
 	}
+
+	
+		print_r( $category_name);
 	
 	
 	if($page_id != '' && $post_type == 'post'){
@@ -667,6 +676,9 @@ function slider($atts,$content = null) {
 	}
 	$tmp .= '</style>'. chr(13);	
 	
+		print_r( $category_name);
+	
+	
 	if($slideshow_sticky == 'on') {
 	
 		$args = array(
@@ -681,7 +693,7 @@ function slider($atts,$content = null) {
 			'orderby' => $orderby,
 			'post_type' => $post_type,
 			'post__in' => $page_id,
-			'category_name' => $category_name,
+			'category_name' => array($category_name),
 			'posts_per_page' => $amount
 		);
 	

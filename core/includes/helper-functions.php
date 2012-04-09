@@ -371,7 +371,6 @@ function cc_slidertop(){
 			}
 		</style>
 	<?php }
-	
 	if($slider_style == 'full width' || $slider_style == 'full-width-image' ){
 		$atts = array(
 			'amount' => $slideshow_amount,

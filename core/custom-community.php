@@ -303,6 +303,7 @@ class Custom_Community{
 		}
 		
 		add_filter( 'tk_jqueryui_accordion_content_section_after_global-hompage-settings', array( $this, 'global_hompage_add_widget' ) );
+		add_filter( 'tk_wp_jqueryui_tabs_after_content_shop', array( $this, 'getting_startet_add_shop' ) );
 		
 		/*
 		 * Hiding elemts by id 
@@ -316,6 +317,11 @@ class Custom_Community{
 		//}
 		
 	
+	}
+	
+	function getting_startet_add_shop( $html ){
+			$tmp = '<iframe style="width:100%; height:1000px;" src="http://themekraft.com/?post_type=product&fbtab"></iframe>';
+			return  $html . $tmp;
 	}
 	
 	function global_hompage_add_widget( $html ){
