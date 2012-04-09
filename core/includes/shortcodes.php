@@ -352,8 +352,8 @@ function cc_list_posts($atts,$content = null) {
 		'post_type' => 'post',
 		'orderby' => '',
 		'order' => '',
-		'home_featured_posts_show_sticky' => '',
-		'home_featured_posts_show_pagination' => 'show',
+		'show_sticky' => '',
+		'show_pagination' => 'show',
 		'posts_per_page' => '3'
 	), $atts));
 
@@ -387,6 +387,7 @@ function cc_list_posts($atts,$content = null) {
 		'category_name' => $category_name,
 		'posts_per_page' => $posts_per_page,
 		'paged' => get_query_var('paged'),
+		'show_pagination' => $show_pagination,
 		'ignore_sticky_posts' => 1
 		
 	);
@@ -438,7 +439,7 @@ function cc_list_posts($atts,$content = null) {
 	endwhile; endif;
 	
 	$tmp .='<div class="clear"></div>';
-	if($tkf->home_featured_posts_show_pagination == 'show'){
+	if($show_pagination == 'show'){
 		$tmp .='<div id="navigation">';
 		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
 		$tmp .='<div class="alignright">' . get_previous_posts_link('Newer Entries &raquo;') .'</div>';
