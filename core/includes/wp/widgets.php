@@ -22,6 +22,11 @@ if(defined('BP_VERSION')){
 	    wp_register_sidebar_widget( 'forum_tags_widget', 'Forum Tags', 'forum_tags_widget', '' );
 }
 
+   if ( function_exists('featured_posts') )
+        wp_register_sidebar_widget( 'featured_posts','featured posts control', 'featured_posts');
+        wp_register_widget_control( 'featured_posts', 'featured posts control', 'featured_posts_control', '' );
+ 
+
 /**
  *  widget for the community navigation
  *
@@ -262,4 +267,66 @@ function profiles_header_control() {
     Vertical: <input type="radio" name="profiles_header_position" value="vertical" <?php if($options['profiles_header_position'] == 'vertical'){ ?> checked="checked" <?php } ?> /><br />
     <input type="hidden" id="profiles_header_submit" name="profiles_header_submit" value="1" />
   </p>	
-<?php } ?>
+<?php } 
+
+/**
+ *  featured posts widget
+ *
+ * @package Custom Community
+ * @since 1.8.3
+ */	
+function featured_posts($args) {
+  extract($args);
+
+  $options = get_option("featured_posts");
+  if (!is_array( $options )) {
+    $options = array(
+      'featured_posts_listing_style' => 'image-mous-over'
+    );
+  }
+
+echo 'jo'.$options['featured_posts_listing_style'];
+
+$atts = array(
+		'amount' => '12',
+		'category_name' => '0',
+		'img_position' => $options['featured_posts_listing_style'],
+		'height' => 'auto',
+		'page_id' => '',
+		'post_type' => 'post',
+		'orderby' => '',
+		'order' => '',
+		'home_featured_posts_show_sticky' => '',
+		'home_featured_posts_show_pagination' => 'show',
+		'posts_per_page' => '3'
+	);
+
+	echo cc_list_posts($atts,$content = null);
+}
+
+function featured_posts_control() {
+  $options = get_option("featured_posts");
+  if (!is_array( $options )) {
+    $options = array(
+      'featured_posts_listing_style' => 'image-mous-over'
+     );
+  }
+
+  if (isset($_POST['featured_posts_submit'])){
+    $options['featured_posts_listing_style'] = htmlspecialchars($_POST['featured_posts_listing_style']);
+    update_option("featured_posts", $options);
+  }?>
+  <p>
+    <label for="featured_posts">Widget Position: </label><br />
+   
+   <select name="featured_posts_listing_style" id="featured_posts">
+   	<option <?php if($options['featured_posts_listing_style'] == 'img-mouse-over'){ ?> selected <?php } ?> value="img-mouse-over">image mouse over</option>
+   	<option <?php if($options['featured_posts_listing_style'] == 'posts-img-left-content-right'){ ?> selected <?php } ?> value="posts-img-left-content-right">posts-img-left-content-right</option>
+   	<option <?php if($options['featured_posts_listing_style'] == 'bubbles'){ ?> selected <?php } ?> value="bubbles">bubbles</option><option value="default">default</option>
+   	<option <?php if($options['featured_posts_listing_style'] == 'default'){ ?> selected <?php } ?> value="pro">more options in the pro version</option>
+   	</select>
+   
+    <input type="hidden" id="featured_posts_submit" name="featured_posts_submit" value="1" />
+  </p>
+<?php
+}
