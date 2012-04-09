@@ -407,7 +407,6 @@ function cc_widgets_init(){
 			 
 		}	
 		$wn = 0;	
-		echo '</div>';
 	}	
 
 

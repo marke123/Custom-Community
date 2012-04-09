@@ -568,7 +568,7 @@
 									
 								</section>
 			
-								<section title="Featured Posts">
+								<section title="Featured Posts" id="featured_posts">
 														
 									<select name="home_featured_posts" label="Show / hide featured posts" tooltip="Display your featured posts on the homepage.">
 										<option name="show" value="show" />

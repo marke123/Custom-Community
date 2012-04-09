@@ -278,7 +278,7 @@ class Custom_Community{
 	}
 	
 	function generate_theme(){
-		global $Theme_Generator;
+		global $Theme_Generator, $tkf;
 		$Theme_Generator = new CC_Theme_Generator();
 	
 		$args = array('echo' => '0','hide_empty' => '0');
@@ -310,6 +310,11 @@ class Custom_Community{
 		if(!defined('BP_VERSION'))
 			tk_hide_element( 'buddypress' );
 				
+		if($tkf->use_widgetized_home == 'on' ){
+			tk_hide_element( 'featured_posts' );	
+		}
+		
+	
 	}
 	
 	function global_hompage_add_widget($html){
@@ -338,7 +343,18 @@ class Custom_Community{
 		$tmp = ob_get_contents();
 		ob_end_clean();
 		
-		return $tmp. $html;
+		$element['id'] = 'global_hompage_add_widget'; 
+		$element['title'] = 'global_hompage_add_widget'; 
+		$element['content'] = $tmp; 
+		
+		$elements[] = $element;
+		$testo = tk_accordion( 'global_hompage_add_widget', $elements );
+		
+		echo '<pre>';
+		print_r( $testo );
+		echo '</pre>';
+		
+		return $html;
 	}
 	
 	function framework_init(){
