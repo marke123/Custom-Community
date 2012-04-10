@@ -3329,7 +3329,7 @@ function dynamic_css(){
 	div.home_widgets_container div.home_widget_line {
 	    float: none;
 	    height: auto;
-	    margin: 0 0 20px;
+	    margin: 0 0 10px;
 	    min-height: 50px;
 	    overflow-x: hidden;
 	    overflow-y: auto;
@@ -3340,7 +3340,8 @@ function dynamic_css(){
 	    float: left;
 	    margin: 0.40%;
 	    padding: 0.40%;
-	    background: #ff9900;
+	    overflow: hidden;
+	    background: #<?php echo $container_alt_bg_color; ?>;
 	}
 
 <?php 
@@ -3348,8 +3349,8 @@ function dynamic_css(){
 for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
 	
 		
-		$width = 100/$tkf->home_widgets_line_widgets_number[$ln] - 1.7;
-		$width = number_format($width,2);
+		$width = 100/$tkf->home_widgets_line_widgets_number[$ln] - 1.6;
+		$width = number_format($width,4);
 		?>
 			
 		div#widget_line_<?php echo $ln; ?> div.widget {
