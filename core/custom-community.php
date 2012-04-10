@@ -304,6 +304,7 @@ class Custom_Community{
 		
 		add_filter( 'tk_jqueryui_accordion_content_section_after_global-hompage-settings', array( $this, 'global_hompage_add_widget' ) );
 		add_filter( 'tk_wp_jqueryui_tabs_after_content_shop', array( $this, 'getting_startet_add_shop' ) );
+		add_filter( 'tk_wp_jqueryui_tabs_after_content_child_theme_creator', array( $this, 'child_theme_creator' ) );
 		
 		/*
 		 * Hiding elemts by id 
@@ -317,6 +318,19 @@ class Custom_Community{
 		//}
 		
 	
+	}
+	
+	function child_theme_creator( $html ){
+		ob_start();
+		
+		$OneClickChildTheme = new OneClickChildTheme();
+		
+		$OneClickChildTheme->showThemePage();
+		
+		$tmp = ob_get_contents();
+		ob_end_clean();
+		
+			return  $html . $tmp ;
 	}
 	
 	function getting_startet_add_shop( $html ){
@@ -442,6 +456,9 @@ class Custom_Community{
 		require_once($this->require_path('/_inc/ajax.php'));
 		
 		require_once($this->require_path('/custom-community-hooks.php'));
+		
+		require_once($this->require_path('/core/includes/child-theme-creator/child-theme-creator.php'));
+		
 		
 		
 		// helper functions
