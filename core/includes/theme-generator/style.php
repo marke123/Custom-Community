@@ -3332,7 +3332,7 @@ function dynamic_css(){
 	    float: left;
 	    margin: 0.5%;
 	    padding: 0;
-	    background: #ff990;
+	    background: #ff9900;
 	}
 
 
