@@ -3312,6 +3312,32 @@ function dynamic_css(){
 	
 	
 	
+	/* Homepage Styles ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+
+
+	div.first_posts_home {
+		margin-top: -44px;
+	}
+	
+	div.home_widgets_container div.home_widget_line {
+		width: 100%; 
+		height: auto; 
+		overflow: auto; 
+		min-height: 50px;
+		margin: 0 0 20px 0;
+		float: none; 
+	}
+	
+	div.home_widgets_container div.home_widget_line div.widget {
+	    float: left;
+	    margin: 0.5%;
+	    padding: 0;
+	    background: #ff990;
+	}
+
+
+
+	
 	/* List Posts Templates :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 	
 	
@@ -3326,10 +3352,6 @@ function dynamic_css(){
 	
 	
 	/* List Posts - img mouse over effect */
-	
-	div.first_posts_home {
-		margin-top: -44px;
-	}
 	
 	.boxgrid {
 		width: 215px;
