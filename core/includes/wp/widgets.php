@@ -321,7 +321,6 @@ class featured_posts_widget extends WP_Widget {
 	
 		$tmp .= '</ul>';
 		$tmp .= '</div>';		
-		$tmp .='<div class="clear"></div>';
 		
 		echo $tmp;
 		wp_reset_query();

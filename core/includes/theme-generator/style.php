@@ -3319,21 +3319,44 @@ function dynamic_css(){
 		margin-top: -44px;
 	}
 	
-	div.home_widgets_container div.home_widget_line {
+	div.home_widgets_container {
 		width: 100%; 
 		height: auto; 
 		overflow: auto; 
-		min-height: 50px;
-		margin: 0 0 20px 0;
-		float: none; 
+		float: none;
+	}
+	
+	div.home_widgets_container div.home_widget_line {
+	    float: none;
+	    height: auto;
+	    margin: 0 0 20px;
+	    min-height: 50px;
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	    width: 100%;
 	}
 	
 	div.home_widgets_container div.home_widget_line div.widget {
 	    float: left;
-	    margin: 0.5%;
-	    padding: 0;
+	    margin: 0.40%;
+	    padding: 0.40%;
 	    background: #ff9900;
 	}
+
+<?php 
+
+for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
+	
+		
+		$width = 100/$tkf->home_widgets_line_widgets_number[$ln] - 1.7;
+		$width = number_format($width,2);
+		?>
+			
+		div#widget_line_<?php echo $ln; ?> div.widget {
+			width: <?php echo $width; ?>%;
+		}
+		 
+<?php } ?>
 
 
 
