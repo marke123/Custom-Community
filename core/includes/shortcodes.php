@@ -491,7 +491,6 @@ function cc_list_posts($atts,$content = null) {
 		
 	endwhile; endif;
 	
-	$tmp .='<div class="clear"></div>';
 	if($show_pagination == 'show'){
 		$tmp .='<div id="navigation'.$featured_id.'">';
 		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
