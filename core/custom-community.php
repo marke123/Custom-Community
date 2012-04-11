@@ -54,6 +54,9 @@ class Custom_Community{
 		
 		add_action( 'wp_footer', array( $this, 'add_footer_script' ), 20 );
 		
+		add_action( 'admin_head', array( $this, 'admin_head' ),1 );
+		
+		
 	}
 	
 	/**
@@ -338,57 +341,53 @@ class Custom_Community{
 			return  $html . $tmp;
 	}
 	
+	function admin_head(){ ?>
+	
+	<script language="javascript"> 
+		function toggle(showHideDiv, switchTextDiv) {
+			var ele = document.getElementById(showHideDiv);
+			var text = document.getElementById(switchTextDiv);
+			if(ele.style.display == "block") {
+		    		ele.style.display = "none";
+				text.innerHTML = "show";
+		  	}
+			else {
+				ele.style.display = "block";
+				text.innerHTML = "hide";
+			}
+		} 
+	</script>
+	
+	<?php	
+	}
+	
+	
 	function global_hompage_add_widget( $html ){
 		global $tkf;
 		
 		$tmp .= '';
 			
 		ob_start();?>
-		<div>
 
-		<script language="javascript"> 
-			function toggle(showHideDiv, switchTextDiv) {
-				var ele = document.getElementById(showHideDiv);
-				var text = document.getElementById(switchTextDiv);
-				if(ele.style.display == "block") {
-			    		ele.style.display = "none";
-					text.innerHTML = "show";
-			  	}
-				else {
-					ele.style.display = "block";
-					text.innerHTML = "hide";
-				}
-			} 
-		</script>
-			
+		<div class="tk_field_row">
+			<b>Home Widget areas </b><br>
+			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
+			<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
+		</div>
+
+		<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
+		
 			<div class="tk_field_row">
-					
-				<b>Home Widget areas </b><br>
-				Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
-				<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
-			</div>
-
-			<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
-				<div class="tk_field_row">
-			
 				<p><?php echo 'Horizontal line '. $i ?> :<a id="display_line_<?php echo $i ?>" href="javascript:toggle('line_<?php echo $i ?>','display_line_<?php echo $i ?>');">show</a></p>
-				
-				</div>
-				<?php
-				
-				$width = 100/$tkf->home_widgets_line_widgets_number[$i] - 1.7;
-				$width = number_format($width,2); ?>
-	 			
-	 		<div id="line_<?php echo $i ?>" style="display: none" >
-				<div class="tk_field_row">
+			</div>
+			<?php $width = 100/$tkf->home_widgets_line_widgets_number[$i] - 1.7;
+			$width = number_format($width,2); ?>
 			
-	 				
+	 		<div id="line_<?php echo $i ?>" style="display: none" >
+	
+				<div class="tk_field_row">
 		 			<p><?php echo 'Horizontal line '. $i ?> <a id="display_line_<?php echo $i ?>_css" href="javascript:toggle('options_line_<?php echo $i ?>','display_line_<?php echo $i ?>_css');">show</a> options</p>
-				
 				</div>
-	 			
-	 			
- 			<div>
 				
 	 			<div id="options_line_<?php echo $i ?>" style="display: none" >
 	 				<div class="tk_field_row">
@@ -416,34 +415,25 @@ class Custom_Community{
 							<?php echo tk_form_fileuploader( 'home_widgets_line_background_image', array( 'multi_index' => $i ) ); ?>
 						</div>
 					</div>
-						
 				</div>
-				<div>	
-
+	
 				<div class="tk_field_row">
 						<b>Widgetarea</b>	
 						<p><?php echo ' Amount widgetareas  : ' .tk_form_textfield( 'home_widgets_line_widgets_number', array( 'multi_index' => $i ) ); ?></p>
-					
 				</div>
-
-					
-					<?php 
-					for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$i]; $wn++ ){ ?>
+	
+				<?php for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$i]; $wn++ ){ ?>
 				
 					<div class="tk_field_row">
-				
 						<p>Widget <?php echo $wn ?> <a id="display_widget_line_<?php echo $i ?>_widget_<?php echo $wn; ?>" href="javascript:toggle('options_line_<?php echo $i ?>_widget_<?php echo $wn ?>','display_widget_line_<?php echo $i ?>_widget_<?php echo $wn; ?>');">show</a> option</p>
-					
 					</div>
+				
 					<div id="options_line_<?php echo $i ?>_widget_<?php echo $wn ?>" style="display: none" >
 						<div class="tk_field_row">
 							
 							<b><?php echo 'Line '. $i .  ' Widgetarea '. $wn ?></b>
 						
 						</div>
-				
-					
-						
 					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
@@ -486,17 +476,11 @@ class Custom_Community{
 							</div>
 						</div>
 					</div>
-						<?php
-						}
-					
-					?>
-				
-				</div>				
-			</div>
-		</div>	
+				<?php } ?>
+			</div>				
 		<?php } ?>
 		
-		</div><?php
+		<?php
 		$tmp = ob_get_contents();
 		ob_end_clean();
 		
