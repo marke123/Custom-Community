@@ -282,8 +282,8 @@ function dynamic_css(){
 		padding: 10px 0;
 	}
 	
-	#header #search-bar input[type=text] {
-		padding: 2px;
+	#header #search-bar input[type="text"] {
+		padding: 3px;
 		margin-right: 4px;
 		border: 1px inset #888;
 		border-radius: 3px;
@@ -291,9 +291,10 @@ function dynamic_css(){
 		-webkit-border-radius: 3px;
 	}
 
-	#header #search-bar input[type=submit] {
-		padding: 2px 4px;
-		margin: 3px 0 0 0;
+	#header #search-bar input[type="submit"], 
+	form input[type="submit"] {
+	    margin: 0;
+	    padding: 3px 9px;
 	}
 	
 	label.accessibly-hidden {
@@ -1241,6 +1242,55 @@ function dynamic_css(){
 	
 	/* Buttons ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
+
+	<?php // buttons - set default colors
+	
+		if ( $tkf->button_bg_color_1 == "" ) 
+			$tkf->button_bg_color_1 = "bbbbbb";
+		
+		if ( $tkf->button_bg_color_2 == "" ) 
+			$tkf->button_bg_color_2 = "e3e3e3";
+		
+		if ( $tkf->button_border_color == "" ) 
+			 $tkf->button_border_color = "aaaaaa";
+		
+		if ( $tkf->button_font_color == "" ) 
+			 $tkf->button_font_color = "888888";
+		
+		if ( $tkf->button_text_shadow_color == "" ) 
+			 $tkf->button_text_shadow_color = "f9f9f9";
+		
+		if ( $tkf->button_corner_radius == "" ) 
+			 $tkf->button_corner_radius = "2";
+		
+		if ( $tkf->button_font_size == "" ) 
+			 $tkf->button_font_size = "12";
+		
+		if ( $tkf->button_font_weight == "" ) 
+			 $tkf->button_font_weight = "bold";
+		
+		if ( $tkf->button_italic == "" ) 
+			 $tkf->button_italic = "normal";
+		
+		if ( $tkf->button_font_style == "" ) 
+			 $tkf->button_font_style = "arial, sans-serif";
+		
+		if ( $tkf->button_box_shadow == "" ) 
+			 $tkf->button_box_shadow = "show";
+		
+		if ( $tkf->button_border_color_hover == "" ) 
+			 $tkf->button_border_color_hover = "aaaaaa";
+		
+		if ( $tkf->button_font_color_hover == "" ) 
+			 $tkf->button_font_color_hover = "777777";
+		
+		if ( $tkf->button_text_shadow_color_hover == "" ) 
+			 $tkf->button_text_shadow_color_hover = "f1f1f1";
+		
+		if ( $tkf->button_bg_color_hover == "" ) 
+			 $tkf->button_bg_color_hover = "bfbfbf";
+		
+	?>
 	
 	button, 
 	a.button, 
@@ -1254,54 +1304,58 @@ function dynamic_css(){
 	div.generic-button a, 
 	.activity-list div.activity-meta a {
 	    /* Background color fallback */
-	    	background: #cccccc;
+	    	background: #<?php echo $tkf->button_bg_color_1; ?>;
 	    /* Firefox: */
-	    	background: -moz-linear-gradient(center top, #e3e3e3, #bbbbbb);
+	    	background: -moz-linear-gradient(center top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_1; ?>);
 	    /* Chrome, Safari:*/
-	    	background: -webkit-gradient(linear, left top, left center, from(#e3e3e3), to(#bbbbbb));
+	    	background: -webkit-gradient(linear, left top, left center, from(#<?php echo $tkf->button_bg_color_2; ?>), to(#<?php echo $tkf->button_bg_color_1; ?>));
 	    /* Opera */
-			background: -o-linear-gradient(top, #e3e3e3, #e3e3e3 75%, #bbbbbb 75%, #bbbbbb);
+			background: -o-linear-gradient(top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_2; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?>);
 	    /* IE */
 	    	filter: progid:DXImageTransform.Microsoft.Gradient(
-	    		StartColorStr='#e3e3e3', EndColorStr='#bbbbbb', GradientType=0);
-	    border-radius: 2px;
-	    border: 1px solid #aaaaaa;
-	    color: #888888;
-	    text-shadow: -1px 1px 0 #f9f9f9;
+	    		StartColorStr='#<?php echo $tkf->button_bg_color_2; ?>', EndColorStr='#<?php echo $tkf->button_bg_color_1; ?>', GradientType=0);
+    	border: 1px solid #<?php echo $tkf->button_border_color; ?>;
+    	color: #<?php echo $tkf->button_font_color; ?>;
+    	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color; ?>;
+	    border-radius: <?php echo $tkf->button_corner_radius; ?>px;
+	    -webkit-border-radius: <?php echo $tkf->button_corner_radius; ?>px; 
+	    -moz-border-radius: <?php echo $tkf->button_corner_radius; ?>px;
+    	font-size: <?php echo $tkf->button_font_size; ?>px;
+    	font-weight: <?php echo $tkf->button_font_weight; ?>;
+    	font-style: <?php echo $tkf->button_italic; ?>;
+    	font-family: <?php echo $tkf->button_font_style; ?>;
+	    <?php if ( $tkf->button_box_shadow == "show" ) { ?>
+	    	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
+		    -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
+		    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
+	    <?php } ?>
 	    cursor: pointer;
-	    font-size: 12px;
-	    font-weight: bold;
 	    margin-top: 0;
 	    line-height: 100%;
 	    padding: 5px 9px;
 	    vertical-align: top;
-	    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
-	    -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
-	    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
-}
-		
-
-span.button:hover, span.button:focus,  
-button:hover, button:focus,  
-button.button-alt:hover, button.button-alt:focus, 
-a.comment-edit-link:hover, a.comment-edit-link:focus, 
-a.comment-reply-link:hover, a.comment-reply-link:focus, 
-a.button:hover, a.button:focus, 
-input[type="submit"]:hover, input[type="submit"]:focus, 
-input[type="button"]:hover, input[type="button"]:focus, 
-ul.button-nav li a:hover, ul.button-nav li a:focus, 
-div.generic-button a:hover, div.generic-button a:focus, 
-.activity-list div.activity-meta a:hover {
-    background: #cccccc;
-    cursor: pointer;
-    border: 1px solid #aaaaaa;
-    font-weight: bold;
-    margin-top: 0;
-    border: 1px solid #aaaaaa;
-    color: #777777;
-    text-shadow: -1px 1px 0 #ffffff;
-    vertical-align: top;
-}
+	}			
+	
+	span.button:hover, span.button:focus,  
+	button:hover, button:focus,  
+	button.button-alt:hover, button.button-alt:focus, 
+	a.comment-edit-link:hover, a.comment-edit-link:focus, 
+	a.comment-reply-link:hover, a.comment-reply-link:focus, 
+	a.button:hover, a.button:focus, 
+	input[type="submit"]:hover, input[type="submit"]:focus, 
+	input[type="button"]:hover, input[type="button"]:focus, 
+	ul.button-nav li a:hover, ul.button-nav li a:focus, 
+	div.generic-button a:hover, div.generic-button a:focus, 
+	.activity-list div.activity-meta a:hover {
+	    background: #<?php echo $tkf->button_bg_color_hover; ?>;
+    	border: 1px solid #<?php echo $tkf->button_border_color_hover; ?>;
+    	color: #<?php echo $tkf->button_font_color_hover; ?>;
+    	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color_hover; ?>;
+	    cursor: pointer;
+	    font-weight: bold;
+	    margin-top: 0;
+	    vertical-align: top;
+	}
 	
 	/* Buttons that are disabled */
 	a.disabled, a.requested, div.pending a,
@@ -4628,102 +4682,6 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 			
 	      <?php } ?>
 		
-	<?php endif; ?>
-	
-	<?php if($tkf->button_bg_color_1 != "" || $tkf->button_bg_color_2 != "" || $tkf->button_font_color != "" || $tkf->button_border_color != "" || $tkf->button_text_shadow_color != "" || $tkf->button_box_shadow_color != "" ):?>
-		/** ***   
-		buttons: custom styles  **/
-		
-		button, 
-		a.button, 
-		span.button, 
-		button.button-alt, 
-		a.comment-edit-link, 
-		a.comment-reply-link, 
-		input[type="submit"], 
-		input[type="button"], 
-		ul.button-nav li a, 
-		div.generic-button a, 
-		.activity-list div.activity-meta a {
-		    <?php if ( $tkf->button_bg_color_1 != "" && $tkf->button_bg_color_2 != "" ) { ?>
-			    /* Background color fallback */
-			    	background: #<?php echo $tkf->button_bg_color_1; ?>;
-			    /* Firefox: */
-			    	background: -moz-linear-gradient(center top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_1; ?>);
-			    /* Chrome, Safari:*/
-			    	background: -webkit-gradient(linear, left top, left center, from(#<?php echo $tkf->button_bg_color_2; ?>), to(#<?php echo $tkf->button_bg_color_1; ?>));
-			    /* Opera */
-					background: -o-linear-gradient(top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_2; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?>);
-			    /* IE */
-			    	filter: progid:DXImageTransform.Microsoft.Gradient(
-			    		StartColorStr='#<?php echo $tkf->button_bg_color_2; ?>', EndColorStr='#<?php echo $tkf->button_bg_color_1; ?>', GradientType=0);
-		    <?php } ?>
-		    <?php if ( $tkf->button_border_color != "" ) { ?>
-		    	border: 1px solid #<?php echo $tkf->button_border_color; ?>;
-		    <?php } ?>
-		    <?php if ( $tkf->button_font_color != "" ) { ?>
-		    	color: #<?php echo $tkf->button_font_color; ?>;
-		    <?php } ?>
-		    <?php if ( $tkf->button_text_shadow_color != "" ) { ?>
-		    	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color; ?>;
-		    <?php } ?>
-		    <?php if ( $tkf->button_corner_radius != "" ) { ?>
-			    border-radius: <?php echo $tkf->button_corner_radius; ?>px;
-			    -webkit-border-radius: <?php echo $tkf->button_corner_radius; ?>px; 
-			    -moz-border-radius: <?php echo $tkf->button_corner_radius; ?>px;
-		    <?php } ?>
-		    <?php if ( $tkf->button_font_size != "" ) { ?>
-		    	font-size: <?php echo $tkf->button_font_size; ?>px;
-		    <?php } ?>
-		    <?php if ( $tkf->button_font_weight == "bold" ) { ?>
-		    	font-weight: bold;
-		    <?php } ?>
-		   	<?php if ( $tkf->button_italic == "italic" ) { ?>
-		    	font-style: italic;
-		    <?php } ?>
-		    <?php if ( $tkf->button_font_style != "" ) { ?>
-		    	font-family: <?php echo $tkf->button_font_style; ?>;
-		    <?php } ?>
-		    <?php if ( $tkf->button_box_shadow == "hide" ) { ?>
-			    -webkit-box-shadow: none;
-			    -moz-box-shadow: none;
-			    box-shadow: none;
-		    <?php } ?>
-		    cursor: pointer;
-		    margin-top: 0;
-		    line-height: 100%;
-		    padding: 5px 9px;
-		    vertical-align: top;
-		}			
-		
-		span.button:hover, span.button:focus,  
-		button:hover, button:focus,  
-		button.button-alt:hover, button.button-alt:focus, 
-		a.comment-edit-link:hover, a.comment-edit-link:focus, 
-		a.comment-reply-link:hover, a.comment-reply-link:focus, 
-		a.button:hover, a.button:focus, 
-		input[type="submit"]:hover, input[type="submit"]:focus, 
-		input[type="button"]:hover, input[type="button"]:focus, 
-		ul.button-nav li a:hover, ul.button-nav li a:focus, 
-		div.generic-button a:hover, div.generic-button a:focus, 
-		.activity-list div.activity-meta a:hover {
-		    <?php if ( $tkf->button_bg_color_1 != "" && $tkf->button_bg_color_2 != "" ) { ?>
-			    background: #<?php echo $tkf->button_bg_color_1; ?>;
-			<?php } ?>
-		    <?php if ( $tkf->button_border_color != "" ) { ?>
-		    	border: 1px solid #<?php echo $tkf->button_border_color; ?>;
-		    <?php } ?>
-		    <?php if ( $tkf->button_font_color != "" ) { ?>
-		    	color: #<?php echo $tkf->button_font_color; ?>;
-		    <?php } ?>
-		    <?php if ( $tkf->button_text_shadow_color != "" ) { ?>
-		    	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color; ?>;
-		    <?php } ?>
-		    cursor: pointer;
-		    font-weight: bold;
-		    margin-top: 0;
-		    vertical-align: top;
-		}
 	<?php endif; ?>
 	
 	<?php if($tkf->home_featured_posts_style == "bubbles"){?>

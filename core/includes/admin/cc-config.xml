@@ -475,7 +475,7 @@
 								
 								<section title="Buttons">
 									
-									<h2>CSS3 Button Designer</h2>
+									<h2>Buttons normal state</h2>
 		
 									<colorpicker name="button_bg_color_2" label="Background colour top" tooltip="Background fade: Change top background color of your buttons. Should be a little brighter than the color you use for the top." />
 					
@@ -516,6 +516,16 @@
 										<option name="hide" value="hide" />
 									</select>
 									
+									<h2>Buttons hover state</h2>
+									
+									<colorpicker name="button_bg_color_hover" label="Background colour hover" tooltip="Change background color of your buttons for the mouse over effect. ** Tip: Should be a little darker than the color you use for the top." />
+									
+									<colorpicker name="button_border_color_hover" label="Border colour hover" tooltip="Change button border colour for mouse over effect." />
+									
+									<colorpicker name="button_font_color_hover" label="Font colour hover" tooltip="Change the button font colours for mouse over effect." />
+
+									<colorpicker name="button_text_shadow_color_hover" label="Text shadow colour hover" tooltip="Change button text shadow colour for mouse over effect. Note: text shadow might not work properly in IE." />
+																		
 								</section>
 								
 								<section title="Favicon image">
