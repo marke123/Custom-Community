@@ -107,7 +107,7 @@
 			}
 			div.wrap h2 {
 				float: left;
-				margin-left: 46px;
+				margin-left: 32px;
 			}
 			div.ccadmin_right_box {
 				width: 257px; 
@@ -471,6 +471,51 @@
 										<option name="adapt all link styles" value="adapt all link styles" />
 									</select>
 																						
+								</section>
+								
+								<section title="Buttons">
+									
+									<h2>CSS3 Button Designer</h2>
+		
+									<colorpicker name="button_bg_color_2" label="Background colour top" tooltip="Background fade: Change top background color of your buttons. Should be a little brighter than the color you use for the top." />
+					
+									<colorpicker name="button_bg_color_1" label="Background colour bottom" tooltip="Background fade: Change bottom background color of your buttons. Should be a little darker than the color you use for the top." />
+		
+									<colorpicker name="button_border_color" label="Border colour" tooltip="Change button border colour." />
+									
+									<textfield name="button_corner_radius" label="Corner radius" tooltip="How big you like your corner roundings? In pixel - just enter a number." />
+									
+									<select name="button_font_style" label="Font style" tooltip="Change the button font style">
+										<option name="Arial, sans-serif" value="Arial, sans-serif" />
+										<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
+										<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
+										<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
+										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
+										<option name="Times New Roman, Times" value="Times New Roman, Times" />
+										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+									</select>
+		
+									<textfield name="button_font_size" label="Font size" tooltip="Change the button font size, just enter a number" />
+											
+									<select name="button_font_weight" label="Font weight" tooltip="Choose bold or normal font weight for your buttons. Default is bold.">
+										<option name="bold" value="bold" />
+										<option name="normal" value="normal" />
+									</select>
+									
+									<select name="button_italic" label="Italic fonts" tooltip="You want your button fonts italic or normal?">
+										<option name="normal" value="normal" />
+										<option name="italic" value="italic" />
+									</select>
+																																			
+									<colorpicker name="button_font_color" label="Font colour" tooltip="Change the button font colours." />
+
+									<colorpicker name="button_text_shadow_color" label="Text shadow colour" tooltip="Change button text shadow colour. Note: text shadow might not work properly in IE." />
+									
+									<select name="button_box_shadow" label="Box shadow" tooltip="Show or hide the box shadow.">
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+									
 								</section>
 								
 								<section title="Favicon image">

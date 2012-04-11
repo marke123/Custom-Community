@@ -292,7 +292,6 @@ function dynamic_css(){
 	}
 
 	#header #search-bar input[type=submit] {
-		font-size: 11px;
 		padding: 2px 4px;
 		margin: 3px 0 0 0;
 	}
@@ -1243,75 +1242,76 @@ function dynamic_css(){
 	/* Buttons ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::*/
 
 	
+	button, 
 	a.button, 
+	span.button, 
+	button.button-alt, 
 	a.comment-edit-link, 
 	a.comment-reply-link, 
 	input[type="submit"], 
 	input[type="button"], 
 	ul.button-nav li a, 
-	div.generic-button a {
-		padding: 3px 5px;
-		margin-top: 0;
-		background: none repeat scroll 0 0 #<?php echo $font_color; ?>;
-		border-bottom: 1px solid #aaaaaa;
-		border-right: 1px solid #aaaaaa;
-		border-top: none;
-		border-left: none;
-		border-radius: 4px;
-		-moz-border-radius: 4px;
-		-webkit-border-radius: 4px;
-		color: #<?php echo $container_bg_color; ?>;
-		font-family: arial, sans-serif; 
-		font-size: 12px;
-		font-weight: normal;
-		text-decoration: none;
-		text-shadow: none; 
-		vertical-align: top; 
-		cursor: pointer;
-	}
-	
-	a.button:hover, a.button:focus, 
-	a.comment-edit-link:hover, a.comment-edit-link:focus, 
-	a.comment-reply-link:hover, a.comment-reply-link:focus, 
-	input[type="submit"]:hover, input[type="button"]:hover,
-	input[type="submit"]:focus, input[type="button"]:focus,
-	ul.button-nav li a:hover, div.generic-button a:hover, 
-	ul.button-nav li a:focus, div.generic-button a:focus {
-		padding: 3px 5px;
-		background: none repeat scroll 0 0 #<?php echo $link_color; ?>;
-		border-color: #aaaaaa;
-		border-style: none solid solid none;
-		border-width: medium 1px 1px medium;
-		color: #<?php echo $container_bg_color; ?>;
-		font-size: 12px;
-		font-weight: normal;
-		text-decoration: none;
-		vertical-align: top;
-		cursor: pointer;
-		outline: none;
-	}
+	div.generic-button a, 
+	.activity-list div.activity-meta a {
+	    /* Background color fallback */
+	    	background: #cccccc;
+	    /* Firefox: */
+	    	background: -moz-linear-gradient(center top, #e3e3e3, #bbbbbb);
+	    /* Chrome, Safari:*/
+	    	background: -webkit-gradient(linear, left top, left center, from(#e3e3e3), to(#bbbbbb));
+	    /* Opera */
+			background: -o-linear-gradient(top, #e3e3e3, #e3e3e3 75%, #bbbbbb 75%, #bbbbbb);
+	    /* IE */
+	    	filter: progid:DXImageTransform.Microsoft.Gradient(
+	    		StartColorStr='#e3e3e3', EndColorStr='#bbbbbb', GradientType=0);
+	    border-radius: 2px;
+	    border: 1px solid #aaaaaa;
+	    color: #888888;
+	    text-shadow: -1px 1px 0 #f9f9f9;
+	    cursor: pointer;
+	    font-size: 12px;
+	    font-weight: bold;
+	    margin-top: 0;
+	    line-height: 100%;
+	    padding: 5px 9px;
+	    vertical-align: top;
+	    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
+	    -moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
+	    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
+}
+		
+
+span.button:hover, span.button:focus,  
+button:hover, button:focus,  
+button.button-alt:hover, button.button-alt:focus, 
+a.comment-edit-link:hover, a.comment-edit-link:focus, 
+a.comment-reply-link:hover, a.comment-reply-link:focus, 
+a.button:hover, a.button:focus, 
+input[type="submit"]:hover, input[type="submit"]:focus, 
+input[type="button"]:hover, input[type="button"]:focus, 
+ul.button-nav li a:hover, ul.button-nav li a:focus, 
+div.generic-button a:hover, div.generic-button a:focus, 
+.activity-list div.activity-meta a:hover {
+    background: #cccccc;
+    cursor: pointer;
+    border: 1px solid #aaaaaa;
+    font-weight: bold;
+    margin-top: 0;
+    border: 1px solid #aaaaaa;
+    color: #777777;
+    text-shadow: -1px 1px 0 #ffffff;
+    vertical-align: top;
+}
 	
 	/* Buttons that are disabled */
-	a.disabled, a.requested, div.pending a {
-		border-bottom: 1px solid #888888;
-		border-right: 1px solid #888888;
-		border-top: none;
-		border-left: none;
-		color: #<?php echo $container_bg_color; ?>;
-		background: none repeat scroll 0 0 #888888;
-		cursor: default;
-	}
-	
+	a.disabled, a.requested, div.pending a,
 	a.disabled:hover, a.requested:hover, div.pending a:hover {
-		border-bottom: 1px solid #888888;
-		border-right: 1px solid #888888;
-		border-top: none;
-		border-left: none;
-		color: #<?php echo $container_bg_color; ?>;
-		background: none repeat scroll 0 0 #888888;
+		color: #aaaaaa;
+		background: #cccccc;
 		cursor: default;
+		text-shadow: -1px 1px 0 #f9f9f9;
 	}
-	
+		
 	div.accept, div.reject {
 		float: left;
 		margin-left: 10px;
@@ -1744,10 +1744,6 @@ function dynamic_css(){
 		position: relative;
 	}
 	
-	.activity-list li.mini div.activity-meta a {
-		padding: 3px 8px;
-	}
-	
 	body.activity-permalink .activity-list li .activity-avatar img.avatar,
 	body.activity-permalink .activity-list li .activity-avatar img.FB_profile_pic {
 		width: 100px;
@@ -1961,27 +1957,6 @@ function dynamic_css(){
 	div.activity-meta {
 		clear: left;
 		margin: 0 0 3px 3px;
-	}
-	
-	.activity-list div.activity-meta a {
-		margin-right: 3px;
-		padding: 4px 8px;
-		background: none repeat scroll 0 0 #<?php echo $font_color; ?>;
-		border-bottom: 1px solid #<?php echo $font_color; ?>;
-		border-right: 1px solid #<?php echo $font_color; ?>;
-		border-radius: 4px;
-		-moz-border-radius: 4px;
-		-webkit-border-radius: 4px;
-		font-family: arial, sans-serif;
-		font-size: 11px;
-		text-decoration: none;
-		color: #<?php echo $container_bg_color; ?>;
-	}
-	
-	.activity-list div.activity-meta a:hover,
-	.activity-list div.activity-meta a:focus {
-		background: none repeat scroll 0 0 #<?php echo $link_color; ?>;
-		color: #<?php echo $container_bg_color; ?>;
 	}
 	
 	.activity-filter-selector {
@@ -3329,7 +3304,7 @@ function dynamic_css(){
 	div.home_widgets_container div.home_widget_line {
 	    float: none;
 	    height: auto;
-	    margin: 0 0 20px;
+	    margin: 0 0 10px;
 	    min-height: 50px;
 	    overflow-x: hidden;
 	    overflow-y: auto;
@@ -3340,7 +3315,8 @@ function dynamic_css(){
 	    float: left;
 	    margin: 0.40%;
 	    padding: 0.40%;
-	    background: #ff9900;
+	    overflow: hidden;
+	    background: #<?php echo $container_alt_bg_color; ?>;
 	}
 
 <?php 
@@ -3348,8 +3324,8 @@ function dynamic_css(){
 for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
 	
 		
-		$width = 100/$tkf->home_widgets_line_widgets_number[$ln] - 1.7;
-		$width = number_format($width,2);
+		$width = 100/$tkf->home_widgets_line_widgets_number[$ln] - 1.6;
+		$width = number_format($width,4);
 		?>
 			
 		div#widget_line_<?php echo $ln; ?> div.widget {
@@ -4125,37 +4101,16 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 		<?php } ?>
 		}
 	<?php endif; ?>	
-	
-	<?php if($tkf->bg_footer_color != '' || $tkf->bg_container_color): ?>
-	/** ***   
-	Adapting buttons font color in the footer widgets. Either to footer background color or to container background colour  **/
-	
-	#footer .cc-widget a.button, #header .cc-widget a.button { 
-	<?php if($tkf->bg_footer_color != '' &&  $tkf->bg_footer_color != 'transparent') { ?>
-			color: #<?php echo $tkf->bg_footer_color; ?> !important; 
-		<?php } elseif ($tkf->bg_container_color && $tkf->bg_container_color != 'transparent') { ?>
-			color: #<?php echo $tkf->bg_container_color; ?> !important; 
-		<?php } ?> 	
-	}
-	<?php endif; ?>	
-	
+		
 	<?php if($tkf->bg_container_color && $tkf->bg_container_color != 'transparent' ){?>
 	/** ***   
-	slideshow and other stuff that wants some BACKGROUND tweaking to container background colour  **/
+	slideshow and BP subnav that wants some BACKGROUND tweaking to container background colour  **/
 	
 	#slider-top,  
-	div#subnav.item-list-tabs ul li.selected a, div#subnav.item-list-tabs ul li.current a {
+	div#subnav.item-list-tabs ul li.selected a, 
+	div#subnav.item-list-tabs ul li.current a {
 		background-color: #<?php echo $tkf->bg_container_color;?>; 
-	} 
-	
-	/** ***   
-	buttons and widgets that want some FONT COLOR tweaking to the container background colour  **/ 
-	
-	a.comment-edit-link, a.comment-reply-link, a.button, input[type="submit"], input[type="button"], ul.button-nav li a, div.generic-button a, 
-	.activity-list div.activity-meta a.acomment-reply, 
-	.activity-list div.activity-meta a  {
-		color: #<?php echo $tkf->bg_container_color?> !important;
-	}
+	} 	
 	<?php };?>
 	
 	<?php if($tkf->font_style){?>
@@ -4316,18 +4271,7 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 		} 
 	
 	/** ***   
-	buttons and widgets that want some adapting to the font colour  **/
-	
-	a.button, 
-	a.comment-edit-link, 
-	a.comment-reply-link, 
-	input[type="submit"], 
-	input[type="button"], 
-	ul.button-nav li a, 
-	div.generic-button a, 
-	.activity-list div.activity-meta a  {
-		background: #<?php echo $tkf->font_color?>;
-	}  
+	widgettitles that want some adapting to the font colour  **/
 	
 	div#leftsidebar h3.widgettitle, 
 	div#sidebar h3.widgettitle, 
@@ -4396,23 +4340,8 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 		}
 		
 		/** ***   
-		buttons and widgets that want some adapting to the link colour  **/
+		item in profile that want some adapting to the link colour  **/
 		
-		a.comment-edit-link:hover, 
-		a.comment-edit-link:focus, 
-		a.comment-reply-link:hover, 
-		a.comment-reply-link:focus, 
-		a.button:focus, 
-		a.button:hover, 
-		input[type="submit"]:hover, 
-		input[type="button"]:hover, 
-		ul.button-nav li a:hover, 
-		div.generic-button a:hover, 
-		ul.button-nav li a:focus, 
-		div.generic-button a:focus, 
-		.activity-list div.activity-meta a.acomment-reply, 
-		div.activity-meta a.fav:hover, 
-		a.unfav:hover, 
 		div#item-header h2 span.highlight span {
 			background-color: #<?php echo $tkf->link_color?>;
 			background-color: #<?php echo $tkf->link_color?> !important;
@@ -4699,6 +4628,102 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 			
 	      <?php } ?>
 		
+	<?php endif; ?>
+	
+	<?php if($tkf->button_bg_color_1 != "" || $tkf->button_bg_color_2 != "" || $tkf->button_font_color != "" || $tkf->button_border_color != "" || $tkf->button_text_shadow_color != "" || $tkf->button_box_shadow_color != "" ):?>
+		/** ***   
+		buttons: custom styles  **/
+		
+		button, 
+		a.button, 
+		span.button, 
+		button.button-alt, 
+		a.comment-edit-link, 
+		a.comment-reply-link, 
+		input[type="submit"], 
+		input[type="button"], 
+		ul.button-nav li a, 
+		div.generic-button a, 
+		.activity-list div.activity-meta a {
+		    <?php if ( $tkf->button_bg_color_1 != "" && $tkf->button_bg_color_2 != "" ) { ?>
+			    /* Background color fallback */
+			    	background: #<?php echo $tkf->button_bg_color_1; ?>;
+			    /* Firefox: */
+			    	background: -moz-linear-gradient(center top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_1; ?>);
+			    /* Chrome, Safari:*/
+			    	background: -webkit-gradient(linear, left top, left center, from(#<?php echo $tkf->button_bg_color_2; ?>), to(#<?php echo $tkf->button_bg_color_1; ?>));
+			    /* Opera */
+					background: -o-linear-gradient(top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_2; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?>);
+			    /* IE */
+			    	filter: progid:DXImageTransform.Microsoft.Gradient(
+			    		StartColorStr='#<?php echo $tkf->button_bg_color_2; ?>', EndColorStr='#<?php echo $tkf->button_bg_color_1; ?>', GradientType=0);
+		    <?php } ?>
+		    <?php if ( $tkf->button_border_color != "" ) { ?>
+		    	border: 1px solid #<?php echo $tkf->button_border_color; ?>;
+		    <?php } ?>
+		    <?php if ( $tkf->button_font_color != "" ) { ?>
+		    	color: #<?php echo $tkf->button_font_color; ?>;
+		    <?php } ?>
+		    <?php if ( $tkf->button_text_shadow_color != "" ) { ?>
+		    	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color; ?>;
+		    <?php } ?>
+		    <?php if ( $tkf->button_corner_radius != "" ) { ?>
+			    border-radius: <?php echo $tkf->button_corner_radius; ?>px;
+			    -webkit-border-radius: <?php echo $tkf->button_corner_radius; ?>px; 
+			    -moz-border-radius: <?php echo $tkf->button_corner_radius; ?>px;
+		    <?php } ?>
+		    <?php if ( $tkf->button_font_size != "" ) { ?>
+		    	font-size: <?php echo $tkf->button_font_size; ?>px;
+		    <?php } ?>
+		    <?php if ( $tkf->button_font_weight == "bold" ) { ?>
+		    	font-weight: bold;
+		    <?php } ?>
+		   	<?php if ( $tkf->button_italic == "italic" ) { ?>
+		    	font-style: italic;
+		    <?php } ?>
+		    <?php if ( $tkf->button_font_style != "" ) { ?>
+		    	font-family: <?php echo $tkf->button_font_style; ?>;
+		    <?php } ?>
+		    <?php if ( $tkf->button_box_shadow == "hide" ) { ?>
+			    -webkit-box-shadow: none;
+			    -moz-box-shadow: none;
+			    box-shadow: none;
+		    <?php } ?>
+		    cursor: pointer;
+		    margin-top: 0;
+		    line-height: 100%;
+		    padding: 5px 9px;
+		    vertical-align: top;
+		}			
+		
+		span.button:hover, span.button:focus,  
+		button:hover, button:focus,  
+		button.button-alt:hover, button.button-alt:focus, 
+		a.comment-edit-link:hover, a.comment-edit-link:focus, 
+		a.comment-reply-link:hover, a.comment-reply-link:focus, 
+		a.button:hover, a.button:focus, 
+		input[type="submit"]:hover, input[type="submit"]:focus, 
+		input[type="button"]:hover, input[type="button"]:focus, 
+		ul.button-nav li a:hover, ul.button-nav li a:focus, 
+		div.generic-button a:hover, div.generic-button a:focus, 
+		.activity-list div.activity-meta a:hover {
+		    <?php if ( $tkf->button_bg_color_1 != "" && $tkf->button_bg_color_2 != "" ) { ?>
+			    background: #<?php echo $tkf->button_bg_color_1; ?>;
+			<?php } ?>
+		    <?php if ( $tkf->button_border_color != "" ) { ?>
+		    	border: 1px solid #<?php echo $tkf->button_border_color; ?>;
+		    <?php } ?>
+		    <?php if ( $tkf->button_font_color != "" ) { ?>
+		    	color: #<?php echo $tkf->button_font_color; ?>;
+		    <?php } ?>
+		    <?php if ( $tkf->button_text_shadow_color != "" ) { ?>
+		    	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color; ?>;
+		    <?php } ?>
+		    cursor: pointer;
+		    font-weight: bold;
+		    margin-top: 0;
+		    vertical-align: top;
+		}
 	<?php endif; ?>
 	
 	<?php if($tkf->home_featured_posts_style == "bubbles"){?>

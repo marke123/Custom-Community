@@ -293,11 +293,11 @@ class featured_posts_widget extends WP_Widget {
         
 	    $listing_style = empty($instance['featured_posts_listing_style']) ? ' ' : apply_filters('widget_title', $instance['featured_posts_listing_style']);
               	
-		$tmp .= '<div id="featured_posts_widget" class="widget">';
+		$tmp .= '<div class="featured_posts_widget widget">';
 		
 		if(trim($title) == "") { $title = "Weitere Artikel";  }
 		
-		$tmp .= '<h3 class="featured_posts_widget_title">'.$title.'</h3>';
+		$tmp .= '<h3 class="widgettitle">'.$title.'</h3>';
 		$tmp .= '<ul>';
 		$tmp .= '<div class="border"></div>';
 		
