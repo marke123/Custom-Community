@@ -344,23 +344,122 @@ class Custom_Community{
 		$tmp .= '';
 			
 		ob_start();?>
-		<table class="widefat">
-			<tr>
-				<td><b>Home Widget areas </b><br>
-					Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
-					<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
-				</td>
-			</tr>
-		<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
- 			<tr>
- 				<td>
-					<?php echo 'Line '. $i . '. ' . ' Number Widgets?' .tk_form_textfield( 'home_widgets_line_widgets_number', array( 'multi_index' => $i ) ); ?>
-				</td>
-			</tr>
+		<div>
+			<div class="tk_field_row">
+					
+				<b>Home Widget areas </b><br>
+				Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
+				<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
+			</div>
+			<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
+			
+			<?php
+			
+			$width = 100/$tkf->home_widgets_line_widgets_number[$i] - 1.7;
+			$width = number_format($width,2); ?>
+ 			<h2><?php echo 'Horizontal line '. $i ?></h2>
+	 			
+ 			<div>
+				
+	 			<div>
+	 				<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label title="<?php echo ' Line height: ' ; ?>" for=""><?php echo ' Line height: ' ; ?></label>
+						</div>
+						<div class="tk_field">
+							<?php echo tk_form_textfield( 'home_widgets_line_height', array( 'multi_index' => $i ) ); ?>
+						</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label title="<?php echo ' Background Color ' ; ?>" for=""><?php echo ' Background Color ' ; ?></label>
+						</div>
+						<div class="tk_field">
+							<?php echo tk_form_colorpicker( 'home_widgets_line_background_color', array( 'multi_index' => $i ) ); ?>
+						</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label title="<?php echo ' Background Image '  ; ?>" for=""><?php echo ' Background image ' ; ?></label>
+					
+						</div>
+						<div class="tk_field">
+							<?php echo tk_form_fileuploader( 'home_widgets_line_background_image', array( 'multi_index' => $i ) ); ?>
+						</div>
+					</div>
+						
+				</div>
+				<div>	
+					<div class="tk_field_row">
+						
+					<b><?php echo 'Line '. $i .  ' Widgetareas'; ?></b>
+					<p><?php echo ' Amount widgetareas for Line '. $i . ' : ' .tk_form_textfield( 'home_widgets_line_widgets_number', array( 'multi_index' => $i ) ); ?></p>
+					
+					</div>
+					
+					<?php 
+					for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$i]; $wn++ ){ ?>
+				
+					<div class="tk_field_row">
+						
+						<b><?php echo 'Line '. $i .  ' Widgetarea '. $wn ?></b>
+					
+					</div>
+				
+					
+						
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label title="<?php echo 'Widget ' . $wn . ' height: '; ?>" for=""><?php echo 'Widget ' . $wn . ' height: '; ?></label>
+							</div>
+							<div class="tk_field">
+								<?php echo tk_form_textfield( 'home_widgets_line_widgets_height['.$wn.']', array( 'multi_index' => $i ) ); ?>
+							</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label title="<?php echo 'Widget ' . $wn . ' width' ?>" for=""><?php echo 'Widget ' . $wn . ' width' ?></label>
+							</div>
+							<div class="tk_field">
+								<?php echo tk_form_textfield( 'home_widgets_line_widgets_width['.$wn.']', array( 'multi_index' => $i )); ?>
+							</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label title="<?php echo 'Widget ' . $wn . ' Background color' ?>" for=""><?php echo 'Widget ' . $wn . ' Background color' ?></label>
+							</div>
+							<div class="tk_field">
+								<?php echo tk_form_colorpicker( 'home_widgets_line_widgets_background_color['.$wn.']', array( 'multi_index' => $i )); ?>
+							</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label title="<?php echo 'Widget ' . $wn . ' Background image' ?>" for=""><?php echo 'Widget ' . $wn . ' Background image' ?></label>
+							</div>
+							<div class="tk_field">
+								<?php echo tk_form_fileuploader( 'home_widgets_line_widgets_background_image['.$wn.']', array( 'multi_index' => $i )); ?>
+							</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label title="<?php echo '>Widget ' . $wn . ' background image repeat' ?>" for=""><?php echo 'Widget ' . $wn . ' background image repeat' ?></label>
+							</div>
+							<div class="tk_field">
+								<?php echo TK_Form_select( 'home_widgets_line_widgets_background_image_repeat['.$wn.']', array( 'no repeat' ,'x', 'y', 'x+y' )); ?>
+							</div>
+						</div>
+						<?php
+						}
+					
+					?>
+				
+				</div>				
+			</div>
 			
 		<?php } ?>
 		
-		</table><?php
+		</div><?php
 		$tmp = ob_get_contents();
 		ob_end_clean();
 		
