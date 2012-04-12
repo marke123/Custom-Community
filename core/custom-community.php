@@ -398,36 +398,6 @@ class Custom_Community{
 
 
 		
-		<!-- sheepIt Form -->
-<div id="sheepItForm">
- 
-  <!-- Form template-->
-  <div id="sheepItForm_template">
-    <label for="sheepItForm_#index#_phone">Was auch immmer <span id="sheepItForm_label"></span></label>
-    <input id="sheepItForm_#index#_phone" name="person[phones][#index#][phone]" type="text" size="15" maxlength="10" />
-    <a id="sheepItForm_remove_current">
-      <img class="delete" src="<?php echo get_template_directory_uri() ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
-    </a>
-  </div>
-  <!-- /Form template-->
-   
-  <!-- No forms template -->
-  <div id="sheepItForm_noforms_template">Was auch immer</div>
-  <!-- /No forms template-->
-   
-  <!-- Controls -->
-  <div id="sheepItForm_controls">
-    <div id="sheepItForm_add"><a><span>Add one more</span></a></div>
-    <div id="sheepItForm_remove_last"><a><span>Remove</span></a></div>
-    <div id="sheepItForm_remove_all"><a><span>Remove all</span></a></div>
-    <div id="sheepItForm_add_n">
-      <input id="sheepItForm_add_n_input" type="text" size="4" />
-      <div id="sheepItForm_add_n_button"><a><span>Add</span></a></div></div>
-  </div>
-  <!-- /Controls -->
-   
-</div>
-<!-- /sheepIt Form -->
 
 <script language="javascript"> 
       function toggle(showHideDiv, switchTextDiv) {
@@ -445,13 +415,114 @@ class Custom_Community{
     </script>
       
 
+		<div class="tk_field_row">
+			<b>Home Widget areas </b><br>
+			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
+			<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
+		</div>
+			
+			<!-- sheepIt Form -->
+		<div id="sheepItForm">
+		 
+		  <!-- Form template-->
+		  <div id="sheepItForm_template">
+		  
+		  <div class="subcontainer">
 			<div class="tk_field_row">
-				<b>Home Widget areas </b><br>
-				Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
-				<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
+				<p><span class="tk_row_title">Horizontal line #index#: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show</a></span></p>
+			
+			<a id="sheepItForm_remove_current" style="">
+			  <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
+		    </a>
+			
 			</div>
 			
-			
+			<div style="display: none;" id="line_#index#">
+		
+				<div class="tk_field_row">
+		 			<p><b>Line #index# styling</b>: <a href="javascript:toggle('options_line_#index#','display_line_#index#_css');" id="display_line_#index#_css">show</a> options</p>
+				</div>
+				
+				<div style="display: none;" class="subcontainer" id="options_line_#index#">
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Line height: "> Line height: </label>
+						</div>
+						<div class="tk_field">
+							<input id="sheepItForm_#index#_cc-config_values[home_widgets_line_height]" type="text" value="400" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Background Color "> Background Color </label>
+						</div>
+						<div class="tk_field">
+							<input id="sheepItForm_#index#_cc-config_values[home_widgets_line_background_color]" type="text" value="d41ad4" name="cc-config_values[home_widgets_line_background_color][#index#]" id="0091a5ac01#index#"><script type="text/javascript">
+							jQuery(document).ready(function($){
+								$('#0091a5ac01#index#').ColorPicker({
+									onSubmit: function(hsb, hex, rgb, el) {
+										$(el).val(hex);
+										$(el).ColorPickerHide();
+									},
+									onBeforeShow: function () {
+										$(this).ColorPickerSetColor(this.value);
+									}
+								})
+								.bind('keyup', function(){
+									$(this).ColorPickerSetColor(this.value);
+								});
+							});
+					   		</script>		
+						</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Background Image "> Background image </label>
+					
+						</div>
+						<div class="tk_field">
+							<input id="sheepItForm_#index#_cc-config_values[home_widgets_line_background_image]_91bc4bfecf#index#" type="text"  name="cc-config_values[home_widgets_line_background_image]">
+							<input id="sheepItForm_#index#_cc-config_91bc4bfecf#index#_image" name="sheepItForm_#index#_cc-config_91bc4bfecf#index#_image" type="button" value="Browse ..." class="tk_fileuploader"><br>
+							<img class="tk_image_preview">
+						</div>
+					</div>
+				</div>
+		
+				<div class="tk_field_row">
+						<p><b>Line 1 widgetareas</b>: <a href="javascript:toggle('options_line_#index#_widgetarea','display_line_#index#_widgetarea');" id="display_line_#index#_widgetarea">show</a> options</p>
+				
+				</div>
+				<div style="display: none;" class="subcontainer" id="options_line_#index#_widgetarea">
+				<div class="tk_field_row">
+				
+					<p> Amount widgetareas <input id="sheepItForm_#index#_cc-config_values[home_widgets_line_widgets_number]" type="text" name="cc-config_values[home_widgets_line_widgets_number][#index#]"></p>
+		
+				</div>
+		
+				</div>
+			</div>
+		</div>
+		  
+		  </div>
+		  <!-- /Form template-->
+		   
+		  <!-- No forms template -->
+		  <div id="sheepItForm_noforms_template">Was auch immer</div>
+		  <!-- /No forms template-->
+		   
+		  <!-- Controls -->
+		  <div id="sheepItForm_controls">
+		    <div id="sheepItForm_add"><a><span>Add one more</span></a></div>
+		    <div id="sheepItForm_remove_last"><a><span>Remove</span></a></div>
+		    <div id="sheepItForm_remove_all"><a><span>Remove all</span></a></div>
+		    <div id="sheepItForm_add_n">
+		      <input id="sheepItForm_add_n_input" type="text" size="4" />
+		      <div id="sheepItForm_add_n_button"><a><span>Add</span></a></div></div>
+		  </div>
+		  <!-- /Controls -->
+		   
+		</div>
+		<!-- /sheepIt Form -->
+
 				
 			<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
 			
