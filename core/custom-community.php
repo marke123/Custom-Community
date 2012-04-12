@@ -460,7 +460,7 @@ class Custom_Community{
 										<label title="<?php echo 'Widgetarea ' . $wn . ' height: '; ?>" for=""><?php echo 'Widgetarea height '; ?></label>
 									</div>
 									<div class="tk_field">
-										<?php echo tk_form_textfield( 'home_widgets_line_widgets_height['.$wn.']', array( 'multi_index' => $i ) ); ?>
+										<?php echo tk_form_textfield( 'home_widgets_line_widgets_height', array( 'multi_index' => array( $i, $wn )  ) ); ?>
 									</div>
 								</div>
 								<div class="tk_field_row">
@@ -468,7 +468,7 @@ class Custom_Community{
 										<label title="<?php echo 'Widgetarea ' . $wn . ' width' ?>" for=""><?php echo 'Widgetarea width' ?></label>
 									</div>
 									<div class="tk_field">
-										<?php echo tk_form_textfield( 'home_widgets_line_widgets_width['.$wn.']', array( 'multi_index' => $i )); ?>
+										<?php echo tk_form_textfield( 'home_widgets_line_widgets_width', array( 'multi_index' => array( $i, $wn ) )); ?>
 									</div>
 								</div>
 								<div class="tk_field_row">
@@ -476,7 +476,7 @@ class Custom_Community{
 										<label title="<?php echo 'Widgetarea ' . $wn . ' background colour' ?>" for=""><?php echo 'Widgetarea background colour' ?></label>
 									</div>
 									<div class="tk_field">
-										<?php echo tk_form_colorpicker( 'home_widgets_line_widgets_background_color['.$wn.']', array( 'multi_index' => $i )); ?>
+										<?php echo tk_form_colorpicker( 'home_widgets_line_widgets_background_color', array( 'multi_index' => array( $i, $wn ) )); ?>
 									</div>
 								</div>
 								<div class="tk_field_row">
@@ -484,7 +484,7 @@ class Custom_Community{
 										<label title="<?php echo 'Widgetarea ' . $wn . ' Background image' ?>" for=""><?php echo 'Widgetarea background image' ?></label>
 									</div>
 									<div class="tk_field">
-										<?php echo tk_form_fileuploader( 'home_widgets_line_widgets_background_image['.$wn.']', array( 'multi_index' => $i )); ?>
+										<?php echo tk_form_fileuploader( 'home_widgets_line_widgets_background_image', array( 'multi_index' => array( $i, $wn ) )); ?>
 									</div>
 								</div>
 								<div class="tk_field_row">
