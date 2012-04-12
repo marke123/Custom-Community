@@ -5,6 +5,25 @@
 			
 		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
 		
+		<script type="text/javascript">
+
+		jQuery(document).ready(function() {
+		     
+		    var sheepItForm = jQuery('#sheepItForm').sheepIt({
+		        separator: '',
+		        allowRemoveLast: true,
+		        allowRemoveCurrent: true,
+		        allowRemoveAll: true,
+		        allowAdd: true,
+		        allowAddN: true,
+		        maxFormsCount: 10,
+		        minFormsCount: 0,
+		        iniFormsCount: 1
+		    });
+		 
+		});
+		
+		</script>
 		
 		<div id="fb-root"></div>
 	

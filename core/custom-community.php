@@ -55,6 +55,7 @@ class Custom_Community{
 		add_action( 'wp_footer', array( $this, 'add_footer_script' ), 20 );
 		
 		add_action( 'admin_head', array( $this, 'admin_head' ),1 );
+		add_action( 'admin_footer', array( $this, 'admin_footer' ),1 );
 		
 		
 	}
@@ -340,23 +341,29 @@ class Custom_Community{
 			$tmp = '<iframe style="width:100%; height:1000px;" src="http://themekraft.com/?post_type=product&fbtab"></iframe>';
 			return  $html . $tmp;
 	}
+
+	function admin_footer(){ ?>
+		
+		
+		
+	<?php }	
 	
 	function admin_head(){ ?>
-	
-	<script language="javascript"> 
-		function toggle(showHideDiv, switchTextDiv) {
-			var ele = document.getElementById(showHideDiv);
-			var text = document.getElementById(switchTextDiv);
-			if(ele.style.display == "block") {
-		    		ele.style.display = "none";
-				text.innerHTML = "show";
-		  	}
-			else {
-				ele.style.display = "block";
-				text.innerHTML = "hide";
-			}
-		} 
-	</script>
+		
+
+		<style>
+		
+		a {
+		    text-decoration:underline;
+		    color:#00F;
+		    cursor:pointer;
+		}
+		
+		#sheepItForm_controls div, #sheepItForm_controls div input {
+		    float:left;    
+		    margin-right: 10px;
+		}
+	</style>
 	
 	<?php	
 	}
@@ -388,6 +395,56 @@ class Custom_Community{
 			}
 			div.subcontainer .tk_field_row 
 		</style>
+
+
+		
+		<!-- sheepIt Form -->
+<div id="sheepItForm">
+ 
+  <!-- Form template-->
+  <div id="sheepItForm_template">
+    <label for="sheepItForm_#index#_phone">Was auch immmer <span id="sheepItForm_label"></span></label>
+    <input id="sheepItForm_#index#_phone" name="person[phones][#index#][phone]" type="text" size="15" maxlength="10" />
+    <a id="sheepItForm_remove_current">
+      <img class="delete" src="<?php echo get_template_directory_uri() ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
+    </a>
+  </div>
+  <!-- /Form template-->
+   
+  <!-- No forms template -->
+  <div id="sheepItForm_noforms_template">Was auch immer</div>
+  <!-- /No forms template-->
+   
+  <!-- Controls -->
+  <div id="sheepItForm_controls">
+    <div id="sheepItForm_add"><a><span>Add one more</span></a></div>
+    <div id="sheepItForm_remove_last"><a><span>Remove</span></a></div>
+    <div id="sheepItForm_remove_all"><a><span>Remove all</span></a></div>
+    <div id="sheepItForm_add_n">
+      <input id="sheepItForm_add_n_input" type="text" size="4" />
+      <div id="sheepItForm_add_n_button"><a><span>Add</span></a></div></div>
+  </div>
+  <!-- /Controls -->
+   
+</div>
+<!-- /sheepIt Form -->
+
+<script language="javascript"> 
+      function toggle(showHideDiv, switchTextDiv) {
+        var ele = document.getElementById(showHideDiv);
+        var text = document.getElementById(switchTextDiv);
+        if(ele.style.display == "block") {
+              ele.style.display = "none";
+          text.innerHTML = "show";
+          }
+        else {
+          ele.style.display = "block";
+          text.innerHTML = "hide";
+        }
+      } 
+    </script>
+      
+
 			<div class="tk_field_row">
 				<b>Home Widget areas </b><br>
 				Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
