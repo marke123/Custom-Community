@@ -7,9 +7,9 @@
  * @subpackage bp-default
  */
 
+ get_header(); 
+ 
 ?>
-
-<?php get_header(); ?>
 
 	<?php do_action( 'bp_before_directory_members_page' ); ?>
 

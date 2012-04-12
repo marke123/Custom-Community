@@ -7,9 +7,9 @@
  * @subpackage Theme
  */
 
-?>
-
-<?php get_header(); ?>
+ get_header(); 
+ 
+ ?>
 
 	<?php do_action( 'bp_before_directory_activity_page' ); ?>
 
