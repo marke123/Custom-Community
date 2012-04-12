@@ -42,7 +42,7 @@ class Custom_Community{
 		
 		$this->framework_init();
 		
-		add_action( 'init', array( $this, 'generate_theme'), 10 );
+		add_action( 'init', array( $this, 'generate_theme'), 1 );
 
 		add_action( 'admin_menu',  array( $this, 'init_backend' ) );
 		
