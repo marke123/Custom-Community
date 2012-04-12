@@ -153,6 +153,7 @@ class TK_Jqueryui{
 		$this->add_jqueryui_component( 'jquery-fileuploader', TKF_URL . '/includes/js/jquery/fileuploader.js', '1.8.16' );
 		$this->add_jqueryui_component( 'jquery-linedtextarea', TKF_URL . '/includes/js/jquery/jquery-linedtextarea.js', '1.3.2' );
 		$this->add_jqueryui_component( 'jquery-autogrow-textarea', TKF_URL . '/includes/js/jquery/jquery.elastic.source.js', '1.6.11' );
+		$this->add_jqueryui_component( 'jquery-sheepItPlugin', TKF_URL . '/includes/js/jquery/jquery.sheepItPlugin-1.0.0.min.js', '1.4' );
 		
 	
 		// $this->add_depency( 'jquery-ui-accordion', array( 'jquery-ui-widget' ) );		
@@ -161,6 +162,7 @@ class TK_Jqueryui{
 		$this->add_depency( 'jquery-fileuploader', array( 'jquery', 'media-upload', 'thickbox' ) );			
 		$this->add_depency( 'jquery-linedtextarea', array( 'jquery' ) );			
 		$this->add_depency( 'jquery-autogrow-textarea', array( 'jquery', 'jquery-ui' ) );
+		$this->add_depency( 'jquery-sheepItPlugin', array( 'jquery', 'jquery-ui' ) );
 		
 					
 	}
