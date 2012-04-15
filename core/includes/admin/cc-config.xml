@@ -13,7 +13,7 @@
 		
 		
 		<script type="text/javascript">
-		$.noConflict();
+		jQuery.noConflict();
 
 		jQuery(document).ready(function() {
 		
@@ -28,13 +28,19 @@
 				
 				maxFormsCount: 10,
 				minFormsCount: 0,
-				iniFormsCount: 1,
+				iniFormsCount: 0,
 				nestedForms: [
 		            {
 		                id: 'widgetarea_lines_#index#_widgets',
 		                options: {
-		                     indexFormat: '#index_widgets#',
-		                     maxFormsCount: 5
+		                	allowRemoveLast: true,
+							allowRemoveCurrent: true,
+							allowRemoveAll: true,
+							allowAdd: true,
+							allowAddN: true,
+	                     indexFormat: '#index_widgets#',
+	                     iniFormsCount: 0,
+	                	 maxFormsCount: 5
 		                }
 		            }
 		        ]

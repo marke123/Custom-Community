@@ -516,7 +516,10 @@ class Custom_Community{
              
                 <!-- Form template-->
                 <div id="widgetarea_lines_#index#_widgets_template">
-                DAs    
+                     <label for="widgetarea_lines_#index#_widgets_#index_widgets#_phone">line #index#  widget #index_widgets# <span id="widgetarea_lines_#index#_phones_label"></span></label>
+                        <input id="widgetarea_lines_#index#_widgets_#index_widgets#_phone" name="person[addresses][#index#][phones][#index_widgets#][phone]" type="text" size="15" maxlength="10" />
+                        <a id="widgetarea_lines_#index#_widgets_remove_current"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0"></a>
+                    
                 </div>
                 <!-- /Form template-->
                  
