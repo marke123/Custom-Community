@@ -359,7 +359,7 @@ class Custom_Community{
 		    cursor:pointer;
 		}
 		
-		#sheepItForm_controls div, #sheepItForm_controls div input {
+		#widgetarea_lines_controls div, #widgetarea_lines_controls div input {
 		    float:left;    
 		    margin-right: 10px;
 		}
@@ -421,19 +421,21 @@ class Custom_Community{
 			<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
 		</div>
 			
-			<!-- sheepIt Form -->
-		<div id="sheepItForm">
+		<!-- sheepIt Form -->
+		<div id="widgetarea_lines">
 		 
 		  <!-- Form template-->
-		  <div id="sheepItForm_template">
+		  <div id="widgetarea_lines_template">
 		  
 		  <div class="subcontainer">
 			<div class="tk_field_row">
-				<p><span class="tk_row_title">Horizontal line #index#: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show</a></span></p>
+				<p><span class="tk_row_title">Horizontal line #index#: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show</a></span>
 			
-			<a id="sheepItForm_remove_current" style="">
+			<a id="widgetarea_lines_remove_current" style="">
 			  <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
 		    </a>
+			</p>
+			
 			
 			</div>
 			
@@ -449,14 +451,14 @@ class Custom_Community{
 							<label for="" title=" Line height: "> Line height: </label>
 						</div>
 						<div class="tk_field">
-							<input id="sheepItForm_#index#_cc-config_values[home_widgets_line_height]" type="text" value="400" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="400" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
 							<label for="" title=" Background Color "> Background Color </label>
 						</div>
 						<div class="tk_field">
-							<input id="sheepItForm_#index#_cc-config_values[home_widgets_line_background_color]" type="text" value="d41ad4" name="cc-config_values[home_widgets_line_background_color][#index#]" id="0091a5ac01#index#"><script type="text/javascript">
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" type="text" value="d41ad4" name="cc-config_values[home_widgets_line_background_color][#index#]" id="0091a5ac01#index#"><script type="text/javascript">
 							jQuery(document).ready(function($){
 								$('#0091a5ac01#index#').ColorPicker({
 									onSubmit: function(hsb, hex, rgb, el) {
@@ -480,8 +482,8 @@ class Custom_Community{
 					
 						</div>
 						<div class="tk_field">
-							<input id="sheepItForm_#index#_cc-config_values[home_widgets_line_background_image]_91bc4bfecf#index#" type="text"  name="cc-config_values[home_widgets_line_background_image]">
-							<input id="sheepItForm_#index#_cc-config_91bc4bfecf#index#_image" name="sheepItForm_#index#_cc-config_91bc4bfecf#index#_image" type="button" value="Browse ..." class="tk_fileuploader"><br>
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]_91bc4bfecf#index#" type="text"  name="cc-config_values[home_widgets_line_background_image]">
+							<input id="widgetarea_lines_#index#_cc-config_91bc4bfecf#index#_image" name="widgetarea_lines_#index#_cc-config_91bc4bfecf#index#_image" type="button" value="Browse ..." class="tk_fileuploader"><br>
 							<img class="tk_image_preview">
 						</div>
 					</div>
@@ -494,8 +496,63 @@ class Custom_Community{
 				<div style="display: none;" class="subcontainer" id="options_line_#index#_widgetarea">
 				<div class="tk_field_row">
 				
-					<p> Amount widgetareas <input id="sheepItForm_#index#_cc-config_values[home_widgets_line_widgets_number]" type="text" name="cc-config_values[home_widgets_line_widgets_number][#index#]"></p>
-		
+					<p> Amount widgetareas <input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_widgets_number]" type="text" name="cc-config_values[home_widgets_line_widgets_number][#index#]"></p>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+		<!-- Embeded sheepIt Form -->
+        <div style="margin-left:50px; overflow:hidden;">
+            <label>Was auch immer</label>
+             
+            <div id="widgetarea_lines_#index#_widgets">
+             
+                <!-- Form template-->
+                <div id="widgetarea_lines_#index#_widgets_template">
+                DAs    
+                </div>
+                <!-- /Form template-->
+                 
+                <!-- No forms template -->
+                <div id="widgetarea_lines_#index#_widgets_noforms_template">Nix da</div>
+                <!-- /No forms template-->
+                 
+                <!-- Controls -->
+                <div id="widgetarea_lines_#index#_widgets_controls" class="controls">
+                    <div id="widgetarea_lines_#index#_widgets_add"><a><span>Add phone</span></a></div>
+                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a><span>Remove</span></a></div>
+                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a><span>Remove all</span></a></div>
+                    <div id="widgetarea_lines_#index#_widgets_add_n">
+                        <input id="widgetarea_lines_#index#_widgets_add_n_input" type="text" size="4" />
+                        <div id="widgetarea_lines_#index#_widgets_add_n_button"><a><span>Add</span></a></div>
+                    </div>
+                </div>
+                <!-- /Controls -->
+                 
+            </div>
+             
+        </div>
+        <!-- /Embeded sheepIt Form -->
+ 
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+						
 				</div>
 		
 				</div>
@@ -505,23 +562,38 @@ class Custom_Community{
 		  </div>
 		  <!-- /Form template-->
 		   
-		  <!-- No forms template -->
-		  <div id="sheepItForm_noforms_template">Was auch immer</div>
-		  <!-- /No forms template-->
-		   
+		<div class="tk_field_row">
+			  <!-- No forms template -->
+			  <div id="widgetarea_lines_noforms_template">No horizontal widgetareas at the moment</div>
+			  <!-- /No forms template-->
+			 
+		</div>	 
+			   
 		  <!-- Controls -->
-		  <div id="sheepItForm_controls">
-		    <div id="sheepItForm_add"><a><span>Add one more</span></a></div>
-		    <div id="sheepItForm_remove_last"><a><span>Remove</span></a></div>
-		    <div id="sheepItForm_remove_all"><a><span>Remove all</span></a></div>
-		    <div id="sheepItForm_add_n">
-		      <input id="sheepItForm_add_n_input" type="text" size="4" />
-		      <div id="sheepItForm_add_n_button"><a><span>Add</span></a></div></div>
+		  <div id="widgetarea_lines_controls" class="tk_field_row">
+		    <div id="widgetarea_lines_add"><a><span>Add one more</span></a></div>
+		    <div id="widgetarea_lines_remove_last"><a><span>Remove</span></a></div>
+		    <div id="widgetarea_lines_remove_all"><a><span>Remove all</span></a></div>
+		    <div id="widgetarea_lines_add_n">
+		      <input id="widgetarea_lines_add_n_input" type="text" size="4" />
+		      <div id="widgetarea_lines_add_n_button"><a><span>Add</span></a></div></div>
 		  </div>
 		  <!-- /Controls -->
 		   
 		</div>
 		<!-- /sheepIt Form -->
+
+
+
+
+
+
+
+
+
+
+
+
 
 				
 			<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
@@ -722,17 +794,14 @@ class Custom_Community{
 		
 		// TKF
 		require_once($this->require_path('/core/includes/tkf/loader.php'));
-			
-		require_once($this->require_path('/_inc/ajax.php'));
-		
-		require_once($this->require_path('/custom-community-hooks.php'));
-		
+		require_once($this->require_path('/_inc/ajax.php'));	
 		require_once($this->require_path('/core/includes/child-theme-creator/child-theme-creator.php'));
-		
-		
 		
 		// helper functions
 		require_once($this->require_path('/core/includes/helper-functions.php'));
+
+		// HOOKS
+		require_once($this->require_path('/custom-community-hooks.php'));
 		
 		// theme layout specific functions
 		require_once($this->require_path('/core/includes/theme-generator/style.php'));
@@ -740,8 +809,8 @@ class Custom_Community{
 		
 		// wordpress specific functions
 		require_once($this->require_path('/core/includes/shortcodes.php'));
-		//require_once($this->require_path('/core/includes/wp/templatetags.php'));
-		require_once($this->require_path('/core/includes/wp/widgets.php'));
+		require_once($this->require_path('/core/includes/shortcodes.php'));
+		require_once($this->require_path('/core/includes/widgets.php'));
 
 		// buddypress specific functions
 		if(defined('BP_VERSION')){
