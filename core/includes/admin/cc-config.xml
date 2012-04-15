@@ -5,23 +5,51 @@
 			
 		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
 		
+		
+		
+		
+		
+		
+		
+		
 		<script type="text/javascript">
+		jQuery.noConflict();
 
 		jQuery(document).ready(function() {
-		     
-		    var sheepItForm = jQuery('#sheepItForm').sheepIt({
-		        separator: '',
-		        allowRemoveLast: true,
-		        allowRemoveCurrent: true,
-		        allowRemoveAll: true,
-		        allowAdd: true,
-		        allowAddN: true,
-		        maxFormsCount: 10,
-		        minFormsCount: 0,
-		        iniFormsCount: 1
-		    });
-		 
+		
+			var widgetarea_lines = jQuery('#widgetarea_lines').sheepIt({
+			
+				separator: '',
+				allowRemoveLast: true,
+				allowRemoveCurrent: true,
+				allowRemoveAll: true,
+				allowAdd: true,
+				allowAddN: true,
+				
+				maxFormsCount: 10,
+				minFormsCount: 0,
+				iniFormsCount: 0,
+				nestedForms: [
+		            {
+		                id: 'widgetarea_lines_#index#_widgets',
+		                options: {
+		                	allowRemoveLast: true,
+							allowRemoveCurrent: true,
+							allowRemoveAll: true,
+							allowAdd: true,
+							allowAddN: true,
+	                     indexFormat: '#index_widgets#',
+	                     iniFormsCount: 0,
+	                	 maxFormsCount: 5
+		                }
+		            }
+		        ]
+				
+			
+			});
+		
 		});
+		
 		
 		</script>
 		
