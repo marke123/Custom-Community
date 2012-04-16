@@ -350,7 +350,39 @@ class Custom_Community{
 	<?php }	
 	
 	function admin_head(){ ?>
-		<?php global $tkf; ?>
+	
+
+		<style>
+		
+		
+		#widgetarea_lines_controls div, #widgetarea_lines_controls div input {
+		    float:left;    
+		    margin-right: 10px;
+		}
+		
+		.controls div, .controls div input {
+		    float:left;    
+		    margin-right: 10px;
+		}
+
+		
+	</style>
+	
+	<?php	
+	}
+	
+	
+	function global_hompage_add_widget( $html ){
+		global $tkf;
+		
+		$tmp .= '';
+			
+		ob_start();?>
+		
+		
+			<?php global $tkf; ?>
+		
+		
 		<script type="text/javascript">
 		jQuery.noConflict();
 
@@ -389,12 +421,17 @@ class Custom_Community{
             
 			<?php foreach($tkf->home_widgets_line_amount as $line){ ?>
 				
-			{
-                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
-                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
-                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>'
-            },	
-				
+				{
+	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
+	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
+	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>',
+	           <?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
+					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
+					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
+				<?php } ?>
+					
+				},
 				
 			<?php } ?>
 
@@ -408,33 +445,7 @@ class Custom_Community{
 		
 		</script>
 
-
-		<style>
 		
-		
-		#widgetarea_lines_controls div, #widgetarea_lines_controls div input {
-		    float:left;    
-		    margin-right: 10px;
-		}
-		
-		.controls div, .controls div input {
-		    float:left;    
-		    margin-right: 10px;
-		}
-
-		
-	</style>
-	
-	<?php	
-	}
-	
-	
-	function global_hompage_add_widget( $html ){
-		global $tkf;
-		
-		$tmp .= '';
-			
-		ob_start();?>
 		<style>
 			div.subcontainer {
 			    border: 1px solid #DDDDDD;
@@ -474,6 +485,28 @@ class Custom_Community{
 	      } 
 	    </script>
       
+
+<script type="text/javascript">
+function ColorPicker(ColorPickerDiv) {
+	
+	jQuery(document).ready(function($){
+		$(ColorPickerDiv).ColorPicker({
+			onSubmit: function(hsb, hex, rgb, el) {
+				$(el).val(hex);
+				$(el).ColorPickerHide();
+			},
+			onBeforeShow: function () {
+				$(this).ColorPickerSetColor(this.value);
+			}
+		})
+		.bind('keyup', function(){
+			$(this).ColorPickerSetColor(this.value);
+		});
+	});
+}
+</script>		
+						
+
 
 		<div class="tk_field_row">
 			
@@ -548,30 +581,15 @@ class Custom_Community{
 							<label for="" title=" Line height: "> Line height: </label>
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="400" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
 							<label for="" title=" Background Color "> Background Color </label>
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" type="text" value="d41ad4" name="cc-config_values[home_widgets_line_background_color][#index#]" id="0091a5ac01#index#"><script type="text/javascript">
-							jQuery(document).ready(function($){
-								$('#0091a5ac01#index#').ColorPicker({
-									onSubmit: function(hsb, hex, rgb, el) {
-										$(el).val(hex);
-										$(el).ColorPickerHide();
-									},
-									onBeforeShow: function () {
-										$(this).ColorPickerSetColor(this.value);
-									}
-								})
-								.bind('keyup', function(){
-									$(this).ColorPickerSetColor(this.value);
-								});
-							});
-					   		</script>		
-						</div>
+							<input onfocus="ColorPicker('.image765765764#index#');" id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" class="image765765764#index# " type="text"  name="cc-config_values[home_widgets_line_background_color][#index#]">
+							</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
@@ -579,9 +597,9 @@ class Custom_Community{
 					
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]_91bc4bfecf#index#" type="text"  name="cc-config_values[home_widgets_line_background_image]">
-							<input id="widgetarea_lines_#index#_cc-config_91bc4bfecf#index#_image" name="widgetarea_lines_#index#_cc-config_91bc4bfecf#index#_image" type="button" value="Browse ..." class="tk_fileuploader"><br>
-							<img class="tk_image_preview">
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]" type="text"  name="cc-config_values[home_widgets_line_background_image][#index#]">
+							<input class="tk_fileuploader" type="button" value="Browse ...">
+							<img id="image_widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]" class="tk_image_preview">
 						</div>
 					</div>
 				</div>
@@ -613,7 +631,7 @@ class Custom_Community{
 												<label for="" title="Widgetarea #index_widgets# height: ">Height: </label>
 											</div>
 											<div class="tk_field">
-												<input type="text" id="widgetarea_lines_#index#_widgets_#index_widgets#_cc-config_values[home_widgets_line_widgets_height]" name="cc-config_values[home_widgets_line_widgets_height][#index#][#index_widgets#]">	
+												<input type="text" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]" name="cc-config_values[home_widgets_line_widgets_height][#index#][#index_widgets#]">	
 											</div>
 										</div>
 							
@@ -623,7 +641,7 @@ class Custom_Community{
 												<label for="" title="Widgetarea #index_widgets# width">Width</label>
 											</div>
 											<div class="tk_field">
-												<input type="text"  id="cc-config_values[home_widgets_line_widgets_width][#index#][#index_widgets#]" name="cc-config_values[home_widgets_line_widgets_width][#index#][#index_widgets#]">
+												<input type="text"  id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]" name="cc-config_values[home_widgets_line_widgets_width][#index#][#index_widgets#]">
 											</div>
 										</div>
 									
@@ -633,23 +651,7 @@ class Custom_Community{
 												<label for="" title="Widgetarea #index# background colour">Background colour</label>
 											</div>
 											<div class="tk_field">
-												<input type="text" class=".31dffd284411" name="cc-config_values[home_widgets_line_widgets_background_color][#index#][#index_widgets#]" id="8e63d60882#index##index_widgets#">
-												<script type="text/javascript">
-													jQuery(document).ready(function($){
-														$('#8e63d60882#index##index_widgets#').ColorPicker({
-															onSubmit: function(hsb, hex, rgb, el) {
-																$(el).val(hex);
-																$(el).ColorPickerHide();
-															},
-															onBeforeShow: function () {
-																$(this).ColorPickerSetColor(this.value);
-															}
-														})
-														.bind('keyup', function(){
-															$(this).ColorPickerSetColor(this.value);
-														});
-													});
-											   		</script>									
+												<input type="text" onfocus="ColorPicker('.image765765764#index#');" class="image7657[#index_widgets#]65764#index#" name="cc-config_values[home_widgets_line_widgets_background_color][#index#][#index_widgets#]" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]">						
 											</div>
 										</div>
 										
@@ -659,8 +661,8 @@ class Custom_Community{
 												<label for="" title="Widgetarea #index_widgets# Background image">Background image</label>
 											</div>
 											<div class="tk_field">
-												<input type="text" name="cc-config_values[home_widgets_line_widgets_background_image]" id="792f7c1d55#index##index_widgets#">
-												<input type="button" value="Browse ..." class="tk_fileuploader"><br><img id="image_792f7c1d55#index##index_widgets#" class="tk_image_preview">									</div>
+												<input type="text" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_image]" name="cc-config_values[home_widgets_line_widgets_background_image][#index#][#index_widget#]">
+												<input type="button" value="Browse ..." class="tk_fileuploader"><br><img id="" class="tk_image_preview">									</div>
 										</div>
 											
 									
