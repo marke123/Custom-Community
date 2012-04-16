@@ -55,6 +55,7 @@ class Custom_Community{
 		add_action( 'wp_footer', array( $this, 'add_footer_script' ), 20 );
 		
 		add_action( 'admin_head', array( $this, 'admin_head' ),1 );
+		
 		add_action( 'admin_footer', array( $this, 'admin_footer' ),1 );
 		
 		
@@ -349,20 +350,22 @@ class Custom_Community{
 	<?php }	
 	
 	function admin_head(){ ?>
-		
+	
 
 		<style>
 		
-		a {
-		    text-decoration:underline;
-		    color:#00F;
-		    cursor:pointer;
-		}
 		
 		#widgetarea_lines_controls div, #widgetarea_lines_controls div input {
 		    float:left;    
 		    margin-right: 10px;
 		}
+		
+		.controls div, .controls div input {
+		    float:left;    
+		    margin-right: 10px;
+		}
+
+		
 	</style>
 	
 	<?php	
@@ -375,6 +378,74 @@ class Custom_Community{
 		$tmp .= '';
 			
 		ob_start();?>
+		
+		
+			<?php global $tkf; ?>
+		
+		
+		<script type="text/javascript">
+		jQuery.noConflict();
+
+		jQuery(document).ready(function() {
+		
+			var widgetarea_lines = jQuery('#widgetarea_lines').sheepIt({
+			
+				separator: '',
+				allowRemoveLast: true,
+				allowRemoveCurrent: true,
+				allowRemoveAll: true,
+				allowAdd: true,
+				allowAddN: true,
+				
+				maxFormsCount: 10,
+				minFormsCount: 0,
+				iniFormsCount: 1,
+				nestedForms: [
+		            {
+		                id: 'widgetarea_lines_#index#_widgets',
+		                options: {
+		                	allowRemoveLast: true,
+							allowRemoveCurrent: true,
+							allowRemoveAll: true,
+							allowAdd: true,
+							allowAddN: true,
+		                    indexFormat: '#index_widgets#',
+		                    iniFormsCount: 1,
+		                	maxFormsCount: 0,
+		                	   
+	
+		                }
+		            }
+		        ],
+		        data: [
+            
+			<?php foreach($tkf->home_widgets_line_amount as $line){ ?>
+				
+				{
+	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
+	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
+	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>',
+	           <?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
+					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
+					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
+				<?php } ?>
+					
+				},
+				
+			<?php } ?>
+
+        ]
+				
+			
+			});
+		
+		});
+		
+		
+		</script>
+
+		
 		<style>
 			div.subcontainer {
 			    border: 1px solid #DDDDDD;
@@ -399,26 +470,76 @@ class Custom_Community{
 
 		
 
-<script language="javascript"> 
-      function toggle(showHideDiv, switchTextDiv) {
-        var ele = document.getElementById(showHideDiv);
-        var text = document.getElementById(switchTextDiv);
-        if(ele.style.display == "block") {
-              ele.style.display = "none";
-          text.innerHTML = "show";
-          }
-        else {
-          ele.style.display = "block";
-          text.innerHTML = "hide";
-        }
-      } 
-    </script>
+		<script language="javascript"> 
+	      function toggle(showHideDiv, switchTextDiv) {
+	        var ele = document.getElementById(showHideDiv);
+	        var text = document.getElementById(switchTextDiv);
+	        if(ele.style.display == "block") {
+	              ele.style.display = "none";
+	          text.innerHTML = "show options";
+	          }
+	        else {
+	          ele.style.display = "block";
+	          text.innerHTML = "hide options";
+	        }
+	      } 
+	    </script>
       
 
+<script type="text/javascript">
+function ColorPicker(ColorPickerDiv) {
+	
+	jQuery(document).ready(function($){
+		$(ColorPickerDiv).ColorPicker({
+			onSubmit: function(hsb, hex, rgb, el) {
+				$(el).val(hex);
+				$(el).ColorPickerHide();
+			},
+			onBeforeShow: function () {
+				$(this).ColorPickerSetColor(this.value);
+			}
+		})
+		.bind('keyup', function(){
+			$(this).ColorPickerSetColor(this.value);
+		});
+	});
+}
+</script>		
+						
+
+
 		<div class="tk_field_row">
+			
+			<?php
+			//echo "<pre>";
+				
+			//print_r($tkf);	
+				
+			//echo "</pre>"
+			
+			?>
+			
+			
 			<b>Home Widget areas </b><br>
 			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
-			<span> How manny horizontal widgetareas do you want?</span> <?php echo tk_form_textfield( 'home_widgets_lines_number' ); ?>
+			
+			
+		<div class="hidden_fields" style="display: none;">
+			
+			<?php echo 'home_widgets_line_amount'. tk_form_textfield( 'home_widgets_line_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'home_widgets_line_height'.tk_form_textfield( 'home_widgets_line_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'home_widgets_line_background_color'.tk_form_colorpicker( 'home_widgets_line_background_color', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'home_widgets_line_background_image'.tk_form_fileuploader( 'home_widgets_line_background_image', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			
+				<?php echo 'home_widgets_line_widgets_amount'.tk_form_textfield( 'home_widgets_line_widgets_amount', array( 'multi_index' => array( 0, 0 ) ) ).'<br>'; ?>
+		
+				<?php echo 'home_widgets_line_widgets_height'. tk_form_textfield( 'home_widgets_line_widgets_height', array( 'multi_index' => array( 0, 0 )  ) ).'<br>'; ?>
+				<?php echo 'home_widgets_line_widgets_width'. tk_form_textfield( 'home_widgets_line_widgets_width', array( 'multi_index' => array( 0, 0 ) )).'<br>'; ?>
+				<?php echo 'home_widgets_line_widgets_background_color'. tk_form_colorpicker( 'home_widgets_line_widgets_background_color', array( 'multi_index' => array( 0, 0 ) )).'<br>'; ?>
+				<?php echo 'home_widgets_line_widgets_background_image'. tk_form_fileuploader( 'home_widgets_line_widgets_background_image', array( 'multi_index' => array( 0, 0 ) )).'<br>'; ?>
+				<?php echo 'home_widgets_line_widgets_background_image_repeat'. TK_Form_select( 'home_widgets_line_widgets_background_image_repeat', array( 'no repeat' ,'x', 'y', 'x+y' )).'<br>'; ?>
+		</div>	
+		
 		</div>
 			
 		<!-- sheepIt Form -->
@@ -426,24 +547,33 @@ class Custom_Community{
 		 
 		  <!-- Form template-->
 		  <div id="widgetarea_lines_template">
-		  
+		  <input type="hidden" id="cc-config_values[home_widgets_line_amount][#index#]" name="cc-config_values[home_widgets_line_amount][#index#]" value="#index#">
+			
 		  <div class="subcontainer">
 			<div class="tk_field_row">
-				<p><span class="tk_row_title">Horizontal line #index#: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show</a></span>
+				<p><span class="tk_row_title">Horizontal line <span id="widgetarea_lines_label"></span>: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show options</a></span>
 			
 			<a id="widgetarea_lines_remove_current" style="">
-			  <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
+				Remove <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
 		    </a>
 			</p>
-			
 			
 			</div>
 			
 			<div style="display: none;" id="line_#index#">
-		
+				
 				<div class="tk_field_row">
-		 			<p><b>Line #index# styling</b>: <a href="javascript:toggle('options_line_#index#','display_line_#index#_css');" id="display_line_#index#_css">show</a> options</p>
-				</div>
+	   				<div class="tk_field_label">
+						<label for="" title=" Line #index# Styling: "><b> Line <span id="widgetarea_lines_label"> Styling:</b></label>
+					</div>
+		 	   
+		 	   	<div class="tk_field">
+		 	   
+	            <div class="tk_field_label">
+					<label><a href="javascript:toggle('options_line_#index#','display_line_#index#_css');" id="display_line_#index#_css">show options</a></label>
+	            </div>
+	
+				
 				
 				<div style="display: none;" class="subcontainer" id="options_line_#index#">
 					<div class="tk_field_row">
@@ -451,30 +581,15 @@ class Custom_Community{
 							<label for="" title=" Line height: "> Line height: </label>
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="400" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
 							<label for="" title=" Background Color "> Background Color </label>
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" type="text" value="d41ad4" name="cc-config_values[home_widgets_line_background_color][#index#]" id="0091a5ac01#index#"><script type="text/javascript">
-							jQuery(document).ready(function($){
-								$('#0091a5ac01#index#').ColorPicker({
-									onSubmit: function(hsb, hex, rgb, el) {
-										$(el).val(hex);
-										$(el).ColorPickerHide();
-									},
-									onBeforeShow: function () {
-										$(this).ColorPickerSetColor(this.value);
-									}
-								})
-								.bind('keyup', function(){
-									$(this).ColorPickerSetColor(this.value);
-								});
-							});
-					   		</script>		
-						</div>
+							<input onfocus="ColorPicker('.image765765764#index#');" id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" class="image765765764#index# " type="text"  name="cc-config_values[home_widgets_line_background_color][#index#]">
+							</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
@@ -482,83 +597,118 @@ class Custom_Community{
 					
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]_91bc4bfecf#index#" type="text"  name="cc-config_values[home_widgets_line_background_image]">
-							<input id="widgetarea_lines_#index#_cc-config_91bc4bfecf#index#_image" name="widgetarea_lines_#index#_cc-config_91bc4bfecf#index#_image" type="button" value="Browse ..." class="tk_fileuploader"><br>
-							<img class="tk_image_preview">
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]" type="text"  name="cc-config_values[home_widgets_line_background_image][#index#]">
+							<input class="tk_fileuploader" type="button" value="Browse ...">
+							<img id="image_widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]" class="tk_image_preview">
 						</div>
 					</div>
 				</div>
-		
-				<div class="tk_field_row">
-						<p><b>Line 1 widgetareas</b>: <a href="javascript:toggle('options_line_#index#_widgetarea','display_line_#index#_widgetarea');" id="display_line_#index#_widgetarea">show</a> options</p>
+			</div>
+			</div>	
+					<!-- Embeded sheepIt Form -->
+			         
+			    		<div class="tk_field_row">
+				 	  
+				            <div class="tk_field_label">
+								<label><b>Widgetareas</b> </label>
+				            </div>
+			             
+				            <div id="widgetarea_lines_#index#_widgets" class="tk_field">
+				             
+				                <!-- Form template-->
+				                <div id="widgetarea_lines_#index#_widgets_template">
+				                		 <input type="hidden" id="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" name="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" value="#index_widgets#">
+			
+			                		<label for="widgetarea_lines_#index#_widgets_#index_widgets#_widget">Widget <span id="widgetarea_lines_#index#_widgets_label"> <span id="widgetarea_lines_#index#_widget_label"></span></label>
+			              			<a href="javascript:toggle('options_line_#index#_widget_#index_widgets#','display_widget_line_#index#_widget_#index_widgets#');" id="display_widget_line_#index#_widget_#index_widgets#">show options</a>
+									<a id="widgetarea_lines_#index#_widgets_remove_current"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0"></a>
+				                
+			                		<div id="options_line_#index#_widget_#index_widgets#" class="subcontainer" style="display: none" >
+									
+									
+										<div class="tk_field_row">
+											<div class="tk_field_label">
+												<label for="" title="Widgetarea #index_widgets# height: ">Height: </label>
+											</div>
+											<div class="tk_field">
+												<input type="text" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]" name="cc-config_values[home_widgets_line_widgets_height][#index#][#index_widgets#]">	
+											</div>
+										</div>
+							
+							
+										<div class="tk_field_row">
+											<div class="tk_field_label">
+												<label for="" title="Widgetarea #index_widgets# width">Width</label>
+											</div>
+											<div class="tk_field">
+												<input type="text"  id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]" name="cc-config_values[home_widgets_line_widgets_width][#index#][#index_widgets#]">
+											</div>
+										</div>
+									
+									
+										<div class="tk_field_row">
+											<div class="tk_field_label">
+												<label for="" title="Widgetarea #index# background colour">Background colour</label>
+											</div>
+											<div class="tk_field">
+												<input type="text" onfocus="ColorPicker('.image765765764#index#');" class="image7657[#index_widgets#]65764#index#" name="cc-config_values[home_widgets_line_widgets_background_color][#index#][#index_widgets#]" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]">						
+											</div>
+										</div>
+										
+										
+										<div class="tk_field_row">
+											<div class="tk_field_label">
+												<label for="" title="Widgetarea #index_widgets# Background image">Background image</label>
+											</div>
+											<div class="tk_field">
+												<input type="text" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_image]" name="cc-config_values[home_widgets_line_widgets_background_image][#index#][#index_widget#]">
+												<input type="button" value="Browse ..." class="tk_fileuploader"><br><img id="" class="tk_image_preview">									</div>
+										</div>
+											
+									
+										<div class="tk_field_row">
+											<div class="tk_field_label">
+												<label for="" title="&gt;Widgetarea #index_widgets# background image repeat">Background image repeat</label>
+											</div>
+											<div class="tk_field">
+												<select id="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index_widgets#]]" name="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index_widgets#]]">
+													<option value="no repeat">no repeat</option>
+													<option value="x">x</option>
+													<option value="y">y</option>
+													<option value="x+y">x+y</option></select>									
+											</div>
+										</div>
+											
+									
+									</div>
+			                
+				                
+				                
+				                    
+				                </div>
+				                <!-- /Form template-->
+				                 
+				                <!-- No forms template -->
+				                <div id="widgetarea_lines_#index#_widgets_noforms_template">Nix da</div>
+				                <!-- /No forms template-->
+				                 
+				                <!-- Controls -->
+				                <div id="widgetarea_lines_#index#_widgets_controls" class="controls">
+				                    <div id="widgetarea_lines_#index#_widgets_add"><a><span>Add Widget</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a><span>Remove</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a><span>Remove all</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_add_n">
+				                        <input id="widgetarea_lines_#index#_widgets_add_n_input" type="text" size="4" />
+				                        <div id="widgetarea_lines_#index#_widgets_add_n_button"><a><span>Add</span></a></div>
+				                    </div>
+				                </div>
+				                <!-- /Controls -->
+				                 
+				            </div>
+				    	</div> 
+			        <!-- /Embeded sheepIt Form -->
+ 						
 				
-				</div>
-				<div style="display: none;" class="subcontainer" id="options_line_#index#_widgetarea">
-				<div class="tk_field_row">
-				
-					<p> Amount widgetareas <input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_widgets_number]" type="text" name="cc-config_values[home_widgets_line_widgets_number][#index#]"></p>
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-		<!-- Embeded sheepIt Form -->
-        <div style="margin-left:50px; overflow:hidden;">
-            <label>Was auch immer</label>
-             
-            <div id="widgetarea_lines_#index#_widgets">
-             
-                <!-- Form template-->
-                <div id="widgetarea_lines_#index#_widgets_template">
-                     <label for="widgetarea_lines_#index#_widgets_#index_widgets#_phone">line #index#  widget #index_widgets# <span id="widgetarea_lines_#index#_phones_label"></span></label>
-                        <input id="widgetarea_lines_#index#_widgets_#index_widgets#_phone" name="person[addresses][#index#][phones][#index_widgets#][phone]" type="text" size="15" maxlength="10" />
-                        <a id="widgetarea_lines_#index#_widgets_remove_current"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0"></a>
-                    
-                </div>
-                <!-- /Form template-->
-                 
-                <!-- No forms template -->
-                <div id="widgetarea_lines_#index#_widgets_noforms_template">Nix da</div>
-                <!-- /No forms template-->
-                 
-                <!-- Controls -->
-                <div id="widgetarea_lines_#index#_widgets_controls" class="controls">
-                    <div id="widgetarea_lines_#index#_widgets_add"><a><span>Add phone</span></a></div>
-                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a><span>Remove</span></a></div>
-                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a><span>Remove all</span></a></div>
-                    <div id="widgetarea_lines_#index#_widgets_add_n">
-                        <input id="widgetarea_lines_#index#_widgets_add_n_input" type="text" size="4" />
-                        <div id="widgetarea_lines_#index#_widgets_add_n_button"><a><span>Add</span></a></div>
-                    </div>
-                </div>
-                <!-- /Controls -->
-                 
-            </div>
-             
-        </div>
-        <!-- /Embeded sheepIt Form -->
- 
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-						
-				</div>
-		
-				</div>
 			</div>
 		</div>
 		  
@@ -586,125 +736,7 @@ class Custom_Community{
 		</div>
 		<!-- /sheepIt Form -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-				
-			<?php for ($i = 1; $i <= $tkf->home_widgets_lines_number; $i++ ){ ?>
 			
-				<div class="subcontainer">
-					<div class="tk_field_row">
-						<p><span class="tk_row_title"><?php echo 'Horizontal line '. $i ?>: <a id="display_line_<?php echo $i ?>" href="javascript:toggle('line_<?php echo $i ?>','display_line_<?php echo $i ?>');">show</a></span></p>
-					</div>
-					
-			 		<div id="line_<?php echo $i ?>" style="display: none" >
-			
-						<div class="tk_field_row">
-				 			<p><b><?php echo 'Line '. $i ?> styling</b>: <a id="display_line_<?php echo $i ?>_css" href="javascript:toggle('options_line_<?php echo $i ?>','display_line_<?php echo $i ?>_css');">show</a> options</p>
-						</div>
-						
-			 			<div id="options_line_<?php echo $i ?>" class="subcontainer" style="display: none" >
-			 				<div class="tk_field_row">
-								<div class="tk_field_label">
-									<label title="<?php echo ' Line height: ' ; ?>" for=""><?php echo ' Line height: ' ; ?></label>
-								</div>
-								<div class="tk_field">
-									<?php echo tk_form_textfield( 'home_widgets_line_height', array( 'multi_index' => $i ) ); ?>
-								</div>
-							</div>
-							<div class="tk_field_row">
-								<div class="tk_field_label">
-									<label title="<?php echo ' Background Color ' ; ?>" for=""><?php echo ' Background Color ' ; ?></label>
-								</div>
-								<div class="tk_field">
-									<?php echo tk_form_colorpicker( 'home_widgets_line_background_color', array( 'multi_index' => $i ) ); ?>
-								</div>
-							</div>
-							<div class="tk_field_row">
-								<div class="tk_field_label">
-									<label title="<?php echo ' Background Image '  ; ?>" for=""><?php echo ' Background image ' ; ?></label>
-							
-								</div>
-								<div class="tk_field">
-									<?php echo tk_form_fileuploader( 'home_widgets_line_background_image', array( 'multi_index' => $i ) ); ?>
-								</div>
-							</div>
-						</div>
-			
-						<div class="tk_field_row">
-								<p><b><?php echo 'Line '. $i ?> widgetareas</b>: <a id="display_line_<?php echo $i ?>_widgetarea" href="javascript:toggle('options_line_<?php echo $i ?>_widgetarea','display_line_<?php echo $i ?>_widgetarea');">show</a> options</p>
-						
-						</div>
-						<div id="options_line_<?php echo $i ?>_widgetarea" class="subcontainer" style="display: none">
-						<div class="tk_field_row">
-						
-							<p><?php echo ' Amount widgetareas ' .tk_form_textfield( 'home_widgets_line_widgets_number', array( 'multi_index' => $i ) ); ?></p>
-				
-						</div>
-			
-						<?php for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$i]; $wn++ ){ ?>
-						
-							<div class="tk_field_row">
-								<p>Widgetarea <?php echo $wn ?>: <a id="display_widget_line_<?php echo $i ?>_widget_<?php echo $wn; ?>" href="javascript:toggle('options_line_<?php echo $i ?>_widget_<?php echo $wn ?>','display_widget_line_<?php echo $i ?>_widget_<?php echo $wn; ?>');">show</a> options</p>
-							</div>
-						
-							<div id="options_line_<?php echo $i ?>_widget_<?php echo $wn ?>" class="subcontainer" style="display: none" >
-								<div class="tk_field_row">
-									<div class="tk_field_label">
-										<label title="<?php echo 'Widgetarea ' . $wn . ' height: '; ?>" for=""><?php echo 'Widgetarea height '; ?></label>
-									</div>
-									<div class="tk_field">
-										<?php echo tk_form_textfield( 'home_widgets_line_widgets_height', array( 'multi_index' => array( $i, $wn )  ) ); ?>
-									</div>
-								</div>
-								<div class="tk_field_row">
-									<div class="tk_field_label">
-										<label title="<?php echo 'Widgetarea ' . $wn . ' width' ?>" for=""><?php echo 'Widgetarea width' ?></label>
-									</div>
-									<div class="tk_field">
-										<?php echo tk_form_textfield( 'home_widgets_line_widgets_width', array( 'multi_index' => array( $i, $wn ) )); ?>
-									</div>
-								</div>
-								<div class="tk_field_row">
-									<div class="tk_field_label">
-										<label title="<?php echo 'Widgetarea ' . $wn . ' background colour' ?>" for=""><?php echo 'Widgetarea background colour' ?></label>
-									</div>
-									<div class="tk_field">
-										<?php echo tk_form_colorpicker( 'home_widgets_line_widgets_background_color', array( 'multi_index' => array( $i, $wn ) )); ?>
-									</div>
-								</div>
-								<div class="tk_field_row">
-									<div class="tk_field_label">
-										<label title="<?php echo 'Widgetarea ' . $wn . ' Background image' ?>" for=""><?php echo 'Widgetarea background image' ?></label>
-									</div>
-									<div class="tk_field">
-										<?php echo tk_form_fileuploader( 'home_widgets_line_widgets_background_image', array( 'multi_index' => array( $i, $wn ) )); ?>
-									</div>
-								</div>
-								<div class="tk_field_row">
-									<div class="tk_field_label">
-										<label title="<?php echo '>Widgetarea ' . $wn . ' background image repeat' ?>" for=""><?php echo 'Widgetarea background image repeat' ?></label>
-									</div>
-									<div class="tk_field">
-										<?php echo TK_Form_select( 'home_widgets_line_widgets_background_image_repeat['.$wn.']', array( 'no repeat' ,'x', 'y', 'x+y' )); ?>
-									</div>
-								</div>
-							</div>
-						<?php } ?>
-						</div>
-					</div>
-				</div>
-			<?php } ?>				
-		
 		<?php
 		$tmp = ob_get_contents();
 		ob_end_clean();
