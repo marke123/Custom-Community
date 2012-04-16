@@ -1564,4 +1564,31 @@
 			</script>			
 		</page>
 	</menu>
+	<metabox id="mymetabox" title="Die Metabox" post_type="page">
+		<tabs>
+			<tab title="Tab 1" id="tab1">
+				<textfield id="firstname" name="firstname" label="First Name:" />
+				<textfield id="lastname" name="lastname" label="Last Name:" />
+				<colorpicker id="color01" name="color01" label="Choose your color:" />
+				<file id="myfile01" name="myfile01" label="File:" />
+			</tab>
+			<tab title="Tab 2">
+				<accordion>
+				<section title="Section 1">
+					Content in Section 1
+				</section>
+				<section title="Section 2">
+					Content in Section 3
+				</section>
+				<section title="Section 3">
+					Content in Section 3
+				</section>
+		</accordion>
+			</tab>
+			<tab title="Tab 3">
+				Content in Tab 3
+			</tab>
+		</tabs>
+		
+	</metabox>
 </wml>
