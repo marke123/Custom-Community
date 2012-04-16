@@ -276,7 +276,7 @@
 			
 			<div id="side-info-column" class="inner-sidebar">
 				
-				<accordion id='Sidebar'>
+				<accordion id="cc_config_sidebar">
 					
 					<section title="Save" id='sidebar-save'>
 						
@@ -341,9 +341,9 @@
 			<div id="post-body">
 				<div id="post-body-content">			
 
-					<tabs>
+					<tabs id="cc-general-config">
 						<tab title="General">
-							<accordion>
+							<accordion id="cc_config_general">
 													
 								<section title="Colour scheme">
 		
@@ -640,7 +640,7 @@
 							</accordion>
 						</tab>
 						<tab title="Homepage">
-							<accordion>
+							<accordion id="cc_config_homepage">
 								
 								<section title="Global Hompage Settings" id="global-hompage-settings">
 								
@@ -721,7 +721,7 @@
 							</accordion>
 						</tab>
 						<tab title="Header">
-							<accordion>
+							<accordion id="cc_config_header">
 								<section title="Use standard Wordpress custom image header settings">
 									
 									<select name="add_custom_image_header" label="Use standard Wordpress custom image header settings" tooltip="Enable this option, if you like to use the standard wordpress settings Page.">
@@ -787,7 +787,7 @@
 							</accordion>
 						</tab>
 						<tab title="Menu">
-							<accordion>
+							<accordion id="cc_config_menu">
 								<section title="Show / Hide the 'Home' menu item or disable the main navigation ">
 							
 									<select name="show_main_navigation" label="Show main navigation" tooltip="You can disable the main navigation">
@@ -897,7 +897,7 @@
 							</accordion>
 						</tab>
 						<tab title="Sidebars - Widgets">
-							<accordion>
+							<accordion id="cc_config_sidebars">
 								
 								<section title="Shortcode Widgets">
 		
@@ -1013,7 +1013,7 @@
 						</tab>
 						
 						<tab title="Footer">
-							<accordion>
+							<accordion id="cc_config_footer">
 								
 								<section title="Footer width">
 									
@@ -1068,11 +1068,7 @@
 		
 						<tab title="Buddypress" id="buddypress">
 							
-							<tab title="test">
-								Das ein Test
-							</tab>
-							
-							<accordion>
+							<accordion id="cc_config_test">
 								<section title="1">
 									<accordion>
 										<section title="1.1">
@@ -1089,7 +1085,7 @@
 							</accordion>
 							
 							
-							<accordion>
+							<accordion id="cc_config_bp">
 								<section title="Buddypress Admin bar header">
 									
 									<select name="bp_login_bar_top" label="Login bar header" tooltip="Select a login bar at the top of the header">
@@ -1238,7 +1234,7 @@
 							</accordion>
 						</tab>
 						<tab title="Slideshow">
-							<accordion>
+							<accordion id="cc_config_slideshow">
 								
 								<section title="Enable slideshow">
 									
@@ -1463,7 +1459,7 @@
 				<br />
 	
 							
-				<tabs>
+				<tabs id="getting_started">
 					<tab title="First steps">
 						
 						<h3>1. Theme Settings</h3>
@@ -1612,7 +1608,7 @@
 				<file id="myfile01" name="myfile01" label="File:" />
 			</tab>
 			<tab title="Tab 2">
-				<accordion>
+				<accordion id="cc_config_metabox">
 				<section title="Section 1">
 					Content in Section 1
 				</section>
