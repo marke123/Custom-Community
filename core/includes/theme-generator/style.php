@@ -2742,8 +2742,13 @@ function dynamic_css(){
 	
 	#footer {
 		margin-top: 8px;
-		margin-bottom: 8px;
-		padding: 8px; 
+		<?php if ( $tkf->footer_width != "full-width" ) { ?>
+			padding: 8px;
+			margin-bottom: 8px; 
+		<?php } else { ?>
+			padding: 0; 
+			margin-bottom: 0;
+		<?php } ?>
 		-moz-border-radius: 6px;
 		-webkit-border-radius: 6px;
 		border-radius: 6px;
