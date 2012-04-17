@@ -295,6 +295,21 @@ class Custom_Community{
 		}
 
 		
+		$args=array(
+		  'public'   => true,
+		); 
+		$output = 'names'; // names or objects, note names is the default
+		$operator = 'and'; // 'and' or 'or'
+		$post_types=get_post_types($args,$output,$operator); 
+		foreach ($post_types  as $post_type ) {
+		
+			tk_select_add_option( 'home_featured_posts_post_type', $post_type , $post_type );
+			tk_select_add_option( 'slideshow_post_type', $post_type , $post_type );
+		
+		}
+		
+		
+		
 		if(defined('BP_VERSION')){
 			
 			if ( bp_is_active( 'xprofile' ) ) :

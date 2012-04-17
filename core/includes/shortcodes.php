@@ -369,32 +369,23 @@ function cc_list_posts($atts,$content = null) {
 		$page_id = explode(',',$page_id);
 	}
 				
-	if($home_featured_posts_show_sticky == 'on') {
+	if($home_featured_posts_show_sticky == 'on' && is_home()) {
 
-		$args = array(
-			'amount' => $home_featured_posts_show_sticky,
-			'post__in'  => get_option( 'sticky_posts' ),
-			'ignore_sticky_posts' => 1,
-			'posts_per_page' => $amount,
-		
-		);
-	
-	} else {
+		$page_id = get_option( 'sticky_posts' );
 			
-		$args = array(
+	} 
+			
+	$args = array(
 		'amount' => $amount,
+		'posts_per_page' => $posts_per_page,
 		'orderby' => $orderby,
 		'order' => $order,
 		'post_type' => $post_type,
 		'post__in' => $page_id,
 		'category_name' => $category_name,
-		'posts_per_page' => $posts_per_page,
 		'paged' => get_query_var('paged'),
 		'ignore_sticky_posts' => 1
-		
-	);
-
-			}			
+	);		
 				
 	remove_all_filters('posts_orderby');
 	
@@ -491,15 +482,16 @@ function cc_list_posts($atts,$content = null) {
 		
 	endwhile; endif;
 	
+	
 	if($show_pagination == 'show'){
 		$tmp .='<div id="navigation'.$featured_id.'">';
 		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
 		$tmp .='<div class="alignright">' . get_previous_posts_link('Newer Entries &raquo;') .'</div>';
 		$tmp .='</div><!-- End navigation -->';
 	
-	if(is_home() && $tkf->use_widgetized_home == 'on')
-		$show_pagination_wp_pagenavi = 'hide';
-	
+		if(is_home() && $tkf->use_widgetized_home == 'on')
+			$show_pagination_wp_pagenavi = 'hide';
+		
 		if($show_pagination_wp_pagenavi == 'show' ){
 			if(function_exists('wp_pagenavi')){
 				ob_start();

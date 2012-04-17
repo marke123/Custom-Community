@@ -654,8 +654,9 @@
 											<option name="All categories" value="all-categories" />
 									</select>
 									
-									<textfield name="home_featured_posts_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
-
+									<select multiselect="true" name="home_featured_posts_post_type" id="home_featured_posts_post_type"  label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'">
+									</select>
+									
 									<textfield name="home_featured_posts_show_pages_by_id" label="Page IDs" tooltip="Page IDs, comma separated. Just working if you use post types instead of categories" />
 
 									<textfield name="home_featured_posts_amount" label="Amount of featured posts" tooltip="Define the amount of posts - 0 means all." />
@@ -1239,7 +1240,8 @@
 								
 								<section title="Post type">
 									
-									<textfield name="slideshow_post_type" label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'" />
+									<select multiselect="true" name="slideshow_post_type" id="slideshow_post_type"  label="Post type" tooltip="Define the post type to display instead of posts. For pages write 'page', for a custom post type the name of the cutsom post type, e.g. 'radio'">
+									</select>
 									
 								</section>
 								
