@@ -405,6 +405,13 @@
 										
 									<colorpicker name="title_color" label="Title colour" tooltip="Change title colour" />
 									
+									<colorpicker name="title_text_shadow_color" label="Title text shadow colour" tooltip="Change text shadow colour" />
+									
+									<select name="title_text_shadow_style" label="Title text shadow style" tooltip="Do you want your titles text shadow inside or outside? Notes: For an inside effect the text-shadow should be brighter than the text and the background colour! For outside effect the text shadow should be darker than text colour and background..">
+										<option name="outside" value="outside" />
+										<option name="inside" value="inside" />
+									</select>									
+									
 								</section>
 								
 								<section title="Subtitles">

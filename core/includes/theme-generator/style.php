@@ -4356,6 +4356,28 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 	<?php if($tkf->title_italic == "italic"){?>
 		font-style: italic;
 	<?php } ?>
+	<?php if($tkf->title_text_shadow_color || $tkf->title_text_shadow_style){
+				
+			// set defaults if user did not choose all options  
+			if (!$tkf->title_text_shadow_color) {
+				$tkf->title_text_shadow_color = "000000";
+			}
+			if (!$tkf->title_text_shadow_style) {
+				$tkf->title_text_shadow_style = "outside";
+			}
+			
+			// set "inside" or "outside" text shadow style 
+			if ($tkf->title_text_shadow_style == "inside") {
+				$tkf->title_text_shadow_style = "-1px 1px 0px";
+			} else {
+				$tkf->title_text_shadow_style = "1px 1px 1px";
+			}
+			
+		?>
+		-webkit-text-shadow: <?php echo $tkf->title_text_shadow_style ?> #<?php echo $tkf->title_text_shadow_color ?>;
+	    -moz-text-shadow: <?php echo $tkf->title_text_shadow_style ?> #<?php echo $tkf->title_text_shadow_color ?>;
+	    text-shadow: <?php echo $tkf->title_text_shadow_style ?> #<?php echo $tkf->title_text_shadow_color ?>;
+	<?php } ?>
 	}
 	
 	h1, h2, h1 a, h2 a {
