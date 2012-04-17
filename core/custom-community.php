@@ -425,12 +425,21 @@ class Custom_Community{
 	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
 	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
 	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>',
-	           <?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
-					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
-					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
-					'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
-				<?php } ?>
-					
+	           		
+		           	'widgetarea_lines_#index#_widgets': [
+	 				<?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+						{
+						},
+					<?php } ?>
+	                ],
+	                
+	                <?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+	           		  'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
+			          'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
+			          'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
+			        <?php } ?>
+	           		
+	          	
 				},
 				
 			<?php } ?>
@@ -524,7 +533,7 @@ function ColorPicker(ColorPickerDiv) {
 			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
 			
 			
-		<div class="hidden_fields" style="display: none;">
+		<div class="hidden_fields" style="display: block;">
 			
 			<?php echo 'home_widgets_line_amount'. tk_form_textfield( 'home_widgets_line_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'home_widgets_line_height'.tk_form_textfield( 'home_widgets_line_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
@@ -617,9 +626,10 @@ function ColorPicker(ColorPickerDiv) {
 				             
 				                <!-- Form template-->
 				                <div id="widgetarea_lines_#index#_widgets_template">
-				                		 <input type="hidden" id="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" name="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" value="#index_widgets#">
+				                	
+				                	<input type="hidden" id="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" name="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" value="#index_widgets#">
 			
-			                		<label for="widgetarea_lines_#index#_widgets_#index_widgets#_widget">Widget <span id="widgetarea_lines_#index#_widgets_label"> <span id="widgetarea_lines_#index#_widget_label"></span></label>
+			                		<label for="widgetarea_lines_#index#_widgets_#index_widgets#_widget"> Widget </label>
 			              			<a href="javascript:toggle('options_line_#index#_widget_#index_widgets#','display_widget_line_#index#_widget_#index_widgets#');" id="display_widget_line_#index#_widget_#index_widgets#">show options</a>
 									<a id="widgetarea_lines_#index#_widgets_remove_current"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0"></a>
 				                
