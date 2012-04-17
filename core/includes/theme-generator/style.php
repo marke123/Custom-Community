@@ -4346,19 +4346,22 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 	h1, h2, h1 a, h2 a, h1 a:hover, h1 a:focus, h2 a:hover, h2 a:focus {
 	<?php if($tkf->title_font_style){?>
 		font-family: <?php echo $tkf->title_font_style?>;
-	<?php };?>
+	<?php } ?>
 	<?php if($tkf->title_size){?>
 		font-size: <?php echo $tkf->title_size?>px;
-	<?php };?>
+	<?php } ?>
 	<?php if($tkf->title_weight){?>
 		font-weight: <?php echo $tkf->title_weight?>;
-	<?php };?>
+	<?php } ?>
+	<?php if($tkf->title_italic == "italic"){?>
+		font-style: italic;
+	<?php } ?>
 	}
 	
 	h1, h2, h1 a, h2 a {
 	<?php if($tkf->title_color){?>
 		color: #<?php echo $tkf->title_color?>;
-	<?php };?>
+	<?php } ?>
 	}
 	
 	<?php endif; ?>
@@ -4370,13 +4373,13 @@ for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){
 	h3, h4, h5, h6, h3 a, h4 a, h5 a, h6 a {
 	<?php if($tkf->subtitle_font_style){?>
 		font-family: <?php echo $tkf->subtitle_font_style?>;
-	<?php };?>
+	<?php } ?>
 	<?php if($tkf->subtitle_color){?>
 		color: #<?php echo $tkf->subtitle_color?>;
-	<?php };?>
+	<?php } ?>
 	<?php if($tkf->subtitle_weight){?>
 		font-weight: <?php echo $tkf->subtitle_weight?>;
-	<?php };?>
+	<?php } ?>
 	}
 	<?php endif; ?>
 	
