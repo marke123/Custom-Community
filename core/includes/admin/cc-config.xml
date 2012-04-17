@@ -6,14 +6,6 @@
 		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
 		
 		
-		
-		
-		
-		
-		
-		
-
-		
 		<div id="fb-root"></div>
 	
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -396,6 +388,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
 									<textfield name="title_size" label="Title size" tooltip="Change the title font size (h1 and h2), default is 28px, just enter a number" />
@@ -419,7 +412,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
-									
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
 									<select name="subtitle_weight" label="Subtitles font weight" tooltip="Do you want your Subtitles bold or normal?">
@@ -441,6 +434,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 		
 									<textfield name="font_size" label="Font size" tooltip="Change the standard font size, default is 13px, just enter a number" />
@@ -501,6 +495,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 		
 									<textfield name="button_font_size" label="Font size" tooltip="Change the button font size, just enter a number" />
@@ -932,6 +927,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
 									<textfield name="widgettitle_font_size" label="Widget title font size" tooltip="Font size of your widget titles in px, just enter a number, default=13" />
