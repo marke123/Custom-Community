@@ -947,7 +947,7 @@ jQuery.fn.sheepIt = function (options){
                 }
                 // Field not found in this form try search inside nested forms
                 else {
-                    if (form.data('nestedForms').length > 0) {
+                    if ( form.data( 'nestedForms' ) != undefined && form.data('nestedForms').length > 0) {
                         x = 0;
                         for (x in form.data('nestedForms')) {
                             

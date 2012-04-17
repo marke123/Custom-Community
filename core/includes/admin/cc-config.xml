@@ -6,14 +6,6 @@
 		<div style="left:0; position:absolute;" class="icon32" id="icon-themes"><br /></div>	
 		
 		
-		
-		
-		
-		
-		
-		
-
-		
 		<div id="fb-root"></div>
 	
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -388,7 +380,7 @@
 																		
 								<section title="Titles">
 									
-									<select name="title_font_style" label="Title font style" tooltip="Change the title font style (h1 and h2)">
+									<select name="title_font_style" label="Title font family" tooltip="Change the title font family (h1 and h2)">
 										<option name="Arial, sans-serif" value="Arial, sans-serif" />
 										<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
 										<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
@@ -396,16 +388,29 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
 									<textfield name="title_size" label="Title size" tooltip="Change the title font size (h1 and h2), default is 28px, just enter a number" />
 									
-									<select name="title_weight" label="Titles font weight" tooltip="Do you want your titles bold or normal?">
+									<select name="title_weight" label="Title font weight" tooltip="Do you want your titles bold or normal?">
 										<option name="bold" value="bold" />
 										<option name="normal" value="normal" />
 									</select>
+									
+									<select name="title_italic" label="Title font style" tooltip="Do you want your titles italic or normal?">
+										<option name="normal" value="normal" />
+										<option name="italic" value="italic" />
+									</select>
 										
 									<colorpicker name="title_color" label="Title colour" tooltip="Change title colour" />
+									
+									<colorpicker name="title_text_shadow_color" label="Title text shadow colour" tooltip="Change text shadow colour" />
+									
+									<select name="title_text_shadow_style" label="Title text shadow style" tooltip="Do you want your titles text shadow inside or outside? Notes: For an inside effect the text-shadow should be brighter than the text and the background colour! For outside effect the text shadow should be darker than text colour and background..">
+										<option name="outside" value="outside" />
+										<option name="inside" value="inside" />
+									</select>									
 									
 								</section>
 								
@@ -419,7 +424,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
-									
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
 									<select name="subtitle_weight" label="Subtitles font weight" tooltip="Do you want your Subtitles bold or normal?">
@@ -441,6 +446,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 		
 									<textfield name="font_size" label="Font size" tooltip="Change the standard font size, default is 13px, just enter a number" />
@@ -501,6 +507,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 		
 									<textfield name="button_font_size" label="Font size" tooltip="Change the button font size, just enter a number" />
@@ -933,6 +940,7 @@
 										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
 										<option name="Times New Roman, Times" value="Times New Roman, Times" />
 										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
+										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
 									<textfield name="widgettitle_font_size" label="Widget title font size" tooltip="Font size of your widget titles in px, just enter a number, default=13" />

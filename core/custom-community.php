@@ -433,33 +433,28 @@ class Custom_Community{
 		            }
 		        ],
 		        data: [
-            
-			<?php foreach($tkf->home_widgets_line_amount as $line){ ?>
-				
+				<?php foreach( $tkf->home_widgets_line_amount as $line){ ?>
 				{
 	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
 	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
 	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>',
-	           		
 		           	'widgetarea_lines_#index#_widgets': [
-	 				<?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+	 				<?php 
+	 					foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
 						{
+							'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
+			         		'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
+			          		'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
 						},
 					<?php } ?>
 	                ],
 	                
-	                <?php foreach($tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
-	           		  'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
-			          'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
-			          'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
-			        <?php } ?>
-	           		
 	          	
 				},
 				
 			<?php } ?>
 
-        ]
+       		]
 				
 			
 			});
@@ -535,12 +530,11 @@ function ColorPicker(ColorPickerDiv) {
 		<div class="tk_field_row">
 			
 			<?php
-			//echo "<pre>";
+			echo "<pre>";
 				
-			//print_r($tkf);	
+			print_r($tkf);	
 				
-			//echo "</pre>"
-			
+			echo "</pre>"
 			?>
 			
 			
@@ -549,7 +543,6 @@ function ColorPicker(ColorPickerDiv) {
 			
 			
 		<div class="hidden_fields" style="display: block;">
-			
 			<?php echo 'home_widgets_line_amount'. tk_form_textfield( 'home_widgets_line_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'home_widgets_line_height'.tk_form_textfield( 'home_widgets_line_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'home_widgets_line_background_color'.tk_form_colorpicker( 'home_widgets_line_background_color', array( 'multi_index' => 0 ) ).'<br>'; ?>
