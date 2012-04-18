@@ -325,6 +325,7 @@ class Custom_Community{
 		add_filter( 'tk_jqueryui_accordion_content_section_after_global-hompage-settings', array( $this, 'global_hompage_add_widget' ) );
 		add_filter( 'tk_wp_jqueryui_tabs_after_content_shop', array( $this, 'getting_startet_add_shop' ) );
 		add_filter( 'tk_wp_jqueryui_tabs_after_content_child_theme_creator', array( $this, 'child_theme_creator' ) );
+		add_filter( 'tk_wp_jqueryui_tabs_after_content_template_generator', array( $this, 'list_posts_template_generator' ) );
 		
 		/*
 		 * Hiding elemts by id 
@@ -386,6 +387,203 @@ class Custom_Community{
 	<?php	
 	}
 	
+	function list_posts_template_generator( $html ){
+		global $tkf;
+		
+		$tmp .= '';
+			
+		ob_start();?>
+	
+	
+	<script language="javascript"> 
+      function togglediv(showHideDiv, switchTextDiv) {
+        var ele = document.getElementById(showHideDiv);
+        var text = document.getElementById(switchTextDiv);
+        if(ele.style.display == "block") {
+              ele.style.display = "none";
+          }
+        else {
+          ele.style.display = "block";
+        }
+      } 
+	</script>
+      	
+
+	<script type="text/javascript">
+		jQuery.noConflict();
+
+		jQuery(document).ready(function() {
+		
+			var widgetarea_lines = jQuery('#list_post_template').sheepIt({
+			
+				separator: '',
+				allowRemoveLast: true,
+				allowRemoveCurrent: true,
+				allowRemoveAll: true,
+				allowAdd: true,
+				allowAddN: true,
+				
+				maxFormsCount: 10,
+				minFormsCount: 0,
+				iniFormsCount: 0,	
+				<?php if (is_array($tkf->list_post_template_amount)){ ?>
+	
+			        data: [
+					<?php foreach( $tkf->list_post_template_amount as $line){ ?>
+					{
+		                'list_post_template_#index#_cc-config_values[list_post_template_height]': '<?php echo $tkf->list_post_template_height[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_width]': '<?php echo $tkf->list_post_template_width[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_name]': '<?php echo $tkf->list_post_template_name[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_background_color]': '<?php echo $tkf->list_post_template_background_color[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_background_image]': '<?php echo $tkf->list_post_template_background_image[$line]; ?>',
+			        },
+					
+				<?php } ?>
+	
+	       		]
+			
+			<?php } ?>			
+			
+			});
+		
+		});
+		
+		
+		</script>
+
+
+		<div class="hidden_fields" style="display: none;">
+					
+			<?php echo 'list_post_template_amount'. tk_form_textfield( 'list_post_template_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'list_post_template_name'.tk_form_textfield( 'list_post_template_name', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'list_post_template_height'.tk_form_textfield( 'list_post_template_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'list_post_template_width'.tk_form_textfield( 'list_post_template_width', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'list_post_template_background_color'.tk_form_colorpicker( 'list_post_template_background_color', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'list_post_template_background_image'.tk_form_fileuploader( 'list_post_template_background_image', array( 'multi_index' => 0 ) ).'<br>'; ?>
+		
+		</div>	
+
+
+
+		<!-- sheepIt Form -->
+		<div id="list_post_template">
+		 
+		  <!-- Form template-->
+		  <div id="list_post_template_template">
+		  <input type="hidden" id="cc-config_values[list_post_template_amount][#index#]" name="cc-config_values[list_post_template_amount][#index#]" value="#index#">
+			
+			
+		  <div class="subcontainer">
+		  	<a href="javascript:togglediv('list_post_template_options_#index#','display_list_post_template_#index#');" id="list_post_template_#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Template  <span id="widgetarea_lines_label">
+						
+						Name : <input id="list_post_template_#index#_cc-config_values[list_post_template_name]" type="text" value="" name="cc-config_values[list_post_template_name][#index#]">								
+						
+					<a id="list_post_template_remove_current" style="">
+						Remove <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
+				    </a>
+					</p>
+					
+					</div>
+			</a>
+				
+					
+		 	   
+				
+				<div style="display: none;" class="subcontainer" id="list_post_template_options_#index#">
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Template height: "> List post height: </label>
+						</div>
+						<div class="tk_field">
+							<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
+						</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Template height: "> List post width: </label>
+						</div>
+						<div class="tk_field">
+							<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
+						</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Background Color "> Background Color </label>
+						</div>
+						<div class="tk_field">
+							<input onfocus="ColorPicker('.image76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color]" class="image765765764#index# " type="text"  name="cc-config_values[list_post_template_background_color][#index#]">
+							</div>
+					</div>
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Background Image "> Background image </label>
+					
+						</div>
+						<div class="tk_field">
+							<input id="list_post_template_#index#_cc-config_values[list_post_template_background_image]" type="text"  name="cc-config_values[list_post_template_background_image][#index#]">
+							<input class="tk_fileuploader" type="button" value="Browse ...">
+							<img id="list_post_template_#index#_cc-config_values[home_widgets_line_background_image]" class="tk_image_preview">
+						</div>
+					</div>
+				</div>
+			
+		</div>
+		  
+		  </div>
+		  <!-- /Form template-->
+		   
+		<div class="tk_field_row">
+			  <!-- No forms template -->
+			  <div id="list_post_template_noforms_template">No horizontal widgetareas at the moment</div>
+			  <!-- /No forms template-->
+			 
+		</div>	 
+			   
+		  <!-- Controls -->
+		  <div id="list_post_template_controls" class="tk_field_row">
+		    <div id="list_post_template_add"><a><span>Add one more</span></a></div>
+		    <div id="list_post_template_remove_last"><a><span>Remove</span></a></div>
+		    <div id="list_post_template_remove_all"><a><span>Remove all</span></a></div>
+		    <div id="list_post_template_add_n">
+		      <input id="list_post_template_add_n_input" type="text" size="4" />
+		      <div id="list_post_template_n_button"><a><span>Add</span></a></div></div>
+		  </div>
+		  <!-- /Controls -->
+		   
+		</div>
+		<!-- /sheepIt Form -->
+
+
+
+
+
+
+
+
+
+
+
+		
+
+		
+		<?php
+		$tmp = ob_get_contents();
+		ob_end_clean();
+		
+		$element['id'] = 'list_posts_template_generator'; 
+		$element['title'] = 'List Posts Tempaltes'; 
+		$element['content'] = $tmp; 
+		
+		$elements[] = $element;
+		
+		$widget_config = tk_accordion( 'list_posts_template_generator', $elements, FALSE );
+		
+		return  $html. $widget_config;
+	}
+	
+	
 	
 	function global_hompage_add_widget( $html ){
 		global $tkf;
@@ -393,10 +591,6 @@ class Custom_Community{
 		$tmp .= '';
 			
 		ob_start();?>
-		
-		
-			<?php global $tkf; ?>
-		
 		
 		<script type="text/javascript">
 		jQuery.noConflict();

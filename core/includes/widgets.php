@@ -402,6 +402,8 @@ class featured_posts_widget extends WP_Widget {
 		 	<select name="<?php echo $this->get_field_name('featured_posts_listing_style'); ?>" id="<?php echo $this->get_field_id('featured_posts_listing_style'); ?>">
 			   	<option <?php if($listing_style == 'img-mouse-over'){ ?> selected <?php } ?> value="img-mouse-over">image mouse over</option>
 			   	<option <?php if($listing_style == 'posts-img-left-content-right'){ ?> selected <?php } ?> value="posts-img-left-content-right">posts-img-left-content-right</option>
+			   	<option <?php if($listing_style == 'posts-img-right-content-left'){ ?> selected <?php } ?> value="posts-img-right-content-left">posts-img-right-content-left</option>
+			   	<option <?php if($listing_style == 'img-over-content'){ ?> selected <?php } ?> value="img-over-content">image-over-content</option><option value="default">img-over-content</option>
 			   	<option <?php if($listing_style == 'bubbles'){ ?> selected <?php } ?> value="bubbles">bubbles</option><option value="default">default</option>
 			   	<option <?php if($listing_style == 'default'){ ?> selected <?php } ?> value="pro">more options in the pro version</option>
 			 </select>
