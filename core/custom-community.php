@@ -442,7 +442,7 @@ class Custom_Community{
 		                'list_post_template_#index#_cc-config_values[list_post_template_image_width]': '<?php echo $tkf->list_post_template_image_width[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_height]': '<?php echo $tkf->list_post_template_height[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_width]': '<?php echo $tkf->list_post_template_width[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_positiont[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_position[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_background_color]': '<?php echo $tkf->list_post_template_background_color[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_background_image]': '<?php echo $tkf->list_post_template_background_image[$line]; ?>',
 			        },
@@ -489,6 +489,8 @@ class Custom_Community{
 			$option['option_name'] = 'bottom';
 			
 			$options[] = $option;
+			
+			print_r( $tkf->list_post_template_image_position );
 			
 			?>
 					
@@ -546,7 +548,7 @@ class Custom_Community{
 							<label for="" title="Image position">Image position</label>
 						</div>
 						<div class="tk_field">
-							<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="list_post_template_#index#_cc-config_values[list_post_template_image_position][#index#]">
+							<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="cc-config_values[list_post_template_image_position][#index#]">
 								<option value="no-image">no image</option>
 								<option value="posts-img-left-content-right">left</option>
 								<option value="posts-img-right-content-left">right</option>
