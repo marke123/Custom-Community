@@ -442,7 +442,7 @@ class Custom_Community{
 		                'list_post_template_#index#_cc-config_values[list_post_template_image_width]': '<?php echo $tkf->list_post_template_image_width[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_height]': '<?php echo $tkf->list_post_template_height[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_width]': '<?php echo $tkf->list_post_template_width[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_positiont[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_position[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_background_color]': '<?php echo $tkf->list_post_template_background_color[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_background_image]': '<?php echo $tkf->list_post_template_background_image[$line]; ?>',
 			        },
@@ -489,6 +489,8 @@ class Custom_Community{
 			$option['option_name'] = 'bottom';
 			
 			$options[] = $option;
+			
+			print_r( $tkf->list_post_template_image_position );
 			
 			?>
 					
