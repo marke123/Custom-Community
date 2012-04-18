@@ -294,6 +294,12 @@ class Custom_Community{
 			
 		}
 
+		foreach ($tkf->list_post_template_name as $key => $value) {
+			tk_select_add_option( 'home_featured_posts_style', $key , $value );
+		}
+		
+		
+		
 		
 		$args=array(
 		  'public'   => true,
@@ -431,9 +437,12 @@ class Custom_Community{
 			        data: [
 					<?php foreach( $tkf->list_post_template_amount as $line){ ?>
 					{
+		                'list_post_template_#index#_cc-config_values[list_post_template_name]': '<?php echo $tkf->list_post_template_name[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_image_height]': '<?php echo $tkf->list_post_template_image_height[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_image_width]': '<?php echo $tkf->list_post_template_image_width[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_height]': '<?php echo $tkf->list_post_template_height[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_width]': '<?php echo $tkf->list_post_template_width[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_name]': '<?php echo $tkf->list_post_template_name[$line]; ?>',
+		                'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_positiont[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_background_color]': '<?php echo $tkf->list_post_template_background_color[$line]; ?>',
 		                'list_post_template_#index#_cc-config_values[list_post_template_background_image]': '<?php echo $tkf->list_post_template_background_image[$line]; ?>',
 			        },
@@ -452,12 +461,50 @@ class Custom_Community{
 		</script>
 
 
-		<div class="hidden_fields" style="display: none;">
+		<div class="hidden_fields" style="display: block;">
+			<option value="no-image">no image</option>
+			<?php
+			
+			$option['value'] = 'no-image';
+			$option['option_name'] = 'no image';
+			
+			$options[] = $option;
+			
+			$option['value'] = 'posts-img-left-content-right';
+			$option['option_name'] = 'left';
+			
+			$options[] = $option;
+			
+			$option['value'] = 'posts-img-right-content-left';
+			$option['option_name'] = 'right';
+			
+			$options[] = $option;
+			
+			$option['value'] = 'posts-img-over-content';
+			$option['option_name'] = 'top';
+			
+			$options[] = $option;
+			
+			$option['value'] = 'posts-img-under-content';
+			$option['option_name'] = 'bottom';
+			
+			$options[] = $option;
+			
+			?>
 					
 			<?php echo 'list_post_template_amount'. tk_form_textfield( 'list_post_template_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
+				
+			<?php echo 'list_post_template_image_position'. tk_form_select( 'list_post_template_image_position', $options, array( 'multi_index' => 0 ) ).'<br>'; ?>
+		
 			<?php echo 'list_post_template_name'.tk_form_textfield( 'list_post_template_name', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			
+			<?php echo 'list_post_template_image_height'.tk_form_textfield( 'list_post_template_image_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			<?php echo 'list_post_template_image_width'.tk_form_textfield( 'list_post_template_image_width', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			
+			
 			<?php echo 'list_post_template_height'.tk_form_textfield( 'list_post_template_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'list_post_template_width'.tk_form_textfield( 'list_post_template_width', array( 'multi_index' => 0 ) ).'<br>'; ?>
+			
 			<?php echo 'list_post_template_background_color'.tk_form_colorpicker( 'list_post_template_background_color', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'list_post_template_background_image'.tk_form_fileuploader( 'list_post_template_background_image', array( 'multi_index' => 0 ) ).'<br>'; ?>
 		
@@ -492,6 +539,40 @@ class Custom_Community{
 		 	   
 				
 				<div style="display: none;" class="subcontainer" id="list_post_template_options_#index#">
+				
+
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title="Image position">Image position</label>
+						</div>
+						<div class="tk_field">
+							<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="list_post_template_#index#_cc-config_values[list_post_template_image_position][#index#]">
+								<option value="no-image">no image</option>
+								<option value="posts-img-left-content-right">left</option>
+								<option value="posts-img-right-content-left">right</option>
+								<option value="posts-img-over-content">top</option>
+								<option value="posts-img-under-content">bottom</option></select>									
+						</div>
+					</div>
+										
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Template height: "> Image height: </label>
+						</div>
+						<div class="tk_field">
+							<input id="list_post_template_#index#_cc-config_values[list_post_template_image_height]" type="text" value="" name="cc-config_values[list_post_template_image_height][#index#]">								
+						</div>
+					</div>	
+					<div class="tk_field_row">
+						<div class="tk_field_label">
+							<label for="" title=" Template width: "> Image width: </label>
+						</div>
+						<div class="tk_field">
+							<input id="list_post_template_#index#_cc-config_values[list_post_template_image_width]" type="text" value="" name="cc-config_values[list_post_template_image_width][#index#]">								
+						</div>
+					</div>				
+
+
 					<div class="tk_field_row">
 						<div class="tk_field_label">
 							<label for="" title=" Template height: "> List post height: </label>
@@ -499,15 +580,16 @@ class Custom_Community{
 						<div class="tk_field">
 							<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
 						</div>
-					</div>
+					</div>	
 					<div class="tk_field_row">
 						<div class="tk_field_label">
-							<label for="" title=" Template height: "> List post width: </label>
+							<label for="" title=" Template width: "> List post width: </label>
 						</div>
 						<div class="tk_field">
 							<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
 						</div>
 					</div>
+					
 					<div class="tk_field_row">
 						<div class="tk_field_label">
 							<label for="" title=" Background Color "> Background Color </label>
