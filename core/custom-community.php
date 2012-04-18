@@ -461,7 +461,7 @@ class Custom_Community{
 		</script>
 
 
-		<div class="hidden_fields" style="display: block;">
+		<div class="hidden_fields" style="display: none;">
 			<option value="no-image">no image</option>
 			<?php
 			
