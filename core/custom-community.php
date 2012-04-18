@@ -406,7 +406,7 @@ class Custom_Community{
 			var widgetarea_lines = jQuery('#widgetarea_lines').sheepIt({
 			
 				separator: '',
-				allowRemoveLast: true,
+				allowRemoveLast: false,
 				allowRemoveCurrent: true,
 				allowRemoveAll: true,
 				allowAdd: true,
@@ -419,7 +419,7 @@ class Custom_Community{
 		            {
 		                id: 'widgetarea_lines_#index#_widgets',
 		                options: {
-		                	allowRemoveLast: true,
+		                	allowRemoveLast: false,
 							allowRemoveCurrent: true,
 							allowRemoveAll: true,
 							allowAdd: true,
@@ -538,9 +538,7 @@ function ColorPicker(ColorPickerDiv) {
 			//echo "</pre>"
 			?>
 			
-			
-			<b>Home Widget areas </b><br>
-			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
+			Use widget homepage: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
 			
 			
 		<div class="hidden_fields" style="display: none;">
@@ -588,8 +586,8 @@ function ColorPicker(ColorPickerDiv) {
 			<div class="tk_field_row">
 				<p><span class="tk_row_title">Horizontal line <span id="widgetarea_lines_label"></span>: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show options</a></span>
 			
-			<a id="widgetarea_lines_remove_current" style="">
-				Remove <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
+			<a id="widgetarea_lines_remove_current" title="Remove this line!">
+				<img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
 		    </a>
 			</p>
 			
@@ -730,9 +728,9 @@ function ColorPicker(ColorPickerDiv) {
 				                 
 				                <!-- Controls -->
 				                <div id="widgetarea_lines_#index#_widgets_controls" class="controls">
-				                    <div id="widgetarea_lines_#index#_widgets_add"><a><span>Add Widget</span></a></div>
-				                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a><span>Remove</span></a></div>
-				                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a><span>Remove all</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_add"><a class="button"><span>Add Widget</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a class="button"><span>Remove last</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a class="button"><span>Remove all</span></a></div>
 				                    <div id="widgetarea_lines_#index#_widgets_add_n">
 				                        <input id="widgetarea_lines_#index#_widgets_add_n_input" type="text" size="4" />
 				                        <div id="widgetarea_lines_#index#_widgets_add_n_button"><a><span>Add</span></a></div>
@@ -760,12 +758,15 @@ function ColorPicker(ColorPickerDiv) {
 			   
 		  <!-- Controls -->
 		  <div id="widgetarea_lines_controls" class="tk_field_row">
-		    <div id="widgetarea_lines_add"><a><span>Add one more</span></a></div>
-		    <div id="widgetarea_lines_remove_last"><a><span>Remove</span></a></div>
-		    <div id="widgetarea_lines_remove_all"><a><span>Remove all</span></a></div>
+		    <div id="widgetarea_lines_add"><a class="button button-secondary"><span>Add a line</span></a></div>
+		    <div id="widgetarea_lines_remove_last"><a class="button button-secondary"><span>Remove last</span></a></div>
+		    <div id="widgetarea_lines_remove_all"><a class="button button-secondary"><span>Remove all</span></a></div>
 		    <div id="widgetarea_lines_add_n">
-		      <input id="widgetarea_lines_add_n_input" type="text" size="4" />
-		      <div id="widgetarea_lines_add_n_button"><a><span>Add</span></a></div></div>
+		      <div id="widgetarea_lines_add_n_button">
+		      	<a class="button button-secondary"><span>Add</span></a>
+		      </div>
+		      <input id="widgetarea_lines_add_n_input" type="text" size="4" value="2"/> more lines
+		    </div>
 		  </div>
 		  <!-- /Controls -->
 		   
@@ -778,7 +779,7 @@ function ColorPicker(ColorPickerDiv) {
 		ob_end_clean();
 		
 		$element['id'] = 'global_hompage_add_widget'; 
-		$element['title'] = 'Home Widget areas'; 
+		$element['title'] = 'Home Widget Areas'; 
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
