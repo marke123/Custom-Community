@@ -363,18 +363,20 @@ function cc_list_posts($atts,$content = null) {
 	
 	), $atts));
 		
-	echo $img_position;	
+	echo '$img_position :'. $img_position;	
 	
-	print($tkf->home_featured_posts_style);
 	
-	echo 'home_featured_posts_style'. $tkf->home_featured_posts_style[$img_position];
+	print($tkf->list_post_template_image_position);
+	
+	
+	echo '<br>home_featured_posts_style'. $tkf->list_post_template_image_position[$img_position];
 	
 	
 	if(is_numeric($img_position)){
 		$featured_posts_image_width = $tkf->list_post_template_width[$img_position];
 		$featured_posts_image_height = $tkf->list_post_template_height[$img_position];
 		
-		$img_position = $tkf->home_featured_posts_style[$img_position];
+		$img_position = $tkf->list_post_template_image_position[$img_position];
 					
 	}
 	

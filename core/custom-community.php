@@ -697,7 +697,8 @@ class Custom_Community{
 		            {
 		                id: 'widgetarea_lines_#index#_widgets',
 		                options: {
-		                	allowRemoveLast: false,
+		                	separator: '',
+				        	allowRemoveLast: false,
 							allowRemoveCurrent: true,
 							allowRemoveAll: true,
 							allowAdd: true,
