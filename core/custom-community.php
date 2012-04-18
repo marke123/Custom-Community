@@ -295,6 +295,21 @@ class Custom_Community{
 		}
 
 		
+		$args=array(
+		  'public'   => true,
+		); 
+		$output = 'names'; // names or objects, note names is the default
+		$operator = 'and'; // 'and' or 'or'
+		$post_types=get_post_types($args,$output,$operator); 
+		foreach ($post_types  as $post_type ) {
+		
+			tk_select_add_option( 'home_featured_posts_post_type', $post_type , $post_type );
+			tk_select_add_option( 'slideshow_post_type', $post_type , $post_type );
+		
+		}
+		
+		
+		
 		if(defined('BP_VERSION')){
 			
 			if ( bp_is_active( 'xprofile' ) ) :
@@ -427,9 +442,10 @@ class Custom_Community{
 	 				<?php 
 	 					foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
 						{
-							'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
-			         		'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
-			          		'widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
+							'height':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
+							'width':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
+							'background_color':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
+							'background_image':'<?php echo $tkf->home_widgets_line_widgets_background_image[$line][$widget]; ?>',
 						},
 					<?php } ?>
 	                ],
@@ -513,13 +529,13 @@ function ColorPicker(ColorPickerDiv) {
 
 
 		<div class="tk_field_row">
-			
+
 			<?php
-			echo "<pre>";
+			//echo "<pre>";
 				
-			print_r($tkf);	
+			//print_r($tkf);	
 				
-			echo "</pre>"
+			//echo "</pre>"
 			?>
 			
 			
@@ -527,7 +543,24 @@ function ColorPicker(ColorPickerDiv) {
 			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
 			
 			
-		<div class="hidden_fields" style="display: block;">
+		<div class="hidden_fields" style="display: none;">
+			
+			<?php 
+			
+			echo "<pre>";
+				
+			print_r($tkf->home_widgets_line_widgets_height);	
+				
+			echo "</pre>"; 
+			
+			echo "<pre>";
+				
+			print_r($tkf->home_widgets_line_amount);	
+				
+			echo "</pre>";  
+			
+			?>
+			
 			<?php echo 'home_widgets_line_amount'. tk_form_textfield( 'home_widgets_line_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'home_widgets_line_height'.tk_form_textfield( 'home_widgets_line_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
 			<?php echo 'home_widgets_line_background_color'.tk_form_colorpicker( 'home_widgets_line_background_color', array( 'multi_index' => 0 ) ).'<br>'; ?>
@@ -634,7 +667,7 @@ function ColorPicker(ColorPickerDiv) {
 												<label for="" title="Widgetarea #index_widgets# height: ">Height: </label>
 											</div>
 											<div class="tk_field">
-												<input type="text" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_height]" name="cc-config_values[home_widgets_line_widgets_height][#index#][#index_widgets#]">	
+												<input type="text" id="widgetarea_lines_#index#_widgets_#index_widgets#_height" name="cc-config_values[home_widgets_line_widgets_height][#index#][#index_widgets#]">	
 											</div>
 										</div>
 							
@@ -644,7 +677,7 @@ function ColorPicker(ColorPickerDiv) {
 												<label for="" title="Widgetarea #index_widgets# width">Width</label>
 											</div>
 											<div class="tk_field">
-												<input type="text"  id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_width]" name="cc-config_values[home_widgets_line_widgets_width][#index#][#index_widgets#]">
+												<input type="text"  id="widgetarea_lines_#index#_widgets_#index_widgets#_width" name="cc-config_values[home_widgets_line_widgets_width][#index#][#index_widgets#]">
 											</div>
 										</div>
 									
@@ -654,7 +687,7 @@ function ColorPicker(ColorPickerDiv) {
 												<label for="" title="Widgetarea #index# background colour">Background colour</label>
 											</div>
 											<div class="tk_field">
-												<input type="text" onfocus="ColorPicker('.image765765764#index#');" class="image7657[#index_widgets#]65764#index#" name="cc-config_values[home_widgets_line_widgets_background_color][#index#][#index_widgets#]" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_color]">						
+												<input type="text" onfocus="ColorPicker('.image765765764#index#');" class="image7657[#index_widgets#]65764#index#" name="cc-config_values[home_widgets_line_widgets_background_color][#index#][#index_widgets#]" id="widgetarea_lines_#index#_widgets_#index_widgets#_background_color">						
 											</div>
 										</div>
 										
@@ -664,7 +697,7 @@ function ColorPicker(ColorPickerDiv) {
 												<label for="" title="Widgetarea #index_widgets# Background image">Background image</label>
 											</div>
 											<div class="tk_field">
-												<input type="text" id="widgetarea_lines_#index#_widgets_cc-config_values[home_widgets_line_widgets_background_image]" name="cc-config_values[home_widgets_line_widgets_background_image][#index#][#index_widget#]">
+												<input type="text" id="widgetarea_lines_#index#_widgets_#index_widgets#_background_image" name="cc-config_values[home_widgets_line_widgets_background_image][#index#][#index_widgets#]">
 												<input type="button" value="Browse ..." class="tk_fileuploader"><br><img id="" class="tk_image_preview">									</div>
 										</div>
 											
@@ -674,7 +707,7 @@ function ColorPicker(ColorPickerDiv) {
 												<label for="" title="&gt;Widgetarea #index_widgets# background image repeat">Background image repeat</label>
 											</div>
 											<div class="tk_field">
-												<select id="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index_widgets#]]" name="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index_widgets#]]">
+												<select id="widgetarea_lines_#index#_widgets_#index_widgets#_background_image_repeat" name="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index#][#index_widgets#]]">
 													<option value="no repeat">no repeat</option>
 													<option value="x">x</option>
 													<option value="y">y</option>

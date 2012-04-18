@@ -292,7 +292,18 @@ class featured_posts_widget extends WP_Widget {
         $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
         
 	    $listing_style = empty($instance['featured_posts_listing_style']) ? ' ' : apply_filters('widget_title', $instance['featured_posts_listing_style']);
-              	
+    
+		$selected_post_type = esc_attr($instance['featured_posts_post_type']);
+        
+		$featured_posts_background_color = $instance['featured_posts_background_color'];
+		$featured_posts_show_sticky = $instance['featured_posts_show_sticky'];
+		$featured_posts_show_pages_by_id = $instance['featured_posts_show_pages_by_id'];
+		$featured_posts_amount = $instance['featured_posts_amount'];
+		$featured_posts_posts_per_page = $instance['featured_posts_posts_per_page'];
+		$featured_posts_show_pagination = $instance['featured_posts_show_pagination'];
+		$featured_posts_pagination_ajax_effect = $instance['featured_posts_pagination_ajax_effect'];
+		
+     	
 		$tmp .= '<div class="featured_posts_widget widget">';
 		
 		if(trim($title) == "") { $title = "Weitere Artikel";  }
@@ -302,22 +313,24 @@ class featured_posts_widget extends WP_Widget {
 		$tmp .= '<div class="border"></div>';
 		
 		$atts = array(
-			'amount' => '12',
+			'amount' => $featured_posts_amount,
 			'category_name' => $selected_category,
 			'img_position' => $listing_style,
 			'height' => 'auto',
-			'page_id' => '',
-			'post_type' => 'post',
-			'orderby' => '',
-			'order' => '',
-			'show_sticky' => '',
-			'show_pagination' => 'show',
+			'page_id' => $featured_posts_show_pages_by_id,
+			'post_type' => $selected_post_type,
+			'show_sticky' => $featured_posts_show_sticky,
+			'show_pagination' => $featured_posts_show_pagination,
 			'show_pagination_wp_pagenavi' => 'hide',
-			'posts_per_page' => '3',
+			'posts_per_page' => $featured_posts_posts_per_page,
 			'featured_id' => $widget_id
 			
 		);
 		$tmp .=  cc_list_posts($atts,$content = null);
+	
+	echo '<pre>';
+		print_r($atts);
+	echo '</pre>';
 	
 		$tmp .= '</ul>';
 		$tmp .= '</div>';		
@@ -332,23 +345,41 @@ class featured_posts_widget extends WP_Widget {
     function form($instance) {
         //widgetform in backend
         $selected_category = esc_attr($instance['category']);
+        $selected_post_type = esc_attr($instance['featured_posts_post_type']);
         $title = strip_tags($instance['title']);
 		$listing_style = esc_attr($instance['featured_posts_listing_style']);
+		
+		$featured_posts_background_color = $instance['featured_posts_background_color'];
+		$featured_posts_show_sticky = $instance['featured_posts_show_sticky'];
+		$featured_posts_show_pages_by_id = $instance['featured_posts_show_pages_by_id'];
+		$featured_posts_amount = $instance['featured_posts_amount'];
+		$featured_posts_posts_per_page = $instance['featured_posts_posts_per_page'];
+		$featured_posts_show_pagination = $instance['featured_posts_show_pagination'];
+		$featured_posts_pagination_ajax_effect = $instance['featured_posts_pagination_ajax_effect'];
+		
        // Get the existing categories and build a simple select dropdown for the user.
 
 		$args = array('echo' => '0','hide_empty' => '0');
 		$categories = get_categories($args);
-		 
-	    $cat_options[] = '<option value="all-categories">All categories</option>';	
-		
+		$cat_options[] = '<option value="all-categories">All categories</option>';	
 		foreach($categories as $category) {
 		    $selected = $selected_category === $category->slug ? ' selected="selected"' : '';
             $cat_options[] = '<option value="' . $category->slug .'"' . $selected . '>' . $category->name . '</option>';	
 		}
 		
+		$args=array(
+		  'public'   => true,
+		); 
+		$output = 'names'; // names or objects, note names is the default
+		$operator = 'and'; // 'and' or 'or'
+		$post_types=get_post_types($args,$output,$operator); 
+		foreach ($post_types  as $post_type ) {
 		
+		    $selected = $selected_post_type === $post_type ? ' selected="selected"' : '';
+            $post_type_options[] = '<option value="' . $post_type .'"' . $selected . '>' . $post_type . '</option>';	
 		
-		?>
+		}?>
+		
 		<p>
 			<label for="<?php echo $this->get_field_id('title'); ?>">Title: </label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" />
@@ -370,6 +401,64 @@ class featured_posts_widget extends WP_Widget {
 			   	<option <?php if($listing_style == 'default'){ ?> selected <?php } ?> value="pro">more options in the pro version</option>
 			 </select>
 		</p>							
+		
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_background_color'); ?>">Featured posts background colour: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_background_color'); ?>" name="<?php echo $this->get_field_name('featured_posts_background_color'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_background_color); ?>" />
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_show_sticky'); ?>">Show only sticky posts: </label><br />
+   			<input type="checkbox" id="<?php echo $this->get_field_id('featured_posts_show_sticky'); ?>" name="<?php echo $this->get_field_name('featured_posts_show_sticky'); ?>" value="on" <?php if(attribute_escape($featured_posts_show_sticky) == 'on'){ ?> checked="checked" <?php } ?> /><br />
+   		</p>
+		
+		<p>
+		    <label for="<?php echo $this->get_field_id('featured_posts_post_type'); ?>">
+		        <?php _e('Include post type (optional):'); ?>
+		    </label>
+		    <select id="<?php echo $this->get_field_id('featured_posts_post_type'); ?>" class="widefat" name="<?php echo $this->get_field_name('featured_posts_post_type'); ?>">
+		        <?php echo implode('', $post_type_options); ?>
+		    </select>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_show_pages_by_id'); ?>">Page IDs: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_show_pages_by_id'); ?>" name="<?php echo $this->get_field_name('featured_posts_show_pages_by_id'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_show_pages_by_id); ?>" />
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_amount'); ?>">Amount of featured posts: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_amount'); ?>" name="<?php echo $this->get_field_name('featured_posts_amount'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_amount); ?>" />
+		</p>
+	
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_posts_per_page'); ?>">Posts per page: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_posts_per_page'); ?>" name="<?php echo $this->get_field_name('featured_posts_posts_per_page'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_posts_per_page); ?>" />
+		</p>
+		
+		<p>
+		    <label for="<?php echo $this->get_field_id('featured_posts_show_pagination'); ?>">
+		        <?php _e('Show pagination:'); ?>
+		    </label>
+		    <select id="<?php echo $this->get_field_id('featured_posts_show_pagination'); ?>" class="widefat" name="<?php echo $this->get_field_name('featured_posts_show_pagination'); ?>">
+			   	<option value="show">show</option>
+				<option value="hide">hide</option>
+			</select>
+		</p>
+		
+		<p>
+		    <label for="<?php echo $this->get_field_id('featured_posts_pagination_ajax_effect'); ?>">
+		        <?php _e('Choose jQery effect:'); ?>
+		    </label>
+		    <select id="<?php echo $this->get_field_id('featured_posts_pagination_ajax_effect'); ?>" class="widefat" name="<?php echo $this->get_field_name('featured_posts_pagination_ajax_effect'); ?>">
+	   			<option value="none">none</option>
+				<option value="hide_show">hide - show</option>
+				<option value="fadeOut_fadeIn">fadeOut - fadeIn</option>
+				<option value="slideUp-slidedown">slideUp - slidedown</option>
+				<option value="default">More in the Pro Version</option>
+			</select>
+		</p>
 		
         <?php
     }

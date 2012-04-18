@@ -3380,14 +3380,13 @@ function dynamic_css(){
 
 <?php 
 
-for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
-	
+	foreach( $tkf->home_widgets_line_amount as $line){ 	
 		
-		$width = 100/$tkf->home_widgets_line_widgets_number[$ln] - 1.6;
+		$width = 100/count($tkf->home_widgets_line_widgets_amount[$line]) - 1.6;
 		$width = number_format($width,4);
 		?>
 			
-		div#widget_line_<?php echo $ln; ?> div.widget {
+		div#widget_line_<?php echo $line; ?> div.widget {
 			width: <?php echo $width; ?>%;
 		}
 		 

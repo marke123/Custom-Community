@@ -18,12 +18,13 @@
 			
 		<?php } else {
 			echo '<div class="home_widgets_container">';
- 			for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
- 				echo '<div id="widget_line_' . $ln . '" class="home_widget_line widgetarea line_' . $ln . ' widgets_amount_'.$tkf->home_widgets_lines_number.'">';
+ 				foreach( $tkf->home_widgets_line_amount as $line){
+				echo $tkf->home_widgets_lines_amount;
+				echo '<div id="widget_line_' . $line . '" class="home_widget_line widgetarea line_' . $line . ' widgets_amount_'.count($tkf->home_widgets_line_widgets_amount[$line]).'">';
  				
- 				for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$ln]; $wn++ ){
-						
-					if( ! dynamic_sidebar( 'home_widget_line_'.$ln.'_widget_'.$wn )) : ?>
+ 				foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){
+								
+					if( ! dynamic_sidebar( 'home_widget_line_'.$line.'_widget_'.$widget )) : ?>
 							<div class="widget">
 								<h3 class="widgettitle" ><?php _e('Widgetarea', 'cc'); ?></h3>
 								<div>
