@@ -685,7 +685,7 @@ class Custom_Community{
 			div.subcontainer .tk_field .tk_field_label {
 			    width: 50%;
 			}
-			div#widgetarea_lines_add {
+			div#widgetarea_lines_controls div {
 			    padding-top: 7px;
 			}
 			div#widgetarea_lines_noforms_template {
