@@ -546,7 +546,7 @@ class Custom_Community{
 							<label for="" title="Image position">Image position</label>
 						</div>
 						<div class="tk_field">
-							<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="list_post_template_#index#_cc-config_values[list_post_template_image_position][#index#]">
+							<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="cc-config_values[list_post_template_image_position][#index#]">
 								<option value="no-image">no image</option>
 								<option value="posts-img-left-content-right">left</option>
 								<option value="posts-img-right-content-left">right</option>

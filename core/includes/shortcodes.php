@@ -364,6 +364,9 @@ function cc_list_posts($atts,$content = null) {
 	), $atts));
 		
 	echo $img_position;	
+	
+	print($tkf->home_featured_posts_style);
+	
 	echo 'home_featured_posts_style'. $tkf->home_featured_posts_style[$img_position];
 	
 	
