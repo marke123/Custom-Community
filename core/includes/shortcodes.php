@@ -357,10 +357,24 @@ function cc_list_posts($atts,$content = null) {
 		'show_pagination_wp_pagenavi' => 'show',
 		'pagination_ajax_effect' => 'fadeOut_fadeIn',
 		'featured_id' => '',
-		'posts_per_page' => '3'
+		'posts_per_page' => '3',
+		'featured_posts_image_width' => '222', 
+		'featured_posts_image_height' => '160',
+	
 	), $atts));
-
 		
+	echo $img_position;	
+	echo 'home_featured_posts_style'. $tkf->home_featured_posts_style[$img_position];
+	
+	
+	if(is_numeric($img_position)){
+		$featured_posts_image_width = $tkf->list_post_template_width[$img_position];
+		$featured_posts_image_height = $tkf->list_post_template_height[$img_position];
+		
+		$img_position = $tkf->home_featured_posts_style[$img_position];
+					
+	}
+	
 	if($category_name == 'all-categories'){
 		$category_name = '0';
 	}
@@ -469,11 +483,11 @@ function cc_list_posts($atts,$content = null) {
 			break;		
 			default:
 					$tmp .= '<div class="listposts '.$img_position.'">';
-					if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
+					if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 					if($height != 'auto'){ $height = $height.'px'; }
 					$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
-					if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail().'</a>';
+					if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					$tmp .= '</div>';
 					if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
 				break;
