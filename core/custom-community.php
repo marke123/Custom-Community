@@ -414,7 +414,7 @@ class Custom_Community{
 				
 				maxFormsCount: 10,
 				minFormsCount: 0,
-				iniFormsCount: 1,
+				iniFormsCount: 0,
 				nestedForms: [
 		            {
 		                id: 'widgetarea_lines_#index#_widgets',
@@ -427,36 +427,37 @@ class Custom_Community{
 		                    indexFormat: '#index_widgets#',
 		                    iniFormsCount: 1,
 		                	maxFormsCount: 0,
-		                	   
-	
 		                }
 		            }
 		        ],
-		        data: [
-				<?php foreach( $tkf->home_widgets_line_amount as $line){ ?>
-				{
-	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
-	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
-	                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>',
-		           	'widgetarea_lines_#index#_widgets': [
-	 				<?php 
-	 					foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
-						{
-							'height':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
-							'width':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
-							'background_color':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
-							'background_image':'<?php echo $tkf->home_widgets_line_widgets_background_image[$line][$widget]; ?>',
-						},
-					<?php } ?>
-	                ],
-	                
-	          	
-				},
-				
+		        <?php if (is_array($tkf->home_widgets_line_amount)){ ?>
+	
+			        data: [
+					<?php foreach( $tkf->home_widgets_line_amount as $line){ ?>
+					{
+		                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]': '<?php echo $tkf->home_widgets_line_height[$line]; ?>',
+		                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]': '<?php echo $tkf->home_widgets_line_background_color[$line]; ?>',
+		                'widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_image]': '<?php echo $tkf->home_widgets_line_background_image[$line]; ?>',
+			           	'widgetarea_lines_#index#_widgets': [
+		 				<?php 
+		 					foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+							{
+								'height':'<?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>',
+								'width':'<?php echo $tkf->home_widgets_line_widgets_width[$line][$widget]; ?>',
+								'background_color':'<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>',
+								'background_image':'<?php echo $tkf->home_widgets_line_widgets_background_image[$line][$widget]; ?>',
+							},
+						<?php } ?>
+		                ],
+		                
+		          	
+					},
+					
+				<?php } ?>
+	
+	       		]
+			
 			<?php } ?>
-
-       		]
-				
 			
 			});
 		
@@ -706,10 +707,10 @@ function ColorPicker(ColorPickerDiv) {
 											</div>
 											<div class="tk_field">
 												<select id="widgetarea_lines_#index#_widgets_#index_widgets#_background_image_repeat" name="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index#][#index_widgets#]]">
-													<option value="no repeat">no repeat</option>
-													<option value="x">x</option>
-													<option value="y">y</option>
-													<option value="x+y">x+y</option></select>									
+													<option value="no-repeat">no repeat</option>
+													<option value="repeat-x">repeat horizontal</option>
+													<option value="repeat-y">repeat vertical</option>
+													<option value="repeat">repeat both</option></select>									
 											</div>
 										</div>
 											

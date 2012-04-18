@@ -25,7 +25,7 @@
  				foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){
 								
 					if( ! dynamic_sidebar( 'home_widget_line_'.$line.'_widget_'.$widget )) : ?>
-							<div class="widget">
+							<div id="<?php echo 'line_'.$line.'_widget_'.$widget ?>" class="widget">
 								<h3 class="widgettitle" ><?php _e('Widgetarea', 'cc'); ?></h3>
 								<div>
 									<p>Add your widgets</p>
