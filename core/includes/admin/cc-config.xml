@@ -865,7 +865,7 @@
 								
 							</accordion>
 						</tab>
-						<tab title="Sidebars - Widgets">
+						<tab title="Sidebars">
 							<accordion id="cc_config_sidebars">
 								
 								<section title="Shortcode Widgets">
@@ -1303,8 +1303,8 @@
 		
 			
 						</tab>
-						<tab title="Get the Pro">
-							<p>jo</p>
+						<tab title="Template Generator" id="template_generator">
+							
 						</tab>
 		
 					</tabs>
