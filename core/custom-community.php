@@ -406,11 +406,11 @@ class Custom_Community{
 			var widgetarea_lines = jQuery('#widgetarea_lines').sheepIt({
 			
 				separator: '',
-				allowRemoveLast: true,
+				allowRemoveLast: false,
 				allowRemoveCurrent: true,
 				allowRemoveAll: true,
 				allowAdd: true,
-				allowAddN: true,
+				allowAddN: false,
 				
 				maxFormsCount: 10,
 				minFormsCount: 0,
@@ -419,11 +419,11 @@ class Custom_Community{
 		            {
 		                id: 'widgetarea_lines_#index#_widgets',
 		                options: {
-		                	allowRemoveLast: true,
+		                	allowRemoveLast: false,
 							allowRemoveCurrent: true,
 							allowRemoveAll: true,
 							allowAdd: true,
-							allowAddN: true,
+							allowAddN: false,
 		                    indexFormat: '#index_widgets#',
 		                    iniFormsCount: 1,
 		                	maxFormsCount: 0,
@@ -480,12 +480,34 @@ class Custom_Community{
 			}
 			
 			div.subcontainer .tk_field {
-			    width: 59%;
+			    width: 69%;
 			}
 			div.subcontainer .tk_field_label {
-			    width: 40%;
+			    width: 30%;
 			}
-			div.subcontainer .tk_field_row 
+			div.subcontainer .tk_field .tk_field {
+			    width: 49%;
+			}
+			div.subcontainer .tk_field .tk_field_label {
+			    width: 50%;
+			}
+			div#widgetarea_lines_add {
+			    padding-top: 7px;
+			}
+			div#widgetarea_lines_noforms_template {
+			    color: #AAAAAA;
+			    display: block;
+			    font-family: georgia,times,serif;
+			    font-size: 16px;
+			    font-style: italic;
+			    text-shadow: -1px 1px 0 #FFFFFF;
+			}
+			.sub_field_line {
+			    border-bottom: 1px solid #DFDFDF;
+			    box-shadow: 0 1px 0 #FFFFFF;
+			    margin-bottom: 15px;
+			    padding: 0 0 20px;
+			}
 		</style>
 
 
@@ -539,9 +561,7 @@ function ColorPicker(ColorPickerDiv) {
 			//echo "</pre>"
 			?>
 			
-			
-			<b>Home Widget areas </b><br>
-			Use widgetized Home: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
+			Use widget homepage: <?php echo tk_form_checkbox('use_widgetized_home') ?><br>
 			
 			
 		<div class="hidden_fields" style="display: none;">
@@ -589,8 +609,8 @@ function ColorPicker(ColorPickerDiv) {
 			<div class="tk_field_row">
 				<p><span class="tk_row_title">Horizontal line <span id="widgetarea_lines_label"></span>: <a href="javascript:toggle('line_#index#','display_line_#index#');" id="display_line_#index#">show options</a></span>
 			
-			<a id="widgetarea_lines_remove_current" style="">
-				Remove <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
+			<a id="widgetarea_lines_remove_current" style="cursor: pointer; float: right;" title="Remove this line!">
+				<img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
 		    </a>
 			</p>
 			
@@ -600,12 +620,12 @@ function ColorPicker(ColorPickerDiv) {
 				
 				<div class="tk_field_row">
 	   				<div class="tk_field_label">
-						<label for="" title=" Line #index# Styling: "><b> Line <span id="widgetarea_lines_label"> Styling:</b></label>
+						<label for="" title="Line #index# styling. These options are for the container around the widgetareas of line #index#."><b> Line styling</b></label>
 					</div>
 		 	   
 		 	   	<div class="tk_field">
 		 	   
-	            <div class="tk_field_label">
+	            <div class="tk_field_label" style="padding: 0 0 0 20px;">
 					<label><a href="javascript:toggle('options_line_#index#','display_line_#index#_css');" id="display_line_#index#_css">show options</a></label>
 	            </div>
 	
@@ -614,14 +634,14 @@ function ColorPicker(ColorPickerDiv) {
 				<div style="display: none;" class="subcontainer" id="options_line_#index#">
 					<div class="tk_field_row">
 						<div class="tk_field_label">
-							<label for="" title=" Line height: "> Line height: </label>
+							<label for="" title="Line height in pixel. Just enter a number">Line height</label>
 						</div>
 						<div class="tk_field">
-							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="" name="cc-config_values[home_widgets_line_height][#index#]">								</div>
+							<input id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_height]" type="text" value="" name="cc-config_values[home_widgets_line_height][#index#]" style="min-width: 70px; width: 70px;">px								</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
-							<label for="" title=" Background Color "> Background Color </label>
+							<label for="" title="Background colour in hexcode (like #000000). Just pick a colour or enter the number (no # before).">Background colour </label>
 						</div>
 						<div class="tk_field">
 							<input onfocus="ColorPicker('.image765765764#index#');" id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" class="image765765764#index# " type="text"  name="cc-config_values[home_widgets_line_background_color][#index#]">
@@ -629,7 +649,7 @@ function ColorPicker(ColorPickerDiv) {
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
-							<label for="" title=" Background Image "> Background image </label>
+							<label for="" title="Background image, upload or insert url.">Background image </label>
 					
 						</div>
 						<div class="tk_field">
@@ -646,19 +666,19 @@ function ColorPicker(ColorPickerDiv) {
 			    		<div class="tk_field_row">
 				 	  
 				            <div class="tk_field_label">
-								<label><b>Widgetareas</b> </label>
+								<label><b>Widget areas</b> </label>
 				            </div>
 			             
 				            <div id="widgetarea_lines_#index#_widgets" class="tk_field">
 				             
 				                <!-- Form template-->
-				                <div id="widgetarea_lines_#index#_widgets_template">
+				                <div id="widgetarea_lines_#index#_widgets_template" class="sub_field_line">
 				                	
 				                	<input type="hidden" id="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" name="cc-config_values[home_widgets_line_widgets_amount][#index#][#index_widgets#]" value="#index_widgets#">
 			
-			                		<label for="widgetarea_lines_#index#_widgets_#index_widgets#_widget"> Widget </label>
-			              			<a href="javascript:toggle('options_line_#index#_widget_#index_widgets#','display_widget_line_#index#_widget_#index_widgets#');" id="display_widget_line_#index#_widget_#index_widgets#">show options</a>
-									<a id="widgetarea_lines_#index#_widgets_remove_current"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0"></a>
+			                		<label for="widgetarea_lines_#index#_widgets_#index_widgets#_widget" style="padding: 0px 0px 0px 20px;">Widgetarea #index#: </label>
+			              			<a href="javascript:toggle('options_line_#index#_widget_#index_widgets#','display_widget_line_#index#_widget_#index_widgets#');" id="display_widget_line_#index#_widget_#index_widgets#" style="padding-top: 2px;">show options</a>
+									<a id="widgetarea_lines_#index#_widgets_remove_current" style="cursor: pointer; float: right;" title="Remove this line!"><img src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0"></a>
 				                
 			                		<div id="options_line_#index#_widget_#index_widgets#" class="subcontainer" style="display: none" >
 									
@@ -731,12 +751,12 @@ function ColorPicker(ColorPickerDiv) {
 				                 
 				                <!-- Controls -->
 				                <div id="widgetarea_lines_#index#_widgets_controls" class="controls">
-				                    <div id="widgetarea_lines_#index#_widgets_add"><a><span>Add Widget</span></a></div>
-				                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a><span>Remove</span></a></div>
-				                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a><span>Remove all</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_add"><a class="button"><span>Add Widget</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_remove_last"><a class="button"><span>Remove last</span></a></div>
+				                    <div id="widgetarea_lines_#index#_widgets_remove_all"><a class="button"><span>Remove all</span></a></div>
 				                    <div id="widgetarea_lines_#index#_widgets_add_n">
-				                        <input id="widgetarea_lines_#index#_widgets_add_n_input" type="text" size="4" />
-				                        <div id="widgetarea_lines_#index#_widgets_add_n_button"><a><span>Add</span></a></div>
+				                        <div id="widgetarea_lines_#index#_widgets_add_n_button"><a class="button"><span>Add</span></a></div>
+				                        <input id="widgetarea_lines_#index#_widgets_add_n_input" style="min-width: 40px;" type="text" size="4" value="2"/> more lines
 				                    </div>
 				                </div>
 				                <!-- /Controls -->
@@ -761,12 +781,15 @@ function ColorPicker(ColorPickerDiv) {
 			   
 		  <!-- Controls -->
 		  <div id="widgetarea_lines_controls" class="tk_field_row">
-		    <div id="widgetarea_lines_add"><a><span>Add one more</span></a></div>
-		    <div id="widgetarea_lines_remove_last"><a><span>Remove</span></a></div>
-		    <div id="widgetarea_lines_remove_all"><a><span>Remove all</span></a></div>
+		    <div id="widgetarea_lines_add"><a class="button button-secondary"><span>Add a line</span></a></div>
+		    <div id="widgetarea_lines_remove_last"><a class="button button-secondary"><span>Remove last</span></a></div>
+		    <div id="widgetarea_lines_remove_all"><a class="button button-secondary"><span>Remove all</span></a></div>
 		    <div id="widgetarea_lines_add_n">
-		      <input id="widgetarea_lines_add_n_input" type="text" size="4" />
-		      <div id="widgetarea_lines_add_n_button"><a><span>Add</span></a></div></div>
+		      <div id="widgetarea_lines_add_n_button">
+		      	<a class="button button-secondary"><span>Add</span></a>
+		      </div>
+		      <input id="widgetarea_lines_add_n_input" type="text" size="4" value="2"/> more lines
+		    </div>
 		  </div>
 		  <!-- /Controls -->
 		   
@@ -779,7 +802,7 @@ function ColorPicker(ColorPickerDiv) {
 		ob_end_clean();
 		
 		$element['id'] = 'global_hompage_add_widget'; 
-		$element['title'] = 'Home Widget areas'; 
+		$element['title'] = 'Home Widget Areas'; 
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
