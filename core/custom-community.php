@@ -708,10 +708,10 @@ function ColorPicker(ColorPickerDiv) {
 											</div>
 											<div class="tk_field">
 												<select id="widgetarea_lines_#index#_widgets_#index_widgets#_background_image_repeat" name="cc-config_values[home_widgets_line_widgets_background_image_repeat[#index#][#index_widgets#]]">
-													<option value="no repeat">no repeat</option>
-													<option value="x">x</option>
-													<option value="y">y</option>
-													<option value="x+y">x+y</option></select>									
+													<option value="no-repeat">no repeat</option>
+													<option value="repeat-x">repeat horizontal</option>
+													<option value="repeat-y">repeat vertical</option>
+													<option value="repeat">repeat both</option></select>									
 											</div>
 										</div>
 											

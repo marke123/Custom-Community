@@ -389,17 +389,17 @@ function cc_widgets_init(){
 		
 	}	
 		
-	for ($ln = 1; $ln <= $tkf->home_widgets_lines_number; $ln++ ){ 
-		
-		for ($wn = 1; $wn <= $tkf->home_widgets_line_widgets_number[$ln]; $wn++ ){
-			
+	foreach( $tkf->home_widgets_line_amount as $line){
+					
+		foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){
+					
 			register_sidebars(1,
 				array(
-					'name' => 'home widget line '.$ln.' widget '.$wn ,
-					'id' => 'home_widget_line_'.$ln.'_widget_'.$wn,
-					'description' => 'Home widget line '.$ln.' widget '.$wn,
-					'before_widget' => '<div id="line_'.$ln.'_widget_'.$wn.'" class="widget home_widget_line">',
-					'after_widget' => '</div><div class="clear"></div>',
+					'name' => 'home widget line '.$line.' widget '.$widget ,
+					'id' => 'home_widget_line_'.$line.'_widget_'.$widget,
+					'description' => 'Home widget line '.$line.' widget '.$widget,
+					'before_widget' => '<div id="line_'.$line.'_widget_'.$widget.'" class="widget home_widget_line">',
+					'after_widget' => '</div>',
 					'before_title' => '<h3 class="widgettitle">',
 					'after_title' => '</h3>'
 				)
