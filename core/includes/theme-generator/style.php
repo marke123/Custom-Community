@@ -3,7 +3,7 @@ function dynamic_css(){
 	global $tkf;
 	
 	if($tkf->menu_x == ""){
-	$tkf->menu_x = 'left'; 
+		$tkf->menu_x = 'left'; 
 	}
 	
 	ob_start(); ?>
@@ -3385,10 +3385,26 @@ function dynamic_css(){
 		$width = 100/count($tkf->home_widgets_line_widgets_amount[$line]) - 1.6;
 		$width = number_format($width,4);
 		?>
+		
+		div#widget_line_<?php echo $line; ?> {
+			height: <?php echo $tkf->home_widgets_line_height[$line]; ?>;
+			background: url(<?php //echo $tkf->home_widgets_line_background_image[$line]; ?>) no-repeat scroll top left  #<?php echo $tkf->home_widgets_line_background_color[$line]; ?>;
+		
+		}
 			
 		div#widget_line_<?php echo $line; ?> div.widget {
 			width: <?php echo $width; ?>%;
 		}
+		
+		<?php foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){ ?>
+		
+			#line_<?php echo $line ?>_widget_<?php echo $widget ?> {
+				height: <?php echo $tkf->home_widgets_line_widgets_height[$line][$widget]; ?>;
+				width: <?php echo $tkf->home_widgets_line_widgets_width[$line][$widget] ?> !important;
+				background: url(<?php // echo $tkf->home_widgets_line_widgets_background_image[$line][$widget]; ?>) <?php // echo $tkf->home_widgets_line_widgets_background_image_repeat[$line][$widget]; ?> scroll top left #<?php echo $tkf->home_widgets_line_widgets_background_color[$line][$widget]; ?>;
+			}
+		
+		<?php } ?>
 		 
 <?php } ?>
 

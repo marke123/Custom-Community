@@ -304,11 +304,14 @@ class featured_posts_widget extends WP_Widget {
 		$featured_posts_pagination_ajax_effect = $instance['featured_posts_pagination_ajax_effect'];
 		
      	
-		$tmp .= '<div class="featured_posts_widget widget">';
+		$tmp .= $before_widget;
 		
-		if(trim($title) == "") { $title = "Weitere Artikel";  }
 		
-		$tmp .= '<h3 class="widgettitle">'.$title.'</h3>';
+		if ( ! empty( $title ) )
+			$tmp .=  $before_title . $title . $after_title;
+		
+		
+		
 		$tmp .= '<ul>';
 		$tmp .= '<div class="border"></div>';
 		
@@ -328,12 +331,14 @@ class featured_posts_widget extends WP_Widget {
 		);
 		$tmp .=  cc_list_posts($atts,$content = null);
 	
-	echo '<pre>';
-		print_r($atts);
-	echo '</pre>';
+//	echo '<pre>';
+//		print_r($atts);
+//	echo '</pre>';
 	
 		$tmp .= '</ul>';
-		$tmp .= '</div>';		
+		$tmp .= $after_widget;
+		
+				
 		
 		echo $tmp;
 		wp_reset_query();
