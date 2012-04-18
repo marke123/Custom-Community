@@ -490,23 +490,120 @@ class Custom_Community{
 			
 			$options[] = $option;
 			
-			?>
+			
 					
-			<?php echo 'list_post_template_amount'. tk_form_textfield( 'list_post_template_amount', array( 'multi_index' => 0 ) ).'<br>'; ?>
+					
+			// post entry options (the post container) ///////////////////////////////// 
+			
+				// post entry: clickable box or not? 
+				echo 'list_post_template_entry_clickable'. tk_form_checkbox( 'list_post_template_entry_clickable', array( 'multi_index' => 0 ) ).'<br>'; 
 				
-			<?php echo 'list_post_template_image_position'. tk_form_select( 'list_post_template_image_position', $options, array( 'multi_index' => 0 ) ).'<br>'; ?>
-		
-			<?php echo 'list_post_template_name'.tk_form_textfield( 'list_post_template_name', array( 'multi_index' => 0 ) ).'<br>'; ?>
+				// post entry: background color fade 
+				echo 'list_post_template_background_color'.tk_form_colorpicker( 'list_post_template_background_color', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_background_color_top'.tk_form_colorpicker( 'list_post_template_background_color_top', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// post entry: background image 
+				echo 'list_post_template_background_image'.tk_form_fileuploader( 'list_post_template_background_image', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_background_image_repeat'. tk_form_select( 'list_post_template_background_image_repeat', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// post entry: width and height 
+				echo 'list_post_template_width'.tk_form_textfield( 'list_post_template_width', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_height'.tk_form_textfield( 'list_post_template_height', array( 'multi_index' => 0 ) ).'<br>'; 
 			
-			<?php echo 'list_post_template_image_height'.tk_form_textfield( 'list_post_template_image_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
-			<?php echo 'list_post_template_image_width'.tk_form_textfield( 'list_post_template_image_width', array( 'multi_index' => 0 ) ).'<br>'; ?>
-			
-			
-			<?php echo 'list_post_template_height'.tk_form_textfield( 'list_post_template_height', array( 'multi_index' => 0 ) ).'<br>'; ?>
-			<?php echo 'list_post_template_width'.tk_form_textfield( 'list_post_template_width', array( 'multi_index' => 0 ) ).'<br>'; ?>
-			
-			<?php echo 'list_post_template_background_color'.tk_form_colorpicker( 'list_post_template_background_color', array( 'multi_index' => 0 ) ).'<br>'; ?>
-			<?php echo 'list_post_template_background_image'.tk_form_fileuploader( 'list_post_template_background_image', array( 'multi_index' => 0 ) ).'<br>'; ?>
+				// post entry: corner radius 
+				echo 'list_post_template_corner_radius'. tk_form_textfield( 'list_post_template_corner_radius', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// post entry: border color 
+				echo 'list_post_template_border_color'.tk_form_colorpicker( 'list_post_template_border_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+
+				// post entry: box shadows for everyone! 
+				echo 'list_post_template_box_shadow_color'.tk_form_colorpicker( 'list_post_template_box_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+
+
+			// featured image options ////////////////////////////////////////////////// 
+
+				// featured image: show or hide. * checked = show = default *  
+				echo 'list_post_template_image_show'. tk_form_checkbox( 'list_post_template_image_show', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// featured image: position 
+				echo 'list_post_template_image_position'. tk_form_select( 'list_post_template_image_position', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+
+				// featured image: width and height 
+				echo 'list_post_template_image_height'.tk_form_textfield( 'list_post_template_image_height', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_image_width'.tk_form_textfield( 'list_post_template_image_width', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// featured image: corner radius 
+				echo 'list_post_template_entry_corner_radius'. tk_form_textfield( 'list_post_template_entry_corner_radius', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// featured image: border color 
+				echo 'list_post_template_image_border_color'.tk_form_colorpicker( 'list_post_template_image_border_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+	
+				// featured image: box shadows 
+				echo 'list_post_template_image_box_shadow_color'.tk_form_colorpicker( 'list_post_template_image_box_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_image_box_shadow_style'. tk_form_select( 'list_post_template_image_box_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+	
+	
+			// title options ////////////////////////////////////////////////// 
+
+				// title: show or hide. * checked = show = default *  
+				echo 'list_post_template_title_show'. tk_form_checkbox( 'list_post_template_title_show', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// title: font color 
+				echo 'list_post_template_title_color'.tk_form_colorpicker( 'list_post_template_title_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+
+				// title: font size 
+				echo 'list_post_template_title_size'. tk_form_textfield( 'list_post_template_title_size', array( 'multi_index' => 0 ) ).'<br>'; 
+				
+				// title: font family 
+				echo 'list_post_template_title_font_family'. tk_form_select( 'list_post_template_title_font_family', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// title: font weight 
+				echo 'list_post_template_title_font_weight'. tk_form_select( 'list_post_template_title_font_weight', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// title: font style 
+				echo 'list_post_template_title_font_style'. tk_form_select( 'list_post_template_title_font_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// title: text shadows 
+				echo 'list_post_template_title_text_shadow_color'.tk_form_colorpicker( 'list_post_template_title_text_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_title_text_shadow_style'. tk_form_select( 'list_post_template_title_text_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+
+
+			// content options ////////////////////////////////////////////////// 
+
+				// content: show or hide. * checked = show = default *  
+				echo 'list_post_template_content_show'. tk_form_checkbox( 'list_post_template_content_show', array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// content: font color 
+				echo 'list_post_template_content_font_color'.tk_form_colorpicker( 'list_post_template_content_font_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+				
+				// content: link color 
+				echo 'list_post_template_content_link_color'.tk_form_colorpicker( 'list_post_template_content_link_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+				
+				// content: font size 
+				echo 'list_post_template_content_font_size'. tk_form_textfield( 'list_post_template_content_font_size', array( 'multi_index' => 0 ) ).'<br>'; 
+				
+				// content: font family 
+				echo 'list_post_template_content_font_family'. tk_form_select( 'list_post_template_content_font_family', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// content: font weight 
+				echo 'list_post_template_content_font_weight'. tk_form_select( 'list_post_template_content_font_weight', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// content: font style 
+				echo 'list_post_template_content_font_style'. tk_form_select( 'list_post_template_content_font_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+
+				// content: text shadows 
+				echo 'list_post_template_content_text_shadow_color'.tk_form_colorpicker( 'list_post_template_content_text_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_content_text_shadow_style'. tk_form_select( 'list_post_template_content_text_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				
+				// custom css
+				echo 'list_post_template_custom_css'. tk_form_textfield( 'list_post_template_entry_corner_radius', array( 'multi_index' => 0 ) ).'<br>'; 	
+				
+				// names and amount of created list post templates  					
+				echo 'list_post_template_amount'. tk_form_textfield( 'list_post_template_amount', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_name'.tk_form_textfield( 'list_post_template_name', array( 'multi_index' => 0 ) ).'<br>'; 
+						
+			?>
 		
 		</div>	
 
