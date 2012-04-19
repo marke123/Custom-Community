@@ -3414,10 +3414,12 @@ function dynamic_css(){
 	/* List Posts Templates :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 	
 	
+	/* that's the post entry */
 	.listposts {
-		width: 100%;
+		width: auto;
 	}
 	
+	/* that's the wrap around */
 	.list-posts-all {
 		width: 100%;
 		margin-bottom: 25px;
