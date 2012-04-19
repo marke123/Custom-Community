@@ -373,11 +373,32 @@ function cc_list_posts($atts,$content = null) {
 	
 	
 	if(is_numeric($img_position)){
-		$featured_posts_image_width = $tkf->list_post_template_width[$img_position];
-		$featured_posts_image_height = $tkf->list_post_template_height[$img_position];
+		$arrayindex = $img_position;
+		$featured_posts_image_width = $tkf->list_post_template_width[$arrayindex];
+		$featured_posts_image_height = $tkf->list_post_template_height[$arrayindex];
 		
-		$img_position = $tkf->list_post_template_image_position[$img_position];
-					
+		$img_position = $tkf->list_post_template_image_position[$arrayindex];
+		
+			 
+		ob_start(); ?>
+		
+		
+		<style>
+				
+			div.posts-img-right-content-left {
+			    background: none repeat scroll 0 0 #<?php echo $tkf->list_post_template_background_color[$arrayindex] ?>;
+			    float: right;
+			    padding: 20px 0 0;
+			}
+			
+				
+		</style>
+		
+		
+		<?php	
+		$tmp .= ob_get_contents();
+		ob_end_clean(); 
+						
 	}
 	
 	if($category_name == 'all-categories'){
