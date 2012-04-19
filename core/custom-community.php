@@ -293,13 +293,12 @@ class Custom_Community{
 			tk_select_add_option( 'home_featured_posts_category', $category->slug , $category->name );
 			
 		}
-
-		foreach ($tkf->list_post_template_name as $key => $value) {
-			tk_select_add_option( 'home_featured_posts_style', $key , $value );
-		}
 		
-		
-		
+		if( is_array( $tkf->list_post_template_name ) ):
+			foreach ( $tkf->list_post_template_name as $key => $value) {
+				tk_select_add_option( 'home_featured_posts_style', $key , $value );
+			}
+		endif;
 		
 		$args=array(
 		  'public'   => true,
@@ -372,7 +371,28 @@ class Custom_Community{
 	<?php }	
 	
 	function admin_head(){ ?>
+
+<script type="text/javascript">
+	function ColorPicker(ColorPickerDiv) {
+		
+		jQuery(document).ready(function($){
+			$(ColorPickerDiv).ColorPicker({
+				onSubmit: function(hsb, hex, rgb, el) {
+					$(el).val(hex);
+					$(el).ColorPickerHide();
+				},
+				onBeforeShow: function () {
+					$(this).ColorPickerSetColor(this.value);
+				}
+			})
+			.bind('keyup', function(){
+				$(this).ColorPickerSetColor(this.value);
+			});
+		});
+	}
+</script>		
 	
+
 
 		<style>
 		
@@ -399,17 +419,16 @@ class Custom_Community{
 		$tmp .= '';
 			
 		ob_start();?>
-	
-	
+
 	<script language="javascript"> 
       function togglediv(showHideDiv, switchTextDiv) {
         var ele = document.getElementById(showHideDiv);
         var text = document.getElementById(switchTextDiv);
         if(ele.style.display == "block") {
-              ele.style.display = "none";
-          }
+          ele.style.display = "none";
+         }
         else {
-          ele.style.display = "block";
+           ele.style.display = "block";
         }
       } 
 	</script>
@@ -437,15 +456,73 @@ class Custom_Community{
 			        data: [
 					<?php foreach( $tkf->list_post_template_amount as $line){ ?>
 					{
-		                'list_post_template_#index#_cc-config_values[list_post_template_name]': '<?php echo $tkf->list_post_template_name[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_image_height]': '<?php echo $tkf->list_post_template_image_height[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_image_width]': '<?php echo $tkf->list_post_template_image_width[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_height]': '<?php echo $tkf->list_post_template_height[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_width]': '<?php echo $tkf->list_post_template_width[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_positiont[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_background_color]': '<?php echo $tkf->list_post_template_background_color[$line]; ?>',
-		                'list_post_template_#index#_cc-config_values[list_post_template_background_image]': '<?php echo $tkf->list_post_template_background_image[$line]; ?>',
-			        },
+					'list_post_template_#index#_cc-config_values[list_post_template_entry_clickable]': '<?php echo $tkf->list_post_template_entry_clickable[$line]; ?>',
+			    	
+					'list_post_template_#index#_cc-config_values[list_post_template_background_color]': '<?php echo $tkf->list_post_template_background_color[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_background_color_top]': '<?php echo $tkf->list_post_template_background_color_top[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_background_image]': '<?php echo $tkf->list_post_template_background_image[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_background_image_repeat]': '<?php echo $tkf->list_post_template_background_image_repeat[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_width]': '<?php echo $tkf->list_post_template_width[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_height]': '<?php echo $tkf->list_post_template_height[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_corner_radius]': '<?php echo $tkf->list_post_template_corner_radius[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_border_color]': '<?php echo $tkf->list_post_template_border_color[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_box_shadow_color]': '<?php echo $tkf->list_post_template_box_shadow_color[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]': '<?php echo $tkf->list_post_template_box_shadow_style[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_image_show]': '<?php echo $tkf->list_post_template_image_show[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_image_position]': '<?php echo $tkf->list_post_template_image_position[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_image_height]': '<?php echo $tkf->list_post_template_image_height[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_image_width]': '<?php echo $tkf->list_post_template_image_width[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_entry_corner_radius]': '<?php echo $tkf->list_post_template_entry_corner_radius[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_image_border_color]': '<?php echo $tkf->list_post_template_image_border_color[$line]; ?>',
+		
+					'list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_color]': '<?php echo $tkf->list_post_template_image_box_shadow_color[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]': '<?php echo $tkf->list_post_template_image_box_shadow_style[$line]; ?>',
+		
+					'list_post_template_#index#_cc-config_values[list_post_template_title_show]': '<?php echo $tkf->list_post_template_title_show[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_title_color]': '<?php echo $tkf->list_post_template_title_color[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_title_size]': '<?php echo $tkf->list_post_template_title_size[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_title_font_family]': '<?php echo $tkf->list_post_template_title_font_family[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_title_font_weight]': '<?php echo $tkf->list_post_template_title_font_weight[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_title_font_style]': '<?php echo $tkf->list_post_template_title_font_style[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_color]': '<?php echo $tkf->list_post_template_title_text_shadow_color[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style]': '<?php echo $tkf->list_post_template_title_text_shadow_style[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_content_show]': '<?php echo $tkf->list_post_template_content_show[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_content_font_color]': '<?php echo $tkf->list_post_template_content_font_color[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_content_link_color]': '<?php echo $tkf->list_post_template_content_link_color[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_content_font_size]': '<?php echo $tkf->list_post_template_content_font_size[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_content_font_family]': '<?php echo $tkf->list_post_template_content_font_family[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_content_font_weight]': '<?php echo $tkf->list_post_template_content_font_weight[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_content_font_style]': '<?php echo $tkf->list_post_template_content_font_style[$line]; ?>',
+	
+					'list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_color]': '<?php echo $tkf->list_post_template_content_text_shadow_color[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style]': '<?php echo $tkf->list_post_template_content_text_shadow_style[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_amount]': '<?php echo $tkf->list_post_template_amount[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_name]': '<?php echo $tkf->list_post_template_name[$line]; ?>',
+					},
 					
 				<?php } ?>
 	
@@ -596,12 +673,12 @@ class Custom_Community{
 				echo 'list_post_template_content_text_shadow_color'.tk_form_colorpicker( 'list_post_template_content_text_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
 				echo 'list_post_template_content_text_shadow_style'. tk_form_select( 'list_post_template_content_text_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
 				
-				// custom css
-				echo 'list_post_template_custom_css'. tk_form_textfield( 'list_post_template_entry_corner_radius', array( 'multi_index' => 0 ) ).'<br>'; 	
-				
 				// names and amount of created list post templates  					
 				echo 'list_post_template_amount'. tk_form_textfield( 'list_post_template_amount', array( 'multi_index' => 0 ) ).'<br>'; 
 				echo 'list_post_template_name'.tk_form_textfield( 'list_post_template_name', array( 'multi_index' => 0 ) ).'<br>'; 
+					
+				// custom css
+				//echo 'list_post_template_custom_css'. tk_form_textarea( 'list_post_template_entry_corner_radius', array( 'multi_index' => 0 ) ).'<br>'; 	
 						
 			?>
 		
@@ -636,81 +713,459 @@ class Custom_Community{
 		 	   
 				
 				<div style="display: none;" class="subcontainer" id="list_post_template_options_#index#">
-				
-
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title="Image position">Image position</label>
-						</div>
-						<div class="tk_field">
-							<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="list_post_template_#index#_cc-config_values[list_post_template_image_position][#index#]">
-								<option value="no-image">no image</option>
-								<option value="posts-img-left-content-right">left</option>
-								<option value="posts-img-right-content-left">right</option>
-								<option value="posts-img-over-content">top</option>
-								<option value="posts-img-under-content">bottom</option></select>									
-						</div>
-					</div>
-										
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title=" Template height: "> Image height: </label>
-						</div>
-						<div class="tk_field">
-							<input id="list_post_template_#index#_cc-config_values[list_post_template_image_height]" type="text" value="" name="cc-config_values[list_post_template_image_height][#index#]">								
-						</div>
-					</div>	
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title=" Template width: "> Image width: </label>
-						</div>
-						<div class="tk_field">
-							<input id="list_post_template_#index#_cc-config_values[list_post_template_image_width]" type="text" value="" name="cc-config_values[list_post_template_image_width][#index#]">								
-						</div>
-					</div>				
-
-
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title=" Template height: "> List post height: </label>
-						</div>
-						<div class="tk_field">
-							<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
-						</div>
-					</div>	
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title=" Template width: "> List post width: </label>
-						</div>
-						<div class="tk_field">
-							<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
-						</div>
-					</div>
 					
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title=" Background Color "> Background Color </label>
-						</div>
-						<div class="tk_field">
-							<input onfocus="ColorPicker('.image76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color]" class="image765765764#index# " type="text"  name="cc-config_values[list_post_template_background_color][#index#]">
-							</div>
-					</div>
-					<div class="tk_field_row">
-						<div class="tk_field_label">
-							<label for="" title=" Background Image "> Background image </label>
-					
-						</div>
-						<div class="tk_field">
-							<input id="list_post_template_#index#_cc-config_values[list_post_template_background_image]" type="text"  name="cc-config_values[list_post_template_background_image][#index#]">
-							<input class="tk_fileuploader" type="button" value="Browse ...">
-							<img id="list_post_template_#index#_cc-config_values[home_widgets_line_background_image]" class="tk_image_preview">
-						</div>
-					</div>
-				</div>
 			
+			<!-- post entry options (the post container) ///////////////////////////////// -->
+			
+					<a href="javascript:togglediv('list_post_template_entry_options_#index#','list_post_template_entry#index#');" id="list_post_template_entry#index#">
+						<div class="tk_field_row">
+							<p><span class="tk_row_title"> post entry options (the post container) </span></p>
+						
+						</div>
+					</a>
+					
+					<div style="display: none;" class="subcontainer" id="list_post_template_entry_options_#index#">
+						
+						<!-- post entry: clickable box or not? -->
+						
+						<div class="tk_field_row">
+							post entry: clickable box:
+							<input type="checkbox" id="list_post_template_entry_clickable" name="cc-config_values[list_post_template_entry_clickable]">
+						</div>
+						
+						<!-- post entry: background color fade -->
+							
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Background Color "> Background color fade</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color][#index#]">
+								</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Background Color "> Background Color fade top </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color_top]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color_top][#index#]">
+								</div>
+						</div>
+					
+						<!-- post entry: background image -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Background Image "> Background image </label>
+						
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_background_image]" type="text"  name="cc-config_values[list_post_template_background_image][#index#]">
+								<input class="tk_fileuploader" type="button" value="Browse ...">
+								<img id="list_post_template_#index#_cc-config_values[home_widgets_line_background_image]" class="tk_image_preview">
+							</div>
+						</div>
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="background image repeat">Background image repeat</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_background_image_repeat]" name="list_post_template_#index#_cc-config_values[list_post_template_background_image_repeat][#index#]">
+									<option value="no-repeat">no repeat</option>
+									<option value="repeat-x">repeat horizontal</option>
+									<option value="repeat-y">repeat vertical</option>
+									<option value="repeat">repeat both</option></select>									
+							</div>
+						</div>
+					
+						<!-- post entry: width and height -->
+							
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Template width: "> List post width: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
+							</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Template height: "> List post height: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
+							</div>
+						</div>	
+						
+						<!-- post entry: corner radius -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" post entry: corner radius: "> post entry: corner radius: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_corner_radius]" type="text" value="" name="cc-config_values[list_post_template_corner_radius][#index#]">								
+							</div>
+						</div>	
+						
+						<!-- post entry: border color -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" border color "> border color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_border_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_border_color][#index#]">
+								</div>
+						</div>
+				
+						<!-- post entry: box shadows for everyone! -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" border color "> box shadows color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_box_shadow_color][#index#]">
+								</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="background image repeat">box shadow style</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style][#index#]">
+									<option value="no-repeat">no repeat</option>
+									<option value="repeat-x">repeat horizontal</option>
+									<option value="repeat-y">repeat vertical</option>
+									<option value="repeat">repeat both</option></select>									
+							</div>
+						</div>
+					
+					</div>
+					
+			
+			<!-- featured image options ////////////////////////////////////////////////// -->
+		
+					<a href="javascript:togglediv('list_post_template_image_options_#index#','list_post_template_image#index#');" id="list_post_template_image#index#">
+						<div class="tk_field_row">
+							<p><span class="tk_row_title">featured image options</span></p>
+						
+						</div>
+					</a>
+					
+					<div style="display: none;" class="subcontainer" id="list_post_template_image_options_#index#">
+						
+						<!-- featured image: show or hide. * checked = show = default *  -->
+						
+						<div class="tk_field_row">
+							hide featured image:
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_image_show]" name="cc-config_values[list_post_template_image_show]">
+						</div>
+						
+						<!-- featured image: position -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Image position">Image position</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="cc-config_values[list_post_template_image_position][#index#]">
+									<option value="no-image">no image</option>
+									<option value="posts-img-left-content-right">left</option>
+									<option value="posts-img-right-content-left">right</option>
+									<option value="posts-img-over-content">top</option>
+									<option value="posts-img-under-content">bottom</option></select>									
+							</div>
+						</div>
+						
+						<!-- featured image: width and height -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Template height: "> Image height: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_image_height]" type="text" value="" name="cc-config_values[list_post_template_image_height][#index#]">								
+							</div>
+						</div>	
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" Template width: "> Image width: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_image_width]" type="text" value="" name="cc-config_values[list_post_template_image_width][#index#]">								
+							</div>
+						</div>	
+						
+						<!-- featured image: corner radius -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" featured image: corner radius: "> featured image: corner radius: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_entry_corner_radius]" type="text" value="" name="cc-config_values[list_post_template_entry_corner_radius][#index#]">								
+							</div>
+						</div>	
+						
+						
+						<!-- featured image: border color -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" border color "> border color: </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_image_border_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_image_border_color][#index#]">
+								</div>
+						</div>
+				
+						<!-- featured image: box shadows -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" border color "> box shadows color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_image_box_shadow_color][#index#]">
+								</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="background image repeat">box shadow style</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style][#index#]">
+									<option value="no-repeat">no repeat</option>
+									<option value="repeat-x">repeat horizontal</option>
+									<option value="repeat-y">repeat vertical</option>
+									<option value="repeat">repeat both</option></select>									
+							</div>
+						</div>
+					</div>
+					
+					
+			<!-- title options ////////////////////////////////////////////////// -->
+					
+					<a href="javascript:togglediv('list_post_template_title_options_#index#','list_post_template_title#index#');" id="list_post_template_title#index#">
+						<div class="tk_field_row">
+							<p><span class="tk_row_title">title </span></p>
+						
+						</div>
+					</a>
+		
+					<div style="display: none;" class="subcontainer" id="list_post_template_title_options_#index#">
+										
+						<!-- title: show or hide. * checked = show = default *  -->
+						<div class="tk_field_row">
+							title: show or hide:
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_title_show]" name="cc-config_values[list_post_template_title_show]">
+						</div>
+						
+						<!-- title: font color -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font color "> font color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_title_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_title_color][#index#]">
+								</div>
+						</div>
+						
+						<!-- title: font size -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" font size: "> font size: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_title_size]" type="text" value="" name="cc-config_values[list_post_template_title_size][#index#]">								
+							</div>
+						</div>	
+						
+						<!-- title: font family -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font family">font family</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_family][#index#]">
+								</select>
+							</div>
+						</div>
+						
+						<!-- title: font weight -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font weight">font weight</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight][#index#]">
+								</select>
+							</div>
+						</div>
+					
+						<!-- title: font style -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font style">font style</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_style]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_style][#index#]">
+								</select>
+							</div>
+						</div>
+				
+						<!-- title: text shadows -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" border color "> text shadows color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_title_text_shadow_color][#index#]">
+							</div>
+						</div>
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="background image repeat">text shadows style</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style][#index#]">
+									<option value="no-repeat">no repeat</option>
+									<option value="repeat-x">repeat horizontal</option>
+									<option value="repeat-y">repeat vertical</option>
+									<option value="repeat">repeat both</option>
+								</select>									
+							</div>
+						</div>
+					
+							
+					</div>
+					
+					
+			<!-- content options ////////////////////////////////////////////////// -->
+		
+					<a href="javascript:togglediv('list_post_template_content_options_#index#','list_post_template_content#index#');" id="list_post_template_content#index#">
+						<div class="tk_field_row">
+							<p><span class="tk_row_title">content </span></p>
+						
+						</div>
+					</a>
+					
+					<div style="display: none;" class="subcontainer" id="list_post_template_content_options_#index#">
+						
+						<!-- content: show or hide. * checked = show = default *  -->
+						<div class="tk_field_row">
+							featured image: show or hide:
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_content_show]" name="cc-config_values[list_post_template_content_show]">
+						</div>
+						
+						<!-- content: font color -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font color "> font color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_font_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_font_color][#index#]">
+								</div>
+						</div>
+						
+						<!-- content: font size -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" font size: "> font size: </label>
+							</div>
+							<div class="tk_field">
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_content_font_size]" type="text" value="" name="cc-config_values[list_post_template_content_font_size][#index#]">								
+							</div>
+						</div>	
+						
+						<!-- content: font family -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font family">font family</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_family][#index#]">
+							</div>
+						</div>
+						
+						<!-- content: font weight -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font weight">font weight</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight][#index#]">
+								</select>
+							</div>
+						</div>
+					
+						<!-- content: font style -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="font style">font style</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_style]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_style][#index#]">
+								</select>
+							</div>
+						</div>
+				
+						<!-- content: text shadows -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title=" border color "> text shadows color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_text_shadow_color][#index#]">
+							</div>
+						</div>
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="background image repeat">text shadows style</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style][#index#]">
+									<option value="no-repeat">no repeat</option>
+									<option value="repeat-x">repeat horizontal</option>
+									<option value="repeat-y">repeat vertical</option>
+									<option value="repeat">repeat both</option>
+								</select>									
+							</div>
+						</div>
+							
+						
+								
+					</div>
+					
+				<!-- Custom CSS ////////////////////////////////////////////////// -->
+		
+					<a href="javascript:togglediv('list_post_template_css_options_#index#','list_post_template_content#index#');" id="list_post_template_css#index#">
+						<div class="tk_field_row">
+							<p><span class="tk_row_title">Custom CSS </span></p>
+						
+						</div>
+					</a>
+					
+					<div style="display: none;" class="subcontainer" id="list_post_template_css_options_#index#">
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label title="" for="login_page_css">Custom CSS</label>
+							</div>
+							<div class="tk_field">
+					<!--				<textarea class="lined" id="list_post_template_#index#_cc-config_values[list_post_template_custom_css]" name="list_post_template_#index#_cc-config_values[list_post_template_custom_css][#index#]"></textarea> -->
+							</div>
+						</div>
+					</div>
+								
+							
+
+
+
+			</div>
 		</div>
-		  
-		  </div>
+	</div>
 		  <!-- /Form template-->
 		   
 		<div class="tk_field_row">
@@ -792,7 +1247,8 @@ class Custom_Community{
 		            {
 		                id: 'widgetarea_lines_#index#_widgets',
 		                options: {
-		                	allowRemoveLast: false,
+		                	separator: '',
+				        	allowRemoveLast: false,
 							allowRemoveCurrent: true,
 							allowRemoveAll: true,
 							allowAdd: true,
@@ -864,7 +1320,7 @@ class Custom_Community{
 			div.subcontainer .tk_field .tk_field_label {
 			    width: 50%;
 			}
-			div#widgetarea_lines_controls div {
+			div#widgetarea_lines_add {
 			    padding-top: 7px;
 			}
 			div#widgetarea_lines_noforms_template {
@@ -900,29 +1356,6 @@ class Custom_Community{
 	        }
 	      } 
 	    </script>
-      
-
-<script type="text/javascript">
-function ColorPicker(ColorPickerDiv) {
-	
-	jQuery(document).ready(function($){
-		$(ColorPickerDiv).ColorPicker({
-			onSubmit: function(hsb, hex, rgb, el) {
-				$(el).val(hex);
-				$(el).ColorPickerHide();
-			},
-			onBeforeShow: function () {
-				$(this).ColorPickerSetColor(this.value);
-			}
-		})
-		.bind('keyup', function(){
-			$(this).ColorPickerSetColor(this.value);
-		});
-	});
-}
-</script>		
-						
-
 
 		<div class="tk_field_row">
 
@@ -1017,8 +1450,8 @@ function ColorPicker(ColorPickerDiv) {
 							<label for="" title="Background colour in hexcode (like #000000). Just pick a colour or enter the number (no # before).">Background colour </label>
 						</div>
 						<div class="tk_field">
-							<input onfocus="ColorPicker('.image765765764#index#');" id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" class="image765765764#index# " type="text"  name="cc-config_values[home_widgets_line_background_color][#index#]">
-							</div>
+							<input onfocus="ColorPicker('.image765765764#index#');" id="widgetarea_lines_#index#_cc-config_values[home_widgets_line_background_color]" class="image765765764#index#" type="text"  name="cc-config_values[home_widgets_line_background_color][#index#]">
+						</div>
 					</div>
 					<div class="tk_field_row">
 						<div class="tk_field_label">
