@@ -3,6 +3,9 @@
 	<div id="content">
 		<div class="padder">
 		<?php global $tkf; ?>
+		
+			<?php do_action( 'cc_first_inside_padder' ); ?>
+		
 			<?php do_action( 'bp_before_blog_home' ) ?>
 		
 			<?php if( $tkf->use_widgetized_home != 'on') { ?>

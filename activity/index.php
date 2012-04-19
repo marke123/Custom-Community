@@ -16,6 +16,8 @@
 	<div id="content">
 		<div class="padder">
 
+			<?php do_action( 'cc_first_inside_padder' ); ?>
+			
 			<?php do_action( 'bp_before_directory_activity' ); ?>
 
 			<?php if ( !is_user_logged_in() ) : ?>
