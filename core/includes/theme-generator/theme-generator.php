@@ -27,6 +27,7 @@ class CC_Theme_Generator{
 		// load predefined constants first
 		add_action( 'bp_head', array( $this, 'load_constants' ), 2 );
 		add_filter('body_class', array( $this, 'home_body_class'), 10 );
+		add_filter( 'wp_page_menu_args', array( $this, 'remove_home_nav_from_fallback'), 100 ); 
 		
 	}
 	

@@ -229,29 +229,7 @@
 			
 			<div id="side-info-column" class="inner-sidebar">
 				
-				<accordion id="cc_config_sidebar">
-					
-					<section title="Save" id='sidebar-save'>
-						
-						<div id="major-publishing-actions">
-								<div class="save_it">Save theme settings</div>
-								<div id="publishing-action" class="cc_settings_save">
-									<input type="submit" id="Save" value="Save" class="button-primary" />
-								</div>
-						</div>
-						
-					</section>
-					
-					<section title="Import / Export" id='sidebar-import-export'>
-						
-						<div id="minor-publishing">
-							<export name="Export settings" label="Export" forms="cc-config" />
-							<import name="Import settings" label="Import" />
-						</div>
-				
-					</section>
-						
-				</accordion>
+
 				
 				<div id="side-sortables" class="meta-box-sortables ui-sortable">
 				
