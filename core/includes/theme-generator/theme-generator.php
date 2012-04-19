@@ -954,6 +954,10 @@ function before_group_home_content(){
 	global $Theme_Generator;
 	$Theme_Generator->before_group_home_content();
 }
+function before_member_home_content(){
+	global $Theme_Generator;
+	$Theme_Generator->before_member_home_content();
+}
 function custom_login(){
 	global $Theme_Generator;
 	$Theme_Generator->custom_login();
