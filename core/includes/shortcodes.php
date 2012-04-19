@@ -363,15 +363,6 @@ function cc_list_posts($atts,$content = null) {
 	
 	), $atts));
 		
-	echo '$img_position :'. $img_position;	
-	
-	
-	print($tkf->list_post_template_image_position);
-	
-	
-	echo '<br>home_featured_posts_style'. $tkf->list_post_template_image_position[$img_position];
-	
-	
 	if(is_numeric($img_position)){
 		$arrayindex = $img_position;
 		$featured_posts_image_width = $tkf->list_post_template_width[$arrayindex];
