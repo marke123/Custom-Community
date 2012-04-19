@@ -442,11 +442,11 @@ class Custom_Community{
 			var widgetarea_lines = jQuery('#list_post_template').sheepIt({
 			
 				separator: '',
-				allowRemoveLast: true,
+				allowRemoveLast: false,
 				allowRemoveCurrent: true,
 				allowRemoveAll: true,
 				allowAdd: true,
-				allowAddN: true,
+				allowAddN: false,
 				
 				maxFormsCount: 10,
 				minFormsCount: 0,
@@ -729,15 +729,15 @@ class Custom_Community{
 						<!-- post entry: clickable box or not? -->
 						
 						<div class="tk_field_row">
-							post entry: clickable box:
+							make the post a clickable box:
 							<input type="checkbox" id="list_post_template_entry_clickable" name="cc-config_values[list_post_template_entry_clickable]">
 						</div>
 						
-						<!-- post entry: background color fade -->
+						<!-- post entry: background color or fade -->
 							
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Background Color "> Background color fade</label>
+								<label for="" title=" Background Color ">Background color</label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color][#index#]">
@@ -745,10 +745,10 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Background Color "> Background Color fade top </label>
+								<label for="" title=" Background Color ">Background color (fade top) </label>
 							</div>
 							<div class="tk_field">
-								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color_top]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color_top][#index#]">
+								<input  onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color_top]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color_top][#index#]">
 								</div>
 						</div>
 					
@@ -756,7 +756,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Background Image "> Background image </label>
+								<label for="" title=" Background Image ">Background image</label>
 						
 							</div>
 							<div class="tk_field">
@@ -783,7 +783,7 @@ class Custom_Community{
 							
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Template width: "> List post width: </label>
+								<label for="" title=" Template width, in pixel or %, example: 200px or 50%">List post width <br><span style="font-size:10px; color: #999999;">example: 200px or 50%</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
@@ -791,7 +791,7 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Template height: "> List post height: </label>
+								<label for="" title=" Template height, in pixel, example: 120px">List post height <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
@@ -802,7 +802,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" post entry: corner radius: "> post entry: corner radius: </label>
+								<label for="" title="post entries with rounded corners? example: 11px **note: IE doesn't support Rounded Corners..">Corner radius <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_corner_radius]" type="text" value="" name="cc-config_values[list_post_template_corner_radius][#index#]">								
@@ -813,7 +813,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> border color </label>
+								<label for="" title=" border color ">Border color</label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_border_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_border_color][#index#]">
@@ -824,7 +824,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> box shadows color </label>
+								<label for="" title=" border color ">Box shadow color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_box_shadow_color][#index#]">
@@ -832,14 +832,13 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="background image repeat">box shadow style</label>
+								<label for="" title="Box shadow style, inside or outside? **note for inside effect: the shadowcolor should be brighter than the post-entry and background color">Box shadow style</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style][#index#]">
-									<option value="no-repeat">no repeat</option>
-									<option value="repeat-x">repeat horizontal</option>
-									<option value="repeat-y">repeat vertical</option>
-									<option value="repeat">repeat both</option></select>									
+									<option value="outside">outside</option>
+									<option value="inside">inside</option>
+								</select>									
 							</div>
 						</div>
 					
