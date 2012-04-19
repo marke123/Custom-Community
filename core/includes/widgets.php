@@ -295,10 +295,6 @@ class featured_posts_widget extends WP_Widget {
     
 		$selected_post_type = esc_attr($instance['featured_posts_post_type']);
         
-		$featured_posts_image_width = $instance['featured_posts_image_width'];
-		$featured_posts_image_height = $instance['featured_posts_image_height'];
-		
-		
 		$featured_posts_background_color = $instance['featured_posts_background_color'];
 		$featured_posts_show_sticky = $instance['featured_posts_show_sticky'];
 		$featured_posts_show_pages_by_id = $instance['featured_posts_show_pages_by_id'];
@@ -331,9 +327,6 @@ class featured_posts_widget extends WP_Widget {
 			'show_pagination_wp_pagenavi' => 'hide',
 			'posts_per_page' => $featured_posts_posts_per_page,
 			'featured_id' => $widget_id,
-			'featured_posts_image_width' => $featured_posts_image_width , 
-			'featured_posts_image_height' => $featured_posts_image_height , 
-			
 		);
 		$tmp .=  cc_list_posts($atts,$content = null);
 	
@@ -354,16 +347,13 @@ class featured_posts_widget extends WP_Widget {
         return $new_instance;
     }
     function form($instance) {
+    	global $tkf;
         //widgetform in backend
         $selected_category = esc_attr($instance['category']);
         $selected_post_type = esc_attr($instance['featured_posts_post_type']);
         $title = strip_tags($instance['title']);
 		$listing_style = esc_attr($instance['featured_posts_listing_style']);
 		
-		
-		
-		$featured_posts_image_width = $instance['featured_posts_image_width'];
-		$featured_posts_image_height = $instance['featured_posts_image_height'];
 		
 		
 		$featured_posts_background_color = $instance['featured_posts_background_color'];
@@ -419,19 +409,13 @@ class featured_posts_widget extends WP_Widget {
 			   	<option <?php if($listing_style == 'posts-img-under-content'){ ?> selected <?php } ?> value="posts-img-under-content">posts-img-under-content</option>
 			   	<option <?php if($listing_style == 'bubbles'){ ?> selected <?php } ?> value="bubbles">bubbles</option><option value="default">default</option>
 			   	<option <?php if($listing_style == 'default'){ ?> selected <?php } ?> value="pro">more options in the pro version</option>
+		
+		<?php if(is_array($tkf->list_post_template_name)){	foreach ($tkf->list_post_template_name as $key => $value) { ?>
+			   	<option <?php if($listing_style == $key){ ?> selected <?php } ?> value="<?php echo $key ?>"><?php echo $value ?></option>
+		<?php } } ?>
+		
 			 </select>
 		</p>							
-		
-	
-		
-		<p>
-			<label for="<?php echo $this->get_field_id('featured_posts_image_width'); ?>">Image width: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_image_width'); ?>" name="<?php echo $this->get_field_name('featured_posts_image_width'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_image_width); ?>" />
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('featured_posts_image_height'); ?>">Image height: </label>
-            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_image_height'); ?>" name="<?php echo $this->get_field_name('featured_posts_image_height'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_image_height); ?>" />
-		</p>
 		
 		<p>
 			<label for="<?php echo $this->get_field_id('featured_posts_show_sticky'); ?>">Show only sticky posts: </label><br />
