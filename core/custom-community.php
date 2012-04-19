@@ -293,13 +293,12 @@ class Custom_Community{
 			tk_select_add_option( 'home_featured_posts_category', $category->slug , $category->name );
 			
 		}
-
-		foreach ($tkf->list_post_template_name as $key => $value) {
-			tk_select_add_option( 'home_featured_posts_style', $key , $value );
-		}
 		
-		
-		
+		if( is_array( $tkf->list_post_template_name ) ):
+			foreach ( $tkf->list_post_template_name as $key => $value) {
+				tk_select_add_option( 'home_featured_posts_style', $key , $value );
+			}
+		endif;
 		
 		$args=array(
 		  'public'   => true,
