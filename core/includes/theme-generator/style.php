@@ -3422,7 +3422,7 @@ function dynamic_css(){
 	/* that's the wrap around */
 	.list-posts-all {
 		width: 100%;
-		margin-bottom: 25px;
+		margin-bottom: 20px;
 	}
 	
 	
@@ -3539,7 +3539,6 @@ function dynamic_css(){
 	
 	div.posts-img-right-content-left {
 		padding: 20px 0 0 0;
-		float: right;
 	}
 	
 	div.posts-img-right-content-left img.wp-post-image {

@@ -370,17 +370,38 @@ function cc_list_posts($atts,$content = null) {
 		
 		
 	if(is_numeric($img_position)){
+			
 		$arrayindex = $img_position;
 		$img_position = $tkf->list_post_template_image_position[$arrayindex];
-		$featured_posts_image_width = $tkf->list_post_template_width[$arrayindex];
-		$featured_posts_image_height = $tkf->list_post_template_height[$arrayindex];
 		$template_name = sanitize_title($tkf->list_post_template_name[$arrayindex]);
+		
+		// only sets the image width if there is a value
+		if ( $tkf->list_post_template_image_width[$arrayindex] != "" ) {
+			$featured_posts_image_width = $tkf->list_post_template_image_width[$arrayindex];	
+		} 
+		
+		// only sets the image width if there is a value for height,   
+		// if not, but there's a value for the width: then use the value calculated from the width! 
+		if ( $tkf->list_post_template_image_height[$arrayindex] != "" ) {
+			$featured_posts_image_height = $tkf->list_post_template_image_height[$arrayindex]; 
+			} elseif ( $tkf->list_post_template_image_width[$arrayindex] != "" ) {
+				$featured_posts_image_height = $featured_posts_image_width / 1.47058824;
+				$featured_posts_image_height = number_format($featured_posts_image_height,0);
+				$featured_posts_image_height = $featured_posts_image_height;
+			}
+			
 			 
 		ob_start(); ?>
 		
 		
 		<style>
-				
+			
+			/* make the wrapper first 100% wide */
+			div.list-posts-all.<?php echo $template_name; ?> {
+				width: 100%;
+			}
+						
+			/* post entry styles */ 
 			div.listposts.<?php echo $template_name; ?> {
 				<?php if ( $tkf->list_post_template_background_color[$arrayindex] != '' ) { ?>
 					/* BG color fallback */
@@ -436,6 +457,83 @@ function cc_list_posts($atts,$content = null) {
 				padding: 10px; 
 			}
 			
+			/* featured image styles. (width, height and image position are not handled here) */
+			div.list-posts-all.<?php echo $template_name; ?> a img.wp-post-image {
+				<?php if ( $tkf->list_post_template_entry_corner_radius[$arrayindex] != '' ) { ?>
+					border-radius: <?php echo $tkf->list_post_template_entry_corner_radius[$arrayindex]; ?>px;
+				    -webkit-border-radius: <?php echo $tkf->list_post_template_entry_corner_radius[$arrayindex]; ?>px; 
+				    -moz-border-radius: <?php echo $tkf->list_post_template_entry_corner_radius[$arrayindex]; ?>px;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_image_border_color[$arrayindex] != '' ) { ?> 
+					border: 1px solid #<?php echo $tkf->list_post_template_image_border_color[$arrayindex]; ?>;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_image_box_shadow_color[$arrayindex] != '' ) {
+					$shadowstyle = "";
+					if ( $tkf->list_post_template_image_box_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+				    	-webkit-box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_image_box_shadow_color[$arrayindex]; ?>; /* Safari 3+, iOS 4.0.2 - 4.2, Android 2.3+ */
+					       -moz-box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_image_box_shadow_color[$arrayindex]; ?>; /* Firefox 3.5 - 3.6 */
+	          					box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_image_box_shadow_color[$arrayindex]; ?>; /* Opera 10.5+, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+			    <?php } ?>
+			}
+
+			/* title styles */
+			div.list-posts-all.<?php echo $template_name; ?> h3,
+			div.list-posts-all.<?php echo $template_name; ?> h3 a {
+				<?php if ( $tkf->list_post_template_title_show[$arrayindex] == 'off' ) { ?>
+					display: none;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_color[$arrayindex] != '' ) { ?>
+					color: #<?php echo $tkf->list_post_template_title_color[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_size[$arrayindex] != '' ) { ?>
+					font-size: <?php echo $tkf->list_post_template_title_size[$arrayindex]; ?>px;
+					line-height: 100%;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_font_family[$arrayindex] != '' ) { ?>
+					font-family: <?php echo $tkf->list_post_template_title_font_family[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_font_weight[$arrayindex] != '' ) { ?>
+					font-weight: <?php echo $tkf->list_post_template_title_font_weight[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_font_style[$arrayindex] != '' ) { ?>
+					font-style: <?php echo $tkf->list_post_template_title_font_style[$arrayindex]; ?>;
+			    <?php } ?>
+			   <?php if ( $tkf->list_post_template_title_text_shadow_color[$arrayindex] != '' ) { 
+			    	$shadowstyle = "";
+					if ( $tkf->list_post_template_title_text_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+			    	text-shadow: <?php echo $shadowstyle; ?>1px 1px 1px #<?php echo $tkf->list_post_template_title_text_shadow_color[$arrayindex]; ?>;
+			    <?php } ?>			    
+			}
+			
+			/* content styles */
+			div.list-posts-all.<?php echo $template_name; ?> p {
+				<?php if ( $tkf->list_post_template_content_show[$arrayindex] == 'off' ) { ?>
+					display: none;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_color[$arrayindex] != '' ) { ?>
+					color: #<?php echo $tkf->list_post_template_content_font_color[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_size[$arrayindex] != '' ) { ?>
+					font-size: <?php echo $tkf->list_post_template_content_font_size[$arrayindex]; ?>px;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_family[$arrayindex] != '' ) { ?>
+					font-family: <?php echo $tkf->list_post_template_content_font_family[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_weight[$arrayindex] != '' ) { ?>
+					font-weight: <?php echo $tkf->list_post_template_content_font_weight[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_style[$arrayindex] != '' ) { ?>
+					font-style: <?php echo $tkf->list_post_template_content_font_style[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_text_shadow_color[$arrayindex] != '' ) { 
+			    	$shadowstyle = "";
+					if ( $tkf->list_post_template_content_text_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+			    	text-shadow: <?php echo $shadowstyle; ?>1px 1px 1px #<?php echo $tkf->list_post_template_content_text_shadow_color[$arrayindex]; ?>;
+			    <?php } ?>			    
+			}
 			
 			
 			
@@ -561,16 +659,17 @@ function cc_list_posts($atts,$content = null) {
 			break;		
 			default:
 					$tmp .= '<div class="listposts '.$img_position.' '. $template_name .'">';
-					if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
+					if($img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
+					if($img_position == 'posts-img-between-title-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					if($height != 'auto'){ $height = $height.'px'; }
-					$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
+					if ($img_position == 'posts-img-between-title-content') { $margintop = 'margin-top: 10px;'; }
+					$tmp .= '<p style="'.$margintop.' height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
 					if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					$tmp .= '</div>';
 					if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
 				break;
 		}
-
 		
 	endwhile; endif;
 	
