@@ -368,8 +368,7 @@ function cc_list_posts($atts,$content = null) {
 		$featured_id;
 	}
 		
-		
-	if(is_numeric($img_position)){
+	if ( is_numeric($img_position) ) {
 			
 		$arrayindex = $img_position;
 		$img_position = $tkf->list_post_template_image_position[$arrayindex];

@@ -291,7 +291,7 @@ class featured_posts_widget extends WP_Widget {
 		$selected_category = esc_attr($instance['category']);
         $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
         
-	    $listing_style = empty($instance['featured_posts_listing_style']) ? ' ' : apply_filters('widget_title', $instance['featured_posts_listing_style']);
+	    $listing_style = $instance['featured_posts_listing_style'];
     
 		$selected_post_type = esc_attr($instance['featured_posts_post_type']);
         

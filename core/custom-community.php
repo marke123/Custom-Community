@@ -1255,7 +1255,7 @@ class Custom_Community{
 		ob_end_clean();
 		
 		$element['id'] = 'list_posts_template_generator'; 
-		$element['title'] = 'List Posts Tempaltes'; 
+		$element['title'] = 'List Posts Templates'; 
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
