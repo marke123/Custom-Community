@@ -287,10 +287,11 @@ function cc_color_scheme(){
  * @since 1.8.3
  */	
 function cc_slidertop(){
-	global $cc_page_options, $tkf;
+	global $cc_page_post_settings, $tkf;
 
-	$cc_page_options = cc_get_page_meta();
-	
+	$cc_page_post_settings = get_post_meta($post->ID,"cc_page_post_settings", false);
+	$cc_page_post_settings = $cc_page_post_settings[0][cc_page_post_settings];
+		
 	$slidercat = '0' ;
 	$slider_style = 'default';
 	$caption = 'on';
@@ -305,31 +306,31 @@ function cc_slidertop(){
 //	print_r( $cc_page_options );
 //	echo '<pre>';
 		
-	if($cc_page_options["cc_page_slider_on"] == 1 ){
+	if($cc_page_post_settings["cc_page_slider_on"] == 1 ){
 				
-		if( $cc_page_options["cc_page_slider_cat"] != '' && $cc_page_options["cc_page_slider_show_page"] == '' ){
-			$slidercat = $cc_page_options["cc_page_slider_cat"];
+		if( $cc_page_post_settings["slideshow_cat"] != '' && $cc_page_post_settings["slideshow_show_page"] == '' ){
+			$slidercat = $cc_page_post_settings["slideshow_cat"];
 		}
-		if( $cc_page_options["cc_page_slider_style"] != '' ){
-			$slider_style = $cc_page_options["cc_page_slider_style"];
+		if( $cc_page_post_settings["slideshow_style"] != '' ){
+			$slider_style = $cc_page_post_settings["slideshow_style"];
 		}
-		if( $cc_page_options["cc_page_slider_caption"] != '' ){
-			$tkftion = $cc_page_options["cc_page_slider_caption"];
+		if( $cc_page_post_settings["slideshow_caption"] != '' ){
+			$tkftion = $cc_page_post_settings["slideshow_caption"];
 		}
-		if( $cc_page_options["cc_page_slider_amount"]  != '' ){
-			$slideshow_amount = $cc_page_options["cc_page_slider_amount"];
+		if( $cc_page_post_settings["slideshow_amount"]  != '' ){
+			$slideshow_amount = $cc_page_post_settings["slideshow_amount"];
 		}
-		if( $cc_page_options["cc_page_slider_time"] != '' ){
-			$slideshow_time = $cc_page_options["cc_page_slider_time"];
+		if( $cc_page_post_settings["slideshow_time"] != '' ){
+			$slideshow_time = $cc_page_post_settings["slideshow_time"];
 		}
-		if( $cc_page_options["cc_page_slider_orderby"] != '' ){
-			$slideshow_orderby = $cc_page_options["cc_page_slider_orderby"];
+		if( $cc_page_post_settings["slideshow_orderby"] != '' ){
+			$slideshow_orderby = $cc_page_post_settings["slideshow_orderby"];
 		}
-		if( $cc_page_options["cc_page_slider_post_type"] != '' ){
-			$slideshow_post_type = $cc_page_options["cc_page_slider_post_type"];
+		if( $cc_page_post_settings["slideshow_post_type"] != '' ){
+			$slideshow_post_type = $cc_page_post_settings["slideshow_post_type"];
 		}
-		if( $cc_page_options["cc_page_slider_show_page"] != '' ){
-			$slideshow_show_page = $cc_page_options["cc_page_slider_show_page"];
+		if( $cc_page_post_settings["slideshow_show_page"] != '' ){
+			$slideshow_show_page = $cc_page_post_settings["slideshow_show_page"];
 		}
 
 	}else{
@@ -413,61 +414,6 @@ function cc_slidertop(){
 
 }
 
-/**
- * load the array for the list posts depending on the page settings or theme settings
- *
- * @package Custom Community
- * @since 1.8.3
- */	
-function cc_list_posts_on_page(){
-	$cc_page_options=cc_get_page_meta(); 
-    if(isset($cc_page_options) && $cc_page_options['cc_page_template_on'] == 1){
-    
-    switch ($cc_page_options['cc_posts_on_page_type'])
-        {
-        case 'img-mouse-over':
-    	$atts = array(
-			'amount' => $cc_page_options['cc_page_template_amount'],
-			'category_name' => $cc_page_options['cc_page_template_cat'],
-			'img_position' => 'mouse_over',
-			);
-        echo cc_list_posts($atts,$content = null); 
-        break;
-        case 'img-left-content-right':
-		$atts = array(
-			'amount' => $cc_page_options['cc_page_template_amount'],
-			'category_name' => $cc_page_options['cc_page_template_cat'],
-			'img_position' => 'left',
-			);
-        echo cc_list_posts($atts,$content = null); 
-        break;
-        case 'img-right-content-left':
-		$atts = array(
-			'amount' => $cc_page_options['cc_page_template_amount'],
-			'category_name' => $cc_page_options['cc_page_template_cat'],
-			'img_position' => 'right',
-			);
-        echo cc_list_posts($atts,$content = null); 
-        break;
-        case 'img-over-content':
-		$atts = array(
-			'amount' => $cc_page_options['cc_page_template_amount'],
-			'category_name' => $cc_page_options['cc_page_template_cat'],
-			'img_position' => 'over',
-			);
-        echo cc_list_posts($atts,$content = null); 
-        break;
-        case 'img-under-content':
-		$atts = array(
-			'amount' => $cc_page_options['cc_page_template_amount'],
-			'category_name' => $cc_page_options['cc_page_template_cat'],
-			'img_position' => 'under',
-			);
-        echo cc_list_posts($atts,$content = null); 
-        break;
-        }
-	}
-}
 if (!function_exists('bp_core_get_userlink')){
 	function bp_core_get_userlink($post_author_id){
 		return '<a title="admin" href="'.get_author_posts_url($post_author_id).'">'.get_the_author_link($post_author_id).'</a>';	

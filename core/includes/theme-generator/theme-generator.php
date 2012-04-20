@@ -299,14 +299,15 @@ class CC_Theme_Generator{
 	 * @since 1.8.3
 	 */	
 	function slideshow_home(){
-		global $tkf;	
-		$cc_page_options=cc_get_page_meta();
-	
+		global $post, $tkf;	
+		$cc_page_post_settings = get_post_meta($post->ID,"cc_page_post_settings", false);
+		$cc_page_post_settings = $cc_page_post_settings[0][cc_page_post_settings];
+		
 		if(defined('BP_VERSION')){ 
-			if($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home  == 'home' && is_front_page() || $tkf->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1 || is_archive() && $tkf->enable_slideshow_home == 'home-archive-categories'){
+			if($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home  == 'home' && is_front_page() || $tkf->enable_slideshow_home == 'home' && bp_is_component_front_page( 'activity' ) || is_page() && isset($cc_page_post_settings) && $cc_page_post_settings['enable_slideshow_page'] == 'show' || is_archive() && $tkf->enable_slideshow_home == 'home-archive-categories'){
 				echo cc_slidertop(); // located under wp/templatetags
 			}
-		} elseif($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_options) && $cc_page_options['cc_page_slider_on'] == 1 || is_archive() && $tkf->enable_slideshow_home == 'home-archive-categories' ){
+		} elseif($tkf->enable_slideshow_home == 'all' || $tkf->enable_slideshow_home == 'home' && is_home() || $tkf->enable_slideshow_home == 'home' && is_front_page() || is_page() && isset($cc_page_post_settings) && $cc_page_post_settings['enable_slideshow_page'] == 'show' || is_archive() && $tkf->enable_slideshow_home == 'home-archive-categories' ){
 			echo cc_slidertop(); // located under wp/templatetags
 		}
 	}
@@ -637,6 +638,39 @@ class CC_Theme_Generator{
 			echo cc_list_posts($args); 
 		}
 	}
+
+	/**
+	 * list_posts_under_post_and_pages
+	 * 
+	 * located: index.php do_action( 'bp_before_blog_home' )
+	 *
+	 * @package Custom Community
+	 * @since 2.0
+	 */	
+	function list_posts_under_post_and_pages(){
+		global $post;
+		
+		$cc_page_post_settings = get_post_meta($post->ID,"cc_page_post_settings", false);
+		$cc_page_post_settings = $cc_page_post_settings[0][cc_page_post_settings];
+				
+		if($cc_page_post_settings[home_featured_posts] != 'show')
+			return;
+		
+			$atts = array(
+				'amount' => $cc_page_post_settings[home_featured_posts_amount],
+				'img_position' => $cc_page_post_settings[home_featured_posts_style],
+				'home_featured_posts_show_sticky'  => $cc_page_post_settings[home_featured_posts_show_sticky],
+				'orderby' => $orderby,
+				'category_name' => $cc_page_post_settings[home_featured_posts_category],
+				'post_type' => $cc_page_post_settings[home_featured_posts_post_type],
+				'page_id' => $cc_page_post_settings[last_posts_show_page],
+				'posts_per_page' => $cc_page_post_settings[home_featured_posts_posts_per_page],
+				'home_featured_posts_show_pagination' => $cc_page_post_settings[home_featured_posts_show_pagination]
+			);
+
+			echo cc_list_posts($atts); 
+		
+	}
 	
 
 	/**
@@ -961,4 +995,10 @@ function before_member_home_content(){
 function custom_login(){
 	global $Theme_Generator;
 	$Theme_Generator->custom_login();
-}?>
+}
+function list_posts_under_post_and_pages(){
+	global $Theme_Generator;
+	$Theme_Generator->list_posts_under_post_and_pages();
+	
+}
+?>

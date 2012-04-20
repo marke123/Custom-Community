@@ -300,6 +300,15 @@ class Custom_Community{
 			}
 		endif;
 		
+		if( is_array( $tkf->post_page_template_name ) ):
+			foreach ( $tkf->post_page_template_name as $key => $value) {
+				tk_select_add_option( 'post_page_template_style', $key , $value );
+			}
+		endif;
+		
+		
+		
+		
 		$args=array(
 		  'public'   => true,
 		); 
@@ -330,6 +339,7 @@ class Custom_Community{
 		add_filter( 'tk_jqueryui_accordion_content_section_after_global-hompage-settings', array( $this, 'global_hompage_add_widget' ) );
 		add_filter( 'tk_wp_jqueryui_tabs_after_content_shop', array( $this, 'getting_startet_add_shop' ) );
 		add_filter( 'tk_wp_jqueryui_tabs_after_content_child_theme_creator', array( $this, 'child_theme_creator' ) );
+		add_filter( 'tk_wp_jqueryui_tabs_after_content_template_generator', array( $this, 'post_page_template_generator' ) );
 		add_filter( 'tk_wp_jqueryui_tabs_after_content_template_generator', array( $this, 'list_posts_template_generator' ) );
 		
 		/*
@@ -412,6 +422,240 @@ class Custom_Community{
 	
 	<?php	
 	}
+
+
+	
+	function post_page_template_generator( $html ){
+		global $tkf;
+		
+		$tmp .= '';
+			
+		ob_start();?>
+
+	<style>
+		/* some additional admin page styles */ 
+		div#list_post_template_controls {
+			padding: 22px 10px 7px 30px;
+		}
+		div#list_post_template_controls div {
+			float: left; 
+			margin-right: 10px;
+		}
+		div#list_post_template_noforms_template {
+		    color: #AAAAAA;
+		    display: block;
+		    font-family: georgia,times,serif;
+		    font-size: 16px;
+		    font-style: italic;
+		    text-shadow: -1px 1px 0 #FFFFFF;
+		}
+		div#list_post_template div.subcontainer div.tk_field_row a span {
+			text-decoration: none !important;
+		}
+		.ui-widget-content a {
+		    text-decoration: none !important;
+		}
+	</style>
+	
+	<script language="javascript"> 
+      function togglediv(showHideDiv, switchTextDiv) {
+        var ele = document.getElementById(showHideDiv);
+        var text = document.getElementById(switchTextDiv);
+        if(ele.style.display == "block") {
+          ele.style.display = "none";
+         }
+        else {
+           ele.style.display = "block";
+        }
+      } 
+	</script>
+      	
+
+	<script type="text/javascript">
+		jQuery.noConflict();
+
+		jQuery(document).ready(function() {
+		
+			var widgetarea_lines = jQuery('#post_page_template').sheepIt({
+			
+				separator: '',
+				allowRemoveLast: false,
+				allowRemoveCurrent: true,
+				allowRemoveAll: true,
+				allowAdd: true,
+				allowAddN: false,
+				
+				maxFormsCount: 10,
+				minFormsCount: 0,
+				iniFormsCount: 0,	
+				<?php if (is_array($tkf->post_page_template_amount)){ ?>
+	
+			        data: [
+					<?php foreach( $tkf->post_page_template_amount as $line){ ?>
+					{
+					'post_page_template_#index#_cc-config_values[post_page_template_amount]': '<?php echo $tkf->post_page_template_amount[$line]; ?>',
+					'post_page_template_#index#_cc-config_values[post_page_template_name]': '<?php echo $tkf->post_page_template_name[$line]; ?>',
+					},
+					
+				<?php } ?>
+	
+	       		]
+			
+			<?php } ?>			
+			
+			});
+		
+		});
+		
+		
+		</script>
+
+		<div class="hidden_fields" style="display: none;">
+			<?php
+				// names and amount of created list post templates  					
+				echo 'post_page_template_amount'. tk_form_textfield( 'post_page_template_amount', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'post_page_template_name'.tk_form_textfield( 'post_page_template_name', array( 'multi_index' => 0 ) ).'<br>'; 
+			?>
+		</div>
+
+
+
+
+		<!-- sheepIt Form -->
+		<div id="post_page_template">
+		 
+		  <!-- Form template-->
+		  <div id="post_page_template_template">
+		  <input type="hidden" id="cc-config_values[post_page_template_amount][#index#]" name="cc-config_values[post_page_template_amount][#index#]" value="#index#">
+			
+			
+		  <div class="subcontainer">
+		  	<a class="clickable" href="javascript:togglediv('post_page_template_options_#index#','display_post_page_template_#index#');" id="post_page_template_#index#">
+				<div class="tk_field_row">
+					<p><span class="tk_row_title">Template  <span id="widgetarea_lines_label">
+					
+					Name : <input id="post_page_template_#index#_cc-config_values[post_page_template_name]" type="text" value="" name="cc-config_values[post_page_template_name][#index#]">								
+					
+				<span id="post_page_template_remove_current" style="float: right;">
+					<img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0" title="Remove this template!">
+			    </span>
+				</p>
+				
+				</div>
+			</a>
+				
+					
+		 	   
+				
+			<div style="display: none;" class="subcontainer" id="post_page_template_options_#index#">
+					
+			
+		<!-- post entry options (the post container) ///////////////////////////////// -->
+		
+				<a href="javascript:togglediv('post_page_template_entry_options_#index#','post_page_template_entry#index#');" id="post_page_template_entry#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Post entry (the post container) </span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_entry_options_#index#">
+					
+					post_page_template_entry_options_
+					
+				</div>
+				
+		
+		<!-- featured image options ////////////////////////////////////////////////// -->
+	
+				<a href="javascript:togglediv('post_page_template_image_options_#index#','post_page_template_image#index#');" id="post_page_template_image#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Featured image</span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_image_options_#index#">
+					
+					Irgentwass
+					
+				</div>
+				
+				
+		<!-- title options ////////////////////////////////////////////////// -->
+				
+				<a href="javascript:togglediv('post_page_template_title_options_#index#','post_page_template_title#index#');" id="post_page_template_title#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Title </span></p>
+					
+					</div>
+				</a>
+	
+				<div style="display: none;" class="subcontainer" id="post_page_template_title_options_#index#">
+									
+				nochwass
+				
+				</div>
+				
+				
+		<!-- content options ////////////////////////////////////////////////// -->
+	
+				<a href="javascript:togglediv('post_page_template_content_options_#index#','post_page_template_content#index#');" id="post_page_template_content#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Content </span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_content_options_#index#">
+					
+					wass
+							
+				</div>
+			</div>
+		</div>
+	</div>
+		  <!-- /Form template-->
+		   
+		<div class="tk_field_row">
+			  <!-- No forms template -->
+			  <div id="post_page_template_noforms_template">No custom templates at the moment. Why not create one?</div>
+			  <!-- /No forms template-->
+			 
+		</div>	 
+			   
+		  <!-- Controls -->
+		  <div id="post_page_template_controls" class="tk_field_row">
+		    <div id="post_page_template_add"><a class="button button-secondary"><span>Add a template</span></a></div>
+		    <div id="post_page_template_remove_last"><a class="button button-secondary"><span>Remove</span></a></div>
+		    <div id="post_page_template_remove_all"><a class="button button-secondary"><span>Remove all</span></a></div>
+		    <div id="post_page_template_add_n">
+		      <input id="post_page_template_add_n_input" type="text" size="4" />
+		      <div id="post_page_template_n_button"><a><span>Add</span></a></div></div>
+		  </div>
+		  <!-- /Controls -->
+		   
+		</div>
+		<!-- /sheepIt Form -->
+	
+
+
+		<?php
+		$tmp = ob_get_contents();
+		ob_end_clean();
+		
+		$element['id'] = 'post_pages_template_generator'; 
+		$element['title'] = 'Post and Page Tempaltes'; 
+		$element['content'] = $tmp; 
+		
+		$elements[] = $element;
+		
+		$widget_config = tk_accordion( 'post_page_template_generator', $elements, FALSE );
+		
+		return  $html. $widget_config;
+	}
+	
+
 	
 	function list_posts_template_generator( $html ){
 		global $tkf;
@@ -559,7 +803,6 @@ class Custom_Community{
 			});
 		
 		});
-		
 		
 		</script>
 
@@ -1236,19 +1479,6 @@ class Custom_Community{
 		   
 		</div>
 		<!-- /sheepIt Form -->
-
-
-
-
-
-
-
-
-
-
-
-		
-
 		
 		<?php
 		$tmp = ob_get_contents();

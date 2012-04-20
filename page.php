@@ -27,7 +27,7 @@
 			<?php endwhile; endif; ?>
 
 		</div><!-- .page -->
-		<?php cc_list_posts_on_page(); ?> 
+		<?php do_action( 'cc_list_posts_on_post_page' ) ?>
 		
 		<div class="clear"></div>
 		
