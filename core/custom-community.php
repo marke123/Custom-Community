@@ -420,6 +420,32 @@ class Custom_Community{
 			
 		ob_start();?>
 
+
+	<style>
+		/* some additional admin page styles */ 
+		div#list_post_template_controls {
+			padding: 22px 10px 7px 30px;
+		}
+		div#list_post_template_controls div {
+			float: left; 
+			margin-right: 10px;
+		}
+		div#list_post_template_noforms_template {
+		    color: #AAAAAA;
+		    display: block;
+		    font-family: georgia,times,serif;
+		    font-size: 16px;
+		    font-style: italic;
+		    text-shadow: -1px 1px 0 #FFFFFF;
+		}
+		div#list_post_template div.subcontainer div.tk_field_row a span {
+			text-decoration: none !important;
+		}
+		.ui-widget-content a {
+		    text-decoration: none !important;
+		}
+	</style>
+	
 	<script language="javascript"> 
       function togglediv(showHideDiv, switchTextDiv) {
         var ele = document.getElementById(showHideDiv);
@@ -442,11 +468,11 @@ class Custom_Community{
 			var widgetarea_lines = jQuery('#list_post_template').sheepIt({
 			
 				separator: '',
-				allowRemoveLast: true,
+				allowRemoveLast: false,
 				allowRemoveCurrent: true,
 				allowRemoveAll: true,
 				allowAdd: true,
-				allowAddN: true,
+				allowAddN: false,
 				
 				maxFormsCount: 10,
 				minFormsCount: 0,
@@ -544,28 +570,30 @@ class Custom_Community{
 			
 			$option['value'] = 'no-image';
 			$option['option_name'] = 'no image';
-			
 			$options[] = $option;
 			
 			$option['value'] = 'posts-img-left-content-right';
-			$option['option_name'] = 'left';
-			
+			$option['option_name'] = 'left from title and content';
 			$options[] = $option;
 			
 			$option['value'] = 'posts-img-right-content-left';
-			$option['option_name'] = 'right';
-			
+			$option['option_name'] = 'right from title and content';
 			$options[] = $option;
 			
 			$option['value'] = 'posts-img-over-content';
-			$option['option_name'] = 'top';
-			
+			$option['option_name'] = 'over title and content';
 			$options[] = $option;
 			
 			$option['value'] = 'posts-img-under-content';
-			$option['option_name'] = 'bottom';
+			$option['option_name'] = 'under title and content';
 			
 			$options[] = $option;
+
+			$option['value'] = 'posts-img-between-title-content';
+			$option['option_name'] = 'between title and content';
+			
+			$options[] = '$option';
+			
 			
 			
 					
@@ -695,15 +723,15 @@ class Custom_Community{
 			
 			
 		  <div class="subcontainer">
-		  	<a href="javascript:togglediv('list_post_template_options_#index#','display_list_post_template_#index#');" id="list_post_template_#index#">
+		  	<a class="clickable" href="javascript:togglediv('list_post_template_options_#index#','display_list_post_template_#index#');" id="list_post_template_#index#">
 					<div class="tk_field_row">
 						<p><span class="tk_row_title">Template  <span id="widgetarea_lines_label">
 						
 						Name : <input id="list_post_template_#index#_cc-config_values[list_post_template_name]" type="text" value="" name="cc-config_values[list_post_template_name][#index#]">								
 						
-					<a id="list_post_template_remove_current" style="">
-						Remove <img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0">
-				    </a>
+					<span id="list_post_template_remove_current" style="float: right;">
+						<img class="delete" src="<?php echo get_template_directory_uri(); ?>/core/includes/tkf/includes/img/cross.png" width="16" height="16" border="0" title="Remove this template!">
+				    </span>
 					</p>
 					
 					</div>
@@ -712,14 +740,14 @@ class Custom_Community{
 					
 		 	   
 				
-				<div style="display: none;" class="subcontainer" id="list_post_template_options_#index#">
+			<div style="display: none;" class="subcontainer" id="list_post_template_options_#index#">
 					
 			
 			<!-- post entry options (the post container) ///////////////////////////////// -->
 			
 					<a href="javascript:togglediv('list_post_template_entry_options_#index#','list_post_template_entry#index#');" id="list_post_template_entry#index#">
 						<div class="tk_field_row">
-							<p><span class="tk_row_title"> post entry options (the post container) </span></p>
+							<p><span class="tk_row_title">Post entry (the post container) </span></p>
 						
 						</div>
 					</a>
@@ -729,15 +757,15 @@ class Custom_Community{
 						<!-- post entry: clickable box or not? -->
 						
 						<div class="tk_field_row">
-							post entry: clickable box:
+							make the post a clickable box:
 							<input type="checkbox" id="list_post_template_entry_clickable" name="cc-config_values[list_post_template_entry_clickable]">
 						</div>
 						
-						<!-- post entry: background color fade -->
+						<!-- post entry: background color or fade -->
 							
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Background Color "> Background color fade</label>
+								<label for="" title=" Background Color ">Background color</label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color][#index#]">
@@ -745,10 +773,10 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Background Color "> Background Color fade top </label>
+								<label for="" title=" Background Color ">Background color (fade top) </label>
 							</div>
 							<div class="tk_field">
-								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color_top]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color_top][#index#]">
+								<input  onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color_top]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color_top][#index#]">
 								</div>
 						</div>
 					
@@ -756,7 +784,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Background Image "> Background image </label>
+								<label for="" title=" Background Image ">Background image</label>
 						
 							</div>
 							<div class="tk_field">
@@ -783,7 +811,7 @@ class Custom_Community{
 							
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Template width: "> List post width: </label>
+								<label for="" title="Template width, in pixel or %, example: 200px or 50%">List post width <br><span style="font-size:10px; color: #999999;">example: 200px or 50%</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
@@ -791,7 +819,7 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Template height: "> List post height: </label>
+								<label for="" title="Template height, in pixel, example: 120px">List post height <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
@@ -802,7 +830,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" post entry: corner radius: "> post entry: corner radius: </label>
+								<label for="" title="post entries with rounded corners? example: 11px **note: IE doesn't support Rounded Corners..">Corner radius <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_corner_radius]" type="text" value="" name="cc-config_values[list_post_template_corner_radius][#index#]">								
@@ -813,7 +841,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> border color </label>
+								<label for="" title=" border color ">Border color</label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_border_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_border_color][#index#]">
@@ -824,7 +852,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> box shadows color </label>
+								<label for="" title=" border color ">Box shadow color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_box_shadow_color][#index#]">
@@ -832,14 +860,13 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="background image repeat">box shadow style</label>
+								<label for="" title="Box shadow style, inside or outside? **note for inside effect: the shadowcolor should be brighter than the post-entry and background color">Box shadow style</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style][#index#]">
-									<option value="no-repeat">no repeat</option>
-									<option value="repeat-x">repeat horizontal</option>
-									<option value="repeat-y">repeat vertical</option>
-									<option value="repeat">repeat both</option></select>									
+									<option value="outside">outside</option>
+									<option value="inside">inside</option>
+								</select>									
 							</div>
 						</div>
 					
@@ -850,7 +877,7 @@ class Custom_Community{
 		
 					<a href="javascript:togglediv('list_post_template_image_options_#index#','list_post_template_image#index#');" id="list_post_template_image#index#">
 						<div class="tk_field_row">
-							<p><span class="tk_row_title">featured image options</span></p>
+							<p><span class="tk_row_title">Featured image</span></p>
 						
 						</div>
 					</a>
@@ -860,7 +887,7 @@ class Custom_Community{
 						<!-- featured image: show or hide. * checked = show = default *  -->
 						
 						<div class="tk_field_row">
-							hide featured image:
+							Hide featured image:
 							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_image_show]" name="cc-config_values[list_post_template_image_show]">
 						</div>
 						
@@ -872,36 +899,37 @@ class Custom_Community{
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_image_position]" name="cc-config_values[list_post_template_image_position][#index#]">
-									<option value="no-image">no image</option>
-									<option value="posts-img-left-content-right">left</option>
-									<option value="posts-img-right-content-left">right</option>
-									<option value="posts-img-over-content">top</option>
-									<option value="posts-img-under-content">bottom</option></select>									
+									<option value="posts-img-left-content-right">left from title and content</option>
+									<option value="posts-img-right-content-left">right from title and content</option>
+									<option value="posts-img-over-content">over title and content</option>
+									<option value="posts-img-between-title-content">between title and content</option>
+									<option value="posts-img-under-content">under title and content</option>
+								</select>									
 							</div>
 						</div>
 						
 						<!-- featured image: width and height -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Template height: "> Image height: </label>
+								<label for="" title="Image width, in pixel, just enter a number. example: 150px">Image width <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span></label>
 							</div>
 							<div class="tk_field">
-								<input id="list_post_template_#index#_cc-config_values[list_post_template_image_height]" type="text" value="" name="cc-config_values[list_post_template_image_height][#index#]">								
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_image_width]" type="text" value="" name="cc-config_values[list_post_template_image_width][#index#]">								
 							</div>
 						</div>	
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" Template width: "> Image width: </label>
+								<label for="" title="Image height, in pixel, just enter a number. example: 150px">Image height <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span></label>
 							</div>
 							<div class="tk_field">
-								<input id="list_post_template_#index#_cc-config_values[list_post_template_image_width]" type="text" value="" name="cc-config_values[list_post_template_image_width][#index#]">								
+								<input id="list_post_template_#index#_cc-config_values[list_post_template_image_height]" type="text" value="" name="cc-config_values[list_post_template_image_height][#index#]">								
 							</div>
 						</div>	
 						
 						<!-- featured image: corner radius -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" featured image: corner radius: "> featured image: corner radius: </label>
+								<label for="" title="Images with rounded corners? In pixel, just enter a number, example: 11">Corner radius <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span></label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_entry_corner_radius]" type="text" value="" name="cc-config_values[list_post_template_entry_corner_radius][#index#]">								
@@ -913,7 +941,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> border color: </label>
+								<label for="" title="Choose a border color for the images.">Border color</label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_image_border_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_image_border_color][#index#]">
@@ -924,7 +952,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> box shadows color </label>
+								<label for="" title=" border color ">Box shadow color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_image_box_shadow_color][#index#]">
@@ -932,14 +960,13 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="background image repeat">box shadow style</label>
+								<label for="" title="background image repeat">Box shadow style </label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style][#index#]">
-									<option value="no-repeat">no repeat</option>
-									<option value="repeat-x">repeat horizontal</option>
-									<option value="repeat-y">repeat vertical</option>
-									<option value="repeat">repeat both</option></select>									
+									<option value="outside">outside</option>
+									<option value="inside">inside</option>
+								</select>
 							</div>
 						</div>
 					</div>
@@ -949,7 +976,7 @@ class Custom_Community{
 					
 					<a href="javascript:togglediv('list_post_template_title_options_#index#','list_post_template_title#index#');" id="list_post_template_title#index#">
 						<div class="tk_field_row">
-							<p><span class="tk_row_title">title </span></p>
+							<p><span class="tk_row_title">Title </span></p>
 						
 						</div>
 					</a>
@@ -958,14 +985,14 @@ class Custom_Community{
 										
 						<!-- title: show or hide. * checked = show = default *  -->
 						<div class="tk_field_row">
-							title: show or hide:
+							Hide the title:
 							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_title_show]" name="cc-config_values[list_post_template_title_show]">
 						</div>
 						
 						<!-- title: font color -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font color "> font color </label>
+								<label for="" title="Title font color ">Title font color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_title_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_title_color][#index#]">
@@ -975,7 +1002,7 @@ class Custom_Community{
 						<!-- title: font size -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" font size: "> font size: </label>
+								<label for="" title="Title font size: ">Title font size </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_title_size]" type="text" value="" name="cc-config_values[list_post_template_title_size][#index#]">								
@@ -985,10 +1012,18 @@ class Custom_Community{
 						<!-- title: font family -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font family">font family</label>
+								<label for="" title="Title font family">Title font family</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_family][#index#]">
+									<option name="Arial, sans-serif" value="Arial, sans-serif">Arial, sans-serif</option>
+									<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif">Helvetica, Arial, sans-serif</option>
+									<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif">Century Gothic, Avant Garde, Arial, sans-serif</option>
+									<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif">Arial Black, Arial, sans-serif</option>
+									<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif">Impact, Arial, sans-serif</option>
+									<option name="Times New Roman, Times" value="Times New Roman, Times">Times New Roman, Times</option>
+									<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times">Garamond, Times New Roman, Times</option>
+									<option name="Georgia, Times, Serif" value="georgia, times, serif">Georgia, Times, Serif</option>
 								</select>
 							</div>
 						</div>
@@ -996,10 +1031,12 @@ class Custom_Community{
 						<!-- title: font weight -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font weight">font weight</label>
+								<label for="" title="Title font weight: bold or normal?">Title font weight</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight][#index#]">
+									<option value="normal">normal</option>
+									<option value="bold">bold</option>
 								</select>
 							</div>
 						</div>
@@ -1007,10 +1044,12 @@ class Custom_Community{
 						<!-- title: font style -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font style">font style</label>
+								<label for="" title="Title font style: italic or normal?">Title font style</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_style]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_style][#index#]">
+									<option value="normal">normal</option>
+									<option value="italic">italic</option>
 								</select>
 							</div>
 						</div>
@@ -1018,7 +1057,7 @@ class Custom_Community{
 						<!-- title: text shadows -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> text shadows color </label>
+								<label for="" title="Title text shadow color ">Title text shadow color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_title_text_shadow_color][#index#]">
@@ -1026,14 +1065,12 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="background image repeat">text shadows style</label>
+								<label for="" title="Title text shadow style">Title text shadow style</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style][#index#]">
-									<option value="no-repeat">no repeat</option>
-									<option value="repeat-x">repeat horizontal</option>
-									<option value="repeat-y">repeat vertical</option>
-									<option value="repeat">repeat both</option>
+									<option value="outside">outside</option>
+									<option value="inside">inside</option>
 								</select>									
 							</div>
 						</div>
@@ -1046,7 +1083,7 @@ class Custom_Community{
 		
 					<a href="javascript:togglediv('list_post_template_content_options_#index#','list_post_template_content#index#');" id="list_post_template_content#index#">
 						<div class="tk_field_row">
-							<p><span class="tk_row_title">content </span></p>
+							<p><span class="tk_row_title">Content </span></p>
 						
 						</div>
 					</a>
@@ -1055,14 +1092,14 @@ class Custom_Community{
 						
 						<!-- content: show or hide. * checked = show = default *  -->
 						<div class="tk_field_row">
-							featured image: show or hide:
+							Hide content:
 							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_content_show]" name="cc-config_values[list_post_template_content_show]">
 						</div>
 						
 						<!-- content: font color -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font color "> font color </label>
+								<label for="" title="Content font color ">Content font color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_font_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_font_color][#index#]">
@@ -1072,7 +1109,7 @@ class Custom_Community{
 						<!-- content: font size -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" font size: "> font size: </label>
+								<label for="" title="Content font size: ">Content font size </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_content_font_size]" type="text" value="" name="cc-config_values[list_post_template_content_font_size][#index#]">								
@@ -1082,20 +1119,31 @@ class Custom_Community{
 						<!-- content: font family -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font family">font family</label>
+								<label for="" title="Content font family">Content font family</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_family][#index#]">
+									<option name="Arial, sans-serif" value="Arial, sans-serif">Arial, sans-serif</option>
+									<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif">Helvetica, Arial, sans-serif</option>
+									<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif">Century Gothic, Avant Garde, Arial, sans-serif</option>
+									<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif">Arial Black, Arial, sans-serif</option>
+									<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif">Impact, Arial, sans-serif</option>
+									<option name="Times New Roman, Times" value="Times New Roman, Times">Times New Roman, Times</option>
+									<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times">Garamond, Times New Roman, Times</option>
+									<option name="Georgia, Times, Serif" value="georgia, times, serif">Georgia, Times, Serif</option>
+								</select>
 							</div>
 						</div>
 						
 						<!-- content: font weight -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font weight">font weight</label>
+								<label for="" title="Content font weight">Content font weight</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight][#index#]">
+									<option value="normal">normal</option>
+									<option value="bold">bold</option>
 								</select>
 							</div>
 						</div>
@@ -1103,10 +1151,12 @@ class Custom_Community{
 						<!-- content: font style -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="font style">font style</label>
+								<label for="" title="Content font style">Content font style</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_style]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_style][#index#]">
+									<option value="normal">normal</option>
+									<option value="italic">italic</option>
 								</select>
 							</div>
 						</div>
@@ -1114,7 +1164,7 @@ class Custom_Community{
 						<!-- content: text shadows -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title=" border color "> text shadows color </label>
+								<label for="" title="Content text shadow color ">Content text shadow color </label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_text_shadow_color][#index#]">
@@ -1123,14 +1173,12 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="background image repeat">text shadows style</label>
+								<label for="" title="Content text shadow style">Content text shadow style</label>
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style][#index#]">
-									<option value="no-repeat">no repeat</option>
-									<option value="repeat-x">repeat horizontal</option>
-									<option value="repeat-y">repeat vertical</option>
-									<option value="repeat">repeat both</option>
+									<option value="inside">inside</option>
+									<option value="outside">outside</option>
 								</select>									
 							</div>
 						</div>
@@ -1151,7 +1199,7 @@ class Custom_Community{
 					<div style="display: none;" class="subcontainer" id="list_post_template_css_options_#index#">
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label title="" for="login_page_css">Custom CSS</label>
+								<label title="Add your own custom CSS styles" for="list_post_template_css">Custom CSS</label>
 							</div>
 							<div class="tk_field">
 					<!--				<textarea class="lined" id="list_post_template_#index#_cc-config_values[list_post_template_custom_css]" name="list_post_template_#index#_cc-config_values[list_post_template_custom_css][#index#]"></textarea> -->
@@ -1170,16 +1218,16 @@ class Custom_Community{
 		   
 		<div class="tk_field_row">
 			  <!-- No forms template -->
-			  <div id="list_post_template_noforms_template">No horizontal widgetareas at the moment</div>
+			  <div id="list_post_template_noforms_template">No custom templates at the moment. Why not create one?</div>
 			  <!-- /No forms template-->
 			 
 		</div>	 
 			   
 		  <!-- Controls -->
 		  <div id="list_post_template_controls" class="tk_field_row">
-		    <div id="list_post_template_add"><a><span>Add one more</span></a></div>
-		    <div id="list_post_template_remove_last"><a><span>Remove</span></a></div>
-		    <div id="list_post_template_remove_all"><a><span>Remove all</span></a></div>
+		    <div id="list_post_template_add"><a class="button button-secondary"><span>Add a template</span></a></div>
+		    <div id="list_post_template_remove_last"><a class="button button-secondary"><span>Remove</span></a></div>
+		    <div id="list_post_template_remove_all"><a class="button button-secondary"><span>Remove all</span></a></div>
 		    <div id="list_post_template_add_n">
 		      <input id="list_post_template_add_n_input" type="text" size="4" />
 		      <div id="list_post_template_n_button"><a><span>Add</span></a></div></div>

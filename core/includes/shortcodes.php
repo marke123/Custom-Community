@@ -363,24 +363,183 @@ function cc_list_posts($atts,$content = null) {
 	
 	), $atts));
 		
+	if($featured_id == '')	{
+		$featured_id = substr(md5(rand()), 0, 10);
+		$featured_id;
+	}
+		
+		
 	if(is_numeric($img_position)){
+			
 		$arrayindex = $img_position;
-		$featured_posts_image_width = $tkf->list_post_template_width[$arrayindex];
-		$featured_posts_image_height = $tkf->list_post_template_height[$arrayindex];
-		
 		$img_position = $tkf->list_post_template_image_position[$arrayindex];
+		$template_name = sanitize_title($tkf->list_post_template_name[$arrayindex]);
 		
+		// only sets the image width if there is a value
+		if ( $tkf->list_post_template_image_width[$arrayindex] != "" ) {
+			$featured_posts_image_width = $tkf->list_post_template_image_width[$arrayindex];	
+		} 
+		
+		// only sets the image width if there is a value for height,   
+		// if not, but there's a value for the width: then use the value calculated from the width! 
+		if ( $tkf->list_post_template_image_height[$arrayindex] != "" ) {
+			$featured_posts_image_height = $tkf->list_post_template_image_height[$arrayindex]; 
+			} elseif ( $tkf->list_post_template_image_width[$arrayindex] != "" ) {
+				$featured_posts_image_height = $featured_posts_image_width / 1.47058824;
+				$featured_posts_image_height = number_format($featured_posts_image_height,0);
+				$featured_posts_image_height = $featured_posts_image_height;
+			}
+			
 			 
 		ob_start(); ?>
 		
 		
 		<style>
-				
-			div.posts-img-right-content-left {
-			    background: none repeat scroll 0 0 #<?php echo $tkf->list_post_template_background_color[$arrayindex] ?>;
-			    float: right;
-			    padding: 20px 0 0;
+			
+			/* make the wrapper first 100% wide */
+			div.list-posts-all.<?php echo $template_name; ?> {
+				width: 100%;
 			}
+						
+			/* post entry styles */ 
+			div.listposts.<?php echo $template_name; ?> {
+				<?php if ( $tkf->list_post_template_background_color[$arrayindex] != '' ) { ?>
+					/* BG color fallback */
+						background: none repeat scroll 0 0 #<?php echo $tkf->list_post_template_background_color[$arrayindex] ?>;
+					<?php if ( $tkf->list_post_template_background_color_top[$arrayindex] != '' ) { ?>
+					/* Firefox: */
+				    	background: -moz-linear-gradient(center top, #<?php echo $tkf->list_post_template_background_color_top[$arrayindex]; ?>, #<?php echo $tkf->list_post_template_background_color[$arrayindex]; ?>);
+				    /* Chrome, Safari:*/
+				    	background: -webkit-gradient(linear, left top, left center, from(#<?php echo $tkf->list_post_template_background_color_top[$arrayindex]; ?>), to(#<?php echo $tkf->list_post_template_background_color[$arrayindex]; ?>));
+				    /* Opera */
+						background: -o-linear-gradient(top, #<?php echo $tkf->list_post_template_background_color_top[$arrayindex]; ?>, #<?php echo $tkf->list_post_template_background_color_top[$arrayindex]; ?> 75%, #<?php echo $tkf->list_post_template_background_color[$arrayindex]; ?> 75%, #<?php echo $tkf->list_post_template_background_color[$arrayindex]; ?>);
+				    /* IE */
+				    	filter: progid:DXImageTransform.Microsoft.Gradient(
+				    		StartColorStr='#<?php echo $tkf->list_post_template_background_color_top[$arrayindex]; ?>', EndColorStr='#<?php echo $tkf->list_post_template_background_color[$arrayindex]; ?>', GradientType=0);
+	    			<?php } ?>
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_background_image[$arrayindex] != '' ) { ?> 
+					background-image: url('<?php echo $tkf->list_post_template_background_image[$arrayindex] ?>');
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_background_image_repeat[$arrayindex] != '' ) { ?> 
+					background-repeat: no-repeat;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_height[$arrayindex] != '' || $tkf->list_post_template_width[$arrayindex] != '' ) { ?>
+					overflow: hidden; 
+					<?php if ( $tkf->list_post_template_height[$arrayindex] != '' ) { ?>
+						height: <?php echo $tkf->list_post_template_height[$arrayindex] ?>px; 
+					<?php } ?>
+					<?php if ( $tkf->list_post_template_width[$arrayindex] != '' ) { ?>
+						width: <?php echo $tkf->list_post_template_width[$arrayindex] ?>;
+					<?php } ?>
+				<?php } else { ?>
+					height: auto; 
+					width: auto; 
+					overflow: auto;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_corner_radius[$arrayindex] != '' ) { ?>				
+					border-radius: <?php echo $tkf->list_post_template_corner_radius[$arrayindex]; ?>px;
+				    -webkit-border-radius: <?php echo $tkf->list_post_template_corner_radius[$arrayindex]; ?>px; 
+				    -moz-border-radius: <?php echo $tkf->list_post_template_corner_radius[$arrayindex]; ?>px;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_border_color[$arrayindex] != '' ) { ?> 
+					border: 1px solid #<?php echo $tkf->list_post_template_border_color[$arrayindex]; ?>;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_box_shadow_color[$arrayindex] != '' ) {
+					$shadowstyle = "";
+					if ( $tkf->list_post_template_box_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+				    	 -webkit-box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_box_shadow_color[$arrayindex]; ?>; /* Safari 3+, iOS 4.0.2 - 4.2, Android 2.3+ */
+					        -moz-box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_box_shadow_color[$arrayindex]; ?>; /* Firefox 3.5 - 3.6 */
+	          					 box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_box_shadow_color[$arrayindex]; ?>; /* Opera 10.5+, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+			    <?php } ?>
+				margin-bottom: 20px; 
+				padding: 10px; 
+			}
+			
+			/* featured image styles. (width, height and image position are not handled here) */
+			div.list-posts-all.<?php echo $template_name; ?> a img.wp-post-image {
+				<?php if ( $tkf->list_post_template_entry_corner_radius[$arrayindex] != '' ) { ?>
+					border-radius: <?php echo $tkf->list_post_template_entry_corner_radius[$arrayindex]; ?>px;
+				    -webkit-border-radius: <?php echo $tkf->list_post_template_entry_corner_radius[$arrayindex]; ?>px; 
+				    -moz-border-radius: <?php echo $tkf->list_post_template_entry_corner_radius[$arrayindex]; ?>px;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_image_border_color[$arrayindex] != '' ) { ?> 
+					border: 1px solid #<?php echo $tkf->list_post_template_image_border_color[$arrayindex]; ?>;
+				<?php } ?>
+				<?php if ( $tkf->list_post_template_image_box_shadow_color[$arrayindex] != '' ) {
+					$shadowstyle = "";
+					if ( $tkf->list_post_template_image_box_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+				    	-webkit-box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_image_box_shadow_color[$arrayindex]; ?>; /* Safari 3+, iOS 4.0.2 - 4.2, Android 2.3+ */
+					       -moz-box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_image_box_shadow_color[$arrayindex]; ?>; /* Firefox 3.5 - 3.6 */
+	          					box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_image_box_shadow_color[$arrayindex]; ?>; /* Opera 10.5+, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+			    <?php } ?>
+			}
+
+			/* title styles */
+			div.list-posts-all.<?php echo $template_name; ?> h3,
+			div.list-posts-all.<?php echo $template_name; ?> h3 a {
+				<?php if ( $tkf->list_post_template_title_show[$arrayindex] == 'off' ) { ?>
+					display: none;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_color[$arrayindex] != '' ) { ?>
+					color: #<?php echo $tkf->list_post_template_title_color[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_size[$arrayindex] != '' ) { ?>
+					font-size: <?php echo $tkf->list_post_template_title_size[$arrayindex]; ?>px;
+					line-height: 100%;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_font_family[$arrayindex] != '' ) { ?>
+					font-family: <?php echo $tkf->list_post_template_title_font_family[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_font_weight[$arrayindex] != '' ) { ?>
+					font-weight: <?php echo $tkf->list_post_template_title_font_weight[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_title_font_style[$arrayindex] != '' ) { ?>
+					font-style: <?php echo $tkf->list_post_template_title_font_style[$arrayindex]; ?>;
+			    <?php } ?>
+			   <?php if ( $tkf->list_post_template_title_text_shadow_color[$arrayindex] != '' ) { 
+			    	$shadowstyle = "";
+					if ( $tkf->list_post_template_title_text_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+			    	text-shadow: <?php echo $shadowstyle; ?>1px 1px 1px #<?php echo $tkf->list_post_template_title_text_shadow_color[$arrayindex]; ?>;
+			    <?php } ?>			    
+			}
+			
+			/* content styles */
+			div.list-posts-all.<?php echo $template_name; ?> p {
+				<?php if ( $tkf->list_post_template_content_show[$arrayindex] == 'off' ) { ?>
+					display: none;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_color[$arrayindex] != '' ) { ?>
+					color: #<?php echo $tkf->list_post_template_content_font_color[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_size[$arrayindex] != '' ) { ?>
+					font-size: <?php echo $tkf->list_post_template_content_font_size[$arrayindex]; ?>px;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_family[$arrayindex] != '' ) { ?>
+					font-family: <?php echo $tkf->list_post_template_content_font_family[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_weight[$arrayindex] != '' ) { ?>
+					font-weight: <?php echo $tkf->list_post_template_content_font_weight[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_font_style[$arrayindex] != '' ) { ?>
+					font-style: <?php echo $tkf->list_post_template_content_font_style[$arrayindex]; ?>;
+			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_content_text_shadow_color[$arrayindex] != '' ) { 
+			    	$shadowstyle = "";
+					if ( $tkf->list_post_template_content_text_shadow_style[$arrayindex] == "inside" ) 
+						$shadowstyle = "-"; ?>
+			    	text-shadow: <?php echo $shadowstyle; ?>1px 1px 1px #<?php echo $tkf->list_post_template_content_text_shadow_color[$arrayindex]; ?>;
+			    <?php } ?>			    
+			}
+			
+			
+			
+			
+			
+			
 			
 				
 		</style>
@@ -499,17 +658,18 @@ function cc_list_posts($atts,$content = null) {
 				$tmp .= featured_post_loop($tmp);
 			break;		
 			default:
-					$tmp .= '<div class="listposts '.$img_position.'">';
-					if($img_position != 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
+					$tmp .= '<div class="listposts '.$img_position.' '. $template_name .'">';
+					if($img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
+					if($img_position == 'posts-img-between-title-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					if($height != 'auto'){ $height = $height.'px'; }
-					$tmp .= '<p style="height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
+					if ($img_position == 'posts-img-between-title-content') { $margintop = 'margin-top: 10px;'; }
+					$tmp .= '<p style="'.$margintop.' height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
 					if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 					$tmp .= '</div>';
 					if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
 				break;
 		}
-
 		
 	endwhile; endif;
 	
@@ -535,8 +695,10 @@ function cc_list_posts($atts,$content = null) {
 	
 
 	wp_reset_postdata();
+
+
 	
-	return $tmp_js.'<div id="featured_posts'.$featured_id.'"><div id="list_posts'.$featured_id.'" class="list-posts-all '. $img_position .' ">'.$tmp.'</div></div>';	
+	return $tmp_js.'<div id="featured_posts'.$featured_id.'"><div id="list_posts'.$featured_id.'" class="list-posts-all '. $template_name .' '. $img_position .' ">'.$tmp.'</div></div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
 
