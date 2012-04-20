@@ -412,6 +412,9 @@ class featured_posts_widget extends WP_Widget {
 		<?php } } ?>
 		
 			 </select>
+			 
+			 or create your own <a href="themes.php?page=cc-settings&settings-updated=true#template_generator" target="_blank">here</a>  
+			 
 		</p>		
 		
 		<p>

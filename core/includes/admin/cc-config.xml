@@ -265,7 +265,61 @@
 						
 					</div>
 			
-					
+					<div id="cc_admin_navigation" class="postbox">
+						<div title="Click to toggle" class="handlediv"><br></br></div><h3 class="hndle"><span>Navigator</span></h3>
+						
+						<div class="inside">
+							<div id="cc_admin_navigation_box" class="submitbox">
+								
+								<b>Theme Settings</b>
+								<ul>
+									<li>
+										<a href="#">Theme Settings Home</a>
+									</li>
+								</ul>
+
+								
+								<b>Help</b>
+								<ul>
+									<li>
+										<a href="#">Getting Startet</a>
+									</li>
+
+									<li>
+										<a href="#">Knowledgebase</a>
+									</li>
+
+								</ul>
+								
+								<b>Tools</b>
+								<ul>
+									<li>
+										<a href="#">Template generator</a>
+									</li>
+									<li>
+										<a href="#">Child theme generator</a>
+									</li>
+								</ul>
+
+								<b>Shop</b>
+								<ul>
+									<li>
+										<a href="#">Get the pro</a>
+									</li>
+									<li>
+										<a href="#">Child themes</a>
+									</li>
+									<li>
+										<a href="#">Theme extentions</a>
+									</li>
+									<li>
+										<a href="#">Plugins</a>
+									</li>
+								</ul>
+							</div>	
+						</div>
+						
+					</div>					
 				</div>
 			</div>
 			
@@ -625,12 +679,11 @@
 									
 									<select name="home_featured_posts_style" label="Featured posts listing style" tooltip="Select a template to use: ">
 										<option name="image mouse over" value="img-mouse-over" />
-										<option name="posts-img-left-content-right" value="posts-img-left-content-right" />
 										<option name="bubbles" value="bubbles" />
 										<option name="default" value="default" />
-										<option name="more options in the pro version" value="pro" />
+										<option name="more in the pro version" value="pro" />
 									</select>
-									
+									 
 									<colorpicker name="home_featured_posts_background_color" label="Featured posts background colour" tooltip="Change the background colour of your featured posts. Tip: watch out you have enough contrast to the text colours!" />
 									
 									<checkbox name="home_featured_posts_show_sticky" label="Show only sticky posts" tooltip="Show only sticky posts" />
