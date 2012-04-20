@@ -368,7 +368,6 @@ function cc_list_posts($atts,$content = null) {
 		$featured_id;
 	}
 		
-		
 	if(is_numeric($img_position)){
 			
 		$arrayindex = $img_position;
@@ -730,7 +729,6 @@ function slider($atts,$content = null) {
 		
 	), $atts));
 
-	print_r( $category_name);
 	
 	if(is_array($category_name)){
 		foreach($category_name as $cat_name){
@@ -741,9 +739,6 @@ function slider($atts,$content = null) {
 		
 	}
 
-	
-		print_r( $category_name);
-	
 	
 	if($page_id != '' && $post_type == 'post'){
 		 $post_type = 'page';
@@ -859,8 +854,6 @@ function slider($atts,$content = null) {
 		$tmp .= '}'. chr(13);
 	}
 	$tmp .= '</style>'. chr(13);	
-	
-		print_r( $category_name);
 	
 	
 	if($slideshow_sticky == 'on') {

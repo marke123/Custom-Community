@@ -39,4 +39,9 @@ add_action( 'blog_post_entry', 'excerpt_on', 2 );
 // custom login
 add_action('login_head', 'custom_login', 2 );
 
+// Post and Pages
+
+add_filter( 'cc_list_posts_on_post_page', 'list_posts_under_post_and_pages' ); 
+
+
 ?>
