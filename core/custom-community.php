@@ -1148,10 +1148,7 @@ class Custom_Community{
 			$shadow_style['option_name'] = 'inside';
 			$shadow_style_options[] = $shadow_style;
 			
-			
-			
-			// init selectboxes for ... font_weight, font_style and shadow_style missing... 	
-					
+							
 					
 			// post entry options (the post container) ///////////////////////////////// 
 			
@@ -1354,7 +1351,7 @@ class Custom_Community{
 								<label for="" title="background image repeat">Background image repeat</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_background_image_repeat]" name="list_post_template_#index#_cc-config_values[list_post_template_background_image_repeat][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_background_image_repeat]" name="cc-config_values[list_post_template_background_image_repeat][#index#]">
 									<option value="no-repeat">no repeat</option>
 									<option value="repeat-x">repeat horizontal</option>
 									<option value="repeat-y">repeat vertical</option>
@@ -1419,7 +1416,7 @@ class Custom_Community{
 								<label for="" title="Box shadow style, inside or outside? **note for inside effect: the shadowcolor should be brighter than the post-entry and background color">Box shadow style</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]" name="cc-config_values[list_post_template_box_shadow_style][#index#]">
 									<option value="outside">outside</option>
 									<option value="inside">inside</option>
 								</select>									
@@ -1519,7 +1516,7 @@ class Custom_Community{
 								<label for="" title="background image repeat">Box shadow style </label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]" name="cc-config_values[list_post_template_image_box_shadow_style][#index#]">
 									<option value="outside">outside</option>
 									<option value="inside">inside</option>
 								</select>
@@ -1571,7 +1568,7 @@ class Custom_Community{
 								<label for="" title="Title font family">Title font family</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_family][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_family]" name="cc-config_values[list_post_template_title_font_family][#index#]">
 									<option value="arial, sans-serif">Arial</option>
 									<option value="arial black, arial, sans-serif">Arial Black</option>
 									<option value="helvetica, arial, sans-serif">Helvetica</option>
@@ -1590,7 +1587,7 @@ class Custom_Community{
 								<label for="" title="Title font weight: bold or normal?">Title font weight</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_weight]" name="cc-config_values[list_post_template_title_font_weight][#index#]">
 									<option value="normal">normal</option>
 									<option value="bold">bold</option>
 								</select>
@@ -1603,7 +1600,7 @@ class Custom_Community{
 								<label for="" title="Title font style: italic or normal?">Title font style</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_style]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_style][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_style]" name="cc-config_values[list_post_template_title_font_style][#index#]">
 									<option value="normal">normal</option>
 									<option value="italic">italic</option>
 								</select>
@@ -1624,7 +1621,7 @@ class Custom_Community{
 								<label for="" title="Title text shadow style">Title text shadow style</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_text_shadow_style]" name="cc-config_values[list_post_template_title_text_shadow_style][#index#]">
 									<option value="outside">outside</option>
 									<option value="inside">inside</option>
 								</select>									
@@ -1662,6 +1659,16 @@ class Custom_Community{
 								</div>
 						</div>
 						
+						<!-- content: link color -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content link color ">Content link color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_link_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_link_color][#index#]">
+								</div>
+						</div>
+						
 						<!-- content: font size -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
@@ -1678,7 +1685,7 @@ class Custom_Community{
 								<label for="" title="Content font family">Content font family</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_family][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_family]" name="cc-config_values[list_post_template_content_font_family][#index#]">
 									<option value="arial, sans-serif">Arial</option>
 									<option value="arial black, arial, sans-serif">Arial Black</option>
 									<option value="helvetica, arial, sans-serif">Helvetica</option>
@@ -1697,7 +1704,7 @@ class Custom_Community{
 								<label for="" title="Content font weight">Content font weight</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_weight]" name="cc-config_values[list_post_template_content_font_weight][#index#]">
 									<option value="normal">normal</option>
 									<option value="bold">bold</option>
 								</select>
@@ -1710,7 +1717,7 @@ class Custom_Community{
 								<label for="" title="Content font style">Content font style</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_style]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_style][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_style]" name="cc-config_values[list_post_template_content_font_style][#index#]">
 									<option value="normal">normal</option>
 									<option value="italic">italic</option>
 								</select>
@@ -1732,7 +1739,7 @@ class Custom_Community{
 								<label for="" title="Content text shadow style">Content text shadow style</label>
 							</div>
 							<div class="tk_field">
-								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style]" name="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style][#index#]">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_text_shadow_style]" name="cc-config_values[list_post_template_content_text_shadow_style][#index#]">
 									<option value="inside">inside</option>
 									<option value="outside">outside</option>
 								</select>									

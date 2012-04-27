@@ -507,12 +507,10 @@ function cc_list_posts($atts,$content = null) {
 			}
 			
 			/* content styles */
-			div.list-posts-all.<?php echo $template_name; ?> p {
+			div.list-posts-all.<?php echo $template_name; ?> p,
+			div.list-posts-all.<?php echo $template_name; ?> a {
 				<?php if ( $tkf->list_post_template_content_show[$arrayindex] == 'off' ) { ?>
 					display: none;
-			    <?php } ?>
-			    <?php if ( $tkf->list_post_template_content_font_color[$arrayindex] != '' ) { ?>
-					color: #<?php echo $tkf->list_post_template_content_font_color[$arrayindex]; ?>;
 			    <?php } ?>
 			    <?php if ( $tkf->list_post_template_content_font_size[$arrayindex] != '' ) { ?>
 					font-size: <?php echo $tkf->list_post_template_content_font_size[$arrayindex]; ?>px;
@@ -534,10 +532,20 @@ function cc_list_posts($atts,$content = null) {
 			    <?php } ?>			    
 			}
 			
+			/* font color extra */
+			div.list-posts-all.<?php echo $template_name; ?> a {
+			    <?php if ( $tkf->list_post_template_content_link_color[$arrayindex] != '' ) { ?>
+					color: #<?php echo $tkf->list_post_template_content_link_color[$arrayindex]; ?>;
+			    <?php } ?>
+			}
 			
-			
-			
-			
+			/* link color extra */
+			div.list-posts-all.<?php echo $template_name; ?> p {
+			    <?php if ( $tkf->list_post_template_content_font_color[$arrayindex] != '' ) { ?>
+					color: #<?php echo $tkf->list_post_template_content_font_color[$arrayindex]; ?>;
+			    <?php } ?>
+			}
+
 			
 			
 				
