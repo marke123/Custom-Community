@@ -565,37 +565,116 @@ class Custom_Community{
 
 
 		<div class="hidden_fields" style="display: none;">
-			<option value="no-image">no image</option>
+			
+			
 			<?php
 			
-			$option['value'] = 'no-image';
-			$option['option_name'] = 'no image';
-			$options[] = $option;
+			// init selectboxes for image position 
+			$img_position['value'] = 'posts-img-left-content-right';
+			$img_position['option_name'] = 'left from title and content';
+			$img_position_options[] = $img_position;
 			
-			$option['value'] = 'posts-img-left-content-right';
-			$option['option_name'] = 'left from title and content';
-			$options[] = $option;
+			$img_position['value'] = 'posts-img-right-content-left';
+			$img_position['option_name'] = 'right from title and content';
+			$img_position_options[] = $img_position;
 			
-			$option['value'] = 'posts-img-right-content-left';
-			$option['option_name'] = 'right from title and content';
-			$options[] = $option;
+			$img_position['value'] = 'posts-img-over-content';
+			$img_position['option_name'] = 'over title and content';
+			$img_position_options[] = $img_position;
 			
-			$option['value'] = 'posts-img-over-content';
-			$option['option_name'] = 'over title and content';
-			$options[] = $option;
-			
-			$option['value'] = 'posts-img-under-content';
-			$option['option_name'] = 'under title and content';
-			
-			$options[] = $option;
+			$img_position['value'] = 'posts-img-under-content';
+			$img_position['option_name'] = 'under title and content';
+			$img_position_options[] = $img_position;
 
-			$option['value'] = 'posts-img-between-title-content';
-			$option['option_name'] = 'between title and content';
-			
-			$options[] = '$option';
-			
+			$img_position['value'] = 'posts-img-between-title-content';
+			$img_position['option_name'] = 'between title and content';
+			$img_position_options[] = $img_position;
 			
 			
+			// init selectboxes for font family  
+			$font_family['value'] = 'arial, sans-serif';
+			$font_family['option_name'] = 'Arial';
+			$font_family_options[] = $font_family;
+
+			$font_family['value'] = 'arial black, arial, sans-serif';
+			$font_family['option_name'] = 'Arial Black';
+			$font_family_options[] = $font_family;
+			
+			$font_family['value'] = 'helvetica, arial, sans-serif';
+			$font_family['option_name'] = 'Helvetica';
+			$font_family_options[] = $font_family;
+			
+			$font_family['value'] = 'century gothic, avant garde, arial, sans-serif';
+			$font_family['option_name'] = 'Century Gothic';
+			$font_family_options[] = $font_family;
+			
+			$font_family['value'] = 'impact, arial, sans-serif';
+			$font_family['option_name'] = 'Impact';
+			$font_family_options[] = $font_family;
+			
+			$font_family['value'] = 'times new roman, times';
+			$font_family['option_name'] = 'Times New Roman';
+			$font_family_options[] = $font_family;
+
+			$font_family['value'] = 'garamond, times new roman, times, serif';
+			$font_family['option_name'] = 'Garamond';
+			$font_family_options[] = $font_family;
+			
+			$font_family['value'] = 'georgia, times, serif';
+			$font_family['option_name'] = 'Georgia';
+			$font_family_options[] = $font_family;
+			
+			
+			// init selectboxes for image repeat  
+			$img_repeat['value'] = 'no-repeat';
+			$img_repeat['option_name'] = 'no repeat';
+			$img_repeat_options[] = $img_repeat;
+			
+			$img_repeat['value'] = 'repeat-x';
+			$img_repeat['option_name'] = 'horizontal';
+			$img_repeat_options[] = $img_repeat;
+			
+			$img_repeat['value'] = 'repeat-y';
+			$img_repeat['option_name'] = 'vertical';
+			$img_repeat_options[] = $img_repeat;
+			
+			$img_repeat['value'] = 'repeat';
+			$img_repeat['option_name'] = 'repeat both';
+			$img_repeat_options[] = $img_repeat;
+			
+			
+			// init selectboxes for font weight  
+			$font_weight['value'] = 'normal';
+			$font_weight['option_name'] = 'normal';
+			$font_weight_options[] = $font_weight;
+			
+			$font_weight['value'] = 'bold';
+			$font_weight['option_name'] = 'bold';
+			$font_weight_options[] = $font_weight;
+
+			
+			// init selectboxes for font style  
+			$font_style['value'] = 'normal';
+			$font_style['option_name'] = 'normal';
+			$font_style_options[] = $font_style;
+			
+			$font_style['value'] = 'italic';
+			$font_style['option_name'] = 'italic';
+			$font_style_options[] = $font_style;
+			
+			
+			// init selectboxes for shadow style  
+			$shadow_style['value'] = 'outside';
+			$shadow_style['option_name'] = 'outside';
+			$shadow_style_options[] = $shadow_style;
+			
+			$shadow_style['value'] = 'inside';
+			$shadow_style['option_name'] = 'inside';
+			$shadow_style_options[] = $shadow_style;
+			
+			
+			
+			// init selectboxes for ... font_weight, font_style and shadow_style missing... 	
 					
 					
 			// post entry options (the post container) ///////////////////////////////// 
@@ -609,7 +688,7 @@ class Custom_Community{
 
 				// post entry: background image 
 				echo 'list_post_template_background_image'.tk_form_fileuploader( 'list_post_template_background_image', array( 'multi_index' => 0 ) ).'<br>'; 
-				echo 'list_post_template_background_image_repeat'. tk_form_select( 'list_post_template_background_image_repeat', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_background_image_repeat'. tk_form_select( 'list_post_template_background_image_repeat', $img_repeat_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// post entry: width and height 
 				echo 'list_post_template_width'.tk_form_textfield( 'list_post_template_width', array( 'multi_index' => 0 ) ).'<br>'; 
@@ -623,7 +702,7 @@ class Custom_Community{
 
 				// post entry: box shadows for everyone! 
 				echo 'list_post_template_box_shadow_color'.tk_form_colorpicker( 'list_post_template_box_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
-				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 	
 
 
 			// featured image options ////////////////////////////////////////////////// 
@@ -632,7 +711,7 @@ class Custom_Community{
 				echo 'list_post_template_image_show'. tk_form_checkbox( 'list_post_template_image_show', array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// featured image: position 
-				echo 'list_post_template_image_position'. tk_form_select( 'list_post_template_image_position', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_image_position'. tk_form_select( 'list_post_template_image_position', $img_position_options, array( 'multi_index' => 0 ) ).'<br>'; 	
 
 				// featured image: width and height 
 				echo 'list_post_template_image_height'.tk_form_textfield( 'list_post_template_image_height', array( 'multi_index' => 0 ) ).'<br>'; 
@@ -646,7 +725,7 @@ class Custom_Community{
 	
 				// featured image: box shadows 
 				echo 'list_post_template_image_box_shadow_color'.tk_form_colorpicker( 'list_post_template_image_box_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
-				echo 'list_post_template_image_box_shadow_style'. tk_form_select( 'list_post_template_image_box_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_image_box_shadow_style'. tk_form_select( 'list_post_template_image_box_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 	
 	
 	
 			// title options ////////////////////////////////////////////////// 
@@ -661,17 +740,17 @@ class Custom_Community{
 				echo 'list_post_template_title_size'. tk_form_textfield( 'list_post_template_title_size', array( 'multi_index' => 0 ) ).'<br>'; 
 				
 				// title: font family 
-				echo 'list_post_template_title_font_family'. tk_form_select( 'list_post_template_title_font_family', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_title_font_family'. tk_form_select( 'list_post_template_title_font_family', $font_family_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// title: font weight 
-				echo 'list_post_template_title_font_weight'. tk_form_select( 'list_post_template_title_font_weight', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_title_font_weight'. tk_form_select( 'list_post_template_title_font_weight', $font_weight_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// title: font style 
-				echo 'list_post_template_title_font_style'. tk_form_select( 'list_post_template_title_font_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_title_font_style'. tk_form_select( 'list_post_template_title_font_style', $font_style_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// title: text shadows 
 				echo 'list_post_template_title_text_shadow_color'.tk_form_colorpicker( 'list_post_template_title_text_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
-				echo 'list_post_template_title_text_shadow_style'. tk_form_select( 'list_post_template_title_text_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_title_text_shadow_style'. tk_form_select( 'list_post_template_title_text_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 	
 
 
 			// content options ////////////////////////////////////////////////// 
@@ -689,17 +768,17 @@ class Custom_Community{
 				echo 'list_post_template_content_font_size'. tk_form_textfield( 'list_post_template_content_font_size', array( 'multi_index' => 0 ) ).'<br>'; 
 				
 				// content: font family 
-				echo 'list_post_template_content_font_family'. tk_form_select( 'list_post_template_content_font_family', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_content_font_family'. tk_form_select( 'list_post_template_content_font_family', $font_family_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// content: font weight 
-				echo 'list_post_template_content_font_weight'. tk_form_select( 'list_post_template_content_font_weight', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_content_font_weight'. tk_form_select( 'list_post_template_content_font_weight', $font_weight_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// content: font style 
-				echo 'list_post_template_content_font_style'. tk_form_select( 'list_post_template_content_font_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 
+				echo 'list_post_template_content_font_style'. tk_form_select( 'list_post_template_content_font_style', $font_style_options, array( 'multi_index' => 0 ) ).'<br>'; 
 
 				// content: text shadows 
 				echo 'list_post_template_content_text_shadow_color'.tk_form_colorpicker( 'list_post_template_content_text_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
-				echo 'list_post_template_content_text_shadow_style'. tk_form_select( 'list_post_template_content_text_shadow_style', $options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_content_text_shadow_style'. tk_form_select( 'list_post_template_content_text_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 	
 				
 				// names and amount of created list post templates  					
 				echo 'list_post_template_amount'. tk_form_textfield( 'list_post_template_amount', array( 'multi_index' => 0 ) ).'<br>'; 
@@ -803,7 +882,8 @@ class Custom_Community{
 									<option value="no-repeat">no repeat</option>
 									<option value="repeat-x">repeat horizontal</option>
 									<option value="repeat-y">repeat vertical</option>
-									<option value="repeat">repeat both</option></select>									
+									<option value="repeat">repeat both</option>
+								</select>									
 							</div>
 						</div>
 					
@@ -1016,14 +1096,14 @@ class Custom_Community{
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_title_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_title_font_family][#index#]">
-									<option name="Arial, sans-serif" value="Arial, sans-serif">Arial, sans-serif</option>
-									<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif">Helvetica, Arial, sans-serif</option>
-									<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif">Century Gothic, Avant Garde, Arial, sans-serif</option>
-									<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif">Arial Black, Arial, sans-serif</option>
-									<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif">Impact, Arial, sans-serif</option>
-									<option name="Times New Roman, Times" value="Times New Roman, Times">Times New Roman, Times</option>
-									<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times">Garamond, Times New Roman, Times</option>
-									<option name="Georgia, Times, Serif" value="georgia, times, serif">Georgia, Times, Serif</option>
+									<option value="arial, sans-serif">Arial</option>
+									<option value="arial black, arial, sans-serif">Arial Black</option>
+									<option value="helvetica, arial, sans-serif">Helvetica</option>
+									<option value="century gothic, avant garde, arial, sans-serif">Century Gothic</option>
+									<option value="impact, arial, sans-serif">Impact</option>
+									<option value="times new roman, times">Times New Roman</option>
+									<option value="garamond, times new roman, times, serif">Garamond</option>
+									<option value="georgia, times, serif">Georgia</option>
 								</select>
 							</div>
 						</div>
@@ -1123,14 +1203,14 @@ class Custom_Community{
 							</div>
 							<div class="tk_field">
 								<select id="list_post_template_#index#_cc-config_values[list_post_template_content_font_family]" name="list_post_template_#index#_cc-config_values[list_post_template_content_font_family][#index#]">
-									<option name="Arial, sans-serif" value="Arial, sans-serif">Arial, sans-serif</option>
-									<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif">Helvetica, Arial, sans-serif</option>
-									<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif">Century Gothic, Avant Garde, Arial, sans-serif</option>
-									<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif">Arial Black, Arial, sans-serif</option>
-									<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif">Impact, Arial, sans-serif</option>
-									<option name="Times New Roman, Times" value="Times New Roman, Times">Times New Roman, Times</option>
-									<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times">Garamond, Times New Roman, Times</option>
-									<option name="Georgia, Times, Serif" value="georgia, times, serif">Georgia, Times, Serif</option>
+									<option value="arial, sans-serif">Arial</option>
+									<option value="arial black, arial, sans-serif">Arial Black</option>
+									<option value="helvetica, arial, sans-serif">Helvetica</option>
+									<option value="century gothic, avant garde, arial, sans-serif">Century Gothic</option>
+									<option value="impact, arial, sans-serif">Impact</option>
+									<option value="times new roman, times">Times New Roman</option>
+									<option value="garamond, times new roman, times, serif">Garamond</option>
+									<option value="georgia, times, serif">Georgia</option>
 								</select>
 							</div>
 						</div>
