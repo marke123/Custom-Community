@@ -8,7 +8,6 @@ add_action( 'bp_after_header', 'innerrim_after_header', 2 );
 add_action( 'bp_before_access', 'menue_enable_search', 2 );
 add_action( 'bp_before_access', 'header_logo', 2 );
 add_action( 'bp_menu', 'bp_menu', 2 );
-add_filter( 'wp_page_menu_args', 'remove_home_nav_from_fallback', 100 ); 
 add_action( 'bp_after_header', 'slideshow_home', 2 );
 add_action( 'favicon', 'favicon', 2 );
 
@@ -39,5 +38,10 @@ add_action( 'blog_post_entry', 'excerpt_on', 2 );
 
 // custom login
 add_action('login_head', 'custom_login', 2 );
+
+// Post and Pages
+
+add_filter( 'cc_list_posts_on_post_page', 'list_posts_under_post_and_pages' ); 
+
 
 ?>

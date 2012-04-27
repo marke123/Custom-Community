@@ -1,7 +1,5 @@
 <?php
 
-require_once( dirname(__FILE__) . '/core/get-pro.php' );
-require_once( dirname(__FILE__) . '/core/post-metabox.php' );
 require_once( dirname(__FILE__) . '/core/loader.php');
 
 function remove_sidebar_left(){

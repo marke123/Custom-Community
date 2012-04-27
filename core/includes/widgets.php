@@ -279,8 +279,8 @@ function profiles_header_control() {
 class featured_posts_widget extends WP_Widget {
 	function featured_posts_widget() {
 		  //Constructor
-	        parent::WP_Widget(false, $name = 'Custom Community -> Featured Post', array(
-	            'description' => 'Featured Post'
+	        parent::WP_Widget(false, $name = 'Custom Community -> List Post', array(
+	            'description' => 'List Post'
 	        ));
 	}
 	
@@ -295,6 +295,8 @@ class featured_posts_widget extends WP_Widget {
     
 		$selected_post_type = esc_attr($instance['featured_posts_post_type']);
         
+		$featured_posts_order_by = $instance['featured_posts_order_by'];
+		$featured_posts_order = $instance['featured_posts_order'];
 		$featured_posts_background_color = $instance['featured_posts_background_color'];
 		$featured_posts_show_sticky = $instance['featured_posts_show_sticky'];
 		$featured_posts_show_pages_by_id = $instance['featured_posts_show_pages_by_id'];
@@ -327,6 +329,8 @@ class featured_posts_widget extends WP_Widget {
 			'show_pagination_wp_pagenavi' => 'hide',
 			'posts_per_page' => $featured_posts_posts_per_page,
 			'featured_id' => $widget_id,
+			'orderby' => $featured_posts_order_by,
+			'order' => $featured_posts_order
 		);
 		$tmp .=  cc_list_posts($atts,$content = null);
 	
@@ -355,7 +359,8 @@ class featured_posts_widget extends WP_Widget {
 		$listing_style = esc_attr($instance['featured_posts_listing_style']);
 		
 		
-		
+		$featured_posts_order_by = $instance['featured_posts_order_by'];
+		$featured_posts_order = $instance['featured_posts_order'];
 		$featured_posts_background_color = $instance['featured_posts_background_color'];
 		$featured_posts_show_sticky = $instance['featured_posts_show_sticky'];
 		$featured_posts_show_pages_by_id = $instance['featured_posts_show_pages_by_id'];
@@ -363,7 +368,6 @@ class featured_posts_widget extends WP_Widget {
 		$featured_posts_posts_per_page = $instance['featured_posts_posts_per_page'];
 		$featured_posts_show_pagination = $instance['featured_posts_show_pagination'];
 		$featured_posts_pagination_ajax_effect = $instance['featured_posts_pagination_ajax_effect'];
-		
        // Get the existing categories and build a simple select dropdown for the user.
 
 		$args = array('echo' => '0','hide_empty' => '0');
@@ -391,16 +395,9 @@ class featured_posts_widget extends WP_Widget {
 			<label for="<?php echo $this->get_field_id('title'); ?>">Title: </label>
             <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" />
 		</p>
+		
 		<p>
-		    <label for="<?php echo $this->get_field_id('category'); ?>">
-		        <?php _e('Include category (optional):'); ?>
-		    </label>
-		    <select id="<?php echo $this->get_field_id('category'); ?>" class="widefat" name="<?php echo $this->get_field_name('category'); ?>">
-		        <?php echo implode('', $cat_options); ?>
-		    </select>
-		</p>
-		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>">Featured posts listing style: </label>
+			<label for="<?php echo $this->get_field_id('title'); ?>">List posts listing style: </label>
 		 	<select name="<?php echo $this->get_field_name('featured_posts_listing_style'); ?>" id="<?php echo $this->get_field_id('featured_posts_listing_style'); ?>">
 			   	<option <?php if($listing_style == 'img-mouse-over'){ ?> selected <?php } ?> value="img-mouse-over">image mouse over</option>
 			   	<option <?php if($listing_style == 'posts-img-left-content-right'){ ?> selected <?php } ?> value="posts-img-left-content-right">posts-img-left-content-right</option>
@@ -415,8 +412,33 @@ class featured_posts_widget extends WP_Widget {
 		<?php } } ?>
 		
 			 </select>
-		</p>							
+			 
+			 or create your own <a href="themes.php?page=cc-settings&settings-updated=true#template_generator" target="_blank">here</a>  
+			 
+		</p>		
 		
+		<p>
+		    <label for="<?php echo $this->get_field_id('category'); ?>">
+		        <?php _e('Include category (optional):'); ?>
+		    </label>
+		    <select id="<?php echo $this->get_field_id('category'); ?>" class="widefat" name="<?php echo $this->get_field_name('category'); ?>">
+		        <?php echo implode('', $cat_options); ?>
+		    </select>
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_order_by'); ?>">Order by: </label>
+            <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_order_by'); ?>" name="<?php echo $this->get_field_name('featured_posts_order_by'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_order_by); ?>" />
+		</p>
+		
+		<p>
+			<label for="<?php echo $this->get_field_id('featured_posts_order'); ?>">Order: </label><br />
+		 	<select name="<?php echo $this->get_field_name('featured_posts_order'); ?>" id="<?php echo $this->get_field_id('featured_posts_order'); ?>">
+			   	<option <?php if($featured_posts_order == 'ASC'){ ?> selected <?php } ?> value="ASC">Ascending</option>
+			   	<option <?php if($featured_posts_order == 'DESC'){ ?> selected <?php } ?> value="DESC">Descending</option>
+			 </select>
+		</p>	
+
 		<p>
 			<label for="<?php echo $this->get_field_id('featured_posts_show_sticky'); ?>">Show only sticky posts: </label><br />
    			<input type="checkbox" id="<?php echo $this->get_field_id('featured_posts_show_sticky'); ?>" name="<?php echo $this->get_field_name('featured_posts_show_sticky'); ?>" value="on" <?php if(attribute_escape($featured_posts_show_sticky) == 'on'){ ?> checked="checked" <?php } ?> /><br />
@@ -437,7 +459,7 @@ class featured_posts_widget extends WP_Widget {
 		</p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('featured_posts_amount'); ?>">Amount of featured posts: </label>
+			<label for="<?php echo $this->get_field_id('featured_posts_amount'); ?>">Amount of posts: </label>
             <input class="widefat" id="<?php echo $this->get_field_id('featured_posts_amount'); ?>" name="<?php echo $this->get_field_name('featured_posts_amount'); ?>" type="text" value="<?php echo attribute_escape($featured_posts_amount); ?>" />
 		</p>
 	
