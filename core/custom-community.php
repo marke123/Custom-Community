@@ -1153,7 +1153,7 @@ class Custom_Community{
 			// post entry options (the post container) ///////////////////////////////// 
 			
 				// post entry: clickable box or not? 
-				echo 'list_post_template_entry_clickable'. tk_form_checkbox( 'list_post_template_entry_clickable', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo '<!-- list_post_template_entry_clickable'. tk_form_checkbox( 'list_post_template_entry_clickable', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 				
 				// post entry: background color fade 
 				echo 'list_post_template_background_color'.tk_form_colorpicker( 'list_post_template_background_color', array( 'multi_index' => 0 ) ).'<br>'; 
@@ -1309,8 +1309,8 @@ class Custom_Community{
 						<!-- post entry: clickable box or not? -->
 						
 						<div class="tk_field_row">
-							make the post a clickable box:
-							<input type="checkbox" id="list_post_template_entry_clickable" name="cc-config_values[list_post_template_entry_clickable]">
+							Make the post a clickable box:
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_entry_clickable]" name="cc-config_values[list_post_template_entry_clickable][#index#]">
 						</div>
 						
 						<!-- post entry: background color or fade -->

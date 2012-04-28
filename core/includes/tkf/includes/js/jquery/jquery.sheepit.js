@@ -1026,7 +1026,11 @@ jQuery.fn.sheepIt = function (options){
             }
             // checkbox, radio button
             else if(type == 'checkbox' || type == 'radio') {
-                field.attr("checked", "checked");
+            	if( value != '' && type == 'checkbox' ){
+                	field.attr("checked", "checked");
+                }else if( type != 'checkbox' ){
+                	field.attr("checked", "checked");
+                }
                 return true;
             }
             // select-one, select-multiple
