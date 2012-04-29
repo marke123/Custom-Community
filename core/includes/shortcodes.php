@@ -548,11 +548,7 @@ function cc_list_posts($atts,$content = null) {
 			    <?php } ?>
 			}
 
-			
-			
-				
 		</style>
-		
 		
 		<?php	
 		$tmp .= ob_get_contents();
@@ -579,9 +575,6 @@ function cc_list_posts($atts,$content = null) {
 	if ( $img_position == 'posts-img-between-title-content' ) {
 		 $margintop = 'margin-top: 10px;'; 
 	}
-	
-	
-	
 			
 	$args = array(
 		'amount' => $amount,
@@ -599,92 +592,70 @@ function cc_list_posts($atts,$content = null) {
 	
 	$list_post_query = new WP_Query( $args );
 
-	$more = 0;
-		$tmp_js .= '<script type="text/javascript">'. chr(13);
-	
-		$tmp_js .= 'jQuery(document).ready(function(){'. chr(13);
-		$tmp_js .= 'boxgrid();'. chr(13);
-				
-		$tmp_js .= 'jQuery(\'.wp-pagenavi a, #navigation'.$featured_id.' a\').live(\'click\', function(e){'. chr(13);
-		
-		$tmp_js .= '	e.preventDefault();'. chr(13);
-					
-		$tmp_js .= '	var link = jQuery(this).attr(\'href\');'. chr(13);
-					
-		$tmp_js .= '	jQuery.fx.interval = 100;'. chr(13);
-					
-					switch ($pagination_ajax_effect) {
-						case 'hide_show':
-								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').hide(600).load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').show(\'400\');'. chr(13);		
-							break;
-						case 'fadeOut_fadeIn':
-								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').fadeOut(\'slow\').load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').fadeIn(\'400\');'. chr(13);			
-							break;
-						case 'slideUp_slidedown':
-								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').slideUp(\'slow\').load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').slideDown(\'600\');'. chr(13);			
-							break;
-						default:
-								$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').fadeOut(600).load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').fadeIn(400);'. chr(13);			
-							break;
-					}
-					$tmp_js .= 'boxgrid();'. chr(13);
-		
-					$tmp_js .=  '});'. chr(13);
-				$tmp_js .= '});'. chr(13);
-				
-				
-				$tmp_js .= '		function boxgrid(){'. chr(13);
-				$tmp_js .= '	jQuery(\'.boxgrid.captionfull\').hover(function(){'. chr(13);
-				$tmp_js .= '		jQuery(\'.cover\', this).stop().animate({top:\'-90px\'},{queue:false,duration:160});'. chr(13);
-				$tmp_js .= '	}, function() {'. chr(13);
-				$tmp_js .= '		jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});'. chr(13);
-				$tmp_js .= '	});'. chr(13);
-				$tmp_js .= '}'. chr(13);
-				$tmp_js .= '});'. chr(13);
-		
-				
-				
-				
-				
-				
-		$tmp_js .= '</script>'. chr(13);
-	
-		$list_post_atts = array(
-					'img_position' => $img_position,
-					'height' => $height,
-					'featured_id' => $featured_id,
-					'featured_posts_image_width' => $featured_posts_image_width, 
-					'featured_posts_image_height' => $featured_posts_image_height,
-					'margintop' => $margintop,
-					'arrayindex' => $arrayindex,
-					'template_name' => $template_name
-				);
-			
-	
-				
-		switch ($img_position) {
-			case 'img-mouse-over':
-				get_template_part( 'loop', 'featured-image-caption' );
+	$tmp_js .= '<script type="text/javascript">'. chr(13);
+	$tmp_js .= 'jQuery(document).ready(function(){'. chr(13);
+	$tmp_js .= 'boxgrid();'. chr(13);
+	$tmp_js .= 'jQuery(\'.wp-pagenavi a, #navigation'.$featured_id.' a\').live(\'click\', function(e){'. chr(13);
+	$tmp_js .= '	e.preventDefault();'. chr(13);
+	$tmp_js .= '	var link = jQuery(this).attr(\'href\');'. chr(13);
+	$tmp_js .= '	jQuery.fx.interval = 100;'. chr(13);
+	switch ($pagination_ajax_effect) {
+		case 'hide_show':
+				$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').hide(600).load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').show(\'400\');'. chr(13);		
 			break;
-			case 'default':
-					get_template_part( 'loop' );
+		case 'fadeOut_fadeIn':
+				$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').fadeOut(\'slow\').load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').fadeIn(\'400\');'. chr(13);			
 			break;
-			case 'bubbles':
-					get_template_part( 'loop' );
-			break;		
-			default:
-			
-				if( $clickable == 'on'){
-					get_template_part( 'loop', 'featured-image-clickable' );
-				} else {
-					get_template_part( 'loop', 'featured-image' );
-				}
-			  
+		case 'slideUp_slidedown':
+				$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').slideUp(\'slow\').load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').slideDown(\'600\');'. chr(13);			
 			break;
-		}
-		
-	
-	
+		default:
+				$tmp_js .=  'jQuery(\'#featured_posts'.$featured_id.'\').fadeOut(600).load(link + \' #list_posts'.$featured_id.'\', function(){ jQuery(\'#featured_posts'.$featured_id.'\').fadeIn(400);'. chr(13);			
+			break;
+	}
+	$tmp_js .= 'boxgrid();'. chr(13);
+	$tmp_js .=  '});'. chr(13);
+	$tmp_js .= '});'. chr(13);
+	$tmp_js .= '		function boxgrid(){'. chr(13);
+	$tmp_js .= '	jQuery(\'.boxgrid.captionfull\').hover(function(){'. chr(13);
+	$tmp_js .= '		jQuery(\'.cover\', this).stop().animate({top:\'-90px\'},{queue:false,duration:160});'. chr(13);
+	$tmp_js .= '	}, function() {'. chr(13);
+	$tmp_js .= '		jQuery(".cover", this).stop().animate({top:"0px"},{queue:false,duration:160});'. chr(13);
+	$tmp_js .= '	});'. chr(13);
+	$tmp_js .= '}'. chr(13);
+	$tmp_js .= '});'. chr(13);
+	$tmp_js .= '</script>'. chr(13);
+
+	$list_post_atts = array(
+		'img_position' => $img_position,
+		'height' => $height,
+		'featured_id' => $featured_id,
+		'featured_posts_image_width' => $featured_posts_image_width, 
+		'featured_posts_image_height' => $featured_posts_image_height,
+		'margintop' => $margintop,
+		'arrayindex' => $arrayindex,
+		'template_name' => $template_name
+	);
+
+	switch ($img_position) {
+		case 'img-mouse-over':
+			get_template_part( 'loop', 'featured-image-caption' );
+		break;
+		case 'default':
+				get_template_part( 'loop' );
+		break;
+		case 'bubbles':
+				get_template_part( 'loop' );
+		break;		
+		default:
+			if( $clickable == 'on'){
+				get_template_part( 'loop', 'featured-image-clickable' );
+			} else {
+				get_template_part( 'loop', 'featured-image' );
+			}
+		break;
+	}
+
 	if($show_pagination == 'show'){
 		$tmp .='<div id="navigation'.$featured_id.'">';
 		$tmp .='<div class="alignleft">'. get_next_posts_link('&laquo; Older Entries') .'</div>';
@@ -703,12 +674,9 @@ function cc_list_posts($atts,$content = null) {
 			}
 		}
 	}
-	
 
 	wp_reset_postdata();
 
-
-	
 	return $tmp_js.'<div id="featured_posts'.$featured_id.'"><div id="list_posts'.$featured_id.'" class="list-posts-all '. $template_name .' '. $img_position .' ">'.$tmp.'</div></div>';	
 }
 add_shortcode('cc_list_posts', 'cc_list_posts');
