@@ -1229,7 +1229,7 @@ class Custom_Community{
 			// content options ////////////////////////////////////////////////// 
 
 				// content: show or hide. * checked = show = default *  
-				echo '<!-- list_post_template_content_show'. tk_form_checkbox( 'list_post_template_content_show', array( 'multi_index' => 0 ) ).'--//><br>'; 
+				echo '<!-- list_post_template_content_show'. tk_form_checkbox( 'list_post_template_content_show', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 
 				// content: font color 
 				echo 'list_post_template_content_font_color'.tk_form_colorpicker( 'list_post_template_content_font_color', array( 'multi_index' => 0 ) ).'<br>'; 	
