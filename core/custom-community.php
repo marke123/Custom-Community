@@ -1153,7 +1153,7 @@ class Custom_Community{
 			// post entry options (the post container) ///////////////////////////////// 
 			
 				// post entry: clickable box or not? 
-				echo 'list_post_template_entry_clickable'. tk_form_checkbox( 'list_post_template_entry_clickable', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo '<!-- list_post_template_entry_clickable'. tk_form_checkbox( 'list_post_template_entry_clickable', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 				
 				// post entry: background color fade 
 				echo 'list_post_template_background_color'.tk_form_colorpicker( 'list_post_template_background_color', array( 'multi_index' => 0 ) ).'<br>'; 
@@ -1181,7 +1181,7 @@ class Custom_Community{
 			// featured image options ////////////////////////////////////////////////// 
 
 				// featured image: show or hide. * checked = show = default *  
-				echo 'list_post_template_image_show'. tk_form_checkbox( 'list_post_template_image_show', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo '<!-- list_post_template_image_show'. tk_form_checkbox( 'list_post_template_image_show', array( 'multi_index' => 0 ) ).'<br> //-->'; 
 
 				// featured image: position 
 				echo 'list_post_template_image_position'. tk_form_select( 'list_post_template_image_position', $img_position_options, array( 'multi_index' => 0 ) ).'<br>'; 	
@@ -1204,7 +1204,7 @@ class Custom_Community{
 			// title options ////////////////////////////////////////////////// 
 
 				// title: show or hide. * checked = show = default *  
-				echo 'list_post_template_title_show'. tk_form_checkbox( 'list_post_template_title_show', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo '<!-- list_post_template_title_show'. tk_form_checkbox( 'list_post_template_title_show', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 
 				// title: font color 
 				echo 'list_post_template_title_color'.tk_form_colorpicker( 'list_post_template_title_color', array( 'multi_index' => 0 ) ).'<br>'; 	
@@ -1229,7 +1229,7 @@ class Custom_Community{
 			// content options ////////////////////////////////////////////////// 
 
 				// content: show or hide. * checked = show = default *  
-				echo 'list_post_template_content_show'. tk_form_checkbox( 'list_post_template_content_show', array( 'multi_index' => 0 ) ).'<br>'; 
+				echo '<!-- list_post_template_content_show'. tk_form_checkbox( 'list_post_template_content_show', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 
 				// content: font color 
 				echo 'list_post_template_content_font_color'.tk_form_colorpicker( 'list_post_template_content_font_color', array( 'multi_index' => 0 ) ).'<br>'; 	
@@ -1309,8 +1309,8 @@ class Custom_Community{
 						<!-- post entry: clickable box or not? -->
 						
 						<div class="tk_field_row">
-							make the post a clickable box:
-							<input type="checkbox" id="list_post_template_entry_clickable" name="cc-config_values[list_post_template_entry_clickable]">
+							Make the post a clickable box:
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_entry_clickable]" name="cc-config_values[list_post_template_entry_clickable][#index#]">
 						</div>
 						
 						<!-- post entry: background color or fade -->
@@ -1441,7 +1441,7 @@ class Custom_Community{
 						
 						<div class="tk_field_row">
 							Hide featured image:
-							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_image_show]" name="cc-config_values[list_post_template_image_show]">
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_image_show]" name="cc-config_values[list_post_template_image_show][#index#]">
 						</div>
 						
 						<!-- featured image: position -->
@@ -1539,7 +1539,7 @@ class Custom_Community{
 						<!-- title: show or hide. * checked = show = default *  -->
 						<div class="tk_field_row">
 							Hide the title:
-							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_title_show]" name="cc-config_values[list_post_template_title_show]">
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_title_show]" name="cc-config_values[list_post_template_title_show][#index#]">
 						</div>
 						
 						<!-- title: font color -->
@@ -1646,7 +1646,7 @@ class Custom_Community{
 						<!-- content: show or hide. * checked = show = default *  -->
 						<div class="tk_field_row">
 							Hide content:
-							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_content_show]" name="cc-config_values[list_post_template_content_show]">
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_content_show]" name="cc-config_values[list_post_template_content_show][#index#]">
 						</div>
 						
 						<!-- content: font color -->

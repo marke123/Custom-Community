@@ -389,22 +389,25 @@ function cc_widgets_init(){
 		
 	if (is_array($tkf->home_widgets_line_amount)){
 		foreach( $tkf->home_widgets_line_amount as $line){
-						
-			foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){
-						
-				register_sidebars(1,
-					array(
-						'name' => 'home widget line '.$line.' widget '.$widget ,
-						'id' => 'home_widget_line_'.$line.'_widget_'.$widget,
-						'description' => 'Home widget line '.$line.' widget '.$widget,
-						'before_widget' => '<div id="line_'.$line.'_widget_'.$widget.'" class="widget home_widget_line">',
-						'after_widget' => '</div>',
-						'before_title' => '<h3 class="widgettitle">',
-						'after_title' => '</h3>'
-					)
-				);
-				 
-			}	
+			
+			if (is_array($tkf->home_widgets_line_widgets_amount[$line])){
+				
+				foreach( $tkf->home_widgets_line_widgets_amount[$line] as $widget){
+							
+					register_sidebars(1,
+						array(
+							'name' => 'home widget line '.$line.' widget '.$widget ,
+							'id' => 'home_widget_line_'.$line.'_widget_'.$widget,
+							'description' => 'Home widget line '.$line.' widget '.$widget,
+							'before_widget' => '<div id="line_'.$line.'_widget_'.$widget.'" class="widget home_widget_line">',
+							'after_widget' => '</div>',
+							'before_title' => '<h3 class="widgettitle">',
+							'after_title' => '</h3>'
+						)
+					);
+					 
+				}
+			}
 			$wn = 0;	
 		}	
 	}
