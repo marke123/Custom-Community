@@ -1,7 +1,14 @@
 <?php 
 
+function list_posts_loop_featured_image($args){
+	return $tmp;
+}
 
-function featured_post_loop(){
+		
+
+
+
+function list_posts_loop_default(){
 	 ob_start(); ?>
 
 <div id="post-<?php the_ID(); ?>"  class="listposts post <?php global $tkf; echo $tkf->home_featured_posts_style ?>">
