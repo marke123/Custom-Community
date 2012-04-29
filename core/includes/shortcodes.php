@@ -567,10 +567,19 @@ function cc_list_posts($atts,$content = null) {
 	}
 				
 	if($home_featured_posts_show_sticky == 'on' && is_home()) {
-
 		$page_id = get_option( 'sticky_posts' );
-			
 	} 
+	
+	if( $height != 'auto' ){
+		 $height = $height.'px'; 
+	}
+	
+	if ( $img_position == 'posts-img-between-title-content' ) {
+		 $margintop = 'margin-top: 10px;'; 
+	}
+	
+	
+	
 			
 	$args = array(
 		'amount' => $amount,
@@ -659,23 +668,48 @@ function cc_list_posts($atts,$content = null) {
 				break;
 			
 			case 'default':
-				$tmp .= featured_post_loop($tmp);
+				$tmp .= list_posts_loop_default($tmp);
 			break;
 			case 'bubbles':
-				$tmp .= featured_post_loop($tmp);
+				$tmp .= list_posts_loop_default($tmp);
 			break;		
 			default:
-					$tmp .= '<div class="listposts '.$img_position.' '. $template_name .'">';
-					if($img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
-					$tmp .= '<h3><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
-					if($img_position == 'posts-img-between-title-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
-					if($height != 'auto'){ $height = $height.'px'; }
-					if ($img_position == 'posts-img-between-title-content') { $margintop = 'margin-top: 10px;'; }
-					$tmp .= '<p style="'.$margintop.' height:'.$height.';">'. get_the_excerpt().'<a href="'.get_permalink().'"><br />'.__('read more','cc').'</a></p>';
-					if($img_position == 'posts-img-under-content') $tmp .= '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
-					$tmp .= '</div>';
-					if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') $tmp .= '<div class="clear"></div>';	
-				break;
+				
+				$featured_image = '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
+				
+					
+				ob_start();?>
+				
+				<div class="listposts <?php echo $img_position .' '. $template_name ?>">;
+				<?php 	
+				if( $img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content'){
+					echo $featured_image;
+				}
+				?>
+				
+				<h3><a href="<?php the_permalink() ?>" title="<?php _e( 'Permanent Link to', 'cc' ) . the_title_attribute(); ?>"><?php the_title() ?></a></h3>';
+			
+				<?php
+				if($img_position == 'posts-img-between-title-content') {
+					echo $featured_image;
+				}
+				?>
+				
+				<p style="<?php $margintop ?> height:'<?php $height ?>'"><?php the_excerpt() ?><a href="'<?php the_permalink() ?>'"><br />'<?php _e('read more','cc') ?>'</a></p>
+				<?php if($img_position == 'posts-img-under-content') {
+						echo $featured_image;
+				} ?>
+				</div>
+				<?php if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') { ?>
+					<div class="clear"></div>
+				<?php } ?>
+				
+				<?php $tmp .= ob_get_contents(); ?>
+				<?php ob_end_clean(); 
+				$featured_image = '';
+				
+				
+			break;
 		}
 		
 	endwhile; endif;
