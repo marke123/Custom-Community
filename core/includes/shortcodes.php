@@ -340,9 +340,9 @@ add_shortcode('cc_third_col_right', 'third_col_right');
 
 // list posts
 function cc_list_posts($atts,$content = null) {
-	global $tkf, $cc_page_options, $post, $more;	
+	global $tkf, $list_post_query, $post, $tmp, $list_post_atts;	
 	$tmp = '';
-	
+
 	extract(shortcode_atts(array(
 		'amount' => '12',
 		'category_name' => '0',
@@ -373,6 +373,8 @@ function cc_list_posts($atts,$content = null) {
 		$arrayindex = $img_position;
 		$img_position = $tkf->list_post_template_image_position[$arrayindex];
 		$template_name = sanitize_title($tkf->list_post_template_name[$arrayindex]);
+		$clickable = $tkf->list_post_template_entry_clickable[$arrayindex];
+		
 		
 		// only sets the image width if there is a value
 		if ( $tkf->list_post_template_image_width[$arrayindex] != "" ) {
@@ -649,10 +651,11 @@ function cc_list_posts($atts,$content = null) {
 	
 	
 	
-	if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $list_post_query->the_post();
 				
 		switch ($img_position) {
 			case 'img-mouse-over':
+					if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $list_post_query->the_post();
+				
 				$thumb = get_the_post_thumbnail( $post->ID, 'post-thumbnail' );
 				$pattern= "/(?<=src=['|\"])[^'|\"]*?(?=['|\"])/i";
 				preg_match($pattern, $thumb, $thePath); 
@@ -665,6 +668,8 @@ function cc_list_posts($atts,$content = null) {
 				$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
 				$tmp .= '</div>';		
 				$tmp .= '</div></a>';	
+					endwhile; endif;
+				
 				break;
 			
 			case 'default':
@@ -675,44 +680,29 @@ function cc_list_posts($atts,$content = null) {
 			break;		
 			default:
 				
-				$featured_image = '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
+			$list_post_atts = array(
+				'img_position' => $img_position,
+				'height' => $height,
+				'featured_id' => $featured_id,
+				'featured_posts_image_width' => $featured_posts_image_width, 
+				'featured_posts_image_height' => $featured_posts_image_height,
+				'margintop' => $margintop,
+				'arrayindex' => $arrayindex,
+				'template_name' => $template_name
+			);
 				
+			if( $clickable == 'on'){
+				get_template_part( 'loop', 'featured-image-clickable' );
+			} else {
+				get_template_part( 'loop', 'featured-image' );
+			}
+			  
 					
-				ob_start();?>
-				
-				<div class="listposts <?php echo $img_position .' '. $template_name ?>">;
-				<?php 	
-				if( $img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content'){
-					echo $featured_image;
-				}
-				?>
-				
-				<h3><a href="<?php the_permalink() ?>" title="<?php _e( 'Permanent Link to', 'cc' ) . the_title_attribute(); ?>"><?php the_title() ?></a></h3>';
-			
-				<?php
-				if($img_position == 'posts-img-between-title-content') {
-					echo $featured_image;
-				}
-				?>
-				
-				<p style="<?php $margintop ?> height:'<?php $height ?>'"><?php the_excerpt() ?><a href="'<?php the_permalink() ?>'"><br />'<?php _e('read more','cc') ?>'</a></p>
-				<?php if($img_position == 'posts-img-under-content') {
-						echo $featured_image;
-				} ?>
-				</div>
-				<?php if($img_position == 'posts-img-left-content-right' || $img_position == 'posts-img-right-content-left') { ?>
-					<div class="clear"></div>
-				<?php } ?>
-				
-				<?php $tmp .= ob_get_contents(); ?>
-				<?php ob_end_clean(); 
-				$featured_image = '';
-				
+							
 				
 			break;
 		}
 		
-	endwhile; endif;
 	
 	
 	if($show_pagination == 'show'){
