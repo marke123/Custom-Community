@@ -2420,6 +2420,30 @@ function dynamic_css(){
 		width: 70%;
 	}
 	
+	/* buddyvents fixes for CC */
+	#events-list div.item-desc {
+	    clear: none;
+	    margin: 10px 0 0 !important;
+	    width: auto;
+	}
+	
+	ul#events-list.item-list li div.action {
+	    float: none;
+	    position: relative;
+	    width: 100%;
+	}
+	
+	#event-actions a.button.selected, 
+	#event-actions a.button:hover,
+	#event-actions a.button:focus {
+		color: #<?php echo $tkf->button_font_color_hover; ?>;
+	}
+	
+	.events ul.item-list li div.item-title {
+	    width: auto !important;
+		float: none;
+	}
+
 	
 	
 	
