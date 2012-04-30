@@ -185,9 +185,9 @@
 				<?php echo bp_core_fetch_avatar( array( 'item_id' => bp_get_member_user_id(), 'type' => 'thumb', 'width' => 30, 'height' => 30, 'alt' => __( 'Profile picture of %s', 'cc' ) ) ) ?>
 				<h5>
 					<a href="<?php bp_member_permalink(); ?>"> <?php bp_member_name(); ?></a>
-					<span class="small">
+					<div class="small">
 						<a class="button confirm admin-demote-to-member" href="<?php bp_group_member_demote_link( bp_get_member_user_id() ) ?>"><?php _e( 'Demote to Member', 'cc' ) ?></a>
-					</span>			
+					</div>			
 				</h5>		
 			</li>
 			<?php endwhile; ?>
@@ -210,10 +210,10 @@
 						<?php echo bp_core_fetch_avatar( array( 'item_id' => bp_get_member_user_id(), 'type' => 'thumb', 'width' => 30, 'height' => 30, 'alt' => __( 'Profile picture of %s', 'cc' ) ) ) ?>
 						<h5>
 							<a href="<?php bp_member_permalink(); ?>"> <?php bp_member_name(); ?></a>
-							<span class="small">
+							<div class="small">
 								<a href="<?php bp_group_member_promote_admin_link( array( 'user_id' => bp_get_member_user_id() ) ) ?>" class="button confirm mod-promote-to-admin" title="<?php _e( 'Promote to Admin', 'cc' ); ?>"><?php _e( 'Promote to Admin', 'cc' ); ?></a>
 								<a class="button confirm mod-demote-to-member" href="<?php bp_group_member_demote_link( bp_get_member_user_id() ) ?>"><?php _e( 'Demote to Member', 'cc' ) ?></a>
-							</span>		
+							</div>		
 						</h5>		
 					</li>	
 					<?php endwhile; ?>			
@@ -257,7 +257,7 @@
 
 							<?php if ( bp_get_group_member_is_banned() ) _e( '(banned)', 'cc'); ?>
 
-							<span class="small">
+							<div class="small">
 
 							<?php if ( bp_get_group_member_is_banned() ) : ?>
 
@@ -275,7 +275,7 @@
 
 								<?php do_action( 'bp_group_manage_members_admin_item' ); ?>
 
-							</span>
+							</div>
 						</h5>
 					</li>
 
