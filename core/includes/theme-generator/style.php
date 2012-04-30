@@ -283,7 +283,7 @@ function dynamic_css(){
 	}
 	
 	#header #search-bar input[type="text"] {
-		padding: 3px;
+		padding: 3px 3px 5px 3px;
 		margin-right: 4px;
 		border: 1px inset #888;
 		border-radius: 3px;
@@ -293,6 +293,7 @@ function dynamic_css(){
 
 	#header #search-bar input[type="submit"], 
 	form input[type="submit"] {
+		line-height: 130%;
 	    margin: 0;
 	    padding: 3px 9px;
 	}
@@ -885,12 +886,25 @@ function dynamic_css(){
 		margin-top: 4px;
 	}
 	
-	ul.item-list li h5 span.small {
-		font-weight: normal;
-		font-size: 11px;
+	ul.item-list h5 .small a.button,
+	ul.item-list h5 .small a.button:hover,
+	ul.item-list h5 .small a.button:focus {
+	    font-size: 11px;
+	    margin-top: 5px;
+	    padding: 2px 5px;
+	    font-weight: normal;
 	}
 	
+	form#group-settings-form ul.item-list h5 {
+		float: left;
+	}
+	
+	ul.item-list h5 div.small {
+	    float: none;
+	    margin-top: 4px;
+	}
 
+	
 
 	
 	/* Item Tabs ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
@@ -906,7 +920,8 @@ function dynamic_css(){
 	}
 	
 	div.item-list-tabs ul {
-		width: 100%;
+	    margin-left: 10px;
+	    width: auto;
 	}
 	
 	div.item-list-tabs ul li {
@@ -1049,7 +1064,7 @@ function dynamic_css(){
 		background: url(<?php echo get_template_directory_uri() ?>/_inc/images/rss.png ) center left no-repeat;
 		padding-left: 20px;
 	}
-
+	
 
 	
 	/* Item Body ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
@@ -1103,6 +1118,12 @@ function dynamic_css(){
 		margin-left:0;
 	}
 	
+	form#group-settings-form div.bp-widget {
+		clear: both; 
+		margin-top: 20px;
+	}
+
+	
 	
 	
 	
@@ -1115,13 +1136,22 @@ function dynamic_css(){
 	}
 	
 	div.dir-search input[type=text] {
-		padding: 4px;
+		height : 18px; /* for other browsers */
+		line-height: 18px; /* for IE */
+		vertical-align: middle;	
+		padding-bottom: 2px;
+		padding-top: 2px;
 		font-size: 12px;
 	}
 	
 	.readmore{
 		float:right;
 	}
+	
+	.directory.groups div.item-list-tabs {
+		margin-top: 20px;
+	}
+
 	
 	
 	
@@ -1133,7 +1163,7 @@ function dynamic_css(){
 		height:16px;
 		margin:-20px -20px 9px;
 		padding:10px 20px;
-		background:none repeat scroll 0 0 #<?php echo $body_bg_color; ?>;
+		background: transparent;
 		border-bottom:medium none;
 		color:#<?php echo $font_color; ?>;
 		font-size:11px;
@@ -1288,7 +1318,7 @@ function dynamic_css(){
 			 $tkf->button_text_shadow_color_hover = "f1f1f1";
 		
 		if ( $tkf->button_bg_color_hover == "" ) 
-			 $tkf->button_bg_color_hover = "bfbfbf";
+			 $tkf->button_bg_color_hover = "d9d9d9";
 		
 	?>
 	
@@ -1304,16 +1334,16 @@ function dynamic_css(){
 	div.generic-button a, 
 	.activity-list div.activity-meta a {
 	    /* Background color fallback */
-	    	background: #<?php echo $tkf->button_bg_color_1; ?>;
+	    	background: #<?php echo $tkf->button_bg_color_2; ?>;
 	    /* Firefox: */
 	    	background: -moz-linear-gradient(center top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_1; ?>);
 	    /* Chrome, Safari:*/
 	    	background: -webkit-gradient(linear, left top, left center, from(#<?php echo $tkf->button_bg_color_2; ?>), to(#<?php echo $tkf->button_bg_color_1; ?>));
 	    /* Opera */
-			background: -o-linear-gradient(top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_2; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?> 75%, #<?php echo $tkf->button_bg_color_1; ?>);
+			background-image: -o-linear-gradient(top, #<?php echo $tkf->button_bg_color_2; ?>, #<?php echo $tkf->button_bg_color_1; ?>);
 	    /* IE */
-	    	filter: progid:DXImageTransform.Microsoft.Gradient(
-	    		StartColorStr='#<?php echo $tkf->button_bg_color_2; ?>', EndColorStr='#<?php echo $tkf->button_bg_color_1; ?>', GradientType=0);
+	    	filter: progid:DXImageTransform.Microsoft.gradient(
+	    		startColorstr='#<?php echo $tkf->button_bg_color_2; ?>', EndColorStr='#<?php echo $tkf->button_bg_color_1; ?>', GradientType=0);
     	border: 1px solid #<?php echo $tkf->button_border_color; ?>;
     	color: #<?php echo $tkf->button_font_color; ?>;
     	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color; ?>;
@@ -1333,7 +1363,7 @@ function dynamic_css(){
 	    margin-top: 0;
 	    line-height: 100%;
 	    padding: 5px 9px;
-	    vertical-align: top;
+	    vertical-align: middle;
 	}			
 	
 	span.button:hover, span.button:focus,  
@@ -1351,10 +1381,11 @@ function dynamic_css(){
     	border: 1px solid #<?php echo $tkf->button_border_color_hover; ?>;
     	color: #<?php echo $tkf->button_font_color_hover; ?>;
     	text-shadow: -1px 1px 0 #<?php echo $tkf->button_text_shadow_color_hover; ?>;
-	    cursor: pointer;
+	    font-size: <?php echo $tkf->button_font_size; ?>px;
 	    font-weight: bold;
+	    cursor: pointer;
 	    margin-top: 0;
-	    vertical-align: top;
+	    vertical-align: middle;
 	}
 	
 	/* Buttons that are disabled */
@@ -1566,6 +1597,9 @@ function dynamic_css(){
 		width: 245px !important;
 	}
 	
+	form.dir-form {
+		clear: both;
+	}
 	
 	
 	
@@ -4001,8 +4035,7 @@ function dynamic_css(){
 	/** ***   
 	Adapting to body background colour  **/
 	
-	div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a, 
-	div.pagination, div#subnav.item-list-tabs, 
+	div.item-list-tabs ul li.selected a, div.item-list-tabs ul li.current a, div#subnav.item-list-tabs, 
 	div#leftsidebar h3.widgettitle, div#sidebar h3.widgettitle, div.widgetarea h3.widgettitle,
 	div#leftsidebar h3.widgettitle a, div#sidebar h3.widgettitle a, div.widgetarea h3.widgettitle a,
 	div#footer .cc-widget h3.widgettitle, #header .cc-widget h3.widgettitle, div#footer .cc-widget h3.widgettitle a, #header .cc-widget h3.widgettitle a   { 
