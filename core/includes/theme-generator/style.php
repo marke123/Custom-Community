@@ -1427,6 +1427,7 @@ function dynamic_css(){
 	
 	div#item-buttons div.generic-button {
 	    margin: 0 12px 12px 0;
+	    padding: 10px 0;
 	}
 	
 	
