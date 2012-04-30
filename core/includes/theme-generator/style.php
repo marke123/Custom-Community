@@ -1131,8 +1131,14 @@ function dynamic_css(){
 	
 	
 	div.dir-search {
-		float: right;
-		margin: -37px 0 0 0;
+	    float: right;
+	    margin: 10px 0 0;
+	}
+	
+	form#groups-directory-form h2.pagetitle {
+	    line-height: 80%;
+	    margin: 10px 10px 10px 0;
+	    float: left;
 	}
 	
 	div.dir-search input[type=text] {
