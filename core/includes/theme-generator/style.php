@@ -1370,7 +1370,7 @@ function dynamic_css(){
 	    cursor: pointer;
 	    margin-top: 0;
 	    line-height: 100%;
-	    padding: 5px 9px;
+	    padding: 3px 9px;
 	    vertical-align: middle;
 	}			
 	
