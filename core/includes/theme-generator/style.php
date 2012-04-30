@@ -293,7 +293,6 @@ function dynamic_css(){
 
 	#header #search-bar input[type="submit"], 
 	form input[type="submit"] {
-		line-height: 130%;
 	    margin: 0;
 	    padding: 3px 9px;
 	}
@@ -1371,7 +1370,7 @@ function dynamic_css(){
 	    <?php } ?>
 	    cursor: pointer;
 	    margin-top: 0;
-	    line-height: 100%;
+	    line-height: 130%;
 	    padding: 3px 9px;
 	    vertical-align: middle;
 	}			
