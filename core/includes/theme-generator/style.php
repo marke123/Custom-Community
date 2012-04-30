@@ -691,6 +691,9 @@ function dynamic_css(){
 	div#item-header h2 a {
 		font-size: 28px;
 	}
+	div#item-header h2 span {
+		text-shadow: none; 
+	}
 	
 	div#item-header img.avatar {
 		float: left;
@@ -916,7 +919,7 @@ function dynamic_css(){
 	div.item-list-tabs {
 		background: none repeat scroll 0 0 transparent;
 		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
-		margin: 0px -20px 15px;
+		margin: 0px -20px 13px;
 		padding-top: 15px;
 		overflow: hidden;
 		clear: left;
@@ -2291,7 +2294,7 @@ function dynamic_css(){
 	
 	div.messages-options-nav {
 		font-size: 11px;
-		background: #<?php echo $container_bg_color; ?>;
+		background: transparent;
 		text-align: right;
 		margin: 0 -20px;
 		padding: 5px 15px;
