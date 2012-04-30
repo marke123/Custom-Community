@@ -1359,6 +1359,7 @@ function dynamic_css(){
     	font-size: <?php echo $tkf->button_font_size; ?>px;
     	font-weight: <?php echo $tkf->button_font_weight; ?>;
     	font-style: <?php echo $tkf->button_italic; ?>;
+    	font-family: <?php echo $tkf->button_font_style; ?> !important;
     	font-family: <?php echo $tkf->button_font_style; ?>;
 	    <?php if ( $tkf->button_box_shadow == "show" ) { ?>
 	    	-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,0.075), inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.1);
