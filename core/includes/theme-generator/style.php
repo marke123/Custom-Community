@@ -1493,8 +1493,10 @@ function dynamic_css(){
 		margin-top: 5px;
 	}
 	
-	form.standard-form input[type=text] {
-		width: 75%;
+	form.standard-form input[type="text"] {
+	    height: 18px;
+	    line-height: 18px;
+	    width: 75%;
 	}
 	
 	form.standard-form#sidebar-login-form input[type=text],
