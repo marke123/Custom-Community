@@ -919,7 +919,7 @@ function dynamic_css(){
 	div.item-list-tabs {
 		background: none repeat scroll 0 0 transparent;
 		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
-		margin: 0px 0px 13px;
+		margin: 0px -20px 13px;
 		padding-top: 15px;
 		overflow: hidden;
 		clear: left;
@@ -1052,7 +1052,7 @@ function dynamic_css(){
 	div#subnav.item-list-tabs  {
 		background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
 		border-bottom: medium none;
-		margin: -20px 0px 15px;
+		margin: -20px -20px 15px;
 		min-height: 26px;
 		overflow: hidden;
 	}
@@ -5604,12 +5604,12 @@ function dynamic_css(){
 	
 	div.item-list-tabs ul li.selected a, 
 	div.item-list-tabs ul li.current a, 
-	div.pagination, div#subnav.item-list-tabs {
+	div#subnav.item-list-tabs {
 		background-color: #<?php echo $tkf->bg_content_nav_color?>;
 	}
 	
 	div.item-list-tabs {
-		border-bottom: 4px solid #<?php echo $tkf->bg_content_nav_color?>;
+		border-bottom: 6px solid #<?php echo $tkf->bg_content_nav_color?>;
 	}
 	<?php } ?>
 	
