@@ -578,7 +578,7 @@ function dynamic_css(){
 	div.widgetarea div.item-options {
 		background: none repeat scroll 0 0 transparent;
 		font-size: 11px;
-		margin: -12px 0 10px -14px;
+		margin: -12px 0 10px 4px;
 		padding: 5px 15px;
 		text-align: left;
 	}
@@ -881,9 +881,9 @@ function dynamic_css(){
 		width: 34%;
 	}
 	
-	.item-meta{
-		float: left;
-		width: 87%;
+	.item-meta {
+		float: none;
+		width: auto;
 	}
 	
 	ul.item-list li div.meta {
@@ -2980,6 +2980,7 @@ function dynamic_css(){
 	
 	div.widget ul.item-list li div.item-title {
 		margin-top: 3px;
+		float: left;
 	}
 	
 	div.widget ul li a.rsswidget {
