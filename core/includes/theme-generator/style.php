@@ -1332,6 +1332,7 @@ function dynamic_css(){
 	a.button, 
 	span.button, 
 	button.button-alt, 
+	h2 a.button, h5 a.button, 
 	a.comment-edit-link, 
 	a.comment-reply-link, 
 	input[type="submit"], 
@@ -1374,7 +1375,9 @@ function dynamic_css(){
 	}			
 	
 	span.button:hover, span.button:focus,  
-	button:hover, button:focus,  
+	button:hover, button:focus, 
+	h2 a.button:hover, h2 a.button:focus, 
+	h5 a.button:hover, h5 a.button:focus,  
 	button.button-alt:hover, button.button-alt:focus, 
 	a.comment-edit-link:hover, a.comment-edit-link:focus, 
 	a.comment-reply-link:hover, a.comment-reply-link:focus, 
