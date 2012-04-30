@@ -677,6 +677,7 @@ function dynamic_css(){
 		overflow: hidden;
 	}
 	
+	div#item-header div#item-header-avatar, 
 	div#item-header div#item-header-content { 
 		float: left; 
 	}
@@ -708,6 +709,7 @@ function dynamic_css(){
 		line-height: 170%;
 		vertical-align: middle;
 		margin-bottom: 7px;
+		width: auto;
 	}
 	
 	div#item-header h2 span.highlight { 
@@ -861,10 +863,11 @@ function dynamic_css(){
 	}
 	
 	ul.item-list li div.item-desc {
-		width: 50%;
-		margin: 0 0 0 63px;
-		font-size: 11px;
-		color: #<?php echo $font_color; ?>;
+	    clear: both;
+	    color: #<?php echo $font_color; ?>;
+	    font-size: 11px;
+	    margin: 0 0 0 63px;
+	    width: auto;
 	}
 	
 	ul.item-list li div.action {
@@ -2400,9 +2403,15 @@ function dynamic_css(){
 	
 	
 	
-	/* Extra BuddyPress Styles ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	/* Extra BuddyPress and Plugins Styles ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	
+	/* groupblogs plugin, when creating group, step 3 */
+	ul#groupblog-details li {
+	    margin: 20px 0;
+	}
 	
 	
+	/* friends list stuff */
 	ul#friend-list li {
 		height: 53px;
 	}
