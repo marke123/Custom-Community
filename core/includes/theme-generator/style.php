@@ -912,7 +912,7 @@ function dynamic_css(){
 	
 	div.item-list-tabs {
 		background: none repeat scroll 0 0 transparent;
-		border-bottom: 4px solid #<?php echo $body_bg_color; ?>;
+		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
 		margin: 0px -20px 15px;
 		padding-top: 15px;
 		overflow: hidden;
@@ -1370,7 +1370,7 @@ function dynamic_css(){
 	    cursor: pointer;
 	    margin-top: 0;
 	    line-height: 100%;
-	    padding: 5px 9px;
+	    padding: 3px 9px;
 	    vertical-align: middle;
 	}			
 	
@@ -1493,8 +1493,10 @@ function dynamic_css(){
 		margin-top: 5px;
 	}
 	
-	form.standard-form input[type=text] {
-		width: 75%;
+	form.standard-form input[type="text"] {
+	    height: 18px;
+	    line-height: 18px;
+	    width: 75%;
 	}
 	
 	form.standard-form#sidebar-login-form input[type=text],
@@ -4052,7 +4054,7 @@ function dynamic_css(){
 		background-color: #<?php echo $tkf->bg_body_color?>;
 	}
 	
-	.boxgrid {
+	.boxgrid, div.item-list-tabs {
 		border-color: #<?php echo $tkf->bg_body_color?>;
 	}
 	<?php endif; ?>

@@ -35,10 +35,9 @@ if(defined('BP_VERSION')){
  */	
 function widget_community_nav() { ?>
   		<div id="community-nav" class="widget widget-title" >
+     	<h3 class="widgettitle"><?php _e( 'Community', 'cc' ) ?></h3>
   		<ul class="item-list">
-         	<h3 class="widgettitle"><?php _e( 'Community', 'cc' ) ?></h3>
-					
-	  		<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
+			<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
 				<li<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) ) : ?> class="selected"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'cc' ) ?>"><?php _e( 'Activity', 'cc' ) ?></a>
 				</li>
@@ -69,8 +68,8 @@ function widget_community_nav() { ?>
    <?php if( bp_is_single_item() || bp_is_user() ) { ?>
 	   	<?php if(bp_is_group()){ ?>
 		<div id="community-single-nav" class="widget-title" >
-		  <ul class="item-list">
 		  <h3 class="widgettitle"><?php _e( '@ Group', 'cc' ) ?></h3>
+		  <ul class="item-list">
 				<?php bp_get_options_nav() ?>
 				<?php do_action( 'bp_group_options_nav' ) ?>
 			</ul>
@@ -80,8 +79,8 @@ function widget_community_nav() { ?>
 
 		<?php if(bp_is_user()){ ?>
 		<div id="community-single-nav" class="widget-title" >
-		  <ul class="item-list">
 		  <h3 class="widgettitle"><?php _e( '@ Member', 'cc' ) ?></h3>
+		  <ul class="item-list">
 		  <?php bp_get_displayed_user_nav() ?>
 				<?php do_action( 'bp_group_options_nav' ) ?>
 			</ul>
