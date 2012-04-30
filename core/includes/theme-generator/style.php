@@ -2427,12 +2427,6 @@ function dynamic_css(){
 	    width: auto;
 	}
 	
-	ul#events-list.item-list li div.action {
-	    float: none;
-	    position: relative;
-	    width: 100%;
-	}
-	
 	#event-actions a.button.selected, 
 	#event-actions a.button:hover,
 	#event-actions a.button:focus {
@@ -2442,6 +2436,17 @@ function dynamic_css(){
 	.events ul.item-list li div.item-title {
 	    width: auto !important;
 		float: none;
+	}
+	
+	ul#events-list.item-list li div.action {
+	    border-top: 1px solid #EDEDED;
+	    float: none;
+	    height: 150px;
+	    margin-bottom: 20px;
+	    margin-left: 170px;
+	    position: relative;
+	    text-align: left;
+	    width: auto;
 	}
 
 	
