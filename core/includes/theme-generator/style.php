@@ -293,7 +293,6 @@ function dynamic_css(){
 
 	#header #search-bar input[type="submit"], 
 	form input[type="submit"] {
-		line-height: 130%;
 	    margin: 0;
 	    padding: 3px 9px;
 	}
@@ -920,8 +919,9 @@ function dynamic_css(){
 	div.item-list-tabs {
 		background: none repeat scroll 0 0 transparent;
 		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
-		margin: 0px 0px 13px;
+		margin: 0px -20px 13px;
 		padding-top: 15px;
+		padding-left: 12px;
 		overflow: hidden;
 		clear: left;
 	}
@@ -1053,7 +1053,7 @@ function dynamic_css(){
 	div#subnav.item-list-tabs  {
 		background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
 		border-bottom: medium none;
-		margin: -20px 0px 15px;
+		margin: -20px -20px 15px;
 		min-height: 26px;
 		overflow: hidden;
 	}
@@ -1371,7 +1371,7 @@ function dynamic_css(){
 	    <?php } ?>
 	    cursor: pointer;
 	    margin-top: 0;
-	    line-height: 100%;
+	    line-height: 130%;
 	    padding: 3px 9px;
 	    vertical-align: middle;
 	}			
@@ -2420,6 +2420,35 @@ function dynamic_css(){
 		width: 70%;
 	}
 	
+	/* buddyvents fixes for CC */
+	#events-list div.item-desc {
+	    clear: none;
+	    margin: 10px 0 0 !important;
+	    width: auto;
+	}
+	
+	#event-actions a.button.selected, 
+	#event-actions a.button:hover,
+	#event-actions a.button:focus {
+		color: #<?php echo $tkf->button_font_color_hover; ?>;
+	}
+	
+	.events ul.item-list li div.item-title {
+	    width: auto !important;
+		float: none;
+	}
+	
+	ul#events-list.item-list li div.action {
+	    border-top: 1px solid #EDEDED;
+	    float: none;
+	    height: 150px;
+	    margin-bottom: 20px;
+	    margin-left: 170px;
+	    position: relative;
+	    text-align: left;
+	    width: auto;
+	}
+
 	
 	
 	
@@ -5605,12 +5634,12 @@ function dynamic_css(){
 	
 	div.item-list-tabs ul li.selected a, 
 	div.item-list-tabs ul li.current a, 
-	div.pagination, div#subnav.item-list-tabs {
+	div#subnav.item-list-tabs {
 		background-color: #<?php echo $tkf->bg_content_nav_color?>;
 	}
 	
 	div.item-list-tabs {
-		border-bottom: 4px solid #<?php echo $tkf->bg_content_nav_color?>;
+		border-bottom: 6px solid #<?php echo $tkf->bg_content_nav_color?>;
 	}
 	<?php } ?>
 	
