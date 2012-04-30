@@ -881,8 +881,8 @@ function dynamic_css(){
 		width: 34%;
 	}
 	
-	.item-meta{
-		float: left;
+	.item-meta {
+		float: none;
 		width: auto;
 	}
 	
