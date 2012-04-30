@@ -691,6 +691,7 @@ function dynamic_css(){
 	div#item-header h2 a {
 		font-size: 28px;
 	}
+	
 	div#item-header h2 span {
 		text-shadow: none; 
 	}
