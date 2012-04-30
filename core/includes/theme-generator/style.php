@@ -912,7 +912,7 @@ function dynamic_css(){
 	
 	div.item-list-tabs {
 		background: none repeat scroll 0 0 transparent;
-		border-bottom: 4px solid #<?php echo $body_bg_color; ?>;
+		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
 		margin: 0px -20px 15px;
 		padding-top: 15px;
 		overflow: hidden;
@@ -4052,7 +4052,7 @@ function dynamic_css(){
 		background-color: #<?php echo $tkf->bg_body_color?>;
 	}
 	
-	.boxgrid {
+	.boxgrid, div.item-list-tabs {
 		border-color: #<?php echo $tkf->bg_body_color?>;
 	}
 	<?php endif; ?>
