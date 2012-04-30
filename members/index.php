@@ -9,9 +9,7 @@
 
  get_header(); 
  
-?>
-
-	<?php do_action( 'bp_before_directory_members_page' ); ?>
+ do_action( 'bp_before_directory_members_page' ); ?>
 
 	<div id="content">
 		<div class="padder">
