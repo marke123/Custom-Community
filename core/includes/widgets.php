@@ -35,10 +35,9 @@ if(defined('BP_VERSION')){
  */	
 function widget_community_nav() { ?>
   		<div id="community-nav" class="widget widget-title" >
+     	<h3 class="widgettitle"><?php _e( 'Community', 'cc' ) ?></h3>
   		<ul class="item-list">
-         	<h3 class="widgettitle"><?php _e( 'Community', 'cc' ) ?></h3>
-					
-	  		<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
+			<?php if ( 'activity' != bp_dtheme_page_on_front() && bp_is_active( 'activity' ) ) : ?>
 				<li<?php if ( bp_is_page( BP_ACTIVITY_SLUG ) ) : ?> class="selected"<?php endif; ?>>
 					<a href="<?php echo site_url() ?>/<?php echo BP_ACTIVITY_SLUG ?>/" title="<?php _e( 'Activity', 'cc' ) ?>"><?php _e( 'Activity', 'cc' ) ?></a>
 				</li>
