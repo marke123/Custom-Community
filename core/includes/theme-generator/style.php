@@ -2403,9 +2403,15 @@ function dynamic_css(){
 	
 	
 	
-	/* Extra BuddyPress Styles ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	/* Extra BuddyPress and Plugins Styles ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+	
+	/* groupblogs plugin, when creating group, step 3 */
+	ul#groupblog-details li {
+	    margin: 20px 0;
+	}
 	
 	
+	/* friends list stuff */
 	ul#friend-list li {
 		height: 53px;
 	}
