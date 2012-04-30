@@ -1,19 +1,19 @@
   <?php do_action( 'bp_before_group_header' ) ?>
   
-	<div id="item-header-avatar">
-		<a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>">
-			<?php global $tkf;  $asize = '150';
-			if($tkf->bp_groups_avatar_size !=  '') 
-				$asize = $tkf->bp_groups_avatar_size;
-	
-			bp_group_avatar('type=full&width='.$asize.'&height='.$asize); ?>
-		</a>
-	</div><!-- #item-header-avatar -->
-
 	<div id="item-header-content">
+
+		<div id="item-header-avatar">
+			<a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>">
+				<?php global $tkf;  $asize = '150';
+				if($tkf->bp_groups_avatar_size !=  '') 
+					$asize = $tkf->bp_groups_avatar_size;
+		
+				bp_group_avatar('type=full&width='.$asize.'&height='.$asize); ?>
+			</a>
+		</div><!-- #item-header-avatar -->
+
 		<h2 class="pagetitle"><a href="<?php bp_group_permalink() ?>" title="<?php bp_group_name() ?>"><?php bp_group_name() ?></a></h2>
-		<span class="highlight"><?php bp_group_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'cc' ), bp_get_group_last_active() ) ?></span>
-	
+		<span class="highlight"><?php bp_group_type() ?></span> <span class="activity"><?php printf( __( 'active %s ago', 'cc' ), bp_get_group_last_active() ) ?></span>	
 		<?php do_action( 'bp_before_group_header_meta' ) ?>
 	
 		<div id="item-meta">

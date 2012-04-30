@@ -677,6 +677,7 @@ function dynamic_css(){
 		overflow: hidden;
 	}
 	
+	div#item-header div#item-header-avatar, 
 	div#item-header div#item-header-content { 
 		float: left; 
 	}
@@ -708,6 +709,7 @@ function dynamic_css(){
 		line-height: 170%;
 		vertical-align: middle;
 		margin-bottom: 7px;
+		width: auto;
 	}
 	
 	div#item-header h2 span.highlight { 
