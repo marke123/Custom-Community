@@ -1065,7 +1065,7 @@ function dynamic_css(){
 	
 	div.item-list-tabs ul li.feed a {
 		background: url(<?php echo get_template_directory_uri() ?>/_inc/images/rss.png ) center left no-repeat;
-		padding-left: 20px;
+		padding-left: 20px !important;
 	}
 	
 
