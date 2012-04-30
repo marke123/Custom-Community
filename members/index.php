@@ -9,9 +9,7 @@
 
  get_header(); 
  
-?>
-
-	<?php do_action( 'bp_before_directory_members_page' ); ?>
+ do_action( 'bp_before_directory_members_page' ); ?>
 
 	<div id="content">
 		<div class="padder">
@@ -22,7 +20,7 @@
 
 		<form action="" method="post" id="members-directory-form" class="dir-form">
 
-			<h2 class="pagettitle"><?php _e( 'Members Directory', 'cc' ); ?></h2>
+			<h2 class="pagetitle"><?php _e( 'Members Directory', 'cc' ); ?></h2>
 
 			<?php do_action( 'bp_before_directory_members_content' ); ?>
 
