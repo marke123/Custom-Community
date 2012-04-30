@@ -1364,7 +1364,7 @@ class Custom_Community{
 							
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Template width, in pixel or %, example: 200px or 50%">List post width <br><span style="font-size:10px; color: #999999;">example: 200px or 50%</span> </label>
+								<label for="" title="Template width, in pixel or %, example: 200px or 50%">Post entry width <br><span style="font-size:10px; color: #999999;">example: 200px or 50%</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_width]" type="text" value="" name="cc-config_values[list_post_template_width][#index#]">								
@@ -1372,7 +1372,7 @@ class Custom_Community{
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Template height, in pixel, example: 120px">List post height <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span> </label>
+								<label for="" title="Template height, in pixel, example: 120px">Post entry height <br><span style="font-size:10px; color: #999999;">in px, just enter a number</span> </label>
 							</div>
 							<div class="tk_field">
 								<input id="list_post_template_#index#_cc-config_values[list_post_template_height]" type="text" value="" name="cc-config_values[list_post_template_height][#index#]">								
