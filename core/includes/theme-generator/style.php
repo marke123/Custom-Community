@@ -861,10 +861,11 @@ function dynamic_css(){
 	}
 	
 	ul.item-list li div.item-desc {
-		width: 50%;
-		margin: 0 0 0 63px;
-		font-size: 11px;
-		color: #<?php echo $font_color; ?>;
+	    clear: both;
+	    color: #<?php echo $font_color; ?>;
+	    font-size: 11px;
+	    margin: 0 0 0 63px;
+	    width: auto;
 	}
 	
 	ul.item-list li div.action {
