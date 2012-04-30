@@ -921,6 +921,7 @@ function dynamic_css(){
 		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
 		margin: 0px -20px 13px;
 		padding-top: 15px;
+		padding-left: 12px;
 		overflow: hidden;
 		clear: left;
 	}
