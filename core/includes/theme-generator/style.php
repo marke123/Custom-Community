@@ -920,7 +920,7 @@ function dynamic_css(){
 	div.item-list-tabs {
 		background: none repeat scroll 0 0 transparent;
 		border-bottom: 6px solid #<?php echo $container_alt_bg_color; ?>;
-		margin: 0px -20px 13px;
+		margin: 0px 0px 13px;
 		padding-top: 15px;
 		overflow: hidden;
 		clear: left;
@@ -940,12 +940,8 @@ function dynamic_css(){
 		background: none;
 	}
 	
-	div.item-list-tabs#subnav ul li {
+	div#subnav.item-list-tabs ul li {
 		margin-top: 0;
-	}
-	
-	div.item-list-tabs ul li:first-child {
-		margin-left: 20px;
 	}
 	
 	div.item-list-tabs ul li.last {
@@ -1057,7 +1053,7 @@ function dynamic_css(){
 	div#subnav.item-list-tabs  {
 		background: none repeat scroll 0 0 #<?php echo $container_alt_bg_color; ?>;
 		border-bottom: medium none;
-		margin: -20px -20px 15px;
+		margin: -20px 0px 15px;
 		min-height: 26px;
 		overflow: hidden;
 	}
@@ -1130,8 +1126,7 @@ function dynamic_css(){
 		margin-top: 20px;
 	}
 
-	
-	
+
 	
 	
 	/* Directories (Members, Groups, Blogs, Forums) :::::::::::::::::::::::::::::::::::::::::: */
@@ -1174,7 +1169,7 @@ function dynamic_css(){
 	
 	div.pagination {
 		height:16px;
-		margin:-20px -20px 9px;
+		margin:-20px 0px 9px;
 		padding:10px 20px;
 		background: transparent;
 		border-bottom:medium none;
@@ -1653,9 +1648,9 @@ function dynamic_css(){
 	table tr td, 
 	table tr th {
 		text-align:left;
-		padding: 5px 7px 3px 7px;
+		padding: 10px 7px;
 		vertical-align: middle;
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	table tr td.label {
