@@ -1135,7 +1135,7 @@ function dynamic_css(){
 	    margin: 10px 0 0;
 	}
 	
-	form#groups-directory-form h2.pagetitle {
+	.directory h2.pagetitle {
 	    line-height: 80%;
 	    margin: 10px 10px 10px 0;
 	    float: left;
