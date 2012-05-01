@@ -8,6 +8,25 @@
 		
 		<div id="fb-root"></div>
 	
+		<script language="javascript"> 
+									    	function hide_class(dropdownID) {
+												
+												var selval = jQuery("#" + dropdownID).val();
+										    
+												jQuery("input." + dropdownID).each( function (index, field)
+												{
+											    	if(field.name == 'hide_' + selval){
+											    		jQuery('.' + field.value).hide();
+											  		}
+											  		if(field.name == 'show_' + selval) {
+											  			jQuery('.' + field.value).show();
+											  		} else {
+											  			jQuery('.' + field.value).hide();
+											  		}
+												});
+											}
+										</script>
+	
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 		<script>(function(d, s, id) {
@@ -325,14 +344,18 @@
 			
 			<div id="post-body">
 				<div id="post-body-content">			
-
+								<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="Select the colour scheme of your website.">
+										<option name="off" value="off" />
+										<option name="on" value="on"  show_class="advanced"/>
+								</select>
+		
 					<tabs id="cc-general-config">
 						<tab title="General">
 							<accordion id="cc_config_general">
 													
-								<section title="Colour scheme">
+								<section title="Colour scheme" class="advanced">
 		
-									<select name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
+									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
@@ -592,26 +615,7 @@
 										<option name="hide" value="hide" />
 									</select>
 									
-										<script language="javascript"> 
-									    	function hide_class(dropdownID) {
-												
-												var selval = jQuery("#" + dropdownID).val();
-										    
-												jQuery("input." + dropdownID).each( function (index, field)
-												{
-											    	if(field.name == 'hide_' + selval){
-											    		jQuery('.' + field.value).hide();
-											  		}
-											  		if(field.name == 'show_' + selval) {
-											  			jQuery('.' + field.value).show();
-											  		} else {
-											  			jQuery('.' + field.value).hide();
-											  		}
-												});
-											}
-										</script>
-
-									
+																		
 									<select onchange="hide_class('home_latest_posts_style')" id='home_latest_posts_style' name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
 											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
 										<option name="bubbles" value="bubbles" />
@@ -1094,7 +1098,7 @@
 							
 							<accordion id="cc_config_test">
 								<section title="1">
-									<accordion>
+									<accordion id="second">
 										<section title="1.1">
 											1.1
 										</section>
