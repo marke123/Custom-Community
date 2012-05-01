@@ -2,6 +2,9 @@
 
 <div id="content">
 	<div class="padder">
+		
+		<?php do_action( 'cc_first_inside_padder' ); ?>
+		
 		<?php if ( bp_has_groups() ) : while ( bp_groups() ) : bp_the_group(); ?>
 
 		<?php do_action( 'bp_before_group_home_content' ) ?>
