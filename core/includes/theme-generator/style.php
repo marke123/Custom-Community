@@ -3468,12 +3468,19 @@ function dynamic_css(){
 		
 		$width = 100/count($tkf->home_widgets_line_widgets_amount[$line]) - 1.6;
 		$width = number_format($width,4);
+		
+		if ( $tkf->home_widgets_line_height[$line] != "" ) {
+			$line_height = $tkf->home_widgets_line_height[$line].'px'; 
+		} else {
+			$line_height = 'auto';
+		} 
+		
 		?>
 		
 		div#widget_line_<?php echo $line; ?> {
-			height: <?php echo $tkf->home_widgets_line_height[$line]; ?>;
+			height: <?php echo 	$line_height; ?>;
 			background: url(<?php //echo $tkf->home_widgets_line_background_image[$line]; ?>) no-repeat scroll top left  #<?php echo $tkf->home_widgets_line_background_color[$line]; ?>;
-		
+			overflow: hidden;
 		}
 			
 		div#widget_line_<?php echo $line; ?> div.widget {
