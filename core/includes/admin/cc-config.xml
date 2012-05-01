@@ -592,23 +592,46 @@
 										<option name="hide" value="hide" />
 									</select>
 									
-									<select name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
+										<script language="javascript"> 
+									    	function hide_class(dropdownID) {
+												
+												var selval = jQuery("#" + dropdownID).val();
+										    
+												jQuery("input." + dropdownID).each( function (index, field)
+												{
+											    	if(field.name == 'hide_' + selval){
+											    		jQuery('.' + field.value).hide();
+											  		}
+											  		if(field.name == 'show_' + selval) {
+											  			jQuery('.' + field.value).show();
+											  		} else {
+											  			jQuery('.' + field.value).hide();
+											  		}
+												});
+											}
+										</script>
+
+									
+									<select onchange="hide_class('home_latest_posts_style')" id='home_latest_posts_style' name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
 											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
 										<option name="bubbles" value="bubbles" />
-										<option name="default" value="default" />
+										<option name="default" value="default" show_class="bubbles" />
+										<option name="default1" value="default1" show_class="bubbles1" />
+										<option name="default2" value="default2" show_class="bubbles2" />
+										<option name="default3" value="default3" show_class="bubbles3"/>
 									</select>	
 									
-									<select name="excerpt_on" label="Show excerpts" description="Just for category and archive views: use excerpts or show full content of your posts">
+									<select class="bubbles" name="excerpt_on" label="Show excerpts" description="Just for category and archive views: use excerpts or show full content of your posts">
 										<option name="content" value="content" />
-										<option name="excerpt" value="excerpt" />
+										<option name="excerpt" value="excerpt"/>
 									</select>
 									
-									<textfield name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
+									<textfield class="bubbles1" name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
 								
 
-									<colorpicker name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
+									<colorpicker class="bubbles2" name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
 									
-									<select name="home_latest_posts_show_date" label="Show date, category and author" description="Show or hide the date, category and author in the post listing.">
+									<select class="bubbles3" name="home_latest_posts_show_date" label="Show date, category and author" description="Show or hide the date, category and author in the post listing.">
 										<option name="show date, category and author name" value="show_date_category_author" />
 										<option name="show date and category" value="show_date_category" />
 										<option name="hide" value="hide" />
