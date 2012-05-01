@@ -33,6 +33,7 @@ class TK_Form_select extends TK_Form_element{
 			'id' => '',
 			'name' => '',
 			'value' => '',
+			'onchange' => '',
 			'size' => '',
 			'multiselect' => FALSE,
 			'extra' => ''
@@ -47,6 +48,7 @@ class TK_Form_select extends TK_Form_element{
 		$this->elements = array();
 		$this->multiselect = $multiselect;
 		$this->extra = $extra;
+		$this->onchange = $onchange;
 		$this->before_element = $before_element;
 		$this->after_element = $after_element;
 	}
@@ -93,6 +95,8 @@ class TK_Form_select extends TK_Form_element{
 		$size_string = '';
 		$extra_string = '';
 		
+		if( $this->onchange != '' ) $onchange = '  onchange="' . $this->onchange . '"';
+		
 		if( $this->id != '' ) $id_string = ' id="' . $this->id . '"';
 		
 		if( $this->size != '' ) $size_string = ' size="' . $this->size . '"';		
@@ -106,7 +110,7 @@ class TK_Form_select extends TK_Form_element{
 		endif;
 		
 		$html = $this->before_element;
-		$html.= '<select' . $id_string . $name_string . $size_string . $multiselect_string . $extra_string . '>';
+		$html.= '<select '.$onchange . $id_string . $name_string . $size_string . $multiselect_string . $extra_string . '>';
 		
 		// Adding options
 		$options = '';
