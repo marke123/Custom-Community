@@ -51,7 +51,7 @@ class TK_WML_Parser{
 		
 		// Accordion
 		$functions['accordion'] = array( 'id' => '',  'section' => array(), 'return_object' => $return_object );
-		$functions['section'] = array( 'id' => '',  'title' => '', 'content' => '' );
+		$functions['section'] = array( 'id' => '',  'title' => '', 'content' => '', 'class' => '' );
 		$bound_content['accordion'] = 'section';
 		
 		// Autocomplete
@@ -360,8 +360,22 @@ function tk_db_tab( $id, $title, $content = '' ){
 function tk_db_accordion( $id, $elements = array(), $return_object = TRUE ){
 	return tk_accordion( $id, $elements, $return_object );
 }
-function tk_db_section( $id, $title, $content = '' ){
-	return array( 'id' => $id, 'title' => $title, 'content' => $content );
+function tk_db_section( $id, $title, $content = '', $css_class = '' ){
+	global $tkf_hide_class, $tkf_show_class;
+	
+	if($css_class != ''){
+		$css_class_array = explode(' ', $css_class);
+	}
+	$style = '';
+	
+	if(is_array($css_class_array)){
+		foreach ($css_class_array as $class) {
+			if(in_array($class, $tkf_hide_class))
+				$style = 'display:none';
+		}
+	}
+ 	
+	return array( 'id' => $id, 'title' => $title, 'content' => $content, 'css_class' => $css_class, 'style' => $style );
 }
 /*
  * Autocomplete functions
