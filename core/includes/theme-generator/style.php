@@ -3505,8 +3505,10 @@ function dynamic_css(){
 	
 	/* that's the wrap around */
 	.list-posts-all {
-		width: 100%;
-		margin-bottom: 20px;
+	    width: 100%;
+	    height: auto;
+	    overflow-y: auto;
+	    margin-bottom: 20px;
 	}
 	
 	
