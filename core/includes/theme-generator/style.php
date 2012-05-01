@@ -2980,7 +2980,6 @@ function dynamic_css(){
 	
 	div.widget ul.item-list li div.item-title {
 		margin-top: 3px;
-		float: left;
 	}
 	
 	div.widget ul li a.rsswidget {
