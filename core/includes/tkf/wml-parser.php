@@ -416,7 +416,7 @@ function tk_db_textfield( $name, $css_class = '', $label, $tooltip, $description
 	global $tkf_hide_class, $tkf_show_class;
 	
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 		
 	if( trim( $label ) != '' ){
 			
@@ -450,7 +450,7 @@ function tk_db_textarea( $name, $css_class = '', $label, $tooltip, $description,
 	global $tkf_hide_class, $tkf_show_class;
 	
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 	
 	if( trim( $label ) != '' ){
 
@@ -484,7 +484,7 @@ function tk_db_checkbox( $name, $css_class = '', $label, $tooltip, $description,
 	global $tkf_hide_class, $tkf_show_class;
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 			
 	if( trim( $label ) != '' ){
 		
@@ -520,7 +520,7 @@ function tk_db_radio( $name, $css_class = '', $value, $label, $tooltip, $descrip
 	global $tkf_hide_class, $tkf_show_class;
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 			
 	if( trim( $label ) != '' ){
 		
@@ -557,7 +557,7 @@ function tk_db_radio( $name, $css_class = '', $value, $label, $tooltip, $descrip
 function tk_db_select( $name, $options, $multiselect = FALSE, $size = '', $label, $tooltip = '', $description, $link, $css_class = '', $onchange = '', $return_object = TRUE ){
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 				
 	global $tkf_hide_class_options, $tkf_hide_class, $tkf_show_class;	
 	
@@ -641,7 +641,7 @@ function tk_db_button( $name, $return_object = TRUE ){
 function tk_db_import( $name, $css_class = '', $label, $tooltip, $description, $link, $return_object = TRUE ){
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 
 	if( trim( $label ) != '' ){
 		
@@ -664,7 +664,7 @@ function tk_db_import( $name, $css_class = '', $label, $tooltip, $description, $
 function tk_db_export( $name, $css_class = '', $forms, $label, $file_name, $tooltip, $description, $link, $return_object = TRUE ){
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 
 	if( trim( $label ) != '' ){
 		
@@ -695,7 +695,7 @@ function tk_db_colorpicker( $name, $css_class = '', $label, $tooltip, $descripti
 	global $tkf_hide_class, $tkf_show_class;
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 		
 	if( trim( $label ) != '' ){
 		
@@ -732,7 +732,7 @@ function tk_db_file( $name, $css_class = '', $label, $tooltip, $description, $li
 	global $tkf_hide_class, $tkf_show_class;
 	
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">help >></a></div>';
+		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
 	
 	if( trim( $label ) != '' ){
 		
