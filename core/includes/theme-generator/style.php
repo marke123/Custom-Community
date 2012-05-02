@@ -823,7 +823,7 @@ function dynamic_css(){
 	ul.item-list li {
 		position: relative;
 		padding: 15px 0 20px 0;
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	ul.single-line li { 
@@ -1601,7 +1601,7 @@ function dynamic_css(){
 		margin: 10px 0;
 		padding: 5px;
 		background: #<?php echo $container_bg_color; ?>;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		border-radius: 3px;
 		-moz-border-radius: 3px;
 		-webkit-border-radius: 3px;
@@ -1786,7 +1786,7 @@ function dynamic_css(){
 	
 	form#whats-new-form #whats-new-textarea {
 		padding: 8px;
-		border: 1px inset #777777;
+		border: 1px inset #888888;
 		background: #ffffff;
 		margin-bottom: 10px;
 		-moz-border-radius: 3px;
@@ -1823,7 +1823,6 @@ function dynamic_css(){
 	ul.activity-list li {
 		padding: 8px 0 0 0;
 		overflow: hidden;
-		border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	ul.activity-list > li:first-child {
@@ -1836,17 +1835,10 @@ function dynamic_css(){
 	
 	.activity-list li.mini {
 		min-height: 35px;
-		padding: 12px 0 0 0;
+		padding: 12px 0 2px 0;
 		position: relative;
-		font-size: 11px;
 	}
 
-	.activity-list li.mini div.activity-meta {
-		float: left;
-		margin: 8px 0;
-		position: relative;
-	}
-	
 	body.activity-permalink .activity-list li .activity-avatar img.avatar,
 	body.activity-permalink .activity-list li .activity-avatar img.FB_profile_pic {
 		width: 100px;
@@ -1859,7 +1851,7 @@ function dynamic_css(){
 		max-height: 20px;
 		height: 20px;
 		margin-right: 0;
-		padding: 0 0 0 8px;
+		padding: 0;
 	}
 	
 	.activity-list li.mini .activity-content p {
@@ -1868,8 +1860,8 @@ function dynamic_css(){
 	}
 	
 	.activity-list li.mini .activity-meta {
-		position: absolute;
-		right: 0;
+		float: left;
+		margin-top: 16px;
 	}
 	
 	body.activity-permalink .activity-list li.mini .activity-meta {
@@ -2009,8 +2001,8 @@ function dynamic_css(){
 	
 	.activity-list .activity-content img.thumbnail {
 		float: left;
-		margin: 0 10px 5px 0;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		margin: 4px 10px 5px 0;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	.activity-list li.load-more {
@@ -2037,12 +2029,12 @@ function dynamic_css(){
 		-webkit-border-radius: 0;
 		border-radius: 0;
 		background: none repeat scroll 0 0 transparent;
-		border-top: 1px solid #<?php echo $body_bg_color; ?>;
+		border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		color: #<?php echo $font_color; ?>;
 		margin: 10px 10px 10px 0;
 		overflow: hidden;
-		padding: 4px 0;
-		width: 100%;
+		padding: 6px 0;
+		width: auto;
 	}
 	
 	.activity-list .activity-content .comment-header {
@@ -2058,8 +2050,9 @@ function dynamic_css(){
 	}
 	
 	div.activity-meta {
-		clear: left;
-		margin: 0 0 3px 3px;
+	    clear: none;
+	    float: none;
+	    margin: 0;
 	}
 	
 	.activity-filter-selector {
@@ -2072,11 +2065,7 @@ function dynamic_css(){
 	/* Activity Stream Comments :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 	
 	
-	div.activity-meta {
-		clear: left;
-		margin: 0;
-	}
-	
+
 	div.activity-comments {
 		margin: 0 0 0 70px;
 		overflow: hidden;
@@ -2148,7 +2137,7 @@ function dynamic_css(){
 	}
 	
 	div.acomment-avatar img {
-		border: 1px solid #<?php echo $body_bg_color; ?> !important;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?> !important;
 		float: left;
 		margin-right: 10px;
 	}
@@ -2239,7 +2228,7 @@ function dynamic_css(){
 	}
 	
 	div.ac-reply-avatar img {
-		border: 1px solid #<?php echo $body_bg_color; ?> !important;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?> !important;
 	}
 	
 	div.activity-comments form div.ac-reply-content {
@@ -2526,7 +2515,7 @@ function dynamic_css(){
 	div.post table {
 		border-collapse: collapse;
 		border-spacing: 0;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	div.post table th { border-top: 1px solid #<?php echo $body_bg_color; ?>; text-align: left; }
@@ -2601,7 +2590,7 @@ function dynamic_css(){
 	}
 	
 	div.post .wp-caption {
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	div.post .wp-caption img {
@@ -2635,7 +2624,7 @@ function dynamic_css(){
 	
 	div.post div.author-box img {
 		float: none;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		margin: 0;
 		background:none repeat scroll 0 0 transparent;
 		float: none;
@@ -2672,7 +2661,7 @@ function dynamic_css(){
 		padding: 0;
 		float: none;
 		background: none repeat scroll 0 0 transparent;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	div.comment-content {
@@ -3468,12 +3457,19 @@ function dynamic_css(){
 		
 		$width = 100/count($tkf->home_widgets_line_widgets_amount[$line]) - 1.6;
 		$width = number_format($width,4);
+		
+		if ( $tkf->home_widgets_line_height[$line] != "" ) {
+			$line_height = $tkf->home_widgets_line_height[$line].'px'; 
+		} else {
+			$line_height = 'auto';
+		} 
+		
 		?>
 		
 		div#widget_line_<?php echo $line; ?> {
-			height: <?php echo $tkf->home_widgets_line_height[$line]; ?>;
+			height: <?php echo 	$line_height; ?>;
 			background: url(<?php //echo $tkf->home_widgets_line_background_image[$line]; ?>) no-repeat scroll top left  #<?php echo $tkf->home_widgets_line_background_color[$line]; ?>;
-		
+			overflow: hidden;
 		}
 			
 		div#widget_line_<?php echo $line; ?> div.widget {
@@ -3505,8 +3501,10 @@ function dynamic_css(){
 	
 	/* that's the wrap around */
 	.list-posts-all {
-		width: 100%;
-		margin-bottom: 20px;
+	    width: 100%;
+	    height: auto;
+	    overflow-y: auto;
+	    margin-bottom: 20px;
 	}
 	
 	
@@ -3596,7 +3594,7 @@ function dynamic_css(){
 	}
 	
 	.boxgrid {
-		border: 1px solid #<?php echo $body_bg_color; ?> !important;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?> !important;
 	}
 	
 	
@@ -3611,7 +3609,6 @@ function dynamic_css(){
 		margin-right: 25px;
 		margin-top: 2px;
 		float: left;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
 	}
 	
 	div.posts-img-left-content-right h3 a {
@@ -3627,7 +3624,6 @@ function dynamic_css(){
 	
 	div.posts-img-right-content-left img.wp-post-image {
 		float: right;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
 		margin-bottom: 0;
 		margin-top: 2px;
 		margin-left: 25px;
@@ -3647,7 +3643,6 @@ function dynamic_css(){
 	}
 	
 	div.posts-img-over-content img.wp-post-image {
-		border: 1px solid #<?php echo $body_bg_color; ?>;
 		margin-bottom: 12px;
 		margin-right: 25px;
 		margin-top: 2px;
@@ -3661,7 +3656,6 @@ function dynamic_css(){
 		width: 222px;
 		max-width: 222px;
 		padding-top: 8px;
-		border-top: 1px solid #<?php echo $body_bg_color; ?>;
 	}
 	
 	div.posts-img-over-content p{
@@ -3679,7 +3673,6 @@ function dynamic_css(){
 	}
 	
 	div.posts-img-under-content img.wp-post-image {
-		border: 1px solid #<?php echo $body_bg_color; ?>;
 		margin-bottom: 0;
 		margin-right: 25px;
 		margin-top: 5px;
@@ -3693,7 +3686,6 @@ function dynamic_css(){
 		width: 222px;
 		max-width: 222px;
 		padding-top: 8px;
-		border-top: 1px solid #<?php echo $body_bg_color; ?>;
 	}
 	
 	div.posts-img-under-content p {
@@ -3714,7 +3706,7 @@ function dynamic_css(){
 	}
 	
 	div.single-img-left-content-right img.wp-post-image {
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		float: left;
 		margin-bottom: 20px;
 		margin-right: 25px;
@@ -3738,7 +3730,7 @@ function dynamic_css(){
 		margin-top: 5px;
 		margin-left: 25px;
 		float: right;
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	div.single-img-right-content-left h3 a {
@@ -3753,7 +3745,7 @@ function dynamic_css(){
 	}
 	
 	div.single-img-over-content img.wp-post-image {
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		margin-bottom: 20px;
 		margin-right: 25px;
 		margin-top: 5px;
@@ -3771,7 +3763,7 @@ function dynamic_css(){
 	}
 	
 	div.single-img-under-content img.wp-post-image {
-		border: 1px solid #<?php echo $body_bg_color; ?>;
+		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		margin-bottom: 20px;
 		margin-right: 25px;
 		margin-top: 5px;
