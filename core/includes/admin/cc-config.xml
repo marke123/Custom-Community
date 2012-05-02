@@ -537,7 +537,6 @@
 									<colorpicker name="link_bg_color_hover" label="Link bg hover colour" description="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
 													
 									<select name="link_styling_title_adapt" label="Titles adapting" description="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
-										<option name="no adapting at all" value="no adapting at all" />
 										<option name="just the hover effect" value="just the hover effect" />
 										<option name="link colour and hover colour" value="link colour and hover colour" />
 										<option name="...the underline effects too" value="...the underline effects too" />
