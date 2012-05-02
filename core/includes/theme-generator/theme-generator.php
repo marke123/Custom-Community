@@ -36,7 +36,11 @@ class CC_Theme_Generator{
 		global $tkf, $post;
 		
 		$component = explode('-',$this->detect->get_page_type());
-			
+		
+		if($tkf->link_transition_time == ''){
+			$tkf->link_transition_time = '500';	
+		}	
+				
 		if($tkf->sidebar_position == ''){
 			$tkf->sidebar_position = 'right';
 			$tkf->menue_disable_home = 'true';

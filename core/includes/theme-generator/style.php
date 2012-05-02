@@ -115,8 +115,20 @@ function dynamic_css(){
 	
 	/* Global Elements >> Links :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 	
-	a { font-style: normal; color: #<?php echo $link_color; ?>; text-decoration: none; }
-	a:hover, a:active { color: #<?php echo $font_color; ?>; }
+	a { 
+		font-style: 
+		normal; 
+		color: #<?php echo $link_color; ?>; 
+		text-decoration: none; 
+		<?php if ( $tkf->link_transition_time != "none" ) { ?>
+		  -webkit-transition: all <?php echo $tkf->link_transition_time ?>ms ease-in-out;  /* Chrome, Safari 3.2+ */
+		     -moz-transition: all <?php echo $tkf->link_transition_time ?>ms ease-in-out;  /* FF4+ */
+		      -ms-transition: all <?php echo $tkf->link_transition_time ?>ms ease-in-out;  /* IE10 */
+		       -o-transition: all <?php echo $tkf->link_transition_time ?>ms ease-in-out;  /* Opera 10.5+ */
+		          transition: all <?php echo $tkf->link_transition_time ?>ms ease-in-out;		
+		<?php } ?>
+	}
+	a:hover, a:focus { color: #<?php echo $font_color; ?>; background-color: transparent; }
 	a:focus { outline: none; }
 		
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, 
@@ -797,7 +809,7 @@ function dynamic_css(){
 	/* Item Lists (Activity, Friend, Group lists, Widgets) ::::::::::::::::::::::::::::::::::: */
 	
 	
-	div.widget-title ul.item-list li{
+	div.widget-title ul.item-list li {
 		background: none;
 		border-bottom: medium none;
 		font-size: 12px;
@@ -813,7 +825,7 @@ function dynamic_css(){
 	}
 
 	div.widget-title ul.item-list li.selected a {
-		color: #<?php echo $font_color; ?>;
+		color: #<?php if ( $tkf->link_color_hover ) { echo $tkf->link_color_hover; } else { echo $font_color; } ?>;
 	}
 	
 	ul.item-list {
@@ -1374,6 +1386,11 @@ function dynamic_css(){
 	    line-height: 130%;
 	    padding: 3px 9px;
 	    vertical-align: middle;
+	      -webkit-transition: none;  /* Chrome, Safari 3.2+ */
+		     -moz-transition: none;  /* FF4+ */
+		      -ms-transition: none;  /* IE10 */
+		       -o-transition: none;  /* Opera 10.5+ */
+		          transition: none;		
 	}			
 	
 	span.button:hover, span.button:focus,  
@@ -4593,7 +4610,7 @@ function dynamic_css(){
 			margin: 0;
 		} 
 	<?php endif; ?>
-	
+
 	<?php if($tkf->link_bg_color_hover != ""):?>
 		/** ***   
 		link BACKGROUND colour hover  **/
