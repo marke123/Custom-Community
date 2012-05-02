@@ -113,7 +113,7 @@ class TK_Jqueryui_Accordion extends TK_HTML{
 				if( !in_array( $element['id'], $tk_hidden_elements ) ){
 					if( $element['id'] == '' ){	$element_id = md5( $element['title'] ); }else{	$element_id = $element['id']; }
 					
-					$html.= '<' . $this->title_tag . ' ' . $element['extra_title']  . ' class="blub '.$element['css_class'].'" style="'.$element['style'].'"><a href="#">';
+					$html.= '<' . $this->title_tag . ' ' . $element['extra_title']  . ' class="'.$element['css_class'].'" style="'.$element['style'].'"><a href="#">';
 					
 					if( is_object( $element['title'] ) ){
 						 $html.= $element['title']->get_html();
