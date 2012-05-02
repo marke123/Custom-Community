@@ -435,7 +435,7 @@
 																		
 								<section title="Titles">
 									
-									<select name="title_font_style" label="Title font family" description="Change the title font family (h1 and h2)">
+									<select class="fontMod" name="title_font_style" label="Title font family" description="Change the title font family (h1 and h2)">
 										<option name="Arial, sans-serif" value="Arial, sans-serif" />
 										<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
 										<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
