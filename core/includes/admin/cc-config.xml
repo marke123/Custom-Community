@@ -344,10 +344,10 @@
 			
 			<div id="post-body">
 				<div id="post-body-content">			
-								<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="Select the colour scheme of your website.">
-										<option name="off" value="off" />
-										<option name="on" value="on"  show_class="advanced"/>
-								</select>
+					<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="Select the colour scheme of your website.">
+							<option name="off" value="off" />
+							<option name="on" value="on"  show_class="advanced"/>
+					</select>
 		
 					<tabs id="cc-general-config">
 						<tab title="General">
@@ -621,7 +621,7 @@
 										<option name="bubbles" value="bubbles" />
 										<option name="default" value="default" show_class="bubbles" />
 										<option name="default1" value="default1" show_class="bubbles1" />
-										<option name="default2" value="default2" show_class="bubbles2" />
+										<option name="default2" value="default2" show_class="bubbles2 " />
 										<option name="default3" value="default3" show_class="bubbles3"/>
 									</select>	
 									
@@ -630,7 +630,7 @@
 										<option name="excerpt" value="excerpt"/>
 									</select>
 									
-									<textfield class="bubbles1" name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
+									<textfield class="bubbles1 advanced" name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
 								
 
 									<colorpicker class="bubbles2" name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
