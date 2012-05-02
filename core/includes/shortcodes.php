@@ -436,7 +436,8 @@ function cc_list_posts($atts,$content = null) {
 				<?php } else { ?>
 					height: auto; 
 					width: auto; 
-					overflow: auto;
+					overflow-y: auto;
+					overflow-x: hidden;
 				<?php } ?>
 				<?php if ( $tkf->list_post_template_corner_radius[$arrayindex] != '' ) { ?>				
 					border-radius: <?php echo $tkf->list_post_template_corner_radius[$arrayindex]; ?>px;
