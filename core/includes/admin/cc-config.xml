@@ -301,11 +301,14 @@
 								<b>Help</b>
 								<ul>
 									<li>
-										<a href="#">Getting Startet</a>
+										<a href="#">Getting Started</a>
 									</li>
 
 									<li>
-										<a href="#">Knowledgebase</a>
+										<a href="#">Knowledge Base</a>
+									</li>
+									<li>
+										<a href="#">Get Premium Support</a>
 									</li>
 
 								</ul>
@@ -313,23 +316,23 @@
 								<b>Tools</b>
 								<ul>
 									<li>
-										<a href="#">Template generator</a>
+										<a href="#">Template Builder</a>
 									</li>
 									<li>
-										<a href="#">Child theme generator</a>
+										<a href="#">Child Theme Generator</a>
 									</li>
 								</ul>
 
-								<b>Shop</b>
+								<b>Store</b>
 								<ul>
 									<li>
-										<a href="#">Get the pro</a>
+										<a href="#">Get the Pro</a>
 									</li>
 									<li>
 										<a href="#">Child themes</a>
 									</li>
 									<li>
-										<a href="#">Theme extentions</a>
+										<a href="#">Theme extensions</a>
 									</li>
 									<li>
 										<a href="#">Plugins</a>
@@ -344,9 +347,9 @@
 			
 			<div id="post-body">
 				<div id="post-body-content">			
-					<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="Select the colour scheme of your website.">
+					<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="">
 							<option name="off" value="off" />
-							<option name="on" value="on"  show_class="advanced"/>
+							<option name="on" value="on" show_class="advanced"/>
 					</select>
 		
 					<tabs id="cc-general-config">
@@ -355,7 +358,7 @@
 													
 								<section title="Colour scheme" class="advanced">
 		
-									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme of your website." link="http://gmx.de">
+									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme as starting point." link="">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
@@ -518,7 +521,9 @@
 												Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
 					
 									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour for mouse moves over." />
-															
+									
+									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
+												
 									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links.">
 										<option name="never" value="never" />
 										<option name="always" value="always" />
@@ -526,12 +531,12 @@
 										<option name="just when normal" value="just when normal" />
 									</select>	
 									
+									
 									<colorpicker name="link_bg_color" label="Link bg colour" description="Change link background colour." />
 		
 									<colorpicker name="link_bg_color_hover" label="Link bg hover colour" description="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
 													
 									<select name="link_styling_title_adapt" label="Titles adapting" description="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
-										<option name="no adapting at all" value="no adapting at all" />
 										<option name="just the hover effect" value="just the hover effect" />
 										<option name="link colour and hover colour" value="link colour and hover colour" />
 										<option name="...the underline effects too" value="...the underline effects too" />
