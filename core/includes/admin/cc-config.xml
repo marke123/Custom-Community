@@ -355,7 +355,7 @@
 													
 								<section title="Colour scheme" class="advanced">
 		
-									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
+									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme of your website." link="http://gmx.de">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
