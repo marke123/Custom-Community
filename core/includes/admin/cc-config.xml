@@ -8,6 +8,25 @@
 		
 		<div id="fb-root"></div>
 	
+		<script language="javascript"> 
+									    	function hide_class(dropdownID) {
+												
+												var selval = jQuery("#" + dropdownID).val();
+										    
+												jQuery("input." + dropdownID).each( function (index, field)
+												{
+											    	if(field.name == 'hide_' + selval){
+											    		jQuery('.' + field.value).hide();
+											  		}
+											  		if(field.name == 'show_' + selval) {
+											  			jQuery('.' + field.value).show();
+											  		} else {
+											  			jQuery('.' + field.value).hide();
+											  		}
+												});
+											}
+										</script>
+	
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 		<script>(function(d, s, id) {
@@ -282,11 +301,14 @@
 								<b>Help</b>
 								<ul>
 									<li>
-										<a href="#">Getting Startet</a>
+										<a href="#">Getting Started</a>
 									</li>
 
 									<li>
-										<a href="#">Knowledgebase</a>
+										<a href="#">Knowledge Base</a>
+									</li>
+									<li>
+										<a href="#">Get Premium Support</a>
 									</li>
 
 								</ul>
@@ -294,23 +316,23 @@
 								<b>Tools</b>
 								<ul>
 									<li>
-										<a href="#">Template generator</a>
+										<a href="#">Template Builder</a>
 									</li>
 									<li>
-										<a href="#">Child theme generator</a>
+										<a href="#">Child Theme Generator</a>
 									</li>
 								</ul>
 
-								<b>Shop</b>
+								<b>Store</b>
 								<ul>
 									<li>
-										<a href="#">Get the pro</a>
+										<a href="#">Get the Pro</a>
 									</li>
 									<li>
 										<a href="#">Child themes</a>
 									</li>
 									<li>
-										<a href="#">Theme extentions</a>
+										<a href="#">Theme extensions</a>
 									</li>
 									<li>
 										<a href="#">Plugins</a>
@@ -325,14 +347,18 @@
 			
 			<div id="post-body">
 				<div id="post-body-content">			
-
+					<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="">
+							<option name="off" value="off" />
+							<option name="on" value="on" show_class="advanced"/>
+					</select>
+		
 					<tabs id="cc-general-config">
 						<tab title="General">
 							<accordion id="cc_config_general">
 													
-								<section title="Colour scheme">
+								<section title="Colour scheme" class="advanced">
 		
-									<select name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
+									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme as starting point." link="">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
@@ -495,7 +521,9 @@
 												Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
 					
 									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour for mouse moves over." />
-															
+									
+									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
+												
 									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links.">
 										<option name="never" value="never" />
 										<option name="always" value="always" />
@@ -503,12 +531,12 @@
 										<option name="just when normal" value="just when normal" />
 									</select>	
 									
+									
 									<colorpicker name="link_bg_color" label="Link bg colour" description="Change link background colour." />
 		
 									<colorpicker name="link_bg_color_hover" label="Link bg hover colour" description="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
 													
 									<select name="link_styling_title_adapt" label="Titles adapting" description="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
-										<option name="no adapting at all" value="no adapting at all" />
 										<option name="just the hover effect" value="just the hover effect" />
 										<option name="link colour and hover colour" value="link colour and hover colour" />
 										<option name="...the underline effects too" value="...the underline effects too" />
@@ -592,23 +620,27 @@
 										<option name="hide" value="hide" />
 									</select>
 									
-									<select name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
+																		
+									<select onchange="hide_class('home_latest_posts_style')" id='home_latest_posts_style' name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
 											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
 										<option name="bubbles" value="bubbles" />
-										<option name="default" value="default" />
+										<option name="default" value="default" show_class="bubbles" />
+										<option name="default1" value="default1" show_class="bubbles1" />
+										<option name="default2" value="default2" show_class="bubbles2 " />
+										<option name="default3" value="default3" show_class="bubbles3"/>
 									</select>	
 									
-									<select name="excerpt_on" label="Show excerpts" description="Just for category and archive views: use excerpts or show full content of your posts">
+									<select class="bubbles" name="excerpt_on" label="Show excerpts" description="Just for category and archive views: use excerpts or show full content of your posts">
 										<option name="content" value="content" />
-										<option name="excerpt" value="excerpt" />
+										<option name="excerpt" value="excerpt"/>
 									</select>
 									
-									<textfield name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
+									<textfield class="bubbles1 advanced" name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
 								
 
-									<colorpicker name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
+									<colorpicker class="bubbles2" name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
 									
-									<select name="home_latest_posts_show_date" label="Show date, category and author" description="Show or hide the date, category and author in the post listing.">
+									<select class="bubbles3" name="home_latest_posts_show_date" label="Show date, category and author" description="Show or hide the date, category and author in the post listing.">
 										<option name="show date, category and author name" value="show_date_category_author" />
 										<option name="show date and category" value="show_date_category" />
 										<option name="hide" value="hide" />
@@ -1071,7 +1103,7 @@
 							
 							<accordion id="cc_config_test">
 								<section title="1">
-									<accordion>
+									<accordion id="second">
 										<section title="1.1">
 											1.1
 										</section>

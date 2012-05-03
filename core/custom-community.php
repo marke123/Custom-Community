@@ -307,6 +307,16 @@ class Custom_Community{
 		endif;
 		
 		
+		// the image repeat selectbox is defined here! 
+		$image_repeat['no-repeat'] = 'no repeat';
+		$image_repeat['repeat'] = 'both';
+		$image_repeat['repeat-x'] = 'horizontal';
+		$image_repeat['repeat-y'] = 'vertical';
+		
+		foreach($image_repeat as $key => $value) {
+			tk_select_add_option( 'bg_body_img_repeat', $key , $value );
+			tk_select_add_option( 'bg_body_img_repeat', $key , $value );
+		}
 		
 		
 		$args=array(
@@ -454,7 +464,7 @@ class Custom_Community{
 			text-decoration: none !important;
 		}
 		.ui-widget-content a {
-		    text-decoration: none !important;
+		    text-decoration: none;
 		}
 	</style>
 	
@@ -683,9 +693,6 @@ class Custom_Community{
 		}
 		div#list_post_template div.subcontainer div.tk_field_row a span {
 			text-decoration: none !important;
-		}
-		.ui-widget-content a {
-		    text-decoration: none !important;
 		}
 	</style>
 	
@@ -917,9 +924,6 @@ class Custom_Community{
 		}
 		div#list_post_template div.subcontainer div.tk_field_row a span {
 			text-decoration: none !important;
-		}
-		.ui-widget-content a {
-		    text-decoration: none !important;
 		}
 	</style>
 	
