@@ -846,6 +846,10 @@ function dynamic_css(){
 		border-bottom: none; 
 	}
 	
+	.activity-avatar {
+		float: left;
+	}
+	
 	ul.item-list li img.avatar {
 		float: left;
 		margin: 3px 10px 10px 0;
@@ -1769,7 +1773,6 @@ function dynamic_css(){
 	
 	form#whats-new-form {
 		margin-bottom: 3px;
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
 		overflow: hidden;
 		padding-bottom: 20px;
 	}
@@ -1960,7 +1963,10 @@ function dynamic_css(){
 	.activity-list .activity-content .comment-header {
 		font-size: 11px;
 		color: #<?php echo $font_color; ?>;
-		line-height: 170%;
+	    line-height: 170%;
+		height: auto;
+	    overflow: auto;
+	    padding-bottom: 8px;
 	}
 	
 	.activity-list .activity-content .activity-header img.avatar {
