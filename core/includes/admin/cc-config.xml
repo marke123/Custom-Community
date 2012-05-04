@@ -371,7 +371,7 @@
 		
 									<textfield name="website_width" label="Website width:" description="Just type in the number. Default is 1000 (px)." link="http://support.themekraft.com/entries/21397948-website-width" class="advanced"/>
 									
-									<select name="website_width_unit" label="Fluid or static width?" description="Do you want your layout fluid (in %) or static (in pixel)?" link="http://support.themekraft.com/entries/21397948-website-width#fluid_or_static_width" class="advanced">
+									<select name="website_width_unit" label="Fluid or static width?" description="Fluid width (in %) or static width (in pixel)?" link="http://support.themekraft.com/entries/21397948-website-width#fluid_or_static_width" class="advanced">
 										<option name="px" value="pixel" />
 										<option name="%" value="%" />
 									</select>
@@ -389,12 +389,12 @@
 										
 									<file name="bg_body_img" label="Background image" description="Insert background image. Upload or insert url." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img" />
 		
-									<select name="bg_body_img_fixed" label="Fixed background image" description="Fix the position of your body background image." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_fixed" class="advanced">
+									<select name="bg_body_img_fixed" label="Fixed background image" description="Fixed position of body background image." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_fixed" class="advanced">
 										<option name="Disabled" value="false" />
 										<option name="Enabled" value="true" />
 									</select>
 								
-									<select name="bg_body_img_pos" label="Background position" description="Position of background image: left, center, right." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_pos">
+									<select name="bg_body_img_pos" label="Background position" description="Image position: left, center, right." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_pos">
 										<option name="center" value="center" />
 										<option name="left" value="left" />
 										<option name="right" value="right" />
@@ -407,7 +407,7 @@
 		
 								<section title="Container">
 									
-									<colorpicker name="bg_container_color" label="Container colour" description="Change the background colour of the content part, write transparent for no colour." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image" />
+									<colorpicker name="bg_container_color" label="Container colour" description="Content background colour. Write transparent for no colour." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image" />
 									
 									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
 										<option name="show" value="show" />
@@ -421,7 +421,7 @@
 									<select name="bg_container_img_repeat" label="Container background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
 									</select>
 		
-									<select name="container_corner_radius" label="Container corner radius" description="Do you want your container corners to be rounded?" class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius">
+									<select name="container_corner_radius" label="Container corner radius" description="Rounded corners in your container?" class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius">
 										<option name="rounded" value="rounded" />
 										<option name="not rounded" value="not rounded" />
 									</select>
@@ -441,7 +441,7 @@
 										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
 									</select>
 									
-									<textfield name="title_size" label="Title size" description="Change the title font size (h1 and h2), default is 28px, just enter a number" />
+									<textfield name="title_size" label="Title size" description="Title font size (h1, h2), default is 28px, just enter a number." />
 									
 									<select name="title_weight" label="Title font weight" description="Do you want your titles bold or normal?">
 										<option name="bold" value="bold" />
@@ -455,9 +455,9 @@
 										
 									<colorpicker name="title_color" label="Title colour" description="Change title colour" />
 									
-									<colorpicker name="title_text_shadow_color" label="Title text shadow colour" description="Change text shadow colour" />
+									<colorpicker name="title_text_shadow_color" label="Title text shadow colour" description="Change text shadow colour." />
 									
-									<select name="title_text_shadow_style" label="Title text shadow style" description="Do you want your titles text shadow inside or outside? Notes: For an inside effect the text-shadow should be brighter than the text and the background colour! For outside effect the text shadow should be darker than text colour and background..">
+									<select name="title_text_shadow_style" label="Title text shadow style" description="Text shadows inside or outside effect? Notes: For an inside effect the text-shadow should be brighter than the text and the background colour! For outside effect the text shadow should be darker than text colour and background..">
 										<option name="outside" value="outside" />
 										<option name="inside" value="inside" />
 									</select>									
