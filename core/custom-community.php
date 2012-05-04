@@ -980,6 +980,8 @@ class Custom_Community{
 	
 					'list_post_template_#index#_cc-config_values[list_post_template_box_shadow_color]': '<?php echo $tkf->list_post_template_box_shadow_color[$line]; ?>',
 					'list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]': '<?php echo $tkf->list_post_template_box_shadow_style[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_more_show]': '<?php echo $tkf->list_post_template_more_show[$line]; ?>',
 	
 					'list_post_template_#index#_cc-config_values[list_post_template_image_show]': '<?php echo $tkf->list_post_template_image_show[$line]; ?>',
 	
@@ -1179,7 +1181,11 @@ class Custom_Community{
 
 				// post entry: box shadows for everyone! 
 				echo 'list_post_template_box_shadow_color'.tk_form_colorpicker( 'list_post_template_box_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
-				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 	
+				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 
+				
+				// post entry: clickable box or not? 
+				echo '<!-- list_post_template_more_show'. tk_form_checkbox( 'list_post_template_more_show', array( 'multi_index' => 0 ) ).'<br>//-->'; 
+					
 
 
 			// featured image options ////////////////////////////////////////////////// 
@@ -1425,6 +1431,13 @@ class Custom_Community{
 									<option value="inside">inside</option>
 								</select>									
 							</div>
+						</div>
+						
+						<!-- post entry: read more link or not? -->
+						
+						<div class="tk_field_row">
+							Show 'Read more' Link
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_more_show]" name="cc-config_values[list_post_template_more_show][#index#]">
 						</div>
 					
 					</div>

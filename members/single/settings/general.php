@@ -12,7 +12,9 @@
 
 	<div id="content">
 		<div class="padder">
-
+			
+			<?php do_action( 'cc_first_inside_padder' ); ?>
+			
 			<?php do_action( 'bp_before_member_settings_template' ); ?>
 
 			<div id="item-header">
