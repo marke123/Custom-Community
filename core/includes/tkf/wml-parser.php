@@ -435,8 +435,8 @@ function tk_db_textfield( $name, $css_class = '', $label, $tooltip, $description
 			}
 		}
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}		 
 	$args = array(
 		'id' => $name,
@@ -470,8 +470,8 @@ function tk_db_textarea( $name, $css_class = '', $label, $tooltip, $description,
 		}
 	
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}		 
 	$args = array(
 		'id' => $name,
@@ -504,8 +504,8 @@ function tk_db_checkbox( $name, $css_class = '', $label, $tooltip, $description,
 		}
 	
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}else{
 		$after_element = '<div class="field_description">' . $description . '</div>' . $link;
 	}
@@ -541,8 +541,8 @@ function tk_db_radio( $name, $css_class = '', $value, $label, $tooltip, $descrip
 		}
 	
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 		}else{
 			$after_element = '<div class="field_description">' . $description . '</div>' . $link;
 		}
@@ -581,8 +581,8 @@ function tk_db_select( $name, $options, $multiselect = FALSE, $size = '', $label
 		}
 	
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 
 		if( is_array($tkf_hide_class_options[$name]) ){
 			foreach($tkf_hide_class_options[$name] as $key => $tkf_hide_class_option){
@@ -648,8 +648,8 @@ function tk_db_import( $name, $css_class = '', $label, $tooltip, $description, $
 		tk_add_text_string( $label );
 		tk_add_text_string( $tooltip );
 		
-		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}
 	
 	$args = array(
@@ -671,8 +671,8 @@ function tk_db_export( $name, $css_class = '', $forms, $label, $file_name, $tool
 		tk_add_text_string( $label );
 		tk_add_text_string( $tooltip );
 		
-		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}
 	
 	$forms = explode( ',', $forms );
@@ -715,8 +715,8 @@ function tk_db_colorpicker( $name, $css_class = '', $label, $tooltip, $descripti
 		}
 	
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}		 
 	$args = array(
 		'id' => $name,
@@ -752,8 +752,8 @@ function tk_db_file( $name, $css_class = '', $label, $tooltip, $description, $li
 		}
 	
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field">';
-		$after_element = '<div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
 	}
 	
 	if( strtolower( $delete ) == 'true' ){

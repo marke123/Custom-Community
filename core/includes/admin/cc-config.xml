@@ -356,9 +356,9 @@
 						<tab title="General">
 							<accordion id="cc_config_general">
 													
-								<section title="Colour scheme" class="advanced">
+								<section title="Colour scheme">
 		
-									<select class="advanced" name="style_css" label="Colour scheme" description="Select the colour scheme as starting point." link="">
+									<select name="style_css" label="Colour scheme" description="Select a colour scheme as your starting point." link="http://support.themekraft.com/entries/21395507-colour-scheme">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
@@ -367,12 +367,12 @@
 		
 								</section>
 								
-								<section title="Website width">
+								<section title="Website width" class="advanced">
 		
-									<textfield name="website_width" label="Website Width:" description="Just type in the number, either in px or %. Default is 1000. Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview." />
+									<textfield name="website_width" label="Website width:" description="Just type in the number. Default is 1000 (px)." link="http://support.themekraft.com/entries/21397948-website-width" class="advanced"/>
 									
-									<select name="website_width_unit" label="Fluid or static width?" description="Do you want your layout fluid(%) or static(px)? Notes: when you use the slideshow, better don't use fluid width. And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.">
-										<option name="px" value="px" />
+									<select name="website_width_unit" label="Fluid or static width?" description="Do you want your layout fluid (in %) or static (in pixel)?" link="http://support.themekraft.com/entries/21397948-website-width#fluid_or_static_width" class="advanced">
+										<option name="px" value="pixel" />
 										<option name="%" value="%" />
 									</select>
 		
@@ -380,56 +380,48 @@
 								
 								<section title="Background">
 									
-									<select name="add_custom_background" label="Use standard WP settings" description="Enable this option, if you like to use the standard wordpress settings page.">
+									<select name="add_custom_background" label="Use standard WP settings" description="Enable standard WordPress settings page." link="http://support.themekraft.com/entries/21369571-background-use-standard-wp-settings" class="advanced">
 										<option name="Disabled" value="false" />
 										<option name="Enabled" value="true" />
 									</select>
 								
-									<colorpicker name="bg_body_color" label="Background colour" description="Change your background colour" />
+									<colorpicker name="bg_body_color" label="Background colour" description="Change your body background colour." link="http://support.themekraft.com/entries/21393887-background-colour-and-image" />
 										
-									<file name="bg_body_img" label="Background image" description="Insert your own background image. Upload or insert url." />
+									<file name="bg_body_img" label="Background image" description="Insert background image. Upload or insert url." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img" />
 		
-									<select name="bg_body_img_fixed" label="Fixed background image" description="Fix the position of your body background image">
+									<select name="bg_body_img_fixed" label="Fixed background image" description="Fix the position of your body background image." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_fixed" class="advanced">
 										<option name="Disabled" value="false" />
 										<option name="Enabled" value="true" />
 									</select>
 								
-									<select name="bg_body_img_pos" label="Background position" description="Position of the background image: center, left, right">
+									<select name="bg_body_img_pos" label="Background position" description="Position of background image: left, center, right." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_pos">
 										<option name="center" value="center" />
 										<option name="left" value="left" />
 										<option name="right" value="right" />
 									</select>
 		
-									<select name="bg_body_img_repeat" label="Background repeat" description="Repeat background image: x=horizontally, y=vertically">
-										<option name="no repeat" value="no repeat" />
-										<option name="x" value="x" />
-										<option name="y" value="y" />
-										<option name="x+y" value="x+y" />
+									<select name="bg_body_img_repeat" label="Background repeat" description="Repeat the background image?" link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_repeat">
 									</select>
 								
 								</section>
 		
 								<section title="Container">
 									
-									<colorpicker name="bg_container_color" label="Container colour" description="Change the background colour of the content part,write transparent for no color" />
+									<colorpicker name="bg_container_color" label="Container colour" description="Change the background colour of the content part, write transparent for no colour." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image" />
 									
-									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide your container are default, you can disable them if you like.">
+									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
 								
-									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change the colour of the vertical lines. Tip: Best is to have them in the colour of the background and other lines." />
+									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
 									
-									<file name="bg_container_img" label="Container BG image" description="Change background image for the container (currently the vertical lines that separate the sidebars). Upload or insert url." />
+									<file name="bg_container_img" label="Container background image" description="Add a background image. Upload or insert url." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#bg_container_img" />
 		
-									<select name="bg_container_img_repeat" label="Container BG repeat" description="Repeat background image: x=horizontally, y=vertically">
-										<option name="no repeat" value="no repeat" />
-										<option name="x" value="x" />
-										<option name="y" value="y" />
-										<option name="x+y" value="x+y" />
+									<select name="bg_container_img_repeat" label="Container background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
 									</select>
 		
-									<select name="container_corner_radius" label="Container corner radius" description="Do you want your container corners to be rounded?">
+									<select name="container_corner_radius" label="Container corner radius" description="Do you want your container corners to be rounded?" class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius">
 										<option name="rounded" value="rounded" />
 										<option name="not rounded" value="not rounded" />
 									</select>
