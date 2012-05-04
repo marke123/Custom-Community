@@ -98,7 +98,7 @@ function cc_change_groups_tab_order() {
 
 
 /**
- * find out the right color scheme and create the array of css elements with the hex codes
+ * find out the right colour scheme and create the array of css elements with the hex codes
  *
  * @package Custom Community
  * @since 1.8.3
@@ -199,7 +199,7 @@ function cc_switch_css(){
 }
 	
 /**
- * find out the right color scheme and create the array of css elements with the hex codes
+ * find out the right colour scheme and create the array of css elements with the hex codes
  *
  * @package Custom Community
  * @since 1.8.3

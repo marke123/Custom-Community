@@ -8,6 +8,25 @@
 		
 		<div id="fb-root"></div>
 	
+		<script language="javascript"> 
+									    	function hide_class(dropdownID) {
+												
+												var selval = jQuery("#" + dropdownID).val();
+										    
+												jQuery("input." + dropdownID).each( function (index, field)
+												{
+											    	if(field.name == 'hide_' + selval){
+											    		jQuery('.' + field.value).hide();
+											  		}
+											  		if(field.name == 'show_' + selval) {
+											  			jQuery('.' + field.value).show();
+											  		} else {
+											  			jQuery('.' + field.value).hide();
+											  		}
+												});
+											}
+										</script>
+	
 		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 		<script>(function(d, s, id) {
@@ -282,11 +301,14 @@
 								<b>Help</b>
 								<ul>
 									<li>
-										<a href="#">Getting Startet</a>
+										<a href="#">Getting Started</a>
 									</li>
 
 									<li>
-										<a href="#">Knowledgebase</a>
+										<a href="#">Knowledge Base</a>
+									</li>
+									<li>
+										<a href="#">Get Premium Support</a>
 									</li>
 
 								</ul>
@@ -294,23 +316,23 @@
 								<b>Tools</b>
 								<ul>
 									<li>
-										<a href="#">Template generator</a>
+										<a href="#">Template Builder</a>
 									</li>
 									<li>
-										<a href="#">Child theme generator</a>
+										<a href="#">Child Theme Generator</a>
 									</li>
 								</ul>
 
-								<b>Shop</b>
+								<b>Store</b>
 								<ul>
 									<li>
-										<a href="#">Get the pro</a>
+										<a href="#">Get the Pro</a>
 									</li>
 									<li>
 										<a href="#">Child themes</a>
 									</li>
 									<li>
-										<a href="#">Theme extentions</a>
+										<a href="#">Theme extensions</a>
 									</li>
 									<li>
 										<a href="#">Plugins</a>
@@ -325,14 +347,18 @@
 			
 			<div id="post-body">
 				<div id="post-body-content">			
-
+					<select onchange="hide_class('expert_mode')" name="expert_mode" label="Expert mode" description="">
+							<option name="off" value="off" />
+							<option name="on" value="on" show_class="advanced"/>
+					</select>
+		
 					<tabs id="cc-general-config">
 						<tab title="General">
 							<accordion id="cc_config_general">
 													
 								<section title="Colour scheme">
 		
-									<select name="style_css" label="Colour scheme" description="Select the colour scheme of your website.">
+									<select name="style_css" label="Colour scheme" description="Select a colour scheme as your starting point." link="http://support.themekraft.com/entries/21395507-colour-scheme">
 										<option name="white" value="white" />
 										<option name="grey" value="grey" />
 										<option name="dark" value="dark" />
@@ -341,12 +367,12 @@
 		
 								</section>
 								
-								<section title="Website width">
+								<section title="Website width" class="advanced">
 		
-									<textfield name="website_width" label="Website Width:" description="Just type in the number, either in px or %. Default is 1000. Tip: If you use the full-width slider, don't make your site bigger than 1006px, or use the normal slider with preview." />
+									<textfield name="website_width" label="Website width:" description="Just type in the number. Default is 1000 (px)." link="http://support.themekraft.com/entries/21397948-website-width" class="advanced"/>
 									
-									<select name="website_width_unit" label="Fluid or static width?" description="Do you want your layout fluid(%) or static(px)? Notes: when you use the slideshow, better don't use fluid width. And if you use the slideshow shadow, it only looks nice with a static width between 990 and about 1100px.">
-										<option name="px" value="px" />
+									<select name="website_width_unit" label="Fluid or static width?" description="Do you want your layout fluid (in %) or static (in pixel)?" link="http://support.themekraft.com/entries/21397948-website-width#fluid_or_static_width" class="advanced">
+										<option name="px" value="pixel" />
 										<option name="%" value="%" />
 									</select>
 		
@@ -354,56 +380,48 @@
 								
 								<section title="Background">
 									
-									<select name="add_custom_background" label="Use standard WP settings" description="Enable this option, if you like to use the standard wordpress settings page.">
+									<select name="add_custom_background" label="Use standard WP settings" description="Enable standard WordPress settings page." link="http://support.themekraft.com/entries/21369571-background-use-standard-wp-settings" class="advanced">
 										<option name="Disabled" value="false" />
 										<option name="Enabled" value="true" />
 									</select>
 								
-									<colorpicker name="bg_body_color" label="Background colour" description="Change your background colour" />
+									<colorpicker name="bg_body_color" label="Background colour" description="Change your body background colour." link="http://support.themekraft.com/entries/21393887-background-colour-and-image" />
 										
-									<file name="bg_body_img" label="Background image" description="Insert your own background image. Upload or insert url." />
+									<file name="bg_body_img" label="Background image" description="Insert background image. Upload or insert url." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img" />
 		
-									<select name="bg_body_img_fixed" label="Fixed background image" description="Fix the position of your body background image">
+									<select name="bg_body_img_fixed" label="Fixed background image" description="Fix the position of your body background image." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_fixed" class="advanced">
 										<option name="Disabled" value="false" />
 										<option name="Enabled" value="true" />
 									</select>
 								
-									<select name="bg_body_img_pos" label="Background position" description="Position of the background image: center, left, right">
+									<select name="bg_body_img_pos" label="Background position" description="Position of background image: left, center, right." link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_pos">
 										<option name="center" value="center" />
 										<option name="left" value="left" />
 										<option name="right" value="right" />
 									</select>
 		
-									<select name="bg_body_img_repeat" label="Background repeat" description="Repeat background image: x=horizontally, y=vertically">
-										<option name="no repeat" value="no repeat" />
-										<option name="x" value="x" />
-										<option name="y" value="y" />
-										<option name="x+y" value="x+y" />
+									<select name="bg_body_img_repeat" label="Background repeat" description="Repeat the background image?" link="http://support.themekraft.com/entries/21393887-background-colour-and-image#bg_body_img_repeat">
 									</select>
 								
 								</section>
 		
 								<section title="Container">
 									
-									<colorpicker name="bg_container_color" label="Container colour" description="Change the background colour of the content part,write transparent for no color" />
+									<colorpicker name="bg_container_color" label="Container colour" description="Change the background colour of the content part, write transparent for no colour." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image" />
 									
-									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide your container are default, you can disable them if you like.">
+									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
 										<option name="show" value="show" />
 										<option name="hide" value="hide" />
 									</select>
 								
-									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change the colour of the vertical lines. Tip: Best is to have them in the colour of the background and other lines." />
+									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
 									
-									<file name="bg_container_img" label="Container BG image" description="Change background image for the container (currently the vertical lines that separate the sidebars). Upload or insert url." />
+									<file name="bg_container_img" label="Container background image" description="Add a background image. Upload or insert url." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#bg_container_img" />
 		
-									<select name="bg_container_img_repeat" label="Container BG repeat" description="Repeat background image: x=horizontally, y=vertically">
-										<option name="no repeat" value="no repeat" />
-										<option name="x" value="x" />
-										<option name="y" value="y" />
-										<option name="x+y" value="x+y" />
+									<select name="bg_container_img_repeat" label="Container background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
 									</select>
 		
-									<select name="container_corner_radius" label="Container corner radius" description="Do you want your container corners to be rounded?">
+									<select name="container_corner_radius" label="Container corner radius" description="Do you want your container corners to be rounded?" class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius">
 										<option name="rounded" value="rounded" />
 										<option name="not rounded" value="not rounded" />
 									</select>
@@ -495,7 +513,9 @@
 												Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
 					
 									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour for mouse moves over." />
-															
+									
+									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
+												
 									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links.">
 										<option name="never" value="never" />
 										<option name="always" value="always" />
@@ -503,12 +523,12 @@
 										<option name="just when normal" value="just when normal" />
 									</select>	
 									
+									
 									<colorpicker name="link_bg_color" label="Link bg colour" description="Change link background colour." />
 		
 									<colorpicker name="link_bg_color_hover" label="Link bg hover colour" description="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
 													
 									<select name="link_styling_title_adapt" label="Titles adapting" description="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
-										<option name="no adapting at all" value="no adapting at all" />
 										<option name="just the hover effect" value="just the hover effect" />
 										<option name="link colour and hover colour" value="link colour and hover colour" />
 										<option name="...the underline effects too" value="...the underline effects too" />
@@ -592,23 +612,27 @@
 										<option name="hide" value="hide" />
 									</select>
 									
-									<select name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
+																		
+									<select onchange="hide_class('home_latest_posts_style')" id='home_latest_posts_style' name="home_latest_posts_style" label="Post listing style" description="Select a style how to display the latest posts.
 											You can also list your posts in magazine style, showing the featured images, check out our our FAQ.">
 										<option name="bubbles" value="bubbles" />
-										<option name="default" value="default" />
+										<option name="default" value="default" show_class="bubbles" />
+										<option name="default1" value="default1" show_class="bubbles1" />
+										<option name="default2" value="default2" show_class="bubbles2 " />
+										<option name="default3" value="default3" show_class="bubbles3"/>
 									</select>	
 									
-									<select name="excerpt_on" label="Show excerpts" description="Just for category and archive views: use excerpts or show full content of your posts">
+									<select class="bubbles" name="excerpt_on" label="Show excerpts" description="Just for category and archive views: use excerpts or show full content of your posts">
 										<option name="content" value="content" />
-										<option name="excerpt" value="excerpt" />
+										<option name="excerpt" value="excerpt"/>
 									</select>
 									
-									<textfield name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
+									<textfield class="bubbles1 advanced" name="excerpt_length" label="Excerpt length" description="Change the excerpt length, default is 30 words" />
 								
 
-									<colorpicker name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
+									<colorpicker class="bubbles2" name="home_latest_posts_background_color" label="Post background colour" description="Change the background colour of your latest posts. Tip: watch out you have enough contrast to the text colours!" />
 									
-									<select name="home_latest_posts_show_date" label="Show date, category and author" description="Show or hide the date, category and author in the post listing.">
+									<select class="bubbles3" name="home_latest_posts_show_date" label="Show date, category and author" description="Show or hide the date, category and author in the post listing.">
 										<option name="show date, category and author name" value="show_date_category_author" />
 										<option name="show date and category" value="show_date_category" />
 										<option name="hide" value="hide" />
@@ -1071,7 +1095,7 @@
 							
 							<accordion id="cc_config_test">
 								<section title="1">
-									<accordion>
+									<accordion id="second">
 										<section title="1.1">
 											1.1
 										</section>
