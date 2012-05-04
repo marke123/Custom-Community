@@ -18,13 +18,19 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 		
 		<h3><a href="<?php the_permalink() ?>" title="<?php _e( 'Permanent Link to', 'cc' ) . the_title_attribute(); ?>"><?php the_title() ?></a></h3>
 		
-		<?php
-		if($img_position == 'posts-img-between-title-content') {
+		<?php if($img_position == 'posts-img-between-title-content') {
 			echo $featured_image;
-		}
-		?>
+		} ?>
 		
-		<p style="<?php $margintop ?> height:'<?php $height ?>'"><?php the_excerpt() ?><a href="'<?php the_permalink() ?>'"><br /><?php _e('read more','cc') ?></a></p>
+		<?php echo $tkf->list_post_template_read_more_link; ?>
+		
+		<p style="<?php $margintop ?> height:'<?php $height ?>'">
+			<?php the_excerpt() ?>
+			<?php if($hide_more_link == '') { ?>
+				<a class="readmore" href="'<?php the_permalink() ?>'"><br /><?php _e('read more','cc') ?></a>
+			<?php } ?>
+		</p>
+		
 		<?php if($img_position == 'posts-img-under-content') {
 				echo $featured_image;
 		} ?>

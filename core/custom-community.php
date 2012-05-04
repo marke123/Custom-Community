@@ -981,7 +981,7 @@ class Custom_Community{
 					'list_post_template_#index#_cc-config_values[list_post_template_box_shadow_color]': '<?php echo $tkf->list_post_template_box_shadow_color[$line]; ?>',
 					'list_post_template_#index#_cc-config_values[list_post_template_box_shadow_style]': '<?php echo $tkf->list_post_template_box_shadow_style[$line]; ?>',
 					
-					'list_post_template_#index#_cc-config_values[list_post_template_more_show]': '<?php echo $tkf->list_post_template_more_show[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_read_more_link]': '<?php echo $tkf->list_post_template_read_more_link[$line]; ?>',
 	
 					'list_post_template_#index#_cc-config_values[list_post_template_image_show]': '<?php echo $tkf->list_post_template_image_show[$line]; ?>',
 	
@@ -1184,7 +1184,7 @@ class Custom_Community{
 				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 
 				
 				// post entry: clickable box or not? 
-				echo '<!-- list_post_template_more_show'. tk_form_checkbox( 'list_post_template_more_show', array( 'multi_index' => 0 ) ).'<br>//-->'; 
+				echo '<!-- list_post_template_read_more_link'. tk_form_checkbox( 'list_post_template_read_more_link', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 					
 
 
@@ -1319,8 +1319,12 @@ class Custom_Community{
 						<!-- post entry: clickable box or not? -->
 						
 						<div class="tk_field_row">
-							Make the post a clickable box:
-							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_entry_clickable]" name="cc-config_values[list_post_template_entry_clickable][#index#]">
+							<div class="tk_field_label">
+								<label for="" title="Make the post a clickable box?">Make the post a clickable box:</label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_entry_clickable]" name="cc-config_values[list_post_template_entry_clickable][#index#]">
+							</div>
 						</div>
 						
 						<!-- post entry: background color or fade -->
@@ -1331,7 +1335,7 @@ class Custom_Community{
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_background_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_background_color][#index#]">
-								</div>
+							</div>
 						</div>
 						<div class="tk_field_row">
 							<div class="tk_field_label">
@@ -1436,8 +1440,12 @@ class Custom_Community{
 						<!-- post entry: read more link or not? -->
 						
 						<div class="tk_field_row">
-							Show 'Read more' Link
-							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_more_show]" name="cc-config_values[list_post_template_more_show][#index#]">
+							<div class="tk_field_label">
+								<label for="" title="Hide the read more link?">Hide 'read more' link:</label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_read_more_link]" name="cc-config_values[list_post_template_read_more_link][#index#]">
+							</div>
 						</div>
 					
 					</div>

@@ -576,7 +576,7 @@ function cc_list_posts($atts,$content = null) {
 	if ( $img_position == 'posts-img-between-title-content' ) {
 		 $margintop = 'margin-top: 10px;'; 
 	}
-			
+	
 	$args = array(
 		'amount' => $amount,
 		'posts_per_page' => $posts_per_page,
@@ -626,6 +626,8 @@ function cc_list_posts($atts,$content = null) {
 	$tmp_js .= '}'. chr(13);
 	$tmp_js .= '});'. chr(13);
 	$tmp_js .= '</script>'. chr(13);
+	
+	$hide_more_link = $tkf->list_post_template_read_more_link[$arrayindex];
 
 	$list_post_atts = array(
 		'img_position' => $img_position,
@@ -634,6 +636,7 @@ function cc_list_posts($atts,$content = null) {
 		'featured_posts_image_width' => $featured_posts_image_width, 
 		'featured_posts_image_height' => $featured_posts_image_height,
 		'margintop' => $margintop,
+		'hide_more_link' => $hide_more_link,
 		'arrayindex' => $arrayindex,
 		'template_name' => $template_name
 	);
