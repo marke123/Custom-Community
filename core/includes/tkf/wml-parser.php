@@ -416,7 +416,7 @@ function tk_db_textfield( $name, $css_class = '', $label, $tooltip, $description
 	global $tkf_hide_class, $tkf_show_class;
 	
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 		
 	if( trim( $label ) != '' ){
 			
@@ -435,8 +435,8 @@ function tk_db_textfield( $name, $css_class = '', $label, $tooltip, $description
 			}
 		}
 	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}		 
 	$args = array(
 		'id' => $name,
@@ -450,7 +450,7 @@ function tk_db_textarea( $name, $css_class = '', $label, $tooltip, $description,
 	global $tkf_hide_class, $tkf_show_class;
 	
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 	
 	if( trim( $label ) != '' ){
 
@@ -468,10 +468,9 @@ function tk_db_textarea( $name, $css_class = '', $label, $tooltip, $description,
 					$style_str = ' style="display:none"';
 			}
 		}
-	
-	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}		 
 	$args = array(
 		'id' => $name,
@@ -484,7 +483,7 @@ function tk_db_checkbox( $name, $css_class = '', $label, $tooltip, $description,
 	global $tkf_hide_class, $tkf_show_class;
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 			
 	if( trim( $label ) != '' ){
 		
@@ -503,9 +502,8 @@ function tk_db_checkbox( $name, $css_class = '', $label, $tooltip, $description,
 			}
 		}
 	
-	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}else{
 		$after_element = '<div class="field_description">' . $description . '</div>' . $link;
 	}
@@ -520,7 +518,7 @@ function tk_db_radio( $name, $css_class = '', $value, $label, $tooltip, $descrip
 	global $tkf_hide_class, $tkf_show_class;
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 			
 	if( trim( $label ) != '' ){
 		
@@ -539,10 +537,9 @@ function tk_db_radio( $name, $css_class = '', $value, $label, $tooltip, $descrip
 					$style_str = ' style="display:none"';
 			}
 		}
-	
-	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 		}else{
 			$after_element = '<div class="field_description">' . $description . '</div>' . $link;
 		}
@@ -557,7 +554,7 @@ function tk_db_radio( $name, $css_class = '', $value, $label, $tooltip, $descrip
 function tk_db_select( $name, $options, $multiselect = FALSE, $size = '', $label, $tooltip = '', $description, $link, $css_class = '', $onchange = '', $return_object = TRUE ){
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 				
 	global $tkf_hide_class_options, $tkf_hide_class, $tkf_show_class;	
 	
@@ -579,10 +576,9 @@ function tk_db_select( $name, $options, $multiselect = FALSE, $size = '', $label
 					$style_str = ' style="display:none"';
 			}
 		}
-	
-	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+							
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 
 		if( is_array($tkf_hide_class_options[$name]) ){
 			foreach($tkf_hide_class_options[$name] as $key => $tkf_hide_class_option){
@@ -641,15 +637,15 @@ function tk_db_button( $name, $return_object = TRUE ){
 function tk_db_import( $name, $css_class = '', $label, $tooltip, $description, $link, $return_object = TRUE ){
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 
 	if( trim( $label ) != '' ){
 		
 		tk_add_text_string( $label );
 		tk_add_text_string( $tooltip );
 		
-		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}
 	
 	$args = array(
@@ -664,15 +660,15 @@ function tk_db_import( $name, $css_class = '', $label, $tooltip, $description, $
 function tk_db_export( $name, $css_class = '', $forms, $label, $file_name, $tooltip, $description, $link, $return_object = TRUE ){
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 
 	if( trim( $label ) != '' ){
 		
 		tk_add_text_string( $label );
 		tk_add_text_string( $tooltip );
 		
-		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		$before_element = '<div class="tk_field_row ' . $css_class . '"><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}
 	
 	$forms = explode( ',', $forms );
@@ -695,7 +691,7 @@ function tk_db_colorpicker( $name, $css_class = '', $label, $tooltip, $descripti
 	global $tkf_hide_class, $tkf_show_class;
 
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 		
 	if( trim( $label ) != '' ){
 		
@@ -713,10 +709,9 @@ function tk_db_colorpicker( $name, $css_class = '', $label, $tooltip, $descripti
 					$style_str = ' style="display:none"';
 			}
 		}
-	
-	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}		 
 	$args = array(
 		'id' => $name,
@@ -732,7 +727,7 @@ function tk_db_file( $name, $css_class = '', $label, $tooltip, $description, $li
 	global $tkf_hide_class, $tkf_show_class;
 	
 	if($link != '')
-		$link = '<div class="field_link"><a href="' . $link . '" target="_blank">&rarr; More help</a></div>';
+		$link = '<div class="field_link"> <a title="Go to this topic in our Knowledge Base" href="' . $link . '" target="_blank">&rarr; More help.</a></div>';
 	
 	if( trim( $label ) != '' ){
 		
@@ -750,10 +745,9 @@ function tk_db_file( $name, $css_class = '', $label, $tooltip, $description, $li
 					$style_str = ' style="display:none"';
 			}
 		}
-	
-	
-		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
-		$after_element = '</div><div class="field_description">' . $description . '</div>' . $link . '</div></div>';
+		
+		$before_element = '<div class="tk_field_row ' . $css_class . '"' . $style_str . '><div class="tk_field_main"><div class="tk_field_label"><label for="' . $name . '" title="' . $tooltip . '">' . $label . '</label></div><div class="tk_field"><div class="tk_field_option">';
+		$after_element = '</div></div></div><div class="field_description">' . $description . $link . '</div></div>';
 	}
 	
 	if( strtolower( $delete ) == 'true' ){

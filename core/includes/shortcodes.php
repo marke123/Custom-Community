@@ -381,15 +381,19 @@ function cc_list_posts($atts,$content = null) {
 			$featured_posts_image_width = $tkf->list_post_template_image_width[$arrayindex];	
 		} 
 		
-		// only sets the image width if there is a value for height,   
-		// if not, but there's a value for the width: then use the value calculated from the width! 
+		// sets the image width and height if there's a value.   
+		// if no value set, it becomes a 9999 = adapt the size automatically.  
 		if ( $tkf->list_post_template_image_height[$arrayindex] != "" ) {
-			$featured_posts_image_height = $tkf->list_post_template_image_height[$arrayindex]; 
-			} elseif ( $tkf->list_post_template_image_width[$arrayindex] != "" ) {
-				$featured_posts_image_height = $featured_posts_image_width / 1.47058824;
-				$featured_posts_image_height = number_format($featured_posts_image_height,0);
-				$featured_posts_image_height = $featured_posts_image_height;
-			}
+			$featured_posts_image_height = $tkf->list_post_template_image_height[$arrayindex];
+		} else {
+			$featured_posts_image_height = 9999;
+		} 
+		
+		if ($tkf->list_post_template_image_width[$arrayindex] != "" ) {
+			$featured_posts_image_width = $tkf->list_post_template_image_width[$arrayindex];
+		} else {
+			$featured_posts_image_width = 9999;
+		}
 			
 			 
 		ob_start(); ?>
