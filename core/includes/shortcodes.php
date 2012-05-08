@@ -460,7 +460,6 @@ function cc_list_posts($atts,$content = null) {
 	          					 box-shadow: <?php echo $shadowstyle; ?>1px 1px 2px 0px #<?php echo $tkf->list_post_template_box_shadow_color[$arrayindex]; ?>; /* Opera 10.5+, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
 			    <?php } ?>
 				margin-bottom: 20px; 
-				padding: 10px; 
 			}
 			
 			/* featured image styles. (width, height and image position are not handled here) */
