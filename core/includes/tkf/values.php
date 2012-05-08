@@ -232,6 +232,11 @@ function tk_get_values( $option_group ){
 	return $val->get_values();
 }
 
+function tk_get_post_values( $metabox_id ){
+	global $post;
+	return get_post_meta( $post->ID, $metabox_id, TRUE );
+}
+
 function tk_set_values( $option_group, $values ){
 	$val = new TK_Values( $option_group );
 	return $val->set_values( $values );

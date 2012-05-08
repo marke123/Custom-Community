@@ -27,7 +27,7 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 		<p style="<?php $margintop ?> height:'<?php $height ?>'">
 			<?php the_excerpt() ?>
 			<?php if($hide_more_link == '') { ?>
-				<a class="readmore" href="'<?php the_permalink() ?>'"><br /><?php _e('read more','cc') ?></a>
+				<a class="readmore" href="'<?php the_permalink() ?>'"><?php _e('read more','cc') ?></a>
 			<?php } ?>
 		</p>
 		
