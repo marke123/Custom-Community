@@ -11,7 +11,7 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 	}
 	$tmp .= '<a href="'. get_permalink().'" title="'. get_the_title().'"><div class="boxgrid captionfull" onclick="document.location.href=\''. get_permalink().'\'" style="cursor:pointer;background: transparent url('.$thePath[0].') repeat scroll 0 0; -moz-background-clip: border; -moz-background-origin: padding; -moz-background-inline-policy: continuous; " title="'. get_the_title().'">';
 	$tmp .= '<div class="cover boxcaption">';
-	$tmp .= '<h3 style="padding-left:8px;"><a href="'. get_permalink().'" title="'. get_the_title().'">'. get_the_title().'</a></h3>';
+	$tmp .= '<h3 style="padding-left:8px;">'. get_the_title().'</h3>';
 	$tmp .= '<p>'.substr(get_the_excerpt(), 0, 100).'</p>';
 	$tmp .= '</div>';		
 	$tmp .= '</div></a>';	

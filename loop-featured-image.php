@@ -8,10 +8,9 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 	$featured_image = '<a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</a>';
 								
 	ob_start(); ?>
-					
 		<div class="listposts <?php echo $img_position .' '. $template_name ?>">
 		<?php 	
-		if( $img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content'){
+		if( $img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content' && get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ) != ''){
 			echo $featured_image;
 		}
 		?>
@@ -27,7 +26,7 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 		<p style="<?php $margintop ?> height:'<?php $height ?>'">
 			<?php the_excerpt() ?>
 			<?php if($hide_more_link == '') { ?>
-				<a class="readmore" href="'<?php the_permalink() ?>'"><?php _e('read more','cc') ?></a>
+				<a class="readmore" href="<?php the_permalink() ?>"><?php _e('read more','cc') ?></a>
 			<?php } ?>
 		</p>
 		
