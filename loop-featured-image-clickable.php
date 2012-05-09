@@ -24,12 +24,26 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 			}
 			?>
 			
-			<p style="<?php $margintop ?> height:'<?php $height ?>'">
+			<?php 
+			
+			if( $margintop != ''  ){
+				$str_style = $margintop . ';';
+			}
+			if( $height != ''  ){
+				$str_style.= 'height: ' . $height . ';';
+			}
+			
+			if( $str_style != '' )
+				$str_style = ' style="' . $str_style . '"';
+			
+			?>
+			
+			<div<?php echo $str_style; ?>>
 				<?php the_excerpt() ?>
 				<?php if($hide_more_link == '') { ?>
 					<span class="link readmore"><?php _e('read more','cc') ?></span>
 				<?php } ?>
-			</p>
+			</div>
 			
 			<?php if($img_position == 'posts-img-under-content') {
 					echo $featured_image;
