@@ -275,8 +275,8 @@ function profiles_header_control() {
  * @since 2.0
  */	
 
-class featured_posts_widget extends WP_Widget {
-	function featured_posts_widget() {
+class cc_list_posts_widget extends WP_Widget {
+	function cc_list_posts_widget() {
 		  //Constructor
 	        parent::WP_Widget(false, $name = 'Custom Community -> List Post', array(
 	            'description' => 'List Post'
@@ -493,5 +493,5 @@ class featured_posts_widget extends WP_Widget {
         <?php
     }
 }
-register_widget('featured_posts_widget');
+register_widget('cc_list_posts_widget');
 
