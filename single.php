@@ -15,7 +15,7 @@
 		
 						<?php
 						global $cc_post_options;
-						$cc_post_options=cc_get_post_meta(); 
+						$cc_post_options=tk_get_post_values( 'cc_page_post_settings' ); 
 						$single_class = false;
 					    if(isset($cc_post_options) && $cc_post_options['cc_post_template_on'] == 1){
 					    		
