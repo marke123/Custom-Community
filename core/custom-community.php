@@ -997,7 +997,7 @@ class Custom_Community{
 					'list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_color]': '<?php echo $tkf->list_post_template_image_box_shadow_color[$line]; ?>',
 					'list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]': '<?php echo $tkf->list_post_template_image_box_shadow_style[$line]; ?>',
 		
-					'list_post_template_#index#_cc-config_values[list_post_template_title_show]': '<?php echo $tkf->list_post_template_title_show[$line]; ?>',
+					'list_post_template_#index#_cc-config_values[list_post_template_title_hide]': '<?php echo $tkf->list_post_template_title_hide[$line]; ?>',
 	
 					'list_post_template_#index#_cc-config_values[list_post_template_title_color]': '<?php echo $tkf->list_post_template_title_color[$line]; ?>',
 	
@@ -1214,7 +1214,7 @@ class Custom_Community{
 			// title options ////////////////////////////////////////////////// 
 
 				// title: show or hide. * checked = show = default *  
-				echo '<!-- list_post_template_title_show'. tk_form_checkbox( 'list_post_template_title_show', array( 'multi_index' => 0 ) ).'<br>//-->'; 
+				echo '<!-- list_post_template_title_hide'. tk_form_checkbox( 'list_post_template_title_hide', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 
 				// title: font color 
 				echo 'list_post_template_title_color'.tk_form_colorpicker( 'list_post_template_title_color', array( 'multi_index' => 0 ) ).'<br>'; 	
@@ -1564,7 +1564,7 @@ class Custom_Community{
 						<!-- title: show or hide. * checked = show = default *  -->
 						<div class="tk_field_row">
 							Hide the title:
-							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_title_show]" name="cc-config_values[list_post_template_title_show][#index#]">
+							<input type="checkbox" id="list_post_template_#index#_cc-config_values[list_post_template_title_hide]" name="cc-config_values[list_post_template_title_hide][#index#]">
 						</div>
 						
 						<!-- title: font color -->

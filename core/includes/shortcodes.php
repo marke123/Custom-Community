@@ -396,7 +396,9 @@ function cc_list_posts($atts,$content = null) {
 		}
 			
 			 
-		ob_start(); ?>
+		ob_start(); 
+		
+		?>
 		
 		
 		<style>
@@ -485,7 +487,7 @@ function cc_list_posts($atts,$content = null) {
 			/* title styles */
 			div.list-posts-all.<?php echo $template_name; ?> h3,
 			div.list-posts-all.<?php echo $template_name; ?> h3 a {
-				<?php if ( $tkf->list_post_template_title_show[$arrayindex] == 'off' ) { ?>
+				<?php if ( $tkf->list_post_template_title_hide[$arrayindex] == 'on' ) { ?>
 					display: none;
 			    <?php } ?>
 			    <?php if ( $tkf->list_post_template_title_color[$arrayindex] != '' ) { ?>
@@ -550,6 +552,15 @@ function cc_list_posts($atts,$content = null) {
 			    <?php if ( $tkf->list_post_template_content_font_color[$arrayindex] != '' ) { ?>
 					color: #<?php echo $tkf->list_post_template_content_font_color[$arrayindex]; ?>;
 			    <?php } ?>
+			    <?php if ( $tkf->list_post_template_height[$arrayindex] != '' || $tkf->list_post_template_width[$arrayindex] != '' ) { ?>
+					overflow: hidden; 
+					<?php if ( $tkf->list_post_template_height[$arrayindex] != '' ) { ?>
+						height: <?php echo $tkf->list_post_template_height[$arrayindex] ?>px; 
+					<?php } ?>
+					<?php if ( $tkf->list_post_template_width[$arrayindex] != '' ) { ?>
+						width: <?php echo $tkf->list_post_template_width[$arrayindex] ?>;
+					<?php } ?>
+				<?php } ?>
 			}
 
 		</style>
