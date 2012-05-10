@@ -1168,7 +1168,7 @@ function dynamic_css(){
 	}
 	
 	.readmore{
-		float:right;
+		/* float:right; */
 	}
 	
 	.directory.groups div.item-list-tabs {
