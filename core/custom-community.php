@@ -996,6 +996,8 @@ class Custom_Community{
 		
 					'list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_color]': '<?php echo $tkf->list_post_template_image_box_shadow_color[$line]; ?>',
 					'list_post_template_#index#_cc-config_values[list_post_template_image_box_shadow_style]': '<?php echo $tkf->list_post_template_image_box_shadow_style[$line]; ?>',
+					
+					'list_post_template_#index#_cc-config_values[list_post_template_link_target]': '<?php echo $tkf->list_post_template_link_target[$line]; ?>',
 		
 					'list_post_template_#index#_cc-config_values[list_post_template_title_hide]': '<?php echo $tkf->list_post_template_title_hide[$line]; ?>',
 	
@@ -1154,8 +1156,23 @@ class Custom_Community{
 			$shadow_style['option_name'] = 'inside';
 			$shadow_style_options[] = $shadow_style;
 			
+			// Initializing select boxes for links
+			$link_target['value'] = '_self';
+			$link_target['option_name'] = 'Self';
+			$link_target_options[] = $link_target_options;
+			
+			$link_target['value'] = '_blank';
+			$link_target['option_name'] = 'Blank';
+			$link_target_options[] = $link_target_options;
+			
+			$link_target['value'] = '_parent';
+			$link_target['option_name'] = 'Parent';
+			$link_target_options[] = $link_target_options;
+
+			$link_target['value'] = '_top';
+			$link_target['option_name'] = 'Top';
+			$link_target_options[] = $link_target_options;
 							
-					
 			// post entry options (the post container) ///////////////////////////////// 
 			
 				// post entry: clickable box or not? 
@@ -1183,11 +1200,11 @@ class Custom_Community{
 				echo 'list_post_template_box_shadow_color'.tk_form_colorpicker( 'list_post_template_box_shadow_color', array( 'multi_index' => 0 ) ).'<br>'; 	
 				echo 'list_post_template_box_shadow_style'. tk_form_select( 'list_post_template_box_shadow_style', $shadow_style_options, array( 'multi_index' => 0 ) ).'<br>'; 
 				
+				echo 'list_post_template_link_target'. tk_form_select( 'list_post_template_link_target', $link_target_options, array( 'multi_index' => 0 ) ).'<br>'; 
+				
 				// post entry: clickable box or not? 
 				echo '<!-- list_post_template_read_more_link'. tk_form_checkbox( 'list_post_template_read_more_link', array( 'multi_index' => 0 ) ).'<br>//-->'; 
 					
-
-
 			// featured image options ////////////////////////////////////////////////// 
 
 				// featured image: show or hide. * checked = show = default *  
@@ -1437,6 +1454,22 @@ class Custom_Community{
 							</div>
 						</div>
 						
+						<!-- post entry: Link target -->
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Link Target">Link Target</label>
+							</div>
+							<div class="tk_field">
+								<select id="list_post_template_#index#_cc-config_values[list_post_template_link_target]" name="cc-config_values[list_post_template_link_target][#index#]">
+									<option value="_self">Self</option>
+									<option value="_blank">Blank</option>
+									<option value="_parent">Parent</option>
+									<option value="_top">Top</option>
+								</select>
+							</div>
+						</div>
+						
 						<!-- post entry: read more link or not? -->
 						
 						<div class="tk_field_row">
@@ -1547,6 +1580,8 @@ class Custom_Community{
 								</select>
 							</div>
 						</div>
+						
+						<!-- post entry: Link target -->
 					</div>
 					
 					

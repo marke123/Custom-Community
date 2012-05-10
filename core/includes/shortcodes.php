@@ -641,6 +641,7 @@ function cc_list_posts($atts,$content = null) {
 	$tmp_js .= '});'. chr(13);
 	$tmp_js .= '</script>'. chr(13);
 	
+	$link_target = $tkf->list_post_template_link_target[$arrayindex];
 	$hide_more_link = $tkf->list_post_template_read_more_link[$arrayindex];
 
 	$list_post_atts = array(
@@ -650,6 +651,7 @@ function cc_list_posts($atts,$content = null) {
 		'featured_posts_image_width' => $featured_posts_image_width, 
 		'featured_posts_image_height' => $featured_posts_image_height,
 		'margintop' => $margintop,
+		'link_target' => $link_target,
 		'hide_more_link' => $hide_more_link,
 		'arrayindex' => $arrayindex,
 		'template_name' => $template_name
