@@ -481,21 +481,18 @@
 								
 								<section title="Links">
 		
-									<colorpicker name="link_color" label="Link colour" description="Change link colour
-												Notes: You just need to change the link colour to have a nice effect on all link and button colours.
-												The hover colour will automatically be your font colour or the default font colour.
-												Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
+									<colorpicker name="link_color" label="Link colour" description="Change your link colour." link="http://support.themekraft.com/entries/21393973-links" />
 					
-									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour for mouse moves over." />
+									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour when the mouse moves over." class="advanced" link="http://support.themekraft.com/entries/21393973-links#link_color_hover" />
 												
-									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links.">
+									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links." class="advanced" link="http://support.themekraft.com/entries/21393973-links#link_underline">
 										<option name="never" value="never" />
 										<option name="always" value="always" />
 										<option name="just for mouse over" value="just for mouse over" />
 										<option name="just when normal" value="just when normal" />
 									</select>	
 									
-									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
+									<textfield name="link_transition_time" label="Link hover fade time" description="In ms (milliseconds). Just write a number, default is 500." class="advanced" link="http://support.themekraft.com/entries/21393973-links#link_transition_time" />
 																								
 								</section>
 								
