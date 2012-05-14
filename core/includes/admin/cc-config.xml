@@ -470,12 +470,12 @@
 								
 								<section title="Fonts">
 									
-									<select name="font_style" label="Font family" description="Change the font style for your fonts.">
+									<select name="font_style" label="Font family" description="Choose a font style for your text. Default is Arial." link="http://support.themekraft.com/entries/21402707-fonts">
 									</select>
 		
-									<textfield name="font_size" label="Font size" description="Change the standard font size, default is 13px, just enter a number." />
+									<textfield name="font_size" label="Font size" description="Your standard font size, default is 13px, just enter a number." link="http://support.themekraft.com/entries/21402707-fonts#font_size" />
 			
-									<colorpicker name="font_color" label="Font colour" description="Change font colour." />
+									<colorpicker name="font_color" label="Font colour" description="Change your font colour." link="http://support.themekraft.com/entries/21402707-fonts#font_color" />
 									
 								</section>
 								
