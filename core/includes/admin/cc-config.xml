@@ -416,92 +416,66 @@
 								
 									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
 									
-									<file name="bg_container_img" label="Container background image" description="Add a background image. Upload or insert url." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#bg_container_img" />
+									<file name="bg_container_img" label="Background image" description="Add a container background image. Upload or insert url." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#bg_container_img" />
 		
-									<select name="bg_container_img_repeat" label="Container background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
+									<select name="bg_container_img_repeat" label="Background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
 									</select>
 		
-									<select name="container_corner_radius" label="Container corner radius" description="Rounded corners in your container?" class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius">
-										<option name="rounded" value="rounded" />
-										<option name="not rounded" value="not rounded" />
-									</select>
+									<textfield name="container_corner_radius" label="Container corner radius" description="Rounded corners in pixel, default is 6. Just enter a number. " class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius" />
 		
 								</section>
 																		
 								<section title="Titles">
 									
-									<select name="title_font_style" label="Title font family" description="Change the title font family (h1 and h2)">
-										<option name="Arial, sans-serif" value="Arial, sans-serif" />
-										<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
-										<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
-										<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
-										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
-										<option name="Times New Roman, Times" value="Times New Roman, Times" />
-										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
-										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
+									<select name="title_font_style" label="Title font family" description="Change the title font family (h1, h2)." link="http://support.themekraft.com/entries/21406196-titles">
 									</select>
 									
-									<textfield name="title_size" label="Title size" description="Title font size (h1, h2), default is 28px, just enter a number." />
+									<colorpicker name="title_color" label="Title font colour" description="Change title font colour" link="http://support.themekraft.com/entries/21406196-titles#title_color" />
 									
-									<select name="title_weight" label="Title font weight" description="Do you want your titles bold or normal?">
+									<textfield name="title_size" label="Title font size" description="Title font size (h1, h2). Default is 28px, just enter a number." link="http://support.themekraft.com/entries/21406196-titles#title_size" />
+									
+									<select name="title_weight" label="Title font weight" description="Do you want your titles bold or normal?" class="advanced" link="http://support.themekraft.com/entries/21406196-titles#title_weight">
 										<option name="bold" value="bold" />
 										<option name="normal" value="normal" />
 									</select>
 									
-									<select name="title_italic" label="Title font style" description="Do you want your titles italic or normal?">
+									<select name="title_italic" label="Title font style" description="Do you want your titles italic or normal?" class="advanced" link="http://support.themekraft.com/entries/21406196-titles#title_italic">
 										<option name="normal" value="normal" />
 										<option name="italic" value="italic" />
 									</select>
-										
-									<colorpicker name="title_color" label="Title colour" description="Change title colour" />
+								
 									
-									<colorpicker name="title_text_shadow_color" label="Title text shadow colour" description="Change text shadow colour." />
+									<colorpicker name="title_text_shadow_color" label="Title text shadow colour" description="The title's text shadow colour. Leave blank for no shadow." class="advanced" link="http://support.themekraft.com/entries/21406196-titles#title_text_shadow_color" />
 									
-									<select name="title_text_shadow_style" label="Title text shadow style" description="Text shadows inside or outside effect? Notes: For an inside effect the text-shadow should be brighter than the text and the background colour! For outside effect the text shadow should be darker than text colour and background..">
+									<select name="title_text_shadow_style" label="Title text shadow style" description="Text shadows with inside or outside effect?" class="advanced" link="http://support.themekraft.com/entries/21406196-titles#title_text_shadow_style">
 										<option name="outside" value="outside" />
 										<option name="inside" value="inside" />
 									</select>									
 									
 								</section>
 								
-								<section title="Subtitles">
+								<section title="Subtitles" class="advanced">
 									
-									<select name="subtitle_font_style" label="Subtitle font style" description="Change the subtitle font style (h3-h6)">
-										<option name="Arial, sans-serif" value="Arial, sans-serif" />
-										<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
-										<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
-										<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
-										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
-										<option name="Times New Roman, Times" value="Times New Roman, Times" />
-										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
-										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
+									<select name="subtitle_font_style" label="Subtitle font family" description="Change the subtitle font family (h3-h6)." class="advanced" link="http://support.themekraft.com/entries/21393413-subtitles">
 									</select>
 									
-									<select name="subtitle_weight" label="Subtitles font weight" description="Do you want your Subtitles bold or normal?">
+									<colorpicker name="subtitle_color" label="Subtitle font colour" description="Change the subtitle font colour." class="advanced" link="http://support.themekraft.com/entries/21393413-subtitles#subtitle_color" />
+									
+									<select name="subtitle_weight" label="Subtitles font weight" description="Do you want your subtitles to be bold or normal?" class="advanced" link="http://support.themekraft.com/entries/21393413-subtitles#subtitle_weight">
 										<option name="bold" value="bold" />
 										<option name="normal" value="normal" />
 									</select>
-		
-									<colorpicker name="subtitle_color" label="Subtitle colour" description="Change subtitle colour" />
-																
+																		
 								</section>
 								
 								<section title="Fonts">
 									
-									<select name="font_style" label="Font style" description="Change the font style">
-										<option name="Arial, sans-serif" value="Arial, sans-serif" />
-										<option name="Helvetica, Arial, sans-serif" value="Helvetica, Arial, sans-serif" />
-										<option name="Century Gothic, Avant Garde, Arial, sans-serif" value="Century Gothic, Avant Garde, Arial, sans-serif" />
-										<option name="Arial Black, Arial, sans-serif" value="Arial Black, Arial, sans-serif" />
-										<option name="Impact, Arial, sans-serif" value="Impact, Arial, sans-serif" />
-										<option name="Times New Roman, Times" value="Times New Roman, Times" />
-										<option name="Garamond, Times New Roman, Times" value="Garamond, Times New Roman, Times" />
-										<option name="Georgia, Times, Serif" value="georgia, times, serif" />
+									<select name="font_style" label="Font family" description="Change the font style for your fonts.">
 									</select>
 		
-									<textfield name="font_size" label="Font size" description="Change the standard font size, default is 13px, just enter a number" />
+									<textfield name="font_size" label="Font size" description="Change the standard font size, default is 13px, just enter a number." />
 			
-									<colorpicker name="font_color" label="Font colour" description="Change font colour" />
+									<colorpicker name="font_color" label="Font colour" description="Change font colour." />
 									
 								</section>
 								
@@ -513,8 +487,6 @@
 												Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
 					
 									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour for mouse moves over." />
-									
-									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
 												
 									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links.">
 										<option name="never" value="never" />
@@ -523,20 +495,8 @@
 										<option name="just when normal" value="just when normal" />
 									</select>	
 									
-									
-									<colorpicker name="link_bg_color" label="Link bg colour" description="Change link background colour." />
-		
-									<colorpicker name="link_bg_color_hover" label="Link bg hover colour" description="Change link background colour for mouse moves over. Watch out you have enough contrast to the (hover) link colour and also the font colour!" />
-													
-									<select name="link_styling_title_adapt" label="Titles adapting" description="Do you like to use the link background colours or underline effetcs for the titles (h1-h6) also? By default they adapt just the link colour and link hover colour.">
-										<option name="just the hover effect" value="just the hover effect" />
-										<option name="link colour and hover colour" value="link colour and hover colour" />
-										<option name="...the underline effects too" value="...the underline effects too" />
-										<option name="just the underline effects" value="just the underline effects" />
-										<option name="just the background colours" value="just the background colours" />
-										<option name="adapt all link styles" value="adapt all link styles" />
-									</select>
-																						
+									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
+																								
 								</section>
 								
 								<section title="Buttons">
