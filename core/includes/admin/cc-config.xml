@@ -409,13 +409,6 @@
 									
 									<colorpicker name="bg_container_color" label="Container colour" description="Content background colour. Write transparent for no colour." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image" />
 									
-									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-								
-									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
-									
 									<file name="bg_container_img" label="Background image" description="Add a container background image. Upload or insert url." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#bg_container_img" />
 		
 									<select name="bg_container_img_repeat" label="Background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
@@ -423,6 +416,13 @@
 		
 									<textfield name="container_corner_radius" label="Container corner radius" description="Rounded corners in pixel, default is 6. Just enter a number. " class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius" />
 		
+									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+								
+									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
+
 								</section>
 																		
 								<section title="Titles">
@@ -470,32 +470,29 @@
 								
 								<section title="Fonts">
 									
-									<select name="font_style" label="Font family" description="Change the font style for your fonts.">
+									<select name="font_style" label="Font family" description="Choose a font style for your text. Default is Arial." link="http://support.themekraft.com/entries/21402707-fonts">
 									</select>
 		
-									<textfield name="font_size" label="Font size" description="Change the standard font size, default is 13px, just enter a number." />
+									<textfield name="font_size" label="Font size" description="Your standard font size, default is 13px, just enter a number." link="http://support.themekraft.com/entries/21402707-fonts#font_size" />
 			
-									<colorpicker name="font_color" label="Font colour" description="Change font colour." />
+									<colorpicker name="font_color" label="Font colour" description="Change your font colour." link="http://support.themekraft.com/entries/21402707-fonts#font_color" />
 									
 								</section>
 								
 								<section title="Links">
 		
-									<colorpicker name="link_color" label="Link colour" description="Change link colour
-												Notes: You just need to change the link colour to have a nice effect on all link and button colours.
-												The hover colour will automatically be your font colour or the default font colour.
-												Optional, you can also choose a hover colour, background colour, background hover colour or if and when to underline." />
+									<colorpicker name="link_color" label="Link colour" description="Change your link colour." link="http://support.themekraft.com/entries/21393973-links" />
 					
-									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour for mouse moves over." />
+									<colorpicker name="link_color_hover" label="Link hover colour" description="Change link colour when the mouse moves over." class="advanced" link="http://support.themekraft.com/entries/21393973-links#link_color_hover" />
 												
-									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links.">
+									<select name="link_underline" label="Link underline" description="Choose if (and when) to underline links." class="advanced" link="http://support.themekraft.com/entries/21393973-links#link_underline">
 										<option name="never" value="never" />
 										<option name="always" value="always" />
 										<option name="just for mouse over" value="just for mouse over" />
 										<option name="just when normal" value="just when normal" />
 									</select>	
 									
-									<textfield name="link_transition_time" label="Link hover fade" description="In ms (milliseconds). Just write a number like '500'. Choose if (and how long) to fade to your hover font color." default="800" />
+									<textfield name="link_transition_time" label="Link hover fade time" description="In ms (milliseconds). Just write a number, default is 500." class="advanced" link="http://support.themekraft.com/entries/21393973-links#link_transition_time" />
 																								
 								</section>
 								
