@@ -409,13 +409,6 @@
 									
 									<colorpicker name="bg_container_color" label="Container colour" description="Content background colour. Write transparent for no colour." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image" />
 									
-									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
-										<option name="show" value="show" />
-										<option name="hide" value="hide" />
-									</select>
-								
-									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
-									
 									<file name="bg_container_img" label="Background image" description="Add a container background image. Upload or insert url." link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#bg_container_img" />
 		
 									<select name="bg_container_img_repeat" label="Background repeat" description="Repeat background image?" link="http://support.themekraft.com/entries/21399346-container-background-colour-and-image#">
@@ -423,6 +416,13 @@
 		
 									<textfield name="container_corner_radius" label="Container corner radius" description="Rounded corners in pixel, default is 6. Just enter a number. " class="advanced" link="http://support.themekraft.com/entries/21386803-container-corner-radius" />
 		
+									<select name="bg_container_nolines" label="Show vertical lines" description="The vertical lines that divide content from sidebars." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines" >
+										<option name="show" value="show" />
+										<option name="hide" value="hide" />
+									</select>
+								
+									<colorpicker name="v_line_color" label="Vertical lines colour" description="Change colour of the vertical lines." class="advanced" link="http://support.themekraft.com/entries/21399696-container-vertical-lines#v_line_color" />
+
 								</section>
 																		
 								<section title="Titles">
