@@ -8,7 +8,7 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 	$featured_image = '<span class="link">'.get_the_post_thumbnail( $post->ID, array($featured_posts_image_width,$featured_posts_image_height),"class={$reflect}" ).'</span>';
 								
 	ob_start(); ?>
-		<a class="clickable" href="<?php the_permalink() ?>" title="<?php _e( 'Permanent Link to', 'cc' ) . the_title_attribute(); ?>">			
+		<a class="clickable" href="<?php the_permalink() ?>" target="<?php echo $link_target; ?>" title="<?php _e( 'Permanent Link to', 'cc' ) . the_title_attribute(); ?>">			
 			<div class="listposts <?php echo $img_position .' '. $template_name ?>">
 			<?php 	
 			if( $img_position != 'posts-img-under-content' && $img_position != 'posts-img-between-title-content'){
@@ -24,12 +24,26 @@ if ($list_post_query->have_posts()) : while ($list_post_query->have_posts()) : $
 			}
 			?>
 			
-			<p style="<?php $margintop ?> height:'<?php $height ?>'">
+			<?php 
+			
+			if( $margintop != ''  ){
+				$str_style = $margintop . ';';
+			}
+			if( $height != ''  ){
+				$str_style.= 'height: ' . $height . ';';
+			}
+			
+			if( $str_style != '' )
+				$str_style = ' style="' . $str_style . '"';
+			
+			?>
+			
+			<div<?php echo $str_style; ?>>
 				<?php the_excerpt() ?>
 				<?php if($hide_more_link == '') { ?>
 					<span class="link readmore"><?php _e('read more','cc') ?></span>
 				<?php } ?>
-			</p>
+			</div>
 			
 			<?php if($img_position == 'posts-img-under-content') {
 					echo $featured_image;
