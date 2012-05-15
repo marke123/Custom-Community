@@ -386,16 +386,16 @@ function dynamic_css(){
 		background-color: #<?php echo $container_bg_color; ?>;
 		background-image: none; 
 		border: none;
-		border-radius: 6px;	
-		-moz-border-radius: 6px;
-		-webkit-border-radius: 6px;
+		-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		border-radius: <?php echo $tkf->container_corner_radius; ?>px;
 		position: relative;
 		overflow: hidden;
 		width: 100%;
 	}
 	
 	body.activity-permalink div#container {
-		background: #<?php echo $container_bg_color; ?>;
+		background-color: #<?php echo $container_bg_color; ?>;
 		border: none;
 	}
 	
@@ -409,9 +409,9 @@ function dynamic_css(){
 		-moz-background-clip: border;
 		-moz-background-inline-policy: continuous;
 		-moz-background-origin: padding;
-		-moz-border-radius-topright: 6px;
-		-webkit-border-top-right-radius: 6px;
-		border-top-right-radius: 6px;
+		-moz-border-radius-topright: <?php echo $tkf->container_corner_radius; ?>px;
+		-webkit-border-top-right-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		border-top-right-radius: <?php echo $tkf->container_corner_radius; ?>px;
 		background: transparent;
 		border-left: none;
 		height: auto;
@@ -424,9 +424,9 @@ function dynamic_css(){
 	
 	div#leftsidebar {
 		-moz-background-inline-policy: continuous;
-		-moz-border-radius-topleft: 6px;
-		-webkit-border-top-left-radius: 6px;
-		border-top-left-radius: 6px;
+		-moz-border-radius-topleft: <?php echo $tkf->container_corner_radius; ?>px;
+		-webkit-border-top-left-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		border-top-left-radius: <?php echo $tkf->container_corner_radius; ?>px;
 		background: transparent;
 		border-left: 0 none;
 		border-right: none;
@@ -1710,9 +1710,9 @@ function dynamic_css(){
 	}
 	
 	table.forum tr.sticky td {
-		background: #bbbbbb;
-		border-top: 1px solid #<?php echo $body_bg_color; ?>;
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
+		background: transparent;
+		border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	table.forum tr.closed td.td-title {
@@ -2128,7 +2128,7 @@ function dynamic_css(){
 		background: none;
 		margin-bottom: 8px;
 		padding: 10px 0 10px 0;
-		border-top: 1px solid #<?php echo $body_bg_color; ?>;
+		border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		margin-left: 1%;
 	}
 	
@@ -2274,8 +2274,8 @@ function dynamic_css(){
 	
 	table#message-threads tr.unread td {
 		background: #<?php echo $container_bg_color; ?>;
-		border-top: 1px solid #<?php echo $body_bg_color; ?>;
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
+		border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		font-weight: bold;
 	}
 	
@@ -2450,7 +2450,7 @@ function dynamic_css(){
 	}
 	
 	ul#events-list.item-list li div.action {
-	    border-top: 1px solid #EDEDED;
+	    border-top: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	    float: none;
 	    height: 150px;
 	    margin-bottom: 20px;
@@ -2495,7 +2495,7 @@ function dynamic_css(){
 	div.post dl { margin-left: 0; }
 	
 	div.post dt {
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 		font-size: 14px;
 		font-weight: bold;
 		overflow: hidden;
@@ -2540,8 +2540,8 @@ function dynamic_css(){
 		border: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
-	div.post table th { border-top: 1px solid #<?php echo $body_bg_color; ?>; text-align: left; }
-	div.post table td { border-top: 1px solid #<?php echo $body_bg_color; ?>; }
+	div.post table th { border-top: 1px solid #<?php echo $container_alt_bg_color; ?>; text-align: left; }
+	div.post table td { border-top: 1px solid #<?php echo $container_alt_bg_color; ?>; }
 	
 	div.post div.post-content {
 		margin-left: 94px;
@@ -2844,9 +2844,6 @@ function dynamic_css(){
 			padding: 0; 
 			margin-bottom: 0;
 		<?php } ?>
-		-moz-border-radius: 6px;
-		-webkit-border-radius: 6px;
-		border-radius: 6px;
 		text-align: left;
 		text-shadow: none; 
 	}
@@ -2880,14 +2877,14 @@ function dynamic_css(){
 	
 	.cc-widget{
 		width: 30% !important;
-		float: left;
-		text-align: left !important;
 		margin: 20px 2% 20px 0 !important;
-		-moz-border-radius: 6px !important;
-		-webkit-border-radius: 6px !important;
-		border-radius: 6px !important;
-		background-color: #<?php echo $container_bg_color; ?> !important;
 		padding: 1% !important;
+		text-align: left !important;
+		float: left;
+		-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		background-color: #<?php echo $container_bg_color; ?>;
 		overflow: hidden;
 	}
 	
@@ -2956,7 +2953,7 @@ function dynamic_css(){
 	}
 	
 	div.widget ul#blog-post-list li{
-		border-bottom: 1px solid #<?php echo $body_bg_color; ?>;
+		border-bottom: 1px solid #<?php echo $container_alt_bg_color; ?>;
 	}
 	
 	div.widget ul#blog-post-list li,
@@ -3540,6 +3537,10 @@ function dynamic_css(){
 	    margin-bottom: 20px;
 	}
 	
+	a.clickable:hover,
+	a.clickable:focus {
+		text-decoration: none; 
+	}
 	
 	/* List Posts - img mouse over effect */
 	
@@ -4129,7 +4130,7 @@ function dynamic_css(){
 		.v_line { display: none; }	
 	<?php }?>
 	
-	<?php if($tkf->bg_container_color != '' || $tkf->bg_container_img != '' || $tkf->container_corner_radius != ''): ?>
+	<?php if($tkf->bg_container_color != '' || $tkf->bg_container_img != ''): ?>
 	/** ***   
 	container background colour, image, repeat, corner radius and line correction  **/
 	
@@ -4158,21 +4159,10 @@ function dynamic_css(){
 			        } ?>
 		<?php	} ?>	
 				 
-		<?php if($tkf->container_corner_radius =='not rounded' ) { ?>
-			-moz-border-radius: 0px;
-			-webkit-border-radius: 0px; 
-			border-radius: 0px; 
-			}
-			div#leftsidebar, div#sidebar {
-			-moz-border-radius: 0px;
-			-webkit-border-radius: 0px; 
-			border-radius: 0px; 	
-		<?php } ?>
-	
 	}
 	<?php endif; ?>	
 	
-	<?php if($tkf->bg_container_color != '' || $tkf->bg_container_img != '' || $tkf->container_corner_radius != ''): ?>
+	<?php if($tkf->bg_container_color != '' || $tkf->bg_container_img != '' || $tkf->container_corner_radius != 0): ?>
 	/** ***  
 	adapting footer widgets to container background colour, image, repeat and corner radius - if it is NOT specified extra for the footer! **/
 	
@@ -4202,16 +4192,17 @@ function dynamic_css(){
 			}
 		<?php } ?>
 	
-		<?php if($tkf->container_corner_radius == 'not rounded' ) { ?>
-			#footer, div#footer .cc-widget, div#header .cc-widget , #footer .cc-widget-right, #header .cc-widget-right {
-				-moz-border-radius: 0px;
-				-webkit-border-radius: 0px; 
-				border-radius: 0px; 
+		<?php if($tkf->container_corner_radius != 0){?>
+			#footer .cc-widget, #footer .cc-widget-right,
+			#header .cc-widget, #header .cc-widget-right {
+				-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+				-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px; 
+				border-radius: <?php echo $tkf->container_corner_radius; ?>px; 
 			}
 			div#cc_slider-top{
-			-moz-border-radius:0px;
-			-webkit-border-radius:0px;
-			border-radius:0px;
+				-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+				-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+				border-radius: <?php echo $tkf->container_corner_radius; ?>px;
 			}
 		<?php } ?>
 	
@@ -4615,212 +4606,6 @@ function dynamic_css(){
 		
 	<?php endif; ?>
 	
-	<?php if($tkf->link_bg_color != ""):?>
-		/** ***   
-		link BACKGROUND colour  **/
-		
-		a {
-			background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
-		} 
-		
-		a img, div.post a img {
-			padding: 0; 
-			margin: 0;
-		} 
-	<?php endif; ?>
-
-	<?php if($tkf->link_bg_color_hover != ""):?>
-		/** ***   
-		link BACKGROUND colour hover  **/
-		
-		a:hover, a:focus {
-			background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
-		} 
-		
-		a img, div.post a img {
-			padding: 0; 
-			margin: 0;
-		} 
-	<?php endif; ?>
-	
-	<?php if($tkf->link_styling_title_adapt != "just the hover effect"):  
-		// the hover will be taken in all linked titles anyway by default ?>
-		/** ***   
-		TITLES ADAPTING to link styling **/	
-	
-		<?php switch ($tkf->link_styling_title_adapt) { 
-	    
-	    	// TITLES ADAPT link colour and hover colour, add the link colour for normal state    
-			case 'link colour and hover colour': ?>
-	        
-	        	h1 span.link, h2 span.link, h3 span.link, h4 span.link, h5 span.link, h6 span.link,
-				h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	        		color: #<?php echo $tkf->link_color; ?>;
-	        	}
-	        	
-			<?php break; 
-			
-			case '...the underline effects too': ?>
-	        
-	        	<?php if($tkf->link_underline != "never"): ?>
-	
-					<?php if($tkf->link_underline == "just for mouse over"){ 
-							$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-							h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
-						} else {	
-						if($tkf->link_underline == "always") { 
-							$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-											h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
-						} else { // that's te case: just for normal 
-							$stylethis = 	'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-											h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-											text-decoration: none; 
-											} 
-											h1 a, h2 a, h3 a, h4 a, h5 a, h6 a';
-						}
-					} ?>
-					
-					/** ***   
-					TITLE ADAPT links underline  **/
-					
-					<?php echo $stylethis ?> {
-						text-decoration: underline;
-					} 	
-					
-					/** *** 
-					title links colour and hover colour **/
-					h1 span.link, h2 span.link, h3 span.link, h4 span.link, h5 span.link, h6 span.link,
-					h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-		        		color: #<?php echo $tkf->link_color; ?>;
-		        	}
-		        	
-				<?php endif; ?>
-				
-			<?php break; 
-			case 'just the underline effects': ?>
-	        
-				<?php if($tkf->link_underline != "never"): ?>
-	
-					<?php if($tkf->link_underline == "just for mouse over"){ 
-							$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-							h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
-						} else {	
-						if($tkf->link_underline == "always") { 
-							$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-											h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
-						} else { 
-							$stylethis = 	'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-											h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-											text-decoration: none; 
-											} 
-											h1 a, h2 a, h3 a, h4 a, h5 a, h6 a';
-						}
-					} ?>
-					
-					/** ***   
-					TITLE ADAPT links underline  **/
-					
-					<?php echo $stylethis ?> {
-						text-decoration: underline;
-					} 	
-					
-				<?php endif; ?>			
-							
-			<?php break;
-					
-			case 'just the background colours': ?>
-	        
-				<?php if($tkf->link_bg_color != ""):?>
-					/** ***   
-					title links BACKGROUND colour  **/
-					
-					h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, span.link {
-						background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
-					} 
-				<?php endif; ?>
-				
-				<?php if($tkf->link_bg_color_hover != ""):?>
-					/** ***   
-					title links BACKGROUND colour hover  **/
-					
-					span.link:hover, span.link:focus, 
-					a.clickable > div span.link:hover, a.clickable > div span.link:focus, 
-					h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-					h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-						background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
-					} 
-				<?php endif; ?>
-							
-			<?php break; 
-	
-			case 'adapt all link styles': ?>
-	        
-	        	<?php if($tkf->link_underline != "never"): ?>
-	
-					<?php if($tkf->link_underline == "just for mouse over"){ 
-						$stylethis = 'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-					h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus'; 
-					} else {	
-						if($tkf->link_underline == "always") { 
-							$stylethis = 	'h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-											h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus';
-						} else { 
-							$stylethis = 	'h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-											h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus { 
-											text-decoration: none; 
-											} 
-											h1 a, h2 a, h3 a, h4 a, h5 a, h6 a';
-						}
-					} ?>
-					
-					/** ***   
-					title links underline  **/
-					
-					<?php echo $stylethis ?> {
-						text-decoration: underline;
-					}
-				
-				<?php endif; ?>
-				
-				<?php if($tkf->link_color != ""):?>			
-					/** *** 
-					title links colour and hover colour **/
-					h1 span.link, h2 span.link, h3 span.link, h4 span.link, h5 span.link, h6 span.link,
-					h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-		        		color: #<?php echo $tkf->link_color; ?>;
-		        	}
-				<?php endif; ?>			   
-					
-				<?php if($tkf->link_bg_color != ""):?>
-					/** ***   
-					title links BACKGROUND colour  **/
-					
-					h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, span.link {
-						background-color: <?php if ( $tkf->link_bg_color != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color ?>;
-					} 
-				<?php endif; ?>
-				
-				<?php if($tkf->link_bg_color_hover != ""):?>
-					/** ***   
-					title links BACKGROUND colour hover  **/
-					
-					span.link:hover, span.link:focus, 
-					a.clickable > div span.link:hover, a.clickable > div span.link:focus,
-					h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover, 
-					h1 a:focus, h2 a:focus, h3 a:focus, h4 a:focus, h5 a:focus, h6 a:focus {
-						background-color: <?php if ( $tkf->link_bg_color_hover != 'transparent' ) { echo '#'; } echo $tkf->link_bg_color_hover ?>;
-					} 
-				<?php endif; ?>
-				
-				
-			<?php break; 
-			
-			
-			?>		
-			
-	      <?php } ?>
-		
-	<?php endif; ?>
 	
 	<?php if($tkf->home_featured_posts_style == "bubbles"){?>
 	/** ***   

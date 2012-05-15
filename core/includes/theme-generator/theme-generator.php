@@ -40,6 +40,10 @@ class CC_Theme_Generator{
 		if($tkf->link_transition_time == ''){
 			$tkf->link_transition_time = '500';	
 		}	
+		
+		if($tkf->container_corner_radius == ''){
+			$tkf->container_corner_radius = '6';
+		}
 				
 		if($tkf->sidebar_position == ''){
 			$tkf->sidebar_position = 'right';
