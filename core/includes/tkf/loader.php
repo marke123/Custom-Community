@@ -48,7 +48,7 @@ if( !function_exists( 'tkf_init_010' ) ){
 		$tkf_hide_class_options = array();
 		
 		$defaults = array(
-			'jqueryui_components' => array( 'jquery-cookies', 'jquery-fileuploader', 'jquery-ui-tabs', 'jquery-ui-accordion', 'jquery-colorpicker', 'jquery-ui-autocomplete', 'jquery-linedtextarea', 'jquery-autogrow-textarea', 'jquery-sheepit' ),
+			'jqueryui_components' => array( 'jquery-cookies', 'jquery-fileuploader', 'jquery-ui-tabs', 'jquery-ui-accordion', 'jquery-colorpicker', 'jquery-ui-autocomplete', 'jquery-linedtextarea', 'jquery-autogrow-textarea', 'jquery-sheepit', 'google-fonts' ),
 			'forms' => array(),
 			'text_domain' => '',
 			'text_domain_path' => '/lang'
@@ -86,8 +86,7 @@ if( !function_exists( 'tkf_init_010' ) ){
 		
 		add_action( 'after_setup_theme', 'tk_load_framework', 1 );
 		
-		if( is_admin() )
-			add_action( 'after_setup_theme', 'tk_load_jqueryui', 1 );
+		add_action( 'after_setup_theme', 'tk_load_jqueryui', 1 );
 	}
 	
 	function tk_register_option_groups(){
