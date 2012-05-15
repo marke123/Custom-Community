@@ -316,6 +316,23 @@ class Custom_Community{
 		foreach($image_repeat as $key => $value) {
 			tk_select_add_option( 'bg_body_img_repeat', $key , $value );
 			tk_select_add_option( 'bg_body_img_repeat', $key , $value );
+			tk_select_add_option( 'bg_container_img_repeat', $key , $value );
+		}
+		
+		// the font family selectbox is defined here! 
+		$font_family['arial, sans-serif'] = 'Arial';
+		$font_family['arial black, arial, sans-serif'] = 'Arial Black';
+		$font_family['helvetica, arial, sans-serif'] = 'Helvetica';
+		$font_family['century gothic, avant garde, arial, sans-serif'] = 'Century Gothic';
+		$font_family['impact, arial, sans-serif'] = 'Impact';
+		$font_family['times new roman, times, serif'] = 'Times New Roman';
+		$font_family['garamond, serif'] = 'Garamond';
+		$font_family['georgia, times, serif'] = 'Georgia';
+		
+		foreach($font_family as $key => $value) {
+			tk_select_add_option( 'title_font_style', $key , $value );
+			tk_select_add_option( 'subtitle_font_style', $key , $value );
+			tk_select_add_option( 'font_style', $key , $value );
 		}
 		
 		
