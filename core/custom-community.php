@@ -581,14 +581,14 @@ class Custom_Community{
 		
 		<!-- sidebar options ////////////////////////////////////////////////// -->
 	
-				<a href="javascript:togglediv('post_page_template_sidebar_options_#index#','post_page_template_sidebar#index#');" id="post_page_template_sidebar#index#">
+				<a href="javascript:togglediv('post_page_template_layout_options_#index#','post_page_template_layout#index#');" id="post_page_template_layout#index#">
 					<div class="tk_field_row">
-						<p><span class="tk_row_title">Sidebars </span></p>
+						<p><span class="tk_row_title">Layout </span></p>
 					
 					</div>
 				</a>
 				
-				<div style="display: none;" class="subcontainer" id="post_page_template_sidebar_options_#index#">
+				<div style="display: none;" class="subcontainer" id="post_page_template_layout_options_#index#">
 					
 					<!-- post/page template sidebar position -->
 					
@@ -603,6 +603,39 @@ class Custom_Community{
 									<option name="left" value="left" />
 									<option name="full-width" value="full-width" />
 								</select>
+							</div>
+						</div>
+					
+					<!-- post/page template header show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the header and menu? ">Header - show/hide </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_header_hide]" name="cc-config_values[post_page_template_header_hide][#index#]">
+							</div>
+						</div>
+						
+					<!-- post/page template title show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the title? ">Title - show/hide </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
+							</div>
+						</div>
+						
+					<!-- post/page template footer show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the footer? ">Footer - show/hide </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_footer_hide]" name="cc-config_values[post_page_template_footer_hide][#index#]">
 							</div>
 						</div>
 						
@@ -763,6 +796,25 @@ class Custom_Community{
 					
 					Show / hide author <br>
 							
+				</div>
+				
+		<!-- woocommerce specific styling options ////////////////////////////////////////////////// -->
+	
+				<a href="javascript:togglediv('post_page_template_woo_only_options_#index#','post_page_template_woo_only#index#');" id="post_page_template_woo_only#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">WooCommerce specific </span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_post_only_options_#index#">
+					
+					Product summary style <br>
+					
+					Button position ? <br> 
+					
+					...same for Jigo? <br>
+												
 				</div>
 				
 			
