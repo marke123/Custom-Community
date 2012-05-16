@@ -578,71 +578,252 @@ class Custom_Community{
 			<div style="display: none;" class="subcontainer" id="post_page_template_options_#index#">
 					
 			
-		<!-- post entry options (the post container) ///////////////////////////////// -->
 		
-				<a href="javascript:togglediv('post_page_template_entry_options_#index#','post_page_template_entry#index#');" id="post_page_template_entry#index#">
-					<div class="tk_field_row">
-						<p><span class="tk_row_title">Post entry (the post container) </span></p>
-					
-					</div>
-				</a>
-				
-				<div style="display: none;" class="subcontainer" id="post_page_template_entry_options_#index#">
-					
-					post_page_template_entry_options_
-					
-				</div>
-				
-		
-		<!-- featured image options ////////////////////////////////////////////////// -->
+		<!-- sidebar options ////////////////////////////////////////////////// -->
 	
-				<a href="javascript:togglediv('post_page_template_image_options_#index#','post_page_template_image#index#');" id="post_page_template_image#index#">
+				<a href="javascript:togglediv('post_page_template_layout_options_#index#','post_page_template_layout#index#');" id="post_page_template_layout#index#">
 					<div class="tk_field_row">
-						<p><span class="tk_row_title">Featured image</span></p>
+						<p><span class="tk_row_title">Layout </span></p>
 					
 					</div>
 				</a>
 				
-				<div style="display: none;" class="subcontainer" id="post_page_template_image_options_#index#">
+				<div style="display: none;" class="subcontainer" id="post_page_template_layout_options_#index#">
 					
-					Irgentwass
+					<!-- post/page template sidebar position -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Sidebar position">Sidebar position</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_sidebar_position]" name="cc-config_values[post_page_template_sidebar_position][#index#]">
+									<option name="right" value="right" />
+									<option name="left and right" value="left and right" />
+									<option name="left" value="left" />
+									<option name="full-width" value="full-width" />
+								</select>
+							</div>
+						</div>
+					
+					<!-- post/page template header show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the header and menu? ">Hide header </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_header_hide]" name="cc-config_values[post_page_template_header_hide][#index#]">
+							</div>
+						</div>
+						
+					<!-- post/page template title show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the title? ">Hide title </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
+							</div>
+						</div>
+						
+					<!-- post/page template footer show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the footer? ">Hide footer </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_footer_hide]" name="cc-config_values[post_page_template_footer_hide][#index#]">
+							</div>
+						</div>
+						
+				</div>
+				
+			
+	
+			
+			
+		<!-- color options ///////////////////////////////// -->
+		
+				<a href="javascript:togglediv('post_page_template_color_options_#index#','post_page_template_color#index#');" id="post_page_template_color#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Colours </span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_color_options_#index#">
+					
+					<!-- post/page template background color -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Background colour">Background colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_background]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_background][#index#]">
+							</div>
+						</div>
+					
+					<!-- post/page template container background color -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Container background colour">Container colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_container]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_container][#index#]">
+							</div>
+						</div>
+					
+					<!-- post/page template title color -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Title colour">Title colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_title]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_title][#index#]">
+							</div>
+						</div>
+						
+					<!-- post/page template link color -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Link colour">Link colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_link]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_link][#index#]">
+							</div>
+						</div>
+						
+					<!-- post/page template link hover color -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Link hover colour">Link hover colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_link_hover]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_link_hover][#index#]">
+							</div>
+						</div>
 					
 				</div>
 				
-				
-		<!-- title options ////////////////////////////////////////////////// -->
+		
+		
+					
+		<!-- title options ////////////////////////////////////////////////// 
 				
 				<a href="javascript:togglediv('post_page_template_title_options_#index#','post_page_template_title#index#');" id="post_page_template_title#index#">
 					<div class="tk_field_row">
-						<p><span class="tk_row_title">Title </span></p>
+						<p><span class="tk_row_title">Titles </span></p>
 					
 					</div>
 				</a>
 	
 				<div style="display: none;" class="subcontainer" id="post_page_template_title_options_#index#">
 									
-				nochwass
+				Title color <br>
+				
+				Title font family <br>
+				
+				Title size<br>
 				
 				</div>
 				
 				
-		<!-- content options ////////////////////////////////////////////////// -->
+		--><!-- links styling options ////////////////////////////////////////////////// 
 	
-				<a href="javascript:togglediv('post_page_template_content_options_#index#','post_page_template_content#index#');" id="post_page_template_content#index#">
+				<a href="javascript:togglediv('post_page_template_links_options_#index#','post_page_template_links#index#');" id="post_page_template_links#index#">
 					<div class="tk_field_row">
-						<p><span class="tk_row_title">Content </span></p>
+						<p><span class="tk_row_title">Links </span></p>
 					
 					</div>
 				</a>
 				
-				<div style="display: none;" class="subcontainer" id="post_page_template_content_options_#index#">
+				<div style="display: none;" class="subcontainer" id="post_page_template_links_options_#index#">
 					
-					wass
+					Link color <br>
+					
+					Link color hover <br>
+												
+				</div>
+				
+				
+		--><!-- page specific options ////////////////////////////////////////////////// -->
+				
+				<a href="javascript:togglediv('post_page_template_page_only_options_#index#','post_page_template_page_only#index#');" id="post_page_template_page_only#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Page specific </span></p>
+					
+					</div>
+				</a>
+	
+				<div style="display: none;" class="subcontainer" id="post_page_template_page_only_options_#index#">
+									
+				<strong>List post options to set defaults for templates?</strong><br><br>					
+									
+				List post template style  <br>
+				
+				Post type / category <br>
+				
+				Amount / posts per page <br>
+				
+				...?<br>
+					
+				</div>
+				
+			
+					
+		<!-- post specific styling options ////////////////////////////////////////////////// -->
+	
+				<a href="javascript:togglediv('post_page_template_post_only_options_#index#','post_page_template_post_only#index#');" id="post_page_template_post_only#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Post specific </span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_post_only_options_#index#">
+					
+					Show / hide avatar <br>
+					
+					Show / hide category and date <br>
+					
+					Show / hide author <br>
 							
 				</div>
+				
+		<!-- woocommerce specific styling options ////////////////////////////////////////////////// -->
+	
+				<a href="javascript:togglediv('post_page_template_woo_only_options_#index#','post_page_template_woo_only#index#');" id="post_page_template_woo_only#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">WooCommerce specific </span></p>
+					
+					</div>
+				</a>
+				
+				<div style="display: none;" class="subcontainer" id="post_page_template_post_only_options_#index#">
+					
+					Product summary style <br>
+					
+					Button position ? <br> 
+					
+					...same for Jigo? <br>
+												
+				</div>
+				
+			
+			
+			
 			</div>
 		</div>
 	</div>
+	
 		  <!-- /Form template-->
 		   
 		<div class="tk_field_row">
