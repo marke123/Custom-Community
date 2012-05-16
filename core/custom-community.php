@@ -610,7 +610,7 @@ class Custom_Community{
 					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Hide the header and menu? ">Header - show/hide </label>
+								<label for="" title="Hide the header and menu? ">Hide header </label>
 							</div>
 							<div class="tk_field">
 								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_header_hide]" name="cc-config_values[post_page_template_header_hide][#index#]">
@@ -621,7 +621,7 @@ class Custom_Community{
 					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Hide the title? ">Title - show/hide </label>
+								<label for="" title="Hide the title? ">Hide title </label>
 							</div>
 							<div class="tk_field">
 								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
@@ -632,7 +632,7 @@ class Custom_Community{
 					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Hide the footer? ">Footer - show/hide </label>
+								<label for="" title="Hide the footer? ">Hide footer </label>
 							</div>
 							<div class="tk_field">
 								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_footer_hide]" name="cc-config_values[post_page_template_footer_hide][#index#]">
