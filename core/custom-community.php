@@ -462,14 +462,14 @@ class Custom_Community{
 
 	<style>
 		/* some additional admin page styles */ 
-		div#list_post_template_controls {
+		div#post_page_template_controls {
 			padding: 22px 10px 7px 30px;
 		}
-		div#list_post_template_controls div {
+		div#post_page_template_controls div {
 			float: left; 
 			margin-right: 10px;
 		}
-		div#list_post_template_noforms_template {
+		div#post_page_template_noforms_template {
 		    color: #AAAAAA;
 		    display: block;
 		    font-family: georgia,times,serif;
@@ -477,11 +477,14 @@ class Custom_Community{
 		    font-style: italic;
 		    text-shadow: -1px 1px 0 #FFFFFF;
 		}
-		div#list_post_template div.subcontainer div.tk_field_row a span {
+		div#post_page_template div.subcontainer div.tk_field_row a span {
 			text-decoration: none !important;
 		}
-		.ui-widget-content a {
+		div.tk_field_row div.subcontainer a {
 		    text-decoration: none;
+		}
+		div.tk_field_row.small {
+			min-height: 30px; 
 		}
 	</style>
 	
@@ -573,13 +576,24 @@ class Custom_Community{
 			</a>
 				
 					
-		 	   
-				
+		 	  				
 			<div style="display: none;" class="subcontainer" id="post_page_template_options_#index#">
+				
+				
+		<!-- choose a post type ////////////////////////////////////////////////// -->
 					
+			<div class="tk_field_row small">
+				<div class="tk_field_label">
+					<label for="" title="Post Type">For what post type?</label>
+				</div>
+				<div class="tk_field">
+					<select id="post_page_template_#index#_cc-config_values[post_page_template_post_type]" name="post_page_template_post_type#index#">
+					</select>
+				</div>
+			</div>
 			
 		
-		<!-- sidebar options ////////////////////////////////////////////////// -->
+		<!-- layout options ////////////////////////////////////////////////// -->
 	
 				<a href="javascript:togglediv('post_page_template_layout_options_#index#','post_page_template_layout#index#');" id="post_page_template_layout#index#">
 					<div class="tk_field_row">
@@ -605,6 +619,17 @@ class Custom_Community{
 								</select>
 							</div>
 						</div>
+						
+					<!-- post/page template background color -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Background colour">Background colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_background]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_background][#index#]">
+							</div>
+						</div>
 					
 					<!-- post/page template header show/hide -->
 					
@@ -617,16 +642,6 @@ class Custom_Community{
 							</div>
 						</div>
 						
-					<!-- post/page template title show/hide -->
-					
-						<div class="tk_field_row">
-							<div class="tk_field_label">
-								<label for="" title="Hide the title? ">Hide title </label>
-							</div>
-							<div class="tk_field">
-								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
-							</div>
-						</div>
 						
 					<!-- post/page template footer show/hide -->
 					
@@ -645,27 +660,17 @@ class Custom_Community{
 	
 			
 			
-		<!-- color options ///////////////////////////////// -->
+		<!-- content options ///////////////////////////////// -->
 		
-				<a href="javascript:togglediv('post_page_template_color_options_#index#','post_page_template_color#index#');" id="post_page_template_color#index#">
+				<a href="javascript:togglediv('post_page_template_content_options_#index#','post_page_template_content#index#');" id="post_page_template_content#index#">
 					<div class="tk_field_row">
-						<p><span class="tk_row_title">Colours </span></p>
+						<p><span class="tk_row_title">Content </span></p>
 					
 					</div>
 				</a>
 				
-				<div style="display: none;" class="subcontainer" id="post_page_template_color_options_#index#">
+				<div style="display: none;" class="subcontainer" id="post_page_template_content_options_#index#">
 					
-					<!-- post/page template background color -->
-					
-						<div class="tk_field_row">
-							<div class="tk_field_label">
-								<label for="" title="Background colour">Background colour</label>
-							</div>
-							<div class="tk_field">
-								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_background]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_background][#index#]">
-							</div>
-						</div>
 					
 					<!-- post/page template container background color -->
 					
@@ -675,6 +680,17 @@ class Custom_Community{
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_container]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_container][#index#]">
+							</div>
+						</div>
+					
+					<!-- post/page template title show/hide -->
+					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the title? ">Hide title </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
 							</div>
 						</div>
 					
@@ -754,69 +770,24 @@ class Custom_Community{
 				</div>
 				
 				
-		--><!-- page specific options ////////////////////////////////////////////////// -->
-				
-				<a href="javascript:togglediv('post_page_template_page_only_options_#index#','post_page_template_page_only#index#');" id="post_page_template_page_only#index#">
-					<div class="tk_field_row">
-						<p><span class="tk_row_title">Page specific </span></p>
-					
-					</div>
-				</a>
+		--><!-- metadata options ////////////////////////////////////////////////// -->
 	
-				<div style="display: none;" class="subcontainer" id="post_page_template_page_only_options_#index#">
-									
-				<strong>List post options to set defaults for templates?</strong><br><br>					
-									
-				List post template style  <br>
-				
-				Post type / category <br>
-				
-				Amount / posts per page <br>
-				
-				...?<br>
-					
-				</div>
-				
-			
-					
-		<!-- post specific styling options ////////////////////////////////////////////////// -->
-	
-				<a href="javascript:togglediv('post_page_template_post_only_options_#index#','post_page_template_post_only#index#');" id="post_page_template_post_only#index#">
+				<a href="javascript:togglediv('post_page_template_metadata_options_#index#','post_page_template_metadata#index#');" id="post_page_template_metadata#index#">
 					<div class="tk_field_row">
-						<p><span class="tk_row_title">Post specific </span></p>
+						<p><span class="tk_row_title">Metadata </span></p>
 					
 					</div>
 				</a>
 				
-				<div style="display: none;" class="subcontainer" id="post_page_template_post_only_options_#index#">
+				<div style="display: none;" class="subcontainer" id="post_page_template_metadata_options_#index#">
 					
-					Show / hide avatar <br>
+					Hide category and date <br>
 					
-					Show / hide category and date <br>
-					
-					Show / hide author <br>
+					Hide author <br>
+
+					Hide avatar <br>
 							
-				</div>
-				
-		<!-- woocommerce specific styling options ////////////////////////////////////////////////// -->
-	
-				<a href="javascript:togglediv('post_page_template_woo_only_options_#index#','post_page_template_woo_only#index#');" id="post_page_template_woo_only#index#">
-					<div class="tk_field_row">
-						<p><span class="tk_row_title">WooCommerce specific </span></p>
-					
-					</div>
-				</a>
-				
-				<div style="display: none;" class="subcontainer" id="post_page_template_post_only_options_#index#">
-					
-					Product summary style <br>
-					
-					Button position ? <br> 
-					
-					...same for Jigo? <br>
-												
-				</div>
-				
+				</div>				
 			
 			
 			
@@ -854,7 +825,7 @@ class Custom_Community{
 		ob_end_clean();
 		
 		$element['id'] = 'post_pages_template_generator'; 
-		$element['title'] = 'Post and Page Tempaltes'; 
+		$element['title'] = 'Post and Page Templates'; 
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
@@ -1082,7 +1053,7 @@ class Custom_Community{
 		ob_end_clean();
 		
 		$element['id'] = 'widgets_template_generator'; 
-		$element['title'] = 'Widgets Tempaltes'; 
+		$element['title'] = 'Widget Templates'; 
 		$element['content'] = $tmp; 
 		
 		$elements[] = $element;
@@ -1122,6 +1093,9 @@ class Custom_Community{
 		}
 		div#list_post_template div.subcontainer div.tk_field_row a span {
 			text-decoration: none !important;
+		}
+		div.tk_field_row div.subcontainer a {
+		    text-decoration: none;
 		}
 	</style>
 	
