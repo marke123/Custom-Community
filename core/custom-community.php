@@ -526,6 +526,7 @@ class Custom_Community{
 					{
 					'post_page_template_#index#_cc-config_values[post_page_template_amount]': '<?php echo $tkf->post_page_template_amount[$line]; ?>',
 					'post_page_template_#index#_cc-config_values[post_page_template_name]': '<?php echo $tkf->post_page_template_name[$line]; ?>',
+					'post_page_template_#index#_cc-config_values[post_page_template_post_type]': '<?php echo $tkf->post_page_template_post_type[$line]; ?>',
 					},
 					
 				<?php } ?>
@@ -584,10 +585,14 @@ class Custom_Community{
 					
 			<div class="tk_field_row small">
 				<div class="tk_field_label">
-					<label for="" title="Post Type">For what post type?</label>
+					<label for="" title="For what post type?">Post type</label>
 				</div>
 				<div class="tk_field">
 					<select id="post_page_template_#index#_cc-config_values[post_page_template_post_type]" name="post_page_template_post_type#index#">
+						<option name="post" value="post" />
+						<option name="page" value="page" />
+						<option name="attachement" value="attachement" />
+						<option name="movie" value="movie" />
 					</select>
 				</div>
 			</div>
@@ -604,8 +609,7 @@ class Custom_Community{
 				
 				<div style="display: none;" class="subcontainer" id="post_page_template_layout_options_#index#">
 					
-					<!-- post/page template sidebar position -->
-					
+					<!-- post/page template sidebar position -->					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
 								<label for="" title="Sidebar position">Sidebar position</label>
@@ -620,8 +624,7 @@ class Custom_Community{
 							</div>
 						</div>
 						
-					<!-- post/page template background color -->
-					
+					<!-- post/page template background color -->					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
 								<label for="" title="Background colour">Background colour</label>
@@ -631,8 +634,7 @@ class Custom_Community{
 							</div>
 						</div>
 					
-					<!-- post/page template header show/hide -->
-					
+					<!-- post/page template header show/hide -->					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
 								<label for="" title="Hide the header and menu? ">Hide header </label>
@@ -643,8 +645,7 @@ class Custom_Community{
 						</div>
 						
 						
-					<!-- post/page template footer show/hide -->
-					
+					<!-- post/page template footer show/hide -->					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
 								<label for="" title="Hide the footer? ">Hide footer </label>
@@ -656,10 +657,101 @@ class Custom_Community{
 						
 				</div>
 				
-			
+		
+		
+					
+		<!-- title options ////////////////////////////////////////////////// -->
+				
+				<a href="javascript:togglediv('post_page_template_title_options_#index#','post_page_template_title#index#');" id="post_page_template_title#index#">
+					<div class="tk_field_row">
+						<p><span class="tk_row_title">Title </span></p>
+					
+					</div>
+				</a>
 	
-			
-			
+				<div style="display: none;" class="subcontainer" id="post_page_template_title_options_#index#">
+									
+				<!-- post/page template title show/hide -->				
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Hide the title? ">Hide title </label>
+							</div>
+							<div class="tk_field">
+								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
+							</div>
+						</div>
+					
+					<!-- post/page template title color -->					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Title colour">Title colour</label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_title]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_title][#index#]">
+							</div>
+						</div>
+					
+					<!-- post/page template title size -->					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Title font size">Title font size</label>
+							</div>
+							<div class="tk_field">
+								<input id="post_page_template_#index#_cc-config_values[post_page_template_title_size]" type="text" value="" name="cc-config_values[post_page_template_title_size][#index#]">
+							</div>
+						</div>	
+					
+					<!-- post/page template title font family -->					
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Title font family">Title font family</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_title_font_family]" name="cc-config_values[post_page_template_title_font_family][#index#]">
+									<option value="arial, sans-serif">Arial</option>
+									<option value="arial black, arial, sans-serif">Arial Black</option>
+									<option value="helvetica, arial, sans-serif">Helvetica</option>
+									<option value="century gothic, avant garde, arial, sans-serif">Century Gothic</option>
+									<option value="impact, arial, sans-serif">Impact</option>
+									<option value="times new roman, times">Times New Roman</option>
+									<option value="garamond, times new roman, times, serif">Garamond</option>
+									<option value="georgia, times, serif">Georgia</option>
+								</select>
+							</div>
+						</div>
+					
+					<!-- post/page template title font weight -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Title font weight: bold or normal?">Title font weight</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_title_font_weight]" name="cc-config_values[post_page_template_title_font_weight][#index#]">
+									<option value="normal">normal</option>
+									<option value="bold">bold</option>
+								</select>
+							</div>
+						</div>
+					
+					<!-- post/page template title font style -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Title font style: italic or normal?">Title font style</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_title_font_style]" name="cc-config_values[post_page_template_title_font_style][#index#]">
+									<option value="normal">normal</option>
+									<option value="italic">italic</option>
+								</select>
+							</div>
+						</div>
+				
+				</div>
+				
+				
+				
+				
+					
 		<!-- content options ///////////////////////////////// -->
 		
 				<a href="javascript:togglediv('post_page_template_content_options_#index#','post_page_template_content#index#');" id="post_page_template_content#index#">
@@ -672,36 +764,78 @@ class Custom_Community{
 				<div style="display: none;" class="subcontainer" id="post_page_template_content_options_#index#">
 					
 					
-					<!-- post/page template container background color -->
-					
+					<!-- post/page template container background color -->					
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Container background colour">Container colour</label>
+								<label for="" title="Container background colour">Content background colour</label>
 							</div>
 							<div class="tk_field">
 								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_container]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_container][#index#]">
 							</div>
 						</div>
 					
-					<!-- post/page template title show/hide -->
-					
+					<!-- content: font color -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Hide the title? ">Hide title </label>
+								<label for="" title="Content font color ">Font color </label>
 							</div>
 							<div class="tk_field">
-								<input type="checkbox" id="post_page_template_#index#_cc-config_values[post_page_template_title_hide]" name="cc-config_values[post_page_template_title_hide][#index#]">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_content_font_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_content_font_color][#index#]">
+								</div>
+						</div>
+						
+					<!-- content: font size -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content font size ">Font size </label>
+							</div>
+							<div class="tk_field">
+								<input id="post_page_template_#index#_cc-config_values[post_page_template_content_font_size]" type="text" value="" name="cc-config_values[post_page_template_content_font_size][#index#]">								
+							</div>
+						</div>	
+						
+					<!-- content: font family -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content font family">Font family</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_content_font_family]" name="cc-config_values[post_page_template_content_font_family][#index#]">
+									<option value="arial, sans-serif">Arial</option>
+									<option value="arial black, arial, sans-serif">Arial Black</option>
+									<option value="helvetica, arial, sans-serif">Helvetica</option>
+									<option value="century gothic, avant garde, arial, sans-serif">Century Gothic</option>
+									<option value="impact, arial, sans-serif">Impact</option>
+									<option value="times new roman, times">Times New Roman</option>
+									<option value="garamond, times new roman, times, serif">Garamond</option>
+									<option value="georgia, times, serif">Georgia</option>
+								</select>
+							</div>
+						</div>
+						
+					<!-- content: font weight -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content font weight">Font weight</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_content_font_weight]" name="cc-config_values[post_page_template_content_font_weight][#index#]">
+									<option value="normal">normal</option>
+									<option value="bold">bold</option>
+								</select>
 							</div>
 						</div>
 					
-					<!-- post/page template title color -->
-					
+					<!-- content: font style -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
-								<label for="" title="Title colour">Title colour</label>
+								<label for="" title="Content font style">Font style</label>
 							</div>
 							<div class="tk_field">
-								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_color_title]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_color_title][#index#]">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_content_font_style]" name="cc-config_values[post_page_template_content_font_style][#index#]">
+									<option value="normal">normal</option>
+									<option value="italic">italic</option>
+								</select>
 							</div>
 						</div>
 						
@@ -727,32 +861,36 @@ class Custom_Community{
 							</div>
 						</div>
 					
+					<!-- content: text shadows -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content text shadow color">Text shadow color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="post_page_template_#index#_cc-config_values[post_page_template_content_text_shadow_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[post_page_template_content_text_shadow_color][#index#]">
+							</div>
+						</div>
+						
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content text shadow style">Text shadow style</label>
+							</div>
+							<div class="tk_field">
+								<select id="post_page_template_#index#_cc-config_values[post_page_template_content_text_shadow_style]" name="cc-config_values[post_page_template_content_text_shadow_style][#index#]">
+									<option value="inside">inside</option>
+									<option value="outside">outside</option>
+								</select>									
+							</div>
+						</div>
+					
+					
+					
 				</div>
 				
-		
-		
-					
-		<!-- title options ////////////////////////////////////////////////// 
-				
-				<a href="javascript:togglediv('post_page_template_title_options_#index#','post_page_template_title#index#');" id="post_page_template_title#index#">
-					<div class="tk_field_row">
-						<p><span class="tk_row_title">Titles </span></p>
-					
-					</div>
-				</a>
-	
-				<div style="display: none;" class="subcontainer" id="post_page_template_title_options_#index#">
-									
-				Title color <br>
-				
-				Title font family <br>
-				
-				Title size<br>
-				
-				</div>
 				
 				
-		--><!-- links styling options ////////////////////////////////////////////////// 
+				
+		<!-- links styling options ////////////////////////////////////////////////// 
 	
 				<a href="javascript:togglediv('post_page_template_links_options_#index#','post_page_template_links#index#');" id="post_page_template_links#index#">
 					<div class="tk_field_row">
@@ -1891,16 +2029,6 @@ class Custom_Community{
 								</div>
 						</div>
 						
-						<!-- content: link color -->
-						<div class="tk_field_row">
-							<div class="tk_field_label">
-								<label for="" title="Content link color ">Content link color </label>
-							</div>
-							<div class="tk_field">
-								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_link_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_link_color][#index#]">
-								</div>
-						</div>
-						
 						<!-- content: font size -->
 						<div class="tk_field_row">
 							<div class="tk_field_label">
@@ -1954,6 +2082,16 @@ class Custom_Community{
 									<option value="italic">italic</option>
 								</select>
 							</div>
+						</div>
+						
+						<!-- content: link color -->
+						<div class="tk_field_row">
+							<div class="tk_field_label">
+								<label for="" title="Content link color ">Content link color </label>
+							</div>
+							<div class="tk_field">
+								<input onfocus="ColorPicker('.entryimage76576566764#index#');" id="list_post_template_#index#_cc-config_values[list_post_template_content_link_color]" class="entryimage76576566764#index#" type="text"  name="cc-config_values[list_post_template_content_link_color][#index#]">
+								</div>
 						</div>
 				
 						<!-- content: text shadows -->
