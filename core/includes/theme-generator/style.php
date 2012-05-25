@@ -2882,7 +2882,7 @@ function dynamic_css(){
 		text-align: left !important;
 		float: left;
 		-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
-		-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px; 
 		border-radius: <?php echo $tkf->container_corner_radius; ?>px;
 		background-color: #<?php echo $container_bg_color; ?>;
 		overflow: hidden;
@@ -3281,9 +3281,9 @@ function dynamic_css(){
 		background-color: #<?php echo $container_bg_color; ?>;
 		background-repeat: repeat-y;
 		border: medium none;
-		-moz-border-radius: 6px;
-		-webkit-border-radius: 6px;
-		border-radius: 6px;
+		-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
+		border-radius: <?php echo $tkf->container_corner_radius; ?>px;
 	}
 
 	div.cc_slider {
@@ -4189,20 +4189,6 @@ function dynamic_css(){
 							?>background-repeat: repeat;<?php	
 				        	break;
 			        } ?>		 
-			}
-		<?php } ?>
-	
-		<?php if($tkf->container_corner_radius != 0){?>
-			#footer .cc-widget, #footer .cc-widget-right,
-			#header .cc-widget, #header .cc-widget-right {
-				-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
-				-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px; 
-				border-radius: <?php echo $tkf->container_corner_radius; ?>px; 
-			}
-			div#cc_slider-top{
-				-moz-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
-				-webkit-border-radius: <?php echo $tkf->container_corner_radius; ?>px;
-				border-radius: <?php echo $tkf->container_corner_radius; ?>px;
 			}
 		<?php } ?>
 	
